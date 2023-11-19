@@ -144,6 +144,39 @@ Warning
   <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/sensory-archive.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>First paper published! SSID Protocol</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="first-paper-published-ssid-protocol" class="level1">
+<h1>First paper published! SSID Protocol</h1>
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/protocol-header.png" class="img-fluid"></p>
+<p>Find the full paper at the MDPI Applied Sciences Page - <a href="https://www.mdpi.com/2076-3417/10/7/2397">DOI: 10.3390/app10072397</a></p>
+<hr>
+<p>For the past year, a huge portion of my PhD work has been focussed on data collection. Our goal in the SSID data collection is to gather a massive database of soundscape questionnaire surveys combined with objective acoustical and environmental data. Given the complexity of all of the different data sources, the protocol for correctly carrying out and organising the surveys is pretty involved.</p>
+<p>To formalise it and make it available to all the other soundscape researchers out there, we have published our method as a standalone protocol paper in Applied Sciences.</p>
+<p>In general, the protocol involves going out to an urban public space, setting up environmental and acoustic monitoring equipment, then stopping people as they pass through the space to get them to fill out a survey about how they perceive the sound environment. This data all then gets gathered up, collated and databased, and analysed as part of our ongoing soundscape research.</p>
+<p>The whole timeline of this protocol is shown in this figure:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/Survey-Diagram_V2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 1: Timeline of the on site soundscape protocol. RegentsParkJapan (RPJ) is used as an example. Abbreviations as defined in Table 3-QUE: Questionnaires; VID: 360 video; PIC: Site pictures; BIN: Binaural Recording; AMB: Ambisonic recording; SLM: Sound Level Meter (acoustical factors); ENV: Environmental factors</figcaption>
+</figure>
+</div>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/index.html</guid>
+  <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
+  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/protocol-header.png" medium="image" type="image/png" height="54" width="144"/>
+</item>
+<item>
   <title>PhD Upgrade done and passed, thankfully!</title>
   <dc:creator>Andrew Mitchell</dc:creator>
   <link>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</link>
@@ -160,6 +193,7 @@ Warning
 <p>In the UK, halfway through the PhD we undergo a process known as the ‘upgrade’. The purpose is to take stock of our progress made so far and to determine whether we are likely to make it to the end of the PhD successfully. To do this, we present a seminar and prepare a report of our current progress before having a session with an internal panel where they ask further questions about your work and the existing state of the field. If the panel confirms that we have made adequate progress and have a good plan to finish, we can be upgraded to a PhD candidate. I always find it really helpful to look at previous examples of stuff like this, and wasn’t able to find many examples or much guidance on what it should look like. To help others, I’ve decided to host my report here, feel free to use it as an example, but remember it meets the requirements of my specific department at this time, and yours may differ.</p>
 <p>On a side note, because this year is wild, I received the email letting me know I passed my PhD upgrade while kneeling in the Black Lives Matter demonstration in Parliament Square. It can be difficult to process the emotions of outrage and frustration simultaneously with relief and hope. I don’t have anything more profound to say on that, except that shit’s crazy but life trudges on. I’ll be back out at the protests this weekend.</p>
 <p>It also means I had to finally settle on a decent thesis title, I landed on <strong>Machine Learning and Regression Modelling of Dynamic Urban Soundscapes: A multilevel approach</strong>.</p>
+<a class="btn btn-outline-dark btn-sm" ,="" href="../../posts/phd-upgrade-done/AMitchell Upgrade Report_final.pdf">Download Report</a>
 
 
 
@@ -168,6 +202,1660 @@ Warning
   <guid>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</guid>
   <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
   <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Clustering analysis in R, with factoextra and NbClust</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="clustering-analysis-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-analysis-libraries">Clustering Analysis Libraries</h2>
+<p><code>factoextra</code>:</p>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/factoextra/versions/1.0.3">https://www.rdocumentation.org/packages/factoextra/versions/1.0.3</a></li>
+</ul>
+<p><code>NbClust</code>:</p>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/NbClust/versions/3.0">https://www.rdocumentation.org/packages/NbClust/versions/3.0</a></li>
+<li><a href="https://www.jstatsoft.org/article/view/v061i06/v61i06.pdf">https://www.jstatsoft.org/article/view/v061i06/v61i06.pdf</a></li>
+</ul>
+<p>There are many libraries and functions in R for performing clustering analysis, so why look at these 2? Well, they solve two important challenges with clustering: visualisation and determining the optimal number of clusters.</p>
+<p>In general, cluster analysis is an unsupervised machine learning task, meaning we don’t predefine a target output for the learning. For clustering, this mainly means that we don’t know what the categories will be before we start the analysis. We also don’t know how many clusters are present.</p>
+<p>Many indices have been created to help with determining the optimal number of clusters, however these each have their own advantages and disadvantages and often give conflicting results. We’ll demonstrate this by looking at the results from three popular graphical methods: elbow plot, silhouette, and gap statistic.</p>
+</section>
+<section id="dataset" class="level2">
+<h2 class="anchored" data-anchor-id="dataset">Dataset</h2>
+<p>We’ll be looking at data from the <a href="https://www.mdpi.com/2076-3417/10/7/2397">Soundscape Indices (SSID) Database</a>. This dataset contains data in-situ perceptual assessments of urban soundscapes, paired with acoustic and environmental data. For this set, we’ll be looking at the perceptual data only.</p>
+<p>To collect the data, random members of the public were approached while in urban public spaces and asked to take a survey about how they perceive the sound environment. A section of the questions ask specifically about the perceived dominance of sound sources in the space. Sound sources are categorized as Traffic noise, Other noise, Human sounds, Natural sounds, and are rated from 1 [not at all] to 5 [dominates completely].</p>
+<p>The data was collected across 27 locations in the UK, Italy, Spain, the Netherlands, and China. The goal here is to investigate whether these locations can be categorized based on their composition of sound sources.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(readxl)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Data processing and piping</span></span>
+<span id="cb1-3"></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Clustering libraries</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(factoextra) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Clustering and visualisation</span></span>
+<span id="cb1-6"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(NbClust)    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Optimal Number of Clusters</span></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(RCurl)      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For downloading data from Zenodo</span></span>
+<span id="cb1-8"></span>
+<span id="cb1-9">temp.file <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tempfile</span>(), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".xlsx"</span>)</span>
+<span id="cb1-10"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">download.file</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://zenodo.org/record/5705908/files/SSID%20Lockdown%20Database%20VL0.2.2.xlsx"</span>, temp.file, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mode=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wb"</span>)</span>
+<span id="cb1-11">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_excel</span>(temp.file)</span>
+<span id="cb1-12"></span>
+<span id="cb1-13">vars <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Traffic"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Other"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Natural"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Human"</span>)</span>
+<span id="cb1-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># vars &lt;- c("pleasant", "chaotic", "vibrant", "uneventful", "calm", "annoying", "eventful", "monotonous")</span></span>
+<span id="cb1-15"></span>
+<span id="cb1-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Cutdown the dataset</span></span>
+<span id="cb1-17">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ssid.data[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"GroupID"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SessionID"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LocationID"</span>, vars)]</span>
+<span id="cb1-18"></span>
+<span id="cb1-19"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ssid.data &lt;- subset(ssid.data, Lockdown != 1)</span></span>
+<span id="cb1-20"></span>
+<span id="cb1-21"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Set GroupID, SessionID, Location as factor type</span></span>
+<span id="cb1-22">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ssid.data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vars</span>(GroupID, SessionID, LocationID),</span>
+<span id="cb1-23">                                     <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">funs</span>(as.factor))</span>
+<span id="cb1-24">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ssid.data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate_at</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vars</span>(vars),</span>
+<span id="cb1-25">                                     <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">funs</span>(as.numeric))</span>
+<span id="cb1-26"></span>
+<span id="cb1-27"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Calculate the mean response for each GroupID</span></span>
+<span id="cb1-28">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ssid.data <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> </span>
+<span id="cb1-29">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(GroupID) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb1-30">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summarize</span>(</span>
+<span id="cb1-31">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Traffic =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Traffic, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb1-32">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Other =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Other, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb1-33">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Natural =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Natural, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb1-34">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Human =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(Human, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>),</span>
+<span id="cb1-35">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># pleasant = mean(pleasant, na.rm = TRUE),</span></span>
+<span id="cb1-36">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># chaotic = mean(chaotic, na.rm = TRUE),</span></span>
+<span id="cb1-37">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># vibrant = mean(vibrant, na.rm = TRUE),</span></span>
+<span id="cb1-38">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># uneventful = mean(uneventful, na.rm = TRUE),</span></span>
+<span id="cb1-39">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># calm = mean(calm, na.rm = TRUE),</span></span>
+<span id="cb1-40">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># annoying = mean(annoying, na.rm = TRUE),</span></span>
+<span id="cb1-41">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># eventful = mean(eventful, na.rm = TRUE),</span></span>
+<span id="cb1-42">              <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># monotonous = mean(monotonous, na.rm = TRUE),</span></span>
+<span id="cb1-43">              <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">LocationID =</span> LocationID[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])</span>
+<span id="cb1-44"></span>
+<span id="cb1-45"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># analysis.data$LocationID &lt;- unique(ssid.data[c('GroupID', 'LocationID')])['LocationID']</span></span>
+<span id="cb1-46">ssid.data <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">na.omit</span>(ssid.data)</span>
+<span id="cb1-47"></span>
+<span id="cb1-48">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(ssid.data))</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">GroupID</th>
+<th style="text-align: right;">Traffic</th>
+<th style="text-align: right;">Other</th>
+<th style="text-align: right;">Natural</th>
+<th style="text-align: right;">Human</th>
+<th style="text-align: left;">LocationID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">AM01</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AM02</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AM03</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">4.666667</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AM05</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3.0</td>
+<td style="text-align: right;">1.000000</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AM06</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">3.500000</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AM07</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">4.000000</td>
+<td style="text-align: left;">SanMarco</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Our locations are:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">levels</span>(ssid.data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>LocationID))</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "CamdenTown"         "EustonTap"          "MarchmontGarden"   
+ [4] "MonumentoGaribaldi" "PancrasLock"        "RegentsParkFields" 
+ [7] "RegentsParkJapan"   "RussellSq"          "SanMarco"          
+[10] "StPaulsCross"       "StPaulsRow"         "TateModern"        
+[13] "TorringtonSq"      </code></pre>
+</div>
+</div>
+</section>
+<section id="calculate-the-mean-value-for-each-location" class="level2">
+<h2 class="anchored" data-anchor-id="calculate-the-mean-value-for-each-location">Calculate the mean value for each Location</h2>
+<p><strong>Note:</strong> If the data use different scales, they should always be standardised before clustering. In this case, all of the data are on the same scale, so we don’t need to worry.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1">means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aggregate</span>(ssid.data[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(vars)], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">list</span>(ssid.data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>LocationID), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">FUN=</span>mean, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb4-2">means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(means[, <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">row.names =</span> means[, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>])</span>
+<span id="cb4-3"></span>
+<span id="cb4-4">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(means)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">Traffic</th>
+<th style="text-align: right;">Other</th>
+<th style="text-align: right;">Natural</th>
+<th style="text-align: right;">Human</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CamdenTown</td>
+<td style="text-align: right;">3.787745</td>
+<td style="text-align: right;">2.652941</td>
+<td style="text-align: right;">1.316667</td>
+<td style="text-align: right;">3.219608</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EustonTap</td>
+<td style="text-align: right;">3.717857</td>
+<td style="text-align: right;">2.858929</td>
+<td style="text-align: right;">1.642262</td>
+<td style="text-align: right;">2.515476</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MarchmontGarden</td>
+<td style="text-align: right;">2.663542</td>
+<td style="text-align: right;">2.412500</td>
+<td style="text-align: right;">2.564583</td>
+<td style="text-align: right;">2.695833</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MonumentoGaribaldi</td>
+<td style="text-align: right;">1.903509</td>
+<td style="text-align: right;">1.885965</td>
+<td style="text-align: right;">2.982456</td>
+<td style="text-align: right;">3.254386</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PancrasLock</td>
+<td style="text-align: right;">2.457500</td>
+<td style="text-align: right;">3.144167</td>
+<td style="text-align: right;">2.391667</td>
+<td style="text-align: right;">2.453333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RegentsParkFields</td>
+<td style="text-align: right;">2.422886</td>
+<td style="text-align: right;">1.911692</td>
+<td style="text-align: right;">3.148010</td>
+<td style="text-align: right;">2.866915</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RegentsParkJapan</td>
+<td style="text-align: right;">1.867179</td>
+<td style="text-align: right;">1.528718</td>
+<td style="text-align: right;">3.974103</td>
+<td style="text-align: right;">2.450000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RussellSq</td>
+<td style="text-align: right;">2.668120</td>
+<td style="text-align: right;">2.027132</td>
+<td style="text-align: right;">3.334302</td>
+<td style="text-align: right;">2.987403</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SanMarco</td>
+<td style="text-align: right;">1.431852</td>
+<td style="text-align: right;">1.895926</td>
+<td style="text-align: right;">2.230370</td>
+<td style="text-align: right;">4.041852</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">StPaulsCross</td>
+<td style="text-align: right;">2.503704</td>
+<td style="text-align: right;">2.000000</td>
+<td style="text-align: right;">2.266667</td>
+<td style="text-align: right;">3.311111</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">StPaulsRow</td>
+<td style="text-align: right;">2.527132</td>
+<td style="text-align: right;">2.294574</td>
+<td style="text-align: right;">1.744186</td>
+<td style="text-align: right;">3.368217</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TateModern</td>
+<td style="text-align: right;">2.541667</td>
+<td style="text-align: right;">2.150833</td>
+<td style="text-align: right;">2.598333</td>
+<td style="text-align: right;">3.660833</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TorringtonSq</td>
+<td style="text-align: right;">3.230676</td>
+<td style="text-align: right;">2.848068</td>
+<td style="text-align: right;">1.957005</td>
+<td style="text-align: right;">3.269565</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="clustering-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="clustering-analysis">Clustering Analysis</h2>
+<section id="some-standard-single-indices" class="level3">
+<h3 class="anchored" data-anchor-id="some-standard-single-indices">Some standard, single indices</h3>
+<p>Elbow plot (within-sum-of-squares), Silhouette, Gap statistic</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">set.seed</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">123</span>)</span>
+<span id="cb5-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_nbclust</span>(means, hcut, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wss"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ggtheme =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_bw</span>())</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_nbclust</span>(means, hcut, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"silhouette"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ggtheme =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_bw</span>())</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_nbclust</span>(means, hcut, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gap_stat"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ggtheme=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_bw</span>())</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>As we can see, it can be less than obvious how to interpret some of these - where exactly is the ‘elbow’ in the elbow plot? Silhouette pretty clearly says k = 2, but the Gap stat gives k = 1, which isn’t very useful. How do we know which is right?</p>
+</section>
+<section id="indices-using-nbclust" class="level3">
+<h3 class="anchored" data-anchor-id="indices-using-nbclust">30 indices using NbClust</h3>
+<p>NbClust</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">indices <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"kl"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ch"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ccc"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"cindex"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"db"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"silhouette"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"duda"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"pseudot2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ratkowsky"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ptbiserial"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gap"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"mcclain"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gamma"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"gplus"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"tau"</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sdindex"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sdbw"</span>)</span>
+<span id="cb8-2">res <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">NbClust</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> means, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">distance=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'euclidean'</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">min.nc =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max.nc=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">9</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">method=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ward.D2"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">index =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"alllong"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in pf(beale, pp, df2): NaNs produced</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>*** : The Hubert index is a graphical method of determining the number of clusters.
+                In the plot of Hubert index, we seek a significant knee that corresponds to a 
+                significant increase of the value of the measure i.e the significant peak in Hubert
+                index second differences plot. 
+ </code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>*** : The D index is a graphical method of determining the number of clusters. 
+                In the plot of D index, we seek a significant knee (the significant peak in Dindex
+                second differences plot) that corresponds to a significant increase of the value of
+                the measure. 
+ 
+******************************************************************* 
+* Among all indices:                                                
+* 9 proposed 2 as the best number of clusters 
+* 4 proposed 3 as the best number of clusters 
+* 2 proposed 4 as the best number of clusters 
+* 1 proposed 5 as the best number of clusters 
+* 4 proposed 6 as the best number of clusters 
+* 1 proposed 7 as the best number of clusters 
+* 2 proposed 8 as the best number of clusters 
+* 5 proposed 9 as the best number of clusters 
+
+                   ***** Conclusion *****                            
+ 
+* According to the majority rule, the best number of clusters is  2 
+ 
+ 
+******************************************************************* </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(res)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+
+<table class="kable_wrapper">
+<tbody>
+<tr>
+<td>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">KL</th>
+<th style="text-align: right;">CH</th>
+<th style="text-align: right;">Hartigan</th>
+<th style="text-align: right;">CCC</th>
+<th style="text-align: right;">Scott</th>
+<th style="text-align: right;">Marriot</th>
+<th style="text-align: right;">TrCovW</th>
+<th style="text-align: right;">TraceW</th>
+<th style="text-align: right;">Friedman</th>
+<th style="text-align: right;">Rubin</th>
+<th style="text-align: right;">Cindex</th>
+<th style="text-align: right;">DB</th>
+<th style="text-align: right;">Silhouette</th>
+<th style="text-align: right;">Duda</th>
+<th style="text-align: right;">Pseudot2</th>
+<th style="text-align: right;">Beale</th>
+<th style="text-align: right;">Ratkowsky</th>
+<th style="text-align: right;">Ball</th>
+<th style="text-align: right;">Ptbiserial</th>
+<th style="text-align: right;">Gap</th>
+<th style="text-align: right;">Frey</th>
+<th style="text-align: right;">McClain</th>
+<th style="text-align: right;">Gamma</th>
+<th style="text-align: right;">Gplus</th>
+<th style="text-align: right;">Tau</th>
+<th style="text-align: right;">Dunn</th>
+<th style="text-align: right;">Hubert</th>
+<th style="text-align: right;">SDindex</th>
+<th style="text-align: right;">Dindex</th>
+<th style="text-align: right;">SDbw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">1.0970</td>
+<td style="text-align: right;">8.1449</td>
+<td style="text-align: right;">6.0597</td>
+<td style="text-align: right;">7.5851</td>
+<td style="text-align: right;">102.6537</td>
+<td style="text-align: right;">30.2615</td>
+<td style="text-align: right;">13.4952</td>
+<td style="text-align: right;">10.1742</td>
+<td style="text-align: right;">351.3546</td>
+<td style="text-align: right;">36.9377</td>
+<td style="text-align: right;">0.4269</td>
+<td style="text-align: right;">0.8174</td>
+<td style="text-align: right;">0.3529</td>
+<td style="text-align: right;">0.6156</td>
+<td style="text-align: right;">4.9946</td>
+<td style="text-align: right;">1.3398</td>
+<td style="text-align: right;">0.3840</td>
+<td style="text-align: right;">5.0871</td>
+<td style="text-align: right;">0.5020</td>
+<td style="text-align: right;">-0.9326</td>
+<td style="text-align: right;">1.0370</td>
+<td style="text-align: right;">0.4096</td>
+<td style="text-align: right;">0.5903</td>
+<td style="text-align: right;">3.7821</td>
+<td style="text-align: right;">10.8974</td>
+<td style="text-align: right;">0.3539</td>
+<td style="text-align: right;">0.0753</td>
+<td style="text-align: right;">2.5622</td>
+<td style="text-align: right;">0.8042</td>
+<td style="text-align: right;">0.4459</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">1.1005</td>
+<td style="text-align: right;">8.4961</td>
+<td style="text-align: right;">5.2330</td>
+<td style="text-align: right;">6.3990</td>
+<td style="text-align: right;">119.6026</td>
+<td style="text-align: right;">18.4865</td>
+<td style="text-align: right;">5.5195</td>
+<td style="text-align: right;">6.5603</td>
+<td style="text-align: right;">404.1006</td>
+<td style="text-align: right;">57.2860</td>
+<td style="text-align: right;">0.3951</td>
+<td style="text-align: right;">1.0948</td>
+<td style="text-align: right;">0.2818</td>
+<td style="text-align: right;">0.4299</td>
+<td style="text-align: right;">5.3038</td>
+<td style="text-align: right;">2.5609</td>
+<td style="text-align: right;">0.4103</td>
+<td style="text-align: right;">2.1868</td>
+<td style="text-align: right;">0.4710</td>
+<td style="text-align: right;">-1.6230</td>
+<td style="text-align: right;">0.2765</td>
+<td style="text-align: right;">1.3913</td>
+<td style="text-align: right;">0.6265</td>
+<td style="text-align: right;">3.1026</td>
+<td style="text-align: right;">10.4103</td>
+<td style="text-align: right;">0.3626</td>
+<td style="text-align: right;">0.0800</td>
+<td style="text-align: right;">2.8643</td>
+<td style="text-align: right;">0.6523</td>
+<td style="text-align: right;">0.3387</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">1.6303</td>
+<td style="text-align: right;">9.3352</td>
+<td style="text-align: right;">3.5123</td>
+<td style="text-align: right;">5.9285</td>
+<td style="text-align: right;">136.6838</td>
+<td style="text-align: right;">8.8328</td>
+<td style="text-align: right;">2.0114</td>
+<td style="text-align: right;">4.3066</td>
+<td style="text-align: right;">514.5025</td>
+<td style="text-align: right;">87.2635</td>
+<td style="text-align: right;">0.5492</td>
+<td style="text-align: right;">0.8335</td>
+<td style="text-align: right;">0.3286</td>
+<td style="text-align: right;">2.5977</td>
+<td style="text-align: right;">-1.2301</td>
+<td style="text-align: right;">-0.9899</td>
+<td style="text-align: right;">0.4303</td>
+<td style="text-align: right;">1.0767</td>
+<td style="text-align: right;">0.4840</td>
+<td style="text-align: right;">-1.8404</td>
+<td style="text-align: right;">0.2171</td>
+<td style="text-align: right;">2.0924</td>
+<td style="text-align: right;">0.7560</td>
+<td style="text-align: right;">1.5513</td>
+<td style="text-align: right;">9.6154</td>
+<td style="text-align: right;">0.5689</td>
+<td style="text-align: right;">0.0773</td>
+<td style="text-align: right;">2.4025</td>
+<td style="text-align: right;">0.5465</td>
+<td style="text-align: right;">0.2559</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">0.8819</td>
+<td style="text-align: right;">9.4327</td>
+<td style="text-align: right;">4.1056</td>
+<td style="text-align: right;">5.4008</td>
+<td style="text-align: right;">150.1412</td>
+<td style="text-align: right;">4.9017</td>
+<td style="text-align: right;">0.9988</td>
+<td style="text-align: right;">3.0977</td>
+<td style="text-align: right;">615.3276</td>
+<td style="text-align: right;">121.3182</td>
+<td style="text-align: right;">0.5171</td>
+<td style="text-align: right;">0.6492</td>
+<td style="text-align: right;">0.4032</td>
+<td style="text-align: right;">2.6324</td>
+<td style="text-align: right;">-1.2402</td>
+<td style="text-align: right;">-0.9981</td>
+<td style="text-align: right;">0.4026</td>
+<td style="text-align: right;">0.6195</td>
+<td style="text-align: right;">0.4854</td>
+<td style="text-align: right;">-2.3510</td>
+<td style="text-align: right;">0.1834</td>
+<td style="text-align: right;">2.4726</td>
+<td style="text-align: right;">0.8391</td>
+<td style="text-align: right;">0.8718</td>
+<td style="text-align: right;">9.0897</td>
+<td style="text-align: right;">0.6139</td>
+<td style="text-align: right;">0.0863</td>
+<td style="text-align: right;">2.3482</td>
+<td style="text-align: right;">0.4455</td>
+<td style="text-align: right;">0.1689</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">2.4474</td>
+<td style="text-align: right;">10.7100</td>
+<td style="text-align: right;">1.9565</td>
+<td style="text-align: right;">5.2900</td>
+<td style="text-align: right;">170.5431</td>
+<td style="text-align: right;">1.4694</td>
+<td style="text-align: right;">0.3679</td>
+<td style="text-align: right;">2.0471</td>
+<td style="text-align: right;">969.8285</td>
+<td style="text-align: right;">183.5792</td>
+<td style="text-align: right;">0.5973</td>
+<td style="text-align: right;">0.5852</td>
+<td style="text-align: right;">0.4719</td>
+<td style="text-align: right;">1.8668</td>
+<td style="text-align: right;">-0.4643</td>
+<td style="text-align: right;">-0.5605</td>
+<td style="text-align: right;">0.3812</td>
+<td style="text-align: right;">0.3412</td>
+<td style="text-align: right;">0.4830</td>
+<td style="text-align: right;">-2.4797</td>
+<td style="text-align: right;">0.5241</td>
+<td style="text-align: right;">2.9403</td>
+<td style="text-align: right;">0.9529</td>
+<td style="text-align: right;">0.2051</td>
+<td style="text-align: right;">8.3077</td>
+<td style="text-align: right;">0.8559</td>
+<td style="text-align: right;">0.1062</td>
+<td style="text-align: right;">2.4432</td>
+<td style="text-align: right;">0.3528</td>
+<td style="text-align: right;">0.1185</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">0.9458</td>
+<td style="text-align: right;">10.0676</td>
+<td style="text-align: right;">1.9696</td>
+<td style="text-align: right;">4.5460</td>
+<td style="text-align: right;">183.1309</td>
+<td style="text-align: right;">0.7595</td>
+<td style="text-align: right;">0.2213</td>
+<td style="text-align: right;">1.5999</td>
+<td style="text-align: right;">1194.4928</td>
+<td style="text-align: right;">234.8889</td>
+<td style="text-align: right;">0.5305</td>
+<td style="text-align: right;">0.5508</td>
+<td style="text-align: right;">0.4589</td>
+<td style="text-align: right;">3.4939</td>
+<td style="text-align: right;">-0.7138</td>
+<td style="text-align: right;">-0.8616</td>
+<td style="text-align: right;">0.3578</td>
+<td style="text-align: right;">0.2286</td>
+<td style="text-align: right;">0.4476</td>
+<td style="text-align: right;">-2.9193</td>
+<td style="text-align: right;">0.8670</td>
+<td style="text-align: right;">3.6092</td>
+<td style="text-align: right;">0.9643</td>
+<td style="text-align: right;">0.1282</td>
+<td style="text-align: right;">6.9231</td>
+<td style="text-align: right;">0.8905</td>
+<td style="text-align: right;">0.1153</td>
+<td style="text-align: right;">3.0849</td>
+<td style="text-align: right;">0.2980</td>
+<td style="text-align: right;">0.0970</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">0.9554</td>
+<td style="text-align: right;">9.7863</td>
+<td style="text-align: right;">2.1072</td>
+<td style="text-align: right;">4.5678</td>
+<td style="text-align: right;">213.5276</td>
+<td style="text-align: right;">0.0957</td>
+<td style="text-align: right;">0.1542</td>
+<td style="text-align: right;">1.2045</td>
+<td style="text-align: right;">3652.8265</td>
+<td style="text-align: right;">311.9964</td>
+<td style="text-align: right;">0.4860</td>
+<td style="text-align: right;">0.4826</td>
+<td style="text-align: right;">0.5005</td>
+<td style="text-align: right;">3.0804</td>
+<td style="text-align: right;">-0.6754</td>
+<td style="text-align: right;">-0.8152</td>
+<td style="text-align: right;">0.3386</td>
+<td style="text-align: right;">0.1506</td>
+<td style="text-align: right;">0.3947</td>
+<td style="text-align: right;">-3.0908</td>
+<td style="text-align: right;">0.5258</td>
+<td style="text-align: right;">4.8153</td>
+<td style="text-align: right;">0.9537</td>
+<td style="text-align: right;">0.1282</td>
+<td style="text-align: right;">5.2821</td>
+<td style="text-align: right;">0.7320</td>
+<td style="text-align: right;">0.1161</td>
+<td style="text-align: right;">3.2357</td>
+<td style="text-align: right;">0.2402</td>
+<td style="text-align: right;">0.0697</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">0.9437</td>
+<td style="text-align: right;">9.9481</td>
+<td style="text-align: right;">2.5926</td>
+<td style="text-align: right;">3.7773</td>
+<td style="text-align: right;">235.4352</td>
+<td style="text-align: right;">0.0225</td>
+<td style="text-align: right;">0.0873</td>
+<td style="text-align: right;">0.8474</td>
+<td style="text-align: right;">6052.3637</td>
+<td style="text-align: right;">443.4830</td>
+<td style="text-align: right;">0.4147</td>
+<td style="text-align: right;">0.4100</td>
+<td style="text-align: right;">0.5619</td>
+<td style="text-align: right;">4.7507</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">0.3219</td>
+<td style="text-align: right;">0.0942</td>
+<td style="text-align: right;">0.3339</td>
+<td style="text-align: right;">-3.4867</td>
+<td style="text-align: right;">0.1666</td>
+<td style="text-align: right;">7.0102</td>
+<td style="text-align: right;">0.9662</td>
+<td style="text-align: right;">0.0641</td>
+<td style="text-align: right;">3.6667</td>
+<td style="text-align: right;">0.7386</td>
+<td style="text-align: right;">0.1163</td>
+<td style="text-align: right;">3.4232</td>
+<td style="text-align: right;">0.1907</td>
+<td style="text-align: right;">0.0490</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">CritValue_Duda</th>
+<th style="text-align: right;">CritValue_PseudoT2</th>
+<th style="text-align: right;">Fvalue_Beale</th>
+<th style="text-align: right;">CritValue_Gap</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">0.2019</td>
+<td style="text-align: right;">31.6230</td>
+<td style="text-align: right;">0.2766</td>
+<td style="text-align: right;">0.7534</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">0.0160</td>
+<td style="text-align: right;">246.4030</td>
+<td style="text-align: right;">0.0787</td>
+<td style="text-align: right;">0.2949</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">-0.1694</td>
+<td style="text-align: right;">-13.8056</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.6048</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">-0.1694</td>
+<td style="text-align: right;">-13.8056</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.2346</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">-0.3257</td>
+<td style="text-align: right;">-4.0703</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.5672</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">-0.3257</td>
+<td style="text-align: right;">-4.0703</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.3163</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">8</td>
+<td style="text-align: right;">-0.3257</td>
+<td style="text-align: right;">-4.0703</td>
+<td style="text-align: right;">1.0000</td>
+<td style="text-align: right;">0.5663</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">-0.5879</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">NaN</td>
+<td style="text-align: right;">0.3864</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">KL</th>
+<th style="text-align: right;">CH</th>
+<th style="text-align: right;">Hartigan</th>
+<th style="text-align: right;">CCC</th>
+<th style="text-align: right;">Scott</th>
+<th style="text-align: right;">Marriot</th>
+<th style="text-align: right;">TrCovW</th>
+<th style="text-align: right;">TraceW</th>
+<th style="text-align: right;">Friedman</th>
+<th style="text-align: right;">Rubin</th>
+<th style="text-align: right;">Cindex</th>
+<th style="text-align: right;">DB</th>
+<th style="text-align: right;">Silhouette</th>
+<th style="text-align: right;">Duda</th>
+<th style="text-align: right;">PseudoT2</th>
+<th style="text-align: right;">Beale</th>
+<th style="text-align: right;">Ratkowsky</th>
+<th style="text-align: right;">Ball</th>
+<th style="text-align: right;">PtBiserial</th>
+<th style="text-align: right;">Gap</th>
+<th style="text-align: right;">Frey</th>
+<th style="text-align: right;">McClain</th>
+<th style="text-align: right;">Gamma</th>
+<th style="text-align: right;">Gplus</th>
+<th style="text-align: right;">Tau</th>
+<th style="text-align: right;">Dunn</th>
+<th style="text-align: right;">Hubert</th>
+<th style="text-align: right;">SDindex</th>
+<th style="text-align: right;">Dindex</th>
+<th style="text-align: right;">SDbw</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Number_clusters</td>
+<td style="text-align: right;">6.0000</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">6.0000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">8.0000</td>
+<td style="text-align: right;">4.0000</td>
+<td style="text-align: right;">3.0000</td>
+<td style="text-align: right;">3.0000</td>
+<td style="text-align: right;">8.000</td>
+<td style="text-align: right;">6.0000</td>
+<td style="text-align: right;">3.0000</td>
+<td style="text-align: right;">9.00</td>
+<td style="text-align: right;">9.0000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">4.0000</td>
+<td style="text-align: right;">3.0000</td>
+<td style="text-align: right;">2.000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">2.000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">9.0000</td>
+<td style="text-align: right;">9.0000</td>
+<td style="text-align: right;">2.0000</td>
+<td style="text-align: right;">7.0000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">5.0000</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">9.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Value_Index</td>
+<td style="text-align: right;">2.4474</td>
+<td style="text-align: right;">10.71</td>
+<td style="text-align: right;">2.1492</td>
+<td style="text-align: right;">7.5851</td>
+<td style="text-align: right;">30.3968</td>
+<td style="text-align: right;">5.7226</td>
+<td style="text-align: right;">7.9756</td>
+<td style="text-align: right;">1.3603</td>
+<td style="text-align: right;">2458.334</td>
+<td style="text-align: right;">-10.9512</td>
+<td style="text-align: right;">0.3951</td>
+<td style="text-align: right;">0.41</td>
+<td style="text-align: right;">0.5619</td>
+<td style="text-align: right;">0.6156</td>
+<td style="text-align: right;">4.9946</td>
+<td style="text-align: right;">1.3398</td>
+<td style="text-align: right;">0.4303</td>
+<td style="text-align: right;">2.9003</td>
+<td style="text-align: right;">0.502</td>
+<td style="text-align: right;">-0.9326</td>
+<td style="text-align: right;">1.037</td>
+<td style="text-align: right;">0.4096</td>
+<td style="text-align: right;">0.9662</td>
+<td style="text-align: right;">0.0641</td>
+<td style="text-align: right;">10.8974</td>
+<td style="text-align: right;">0.8905</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.3482</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.049</td>
+</tr>
+</tbody>
+</table>
+</td>
+<td>
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">x</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CamdenTown</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">EustonTap</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MarchmontGarden</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MonumentoGaribaldi</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PancrasLock</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RegentsParkFields</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RegentsParkJapan</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">RussellSq</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SanMarco</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">StPaulsCross</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">StPaulsRow</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TateModern</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TorringtonSq</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+
+</table>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_nbclust</span>(res)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in if (class(best_nc) == "numeric") print(best_nc) else if (class(best_nc) == : the condition has length &gt; 1</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1">k <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span></span>
+<span id="cb15-2">k.fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kmeans</span>(means, k)</span>
+<span id="cb15-3">knitr<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">::</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(k.fit)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-error">
+<pre><code>Error in as.data.frame.default(x): cannot coerce class '"kmeans"' to a data.frame</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_cluster</span>(k.fit, means, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">repel=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ggtheme =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_bw</span>())</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">res.pca <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">prcomp</span>(means, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">scale=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)</span>
+<span id="cb18-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">facto_summarize</span>(res.pca, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"var"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>           name      Dim.1      Dim.2     coord      cos2  contrib
+Traffic Traffic -0.8891690 -0.1531570 0.8140785 0.8140785 22.70701
+Other     Other -0.9153206 -0.1088317 0.8496561 0.8496561 23.69937
+Natural Natural  0.8316428 -0.5046107 0.9462617 0.9462617 26.39398
+Human     Human  0.1897201  0.9690987 0.9751460 0.9751460 27.19965</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_contrib</span>(res.pca, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"var"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">eclust</span>(means, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"kmeans"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k=</span>k)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">h.fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">eclust</span>(means, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"hclust"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">k=</span>k, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">stand =</span> T, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hc_method =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ward.D2"</span>)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+of ggplot2 3.3.4.
+ℹ The deprecated feature was likely used in the factoextra package.
+  Please report the issue at &lt;https://github.com/kassambara/factoextra/issues&gt;.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_dend</span>(h.fit, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels_track_height =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.5</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">horiz=</span><span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rect =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cex =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>)</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="methods-i-havent-really-tested-out-thoroughly" class="level2">
+<h2 class="anchored" data-anchor-id="methods-i-havent-really-tested-out-thoroughly">Methods I haven’t really tested out thoroughly</h2>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_pca_biplot</span>(res.pca, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">repel=</span>T,<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ggtheme =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_bw</span>())</span></code></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<section id="fviz_silhouette" class="level3">
+<h3 class="anchored" data-anchor-id="fviz_silhouette"><code>fviz_silhouette()</code></h3>
+<p>Silhouette (Si) analysis is a cluster validation approach that measures how well an observation is clustered and it estimates the average distance between clusters.</p>
+<p><strong>Details</strong></p>
+<ul>
+<li>Observations with a large silhouette Si (almost 1) are very well clustered</li>
+<li>A small Si (around 0) means that the observation lies between two clusters</li>
+<li>Observations with a negative Si are probably placed in the wrong cluster</li>
+</ul>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fviz_silhouette</span>(h.fit)</span></code></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  cluster size ave.sil.width
+1       1    5          0.32
+2       2    8          0.32</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="get_clust_tendency" class="level3">
+<h3 class="anchored" data-anchor-id="get_clust_tendency"><code>get_clust_tendency</code></h3>
+<p>Before applying cluster methods, the first step is to assess whether the data is clusterable, a process defined as the <strong>assessing of clustering tendency</strong>. <code>get_clust_tendency()</code> assesses clustering tendency using Hopkins’ statistic and a visual approach.</p>
+<p><strong>Details</strong></p>
+<p><strong>Hopkins Statistic:</strong> If the value of Hopkins statistic is close to 1 (far above 0.5), then we can conclude that the dataset is significantly clusterable.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>$hopkins_stat
+[1] 0.6977892
+
+$plot</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mitchell2020,
+  author = {Mitchell, Andrew},
+  title = {Clustering Analysis in {R,} with `Factoextra` and
+    {`NbClust`}},
+  date = {2020-06-18},
+  url = {https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2020" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
+`Factoextra` and `NbClust`.”</span> June 18, 2020. <a href="https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r">https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r</a>.
+</div></div></section></div> ]]></description>
+  <category>soundscape</category>
+  <category>PhD</category>
+  <category>machine learning</category>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index.html</guid>
+  <pubDate>Thu, 18 Jun 2020 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>Book Diary 3 - Foundation</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ve been on a bit of a classic science fiction trend for the last six months or so, only broken up by some classic Americana apocalyptica with <em>It Can’t Happen Here</em> by Sinclair Lewis (I’ll get to its write up at some point!). <a href="https://smile.amazon.co.uk/Foundation-1-3-Isaac-Asimov/dp/0586010807/ref=smi_www_rco2_go_smi_g8682124849?_encoding=UTF8&amp;%2AVersion%2A=1&amp;%2Aentries%2A=0&amp;ie=UTF8"><em>Foundation</em></a> is actually the first Asimov book I remember reading, and it is fantastic (it should be, it won the Hugo award for Best All-time Series)!</p>
+<hr>
+<p>Made up of five interrelated short stories, Foundation tells the story of a man named Hari Seldon, who invented a new field of science call Psycho-history. The primary conceit of psycho-history is that, using mathematics, and the principles of statistical mechanics of large interacting systems, Seldon can predict the future of human societies. Inspired by concepts from physics, wherein the behaviour of individual particles cannot be predicted but by looking on a macro-enough scale, we can make probabilistic statements about the behaviour of large systems of particles, Asimov has applied these same principles to the prediction of human behaviour.</p>
+<p>Repeated over and over again is Seldon’s mantra that single humans both cannot be predicted and cannot change the course of the system, instead the human society, as a system, is driven by its complex internal interactions, toward a series of probabilities. By solving these equations and modelling these interactions, Seldon predicts that the galactic Empire in which he lives will soon collapse. Because of the principles of his psycho-history, he knows he can do nothing to stop this, but he can help to speed of the process of recovery. Without his intervention, he predicts it would take 30,000 for the Empire to recover from barbarism, but if he can find a way to preserve some of the existing scientific knowledge, this could be reduced to 1,000 years. To do this, he creates the eponymous Foundation based on two planets at opposite ends of the galaxy to create an Encyclopedia to preserve science. What follows are the stories of the Foundation following the collapse of the Empire and the inevitable successes of Seldon’s predictions and eventual mistakes.</p>
+<hr>
+<p>I think this story, and the concept of psychohistory particular intrigue me now because of the nature of my research. I and our research group are essentially trying to build statistical models of human perception. Like Seldon, we generally accept that it is impossible to predict the perception of a single person, but once a large enough scale is considered, statistical probabilities take over. Also like Seldon, we believe a key point to be that the subjects should not be aware of the study, lest they adjust their behaviour (although we haven’t solved this issue).</p>
+<p>As we move further and further into the Algorithm age, with more complex system models which consider increasingly complex interacting factors, I think psychohistory will be on many researcher’s minds. Not as an aspiration, since I don’t think any serious scientist would buy that, but as potential source of learning. Science fiction has always allowed thinkers and scientists to view their work in new ways, and to consider the consequences of the advances they may make.</p>
+<p>I hope we can all be inspired and cautioned by great thinkers such as Isaac Asimov.</p>
+<hr>
+<p>I’ve also finished <em>Foundation and Empire</em>, the sequel, and I’m currently working my way through <em>Prelude to Foundation</em>, which I’m very excited about as it goes more in depth about the development of psychohistory.</p>
+<p>During my science fiction stint I also read the <em>Dune</em> series by Frank Herbert, so hopefully I’ll write that one up soon too.</p>
+<p><strong>For further ‘reading’</strong> on the age of algorithms:</p>
+<ul>
+<li><a href="https://www.wired.com/story/rethinking-relationship-artificial-intelligence/">Sleepwalkers</a> podcast</li>
+<li><a href="http://www.hannahfry.co.uk/helloworld"><em>Hello World: How to Be Human in the Age of the Machine</em></a> by Hannah Fry</li>
+</ul>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
+  <category>book diary</category>
+  <category>personal</category>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/index.html</guid>
+  <pubDate>Thu, 09 Apr 2020 00:00:00 GMT</pubDate>
+  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/foundation.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Book Diary 2 - Bad Science</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>While I generally enjoyed the book, and I wholeheartedly support Goldacre’s goal and overall point, I was a bit disappointed by this book. I was initially inspired to pick it up by a friend recommending his book <a href="https://www.goodreads.com/book/show/15795155-bad-pharma"><em>Bad Pharma</em></a>.</p>
+<p>I had hoped that Bad Science would move away from his focus on medicine and turn instead to addressing mistakes and malpractice in science more generally. To my (only slight) disappointment, Goldacre hasn’t strayed far from his usual territory of medical frauds, mistakes, and hucksters.</p>
+<p>My personal disappointment notwithstanding, this is in the end a well-written, well-researched, entertaining, and educational trawl through the depths of homeopaths and their overly diluted morals.</p>
+<hr>
+<p>As always, I enjoy the insertion of personal details about the author, reminding me that there’s an actual person writing the words and that I’m allowed to both relate to and associate myself with the man behind the page, and to question and criticize him. Specific to this author was his mention of renting a small flat in Kentish Town on a junior medic’s salary – which I read while sat in a cafe next to my (smaller) flat in Kentish Town rented on a doctoral student’s stipend. While I suspect, with his multiple bestseller books, recognitions, and awards, Goldacre no longer rents a small flat in Kentish Town, it’d be nice to imagine having a friendly chat with him in the cafe.</p>
+<p>I felt the chapter ‘Pill Solves Complex Societal Problem’ was the most impactful. Here, Goldacre expands his discussion about the mechanics of poorly done science to address the media response to it and, more importantly, the potential motivations behind it. See this quote from page 154:</p>
+<blockquote class="blockquote">
+<p>But above all we should pay tribute to the genius of this huge fish-oil project, and every other nutritionist who has gotten their pills into the media, and into schools, because more than anything else, they have sold children, at the most impressionable time of their lives, one very compelling message: <strong>that you need to take pills to lead a healthy normal life, and that a pill can even make up for failings elsewhere</strong>.</p>
+</blockquote>
+<p>What I can absolutely get behind is the view Goldacre reiterates over and over in the last few chapters: the blame for the dissemination of bad, misleading, or malicious science is not down to the bad actions of individual malevolent or ignorant scientists, but instead falls on the head of the system of media which not only allows this bad science to be spread, but encourages its spread. The individual scientists should absolutely be punished if wrong-doing is discovered, and bad practices should be stamped out, but the media system which publicises this work has a journalistic responsibility to look critically at everything it publishes. In general, it is more productive and more correct to lay the blame for societal issues at the feet of systems, not individuals.</p>
+<blockquote class="blockquote">
+<p>You’ll notice, I hope, that I’m more interested in the cultural impact of nonsense – the medicalisation of everyday life, the undermining of sense – and in general <strong>I blame systems more than particular people</strong>. […] I do not blame individual journalists (for the most part) but I do blame whole systems of editors, and the people who buy newspapers with values to profess to despise.</p>
+</blockquote>
+<hr>
+<p>As I’ve said, I thoroughly enjoyed <em>Bad Science</em> and I applaud Goldacre’s writing and his ability to distill the important aspects of scientific research into a wide-ranging and engaging discussion, but I hope he someday chooses to move beyond medicine and discuss ‘science’ more fully. As he notes in his afterword,</p>
+<blockquote class="blockquote">
+<p>…in the 1950s science reporting was about engineering and inventions, but by the 1990s everything had changed. Science coverage now tends to come from the world of medicine, and the stories are of what will kill you, or save you.</p>
+</blockquote>
+<p>People have forgotten that science can be about more than medicine and about more than our constant human obsession with death and illness, and I’d like to see more authors remind us of that.</p>
+<p><strong>Further reading</strong>: <a href="https://en.m.wikipedia.org/wiki/List_of_animals_with_fraudulent_diplomas">https://en.m.wikipedia.org/wiki/List_of_animals_with_fraudulent_diplomas</a></p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
+  <category>book diary</category>
+  <category>personal</category>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/index.html</guid>
+  <pubDate>Sat, 11 May 2019 00:00:00 GMT</pubDate>
+  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/bad-science.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Book Diary 1 - The Kingdom</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>I’ve started writing short ‘reviews’ of all of the books I’m reading in a book diary I bought while in Venice. I decided I might as well sheare them here, so welcome to my book diary, starting with my favourite author, Emmanuel Carrère. These are not full reviews, they won’t give you really any background on the plot or context of the book. These were intended as notes to my future self looking back on the books I’ve read and so they are more personal, and, possibly, more intimate and engaging. I hope someone enjoys, even if it’s just old-man Andrew.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/the-kingdom.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>The Kingdom</em> by Emmanuel Carrère</figcaption>
+</figure>
+</div>
+<p>I’ve read this several times now, and always come away with something different. This time, it is a terrible sadness and contemplation of love and life, so much so that I have written a letter to the author expressing it. Who knows if I’ll send it, and what his response will be.</p>
+<p>But, what I should say is I LOVE this book. It satisfies my academic side with a wonderful semi-historical look at the writing of the early Bible and formation of the Church. Interspersed are stories from the author’s life and his reflections on authorship, on religiosity, on conversion.</p>
+<p>It’s a gorgeously composed work of tremendous talent. Probably my favourite book I’ve ever read.</p>
+<section id="extra-info" class="level2">
+<h2 class="anchored" data-anchor-id="extra-info">Extra info:</h2>
+<p><strong>Date finished</strong>: March 10, 2019</p>
+<p><strong>Title</strong>: <em>The Kingdom</em></p>
+<p><strong>Author</strong>: Emmanuel Carrère</p>
+<p><strong>Publisher</strong>: Penguin Random House UK</p>
+<p><strong>Date Published</strong>: 2017</p>
+<p><strong>Bookstore/Library</strong>: Can’t remember</p>
+<p><strong>Suggested/found by</strong>: <a href="https://www.newyorker.com/magazine/2017/07/10/the-radical-origins-of-christianity"><em>The New Yorker</em> Review</a></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
+  <category>book diary</category>
+  <category>personal</category>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/index.html</guid>
+  <pubDate>Fri, 10 May 2019 00:00:00 GMT</pubDate>
+  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/the-kingdom.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

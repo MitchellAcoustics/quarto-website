@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</loc>
-    <lastmod>2023-11-19T22:25:27.952Z</lastmod>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/cv.html</loc>
+    <lastmod>2023-11-19T23:30:44.689Z</lastmod>
   </url>
   <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</loc>
-    <lastmod>2023-11-19T22:25:27.144Z</lastmod>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index.html</loc>
+    <lastmod>2023-11-19T23:30:43.869Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</loc>
-    <lastmod>2023-11-19T22:25:25.828Z</lastmod>
+    <lastmod>2023-11-19T23:30:41.853Z</lastmod>
   </url>
   <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</loc>
-    <lastmod>2023-11-19T22:24:26.997Z</lastmod>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/index.html</loc>
+    <lastmod>2023-11-19T23:30:40.953Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/index.html</loc>
+    <lastmod>2023-11-19T23:30:40.257Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/blog.html</loc>
-    <lastmod>2023-11-19T22:24:23.217Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/index.html</loc>
-    <lastmod>2023-11-19T22:24:16.677Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/cv.html</loc>
-    <lastmod>2023-11-19T22:24:15.441Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/about.html</loc>
-    <lastmod>2023-11-19T22:24:17.021Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/software.html</loc>
-    <lastmod>2023-11-19T22:24:22.649Z</lastmod>
+    <lastmod>2023-11-19T23:30:38.285Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/research/list-of-pubs.html</loc>
-    <lastmod>2023-11-19T22:24:26.357Z</lastmod>
+    <lastmod>2023-11-19T23:30:36.993Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</loc>
-    <lastmod>2023-11-19T22:25:25.468Z</lastmod>
+    <lastmod>2023-11-19T23:30:29.349Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</loc>
+    <lastmod>2023-11-19T23:30:30.365Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/index.html</loc>
+    <lastmod>2023-11-19T23:30:37.305Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/about.html</loc>
+    <lastmod>2023-11-19T23:30:38.677Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</loc>
+    <lastmod>2023-11-19T23:30:39.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/index.html</loc>
+    <lastmod>2023-11-19T23:30:40.609Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/posts/visa-process/index.html</loc>
-    <lastmod>2023-11-19T22:25:27.636Z</lastmod>
+    <lastmod>2023-11-19T23:30:41.505Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</loc>
+    <lastmod>2023-11-19T23:30:42.205Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/index.html</loc>
+    <lastmod>2023-11-19T23:30:44.261Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/software.html</loc>
+    <lastmod>2023-11-19T23:30:47.769Z</lastmod>
   </url>
 </urlset>
