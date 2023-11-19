@@ -10,7 +10,7 @@
 <atom:link href="https://MitchellAcoustics.github.io/quarto-website/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Thu, 13 Apr 2023 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Fri, 14 Apr 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Appearance on Across Acoustics</title>
   <dc:creator>Andrew Mitchell</dc:creator>
@@ -29,7 +29,7 @@
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>podcast</category>
   <guid>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</guid>
-  <pubDate>Thu, 13 Apr 2023 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 14 Apr 2023 00:00:00 GMT</pubDate>
   <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/across-acoustics-logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -140,7 +140,7 @@ Warning
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>podcast</category>
   <guid>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</guid>
-  <pubDate>Tue, 08 Jun 2021 23:00:00 GMT</pubDate>
+  <pubDate>Wed, 09 Jun 2021 00:00:00 GMT</pubDate>
   <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/sensory-archive.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -166,7 +166,7 @@ Warning
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>phd-life</category>
   <guid>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</guid>
-  <pubDate>Thu, 18 Jun 2020 23:00:00 GMT</pubDate>
+  <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
   <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>

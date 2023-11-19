@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/blog.html</loc>
-    <lastmod>2023-11-19T21:11:46.346Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/software.html</loc>
-    <lastmod>2023-11-19T21:11:45.656Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/about.html</loc>
-    <lastmod>2023-11-19T21:11:43.181Z</lastmod>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</loc>
+    <lastmod>2023-11-19T21:21:34.143Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</loc>
-    <lastmod>2023-11-19T21:11:42.640Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</loc>
-    <lastmod>2023-11-19T21:11:41.038Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</loc>
-    <lastmod>2023-11-19T21:11:40.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/research/list-of-pubs.html</loc>
-    <lastmod>2023-11-19T21:11:29.070Z</lastmod>
-  </url>
-  <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</loc>
-    <lastmod>2023-11-19T21:11:40.766Z</lastmod>
+    <lastmod>2023-11-19T21:21:33.359Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</loc>
-    <lastmod>2023-11-19T21:11:41.311Z</lastmod>
+    <lastmod>2023-11-19T21:21:32.283Z</lastmod>
   </url>
   <url>
-    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/visa-process/index.html</loc>
-    <lastmod>2023-11-19T21:11:42.381Z</lastmod>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</loc>
+    <lastmod>2023-11-19T21:20:32.491Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/blog.html</loc>
+    <lastmod>2023-11-19T21:20:28.815Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/index.html</loc>
-    <lastmod>2023-11-19T21:11:42.895Z</lastmod>
+    <lastmod>2023-11-19T21:20:22.435Z</lastmod>
   </url>
   <url>
     <loc>https://MitchellAcoustics.github.io/quarto-website/cv.html</loc>
-    <lastmod>2023-11-19T21:11:45.963Z</lastmod>
+    <lastmod>2023-11-19T21:20:21.587Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/about.html</loc>
+    <lastmod>2023-11-19T21:20:22.775Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/software.html</loc>
+    <lastmod>2023-11-19T21:20:28.247Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/research/list-of-pubs.html</loc>
+    <lastmod>2023-11-19T21:20:31.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</loc>
+    <lastmod>2023-11-19T21:21:31.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://MitchellAcoustics.github.io/quarto-website/posts/visa-process/index.html</loc>
+    <lastmod>2023-11-19T21:21:33.843Z</lastmod>
   </url>
 </urlset>
