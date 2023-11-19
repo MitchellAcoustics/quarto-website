@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>Andrew Mitchell</title>
+<link>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</link>
+<atom:link href="https://MitchellAcoustics.github.io/quarto-website/research/papers.xml" rel="self" type="application/rss+xml"/>
+<description>Personal website of Andrew Mitchell</description>
+<generator>quarto-1.3.450</generator>
+<lastBuildDate>Wed, 16 Mar 2022 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>How to analyse and represent quantitative soundscape data</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <dc:creator>Francesco Aletta</dc:creator>
+  <dc:creator>Jian Kang</dc:creator>
+  <link>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="sec-introduction" class="level1">
+<h1>Introduction</h1>
+<p>Methods for collecting data on how people experience acoustic environments have been at the forefront of the debate in soundscape studies for the past 20 years. While the soundscape research field as we understand it today dates back to the late 1960s with the pioneering work of authors like M. Southworth <span class="citation" data-cites="Southworth1969sonic">(Southworth 1969)</span>, R.M. Schafer <span class="citation" data-cites="SoundscapeOursonicSchafer">(Schafer 1977)</span>, and H. Westerkamp <span class="citation" data-cites="westerkamp2002linking">(Westerkamp 2002)</span>, the theme of data collection methods for soundscape assessment emerged more prominently only recently <span class="citation" data-cites="kang2016ten">(Kang et al. 2016)</span>. There is a general consensus in the research community that standardised tools to gather and report individual responses on the perception of urban acoustic environments are indeed desirable, to provide comparable datasets and soundscape characterisations across different locations, times, and samples of people, as well as allowing for replicability studies, and offering inputs for modelling algorithms in soundscape prediction and design tasks. These were among the main drivers for the establishment of a Working Group at the International Organization for Standardization (ISO) back in 2008, which was named “Perceptual assessment of soundscape quality” (ISO/TC 43/SC 1/WG 54) that has so far published three documents within the ISO 12913 series on soundscape. Part 1 (ISO 12913-1:2014) is a full standard and provides a general framework and definitions of soundscape concepts <span class="citation" data-cites="ISO12913_1">(ISO 2014)</span>, while Part 2 (ISO/TS 12913-2:2018) and Part 3 (ISO/TS 12913-3:2019) are technical specifications and offer guidance on how data should be collected and analysed, accordingly <span class="citation" data-cites="ISO12913_2 ISO12913_3">(ISO 2018, 2019)</span> (Part 4, on soundscape design interventions, is currently under development by the working group, also registered as a technical specifications document). Specifically, Part 3 presents the proposed methods for analysing and representing the data collected by the soundscape surveys. Since the development of these standards, the focus has shifted from understanding individual perception to characterising the collective perception of increasingly large groups.</p>
+<p>In a recent editorial paper on Soundscape Assessment, Axelsson and colleagues observe that it is important to critically discuss current theories and models in soundscape studies and to examine their effectiveness, while also looking at how to integrate different methods and perspectives for the discipline to make further advancements <span class="citation" data-cites="Axelsson2019editorial">(Axelsson, Guastavino, and Payne 2019)</span>. This work was mainly aimed at addressing the issue of meaningful comparability and representation of soundscape assessments. Part 2 of the ISO 12913 standard itself does not provide ultimate answers: the technical specifications recommend multiple methods, as consensus around a single protocol could not be reached. This diversity of methodological approaches should be interpreted as a fact that soundscape theory is still under development and, for this reason, the standardisation work should probably take a step back and focus on developing a reference method for comparability among soundscape studies, rather than a single protocol for soundscape data collection. Some attempts have indeed already been made in literature for the different methods proposed in the ISO/TS 12913-2:2018 <span class="citation" data-cites="aletta2019exploring">Jo, Seo, and Jeon (2020)</span>. Neither the standard nor the general soundscape literature has settled on effective methods of analysing and representing the data that results from these protocols. Data visualisations are particularly important for understanding and communicating information as multifaceted as soundscape perception <span class="citation" data-cites="tufte2001visual">(Tufte 2001)</span>. Although it is unlikely that any single method will be sufficient, attempts should be made to both facilitate future advancements in this realm and to develop a first step approach that captures the inherent uncertainty in perception studies, since including uncertainty is considered one of the core principles of good data visualisation <span class="citation" data-cites="Midway2020Principles">(Midway 2020)</span>.</p>
+<p>This study thus aims to review the consequences of these methods for larger datasets and provide concrete examples for how soundscapes should be represented. In particular, we aim to strengthen the practices for characterising the soundscape of a location, as a collective perception by the users of the location. We also demonstrate how the progress of these tools from their initial scope (measuring and discussing the individual perception of a soundwalk participant) have not kept up with recent advances and requirements for larger-scale soundscape datasets. We question whether there are some issues related to the data collection instruments and data analysis methods as recommended and examine the results of the model framework and mathematical transformations laid out in the ISO technical specifications to guide the interpretation of the soundscape circumplex.</p>
+<p>To examine these tools and the questions raised, we apply them to an existing large scale, real-world dataset of soundscape assessments collected according to the ISO methods. Finally, we propose a more holistic and advanced method of representing soundscapes as a probabilistic distribution of perceptions within the circumplex and provide a toolbox for others to use.</p>
+</section>
+<section id="sec-current" class="level1">
+<h1>The current ISO 12917 framework</h1>
+<p>Although different methods are proposed for data collection in ISO12913 Part 2 <span class="citation" data-cites="ISO12913_2">(ISO 2018)</span>, in the context of this study we focus on the questionnaire-based soundscape assessment (Method A), because it is underpinned by a theoretical relationship among the items of the questionnaire that compose it. The core of this questionnaire is the 8 perceptual attributes (PA) originally derived in <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>: pleasant, vibrant (or exciting), eventful, chaotic, annoying, monotonous, uneventful, and calm. In the questionnaire procedure, these PAs are assessed independently of each other, however they are conceptually considered to form a two-dimensional circumplex with <em>{Pleasantness} and </em>Eventfulness* on the x- and y-axis, respectively, where all regions of the space are equally likely to accommodate a given soundscape assessment <span class="citation" data-cites="Aletta2016Soundscape">(Aletta, Kang, and Axelsson 2016)</span>. In <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>, a third primary dimension, <em>Familiarity</em> was also found, however this only accounted for 8% of the variance and is typically disregarded as part of the standard circumplex. As will be made clear throughout, the circumplex model has several aspects which make it useful for representing the soundscape perception of a space as a whole.</p>
+<section id="coordinate-transformation-into-the-two-primary-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="coordinate-transformation-into-the-two-primary-dimensions">Coordinate transformation into the two primary dimensions</h2>
+<p>To facilitate the analysis of the PA responses, the Likert scale responses are coded from 1 (Strongly disagree) to 5 (Strongly agree) as ordinal variables. In order to reduce the 8 PA values into a pair of coordinates which can be plotted on the Pleasant-Eventful axes, Part 3 of ISO 12913 <span class="citation" data-cites="ISO12913_3">(ISO 2019)</span> provides a trigonometric transformation, based on the <img src="https://latex.codecogs.com/png.latex?45%5Cdegree">-relationship between the diagonal axes and the pleasant and eventful axes. This transformation projects the coded values from the individual PAs down onto the primary Pleasantness and Eventfulness dimensions then adds them together to form a single coordinate pair. In theory, this coordinate pair then encapsulates information from all 8 PA dimensions onto a more easily understandable and analysable two dimensions. The ISO coordinates are thus calculated by:</p>
+<p><span id="eq-pleasant"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Pleasant%20=%20%5B(pleasant%20-%20annoying)%20+%20%5Ccos%2045%5Cdegree%20*%20(calm%20-%20chaotic)%20%5C%5C%20+%20%5Ccos%2045%5Cdegree%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B1%7D"></span></p>
+<p><span id="eq-eventful"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Eventful%20=%20%5B(eventful%20-%20uneventful)%20+%20%5Ccos%2045%5Cdegree%20*%20(chaotic%20-%20calm)%20%5C%5C%20+%20%5Ccos%2045%5Cdegree%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
+<p>where the PAs are arranged around the circumplex as shown in Figure&nbsp;1. The <img src="https://latex.codecogs.com/png.latex?%5Ccos%2045%5Cdegree"> term operates to project the diagonal terms down onto the x and y axes, and the <img src="https://latex.codecogs.com/png.latex?1%20/%20(4%20+%20%5Csqrt%7B32%7D)"> scales the resulting coordinates to the range (-1, 1). The result of this transformation is demonstrated in Figure&nbsp;1. This treatment of the 8 PAs makes several assumptions and inferences about the relationships between the dimensions. As stated in the standard <span class="citation" data-cites="ISO12913_3">(ISO 2019, 5)</span>:</p>
+<blockquote class="blockquote">
+<p>According to the two-dimensional model, vibrant soundscapes are both pleasant and eventful, chaotic soundscapes are both eventful and unpleasant, monotonous soundscapes are both unpleasant and uneventful, and finally calm soundscapes are both uneventful and pleasant.</p>
+</blockquote>
+<div id="fig-radar" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.</figcaption>
+</figure>
+</div>
+</section>
+<section id="summarising-the-soundscape-assessment-of-a-location" class="level2">
+<h2 class="anchored" data-anchor-id="summarising-the-soundscape-assessment-of-a-location">Summarising the soundscape assessment of a location</h2>
+<p>While the assessment methods available are able to record the soundscape perception of a single individual, and that person’s perception is valid for themselves, it is not appropriate to then state that it is representative of the collective perception of that soundscape. In order to characterise the soundscape of a particular space or time, perceptual responses from multiple people must be collected and subsequently summarised or aggregated to describe the general soundscape of the location. The ISO guidelines stipulate a minimum of 20 participants for a soundwalk, with these broken up into sessions of no more than 5 participants at a time. Part 3 then provides the recommended methods for analysing this data.</p>
+<p>Annex A.2 of ISO 12913 Part 3 provides the statistical measures to be used on the raw PA responses. The recommended measure of central tendency is the median, while the recommended measure of dispersion is the range. These are chosen as the data is ordinal by nature, however as will be demonstrated later, they have significant limitations. Although it is unclear, the implied intention is then that the median value of each PA is fed into Equation&nbsp;1 and Equation&nbsp;2 presented above to calculate the ISOPleasant and ISOEventful values, which can then be plotted in a two-dimensional scatter plot. Thus the standard suggests that 1) the projection method equations are not applied to individual responses and 2) only the median assessment of a location should be plotted.</p>
+</section>
+<section id="limitations-of-the-iso" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-the-iso">Limitations of the ISO</h2>
+<p>How these methods should be applied to represent the soundscape of a location has not been adequately discussed in previous literature, nor sufficiently in Part 3 of ISO 1293 itself. Indeed, in Section A.3, the technical specifications document state that <span class="citation" data-cites="ISO12913_3">(ISO 2019, 5)</span>:</p>
+<blockquote class="blockquote">
+<p>Results can be reported in a two-dimensional scatter plot with coordinates for the two dimensions ‘pleasantness’ and ‘eventfulness’. The coordinates for ‘pleasantness’ are plotted on the X-axis, and the coordinates for ‘eventfulness’ on the Y-axis. Every data point in the scatter plot represents one investigated site.</p>
+</blockquote>
+<p>However, it is not made clear whether this single point on the circumplex can be considered to be a realistic representation of the average perception of the acoustic environment. Effectively, there is no representation of dispersion in the soundscape assessment, nor a recommended use of the range that was calculated as part of the analysis recommend in Section A.2 of Part 3 of the ISO 12913. Absent a suggestion from the ISO 12913 for how the range should be used, we therefore apply this analysis to an existing real-world soundscape dataset to determine whether it provides a useful measure of dispersion. Here we use the data contained in the International Soundscape Database (ISD) <span class="citation" data-cites="Mitchell2021International">(Mitchell, Oberman, Aletta, Erfanian, et al. 2021)</span>, which includes 1,300+ individual responses collected across 13 locations in London and Venice, according to the SSID Protocol, which is based on the ISO methods explored in this paper <span class="citation" data-cites="Mitchell2020Protocol">(Mitchell et al. 2020)</span>.</p>
+<p>For any large enough sample for a site, the range will always be from 1 to 5, the maximum and minimum available Likert-scale values. We would expect that collecting more data would result in more information or better precision, however the range will always increase as the sample size increases. As an example, within the ISD data, of the 8 PAs collected at 13 locations (for a total of 104 scales), 88% have a range from 1 to 5 and with larger sample sizes at each location, this percentage would only have increased. Using range to analyse the dispersion provides very limited information for comparing the soundscape assessments of different locations, or of a location under different conditions.</p>
+<p>Although the range does not appear to be a useful measure of dispersion, the median does provide a useful measure and appropriately functions to describe the central tendency of the soundscape assessment of the sample. However, by stipulating that the median of each PA should be taken prior to applying the circumplex projection, the ISO procedure only allows for plotting a single scatter point in the circumplex for each location and does not allow for plotting individual responses on the circumplex. This limits the possibilities for visualising the general trends in individual perception across the soundscape. Finally, no example or recommendation for how the circumplex scatter plot should be presented is given in the standard.</p>
+<p>The instruments described in the ISO 12913 Part 2 <span class="citation" data-cites="ISO12913_2">(ISO 2018)</span> were originally designed primarily for the context of individual or small group assessments. In these scenarios, the focus is on assessing the particular soundscape perception of the person in question. Recent advances in the soundscape approach since the development of the standards have shifted some focus from individual soundscapes to characterising the overall soundscape of public spaces <span class="citation" data-cites="Mitchell2020Protocol">(Mitchell et al. 2020)</span> and to making comparisons between different groups of people <span class="citation" data-cites="Jeon2018cross">(Jeon et al. 2018)</span>. In this context, a consideration of the natural variation in people’s perception and the variation over time of a soundscape must be a core feature of how the soundscape is discussed. Reducing a public space which may have between tens and tens of thousands of people moving through it in a single day down to the mean (or median, or any other single metric) soundscape assessment often dismisses the reality of the space. Likewise, this overall soundscape of a public space cannot be determined through a ten person soundwalk, as there is no guarantee that the sample of people engaged in the soundwalk is representative of the users of the space (in fact it is likely they would not be).</p>
+</section>
+</section>
+<section id="the-way-forward-pleasant-eventful-coordinates-and-probabilistic-soundscape-representation" class="level1">
+<h1>The Way Forward: Pleasant-Eventful Coordinates and Probabilistic Soundscape Representation</h1>
+<p>Given the identified issues with the recommended methods for statistical analysis and their shortcomings in representing the variation in perception of the soundscape in a space, how then should we discuss or present the results of these soundscape assessments? Ideally, the method will: 1) take advantage of the circumplex coordinates and their ability to be displayed on a scatter plot and treated as continuous variables, 2) scale from a dataset of twenty responses to thousands of responses, 3) facilitate the comparison of the soundscapes of different locations, conditions, and groups, and 4) encapsulate the nuances and diversity of soundscape perception by representing the distribution of responses.</p>
+<p>We therefore present a visualisation in Figure&nbsp;2 of the soundscape assessments of several urban spaces included in the ISD <span class="citation" data-cites="Mitchell2021International">(Mitchell, Oberman, Aletta, Erfanian, et al. 2021)</span> which reflects these goals. The specific locations selected from the ISD are chosen for demonstration only and these methods can be applied to any location. Rather than attempting to represent a single individual’s soundscape or of describing a location’s soundscape as a single average assessment (as in <span class="citation" data-cites="Mitchell2021Investigating">Mitchell, Oberman, Aletta, Kachlicka, et al. (2021)</span>), this representation shows the whole range of perception of the users of the space. First, rather than calculating the median response to each PA in the location, then calculating the circumplex coordinates, the coordinates for each individual response are calculated. This results in a vector of ISOPleasant, ISOEventful values which are continuous variables from -1 to +1 and can be analysed statistically by calculating summary statistics (mean, standard deviation, quantiles, etc.) and through the use of regression modelling, which can often be simpler and more familiar than the recommended methods of analysing ordinal data. This also enables each individual’s response to be placed within the pleasant-eventful space. All of the responses for a location can then be plotted, giving an overall scatter plot for a location, as demonstrated in Figure&nbsp;2 (a).</p>
+<div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> soundscapy <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> sspy</span>
+<span id="cb1-2"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> matplotlib.pyplot <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> plt</span>
+<span id="cb1-3"><span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">import</span> pandas <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> pd</span>
+<span id="cb1-4"></span>
+<span id="cb1-5">ssid <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sspy.isd.load()</span>
+<span id="cb1-6">ssid <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sspy.isd.remove_lockdown(ssid)</span>
+<span id="cb1-7">ssid, excl <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> sspy.isd.validate(ssid, allow_paq_na <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>, verbose<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>)</span>
+<span id="cb1-8"></span>
+<span id="cb1-9">sspy.plotting.jointplot(</span>
+<span id="cb1-10">    sspy.isd.select_location_ids(ssid, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PancrasLock"</span>),</span>
+<span id="cb1-11">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># title = "(a) Example distribution of the soundscape\nperception of an urban park",</span></span>
+<span id="cb1-12">    diagonal_lines <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb1-13">    hue <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LocationID"</span>,</span>
+<span id="cb1-14">    legend <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb1-15">    alpha <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.75</span>,</span>
+<span id="cb1-16">)</span>
+<span id="cb1-17">plt.show()</span>
+<span id="cb1-18"></span>
+<span id="cb1-19">sspy.plotting.density(</span>
+<span id="cb1-20">    sspy.isd.select_location_ids(ssid, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"RegentsParkFields"</span>),</span>
+<span id="cb1-21">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># title="(b) Median perception contour and\nscatter plot of individual assessments",</span></span>
+<span id="cb1-22">    hue<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LocationID"</span>,</span>
+<span id="cb1-23">    legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb1-24">    density_type<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"simple"</span>,</span>
+<span id="cb1-25">    palette<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dark:gray"</span>,</span>
+<span id="cb1-26">)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-27">plt.show()</span>
+<span id="cb1-28"></span>
+<span id="cb1-29">sspy.plotting.density(</span>
+<span id="cb1-30">    sspy.isd.select_location_ids(ssid, [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'CamdenTown'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'RussellSq'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'PancrasLock'</span>]),</span>
+<span id="cb1-31">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># title="(c) Comparison of the soundscapes\nof three urban spaces",</span></span>
+<span id="cb1-32">    hue<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LocationID"</span>,</span>
+<span id="cb1-33">    alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,</span>
+<span id="cb1-34">    palette<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"husl"</span>,</span>
+<span id="cb1-35">    legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,</span>
+<span id="cb1-36">    density_type<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"simple"</span>,</span>
+<span id="cb1-37">)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-38">plt.show()</span>
+<span id="cb1-39"></span>
+<span id="cb1-40">ssid[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dBLevel"</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> pd.cut(</span>
+<span id="cb1-41">    ssid[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LAeq_L(A)(dB(SPL))"</span>],</span>
+<span id="cb1-42">    bins<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">63</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">150</span>),</span>
+<span id="cb1-43">    labels<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Under 63dB"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Over 63dB"</span>),</span>
+<span id="cb1-44">    precision<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span id="cb1-45">)</span>
+<span id="cb1-46"></span>
+<span id="cb1-47">sspy.plotting.jointplot(</span>
+<span id="cb1-48">    ssid,</span>
+<span id="cb1-49">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># title="(d) Soundscape perception as a\nfunction of sound level",</span></span>
+<span id="cb1-50">    diagonal_lines<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>,</span>
+<span id="cb1-51">    alpha<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.5</span>,</span>
+<span id="cb1-52">    palette<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"colorblind"</span>,</span>
+<span id="cb1-53">    hue<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"dBLevel"</span>,</span>
+<span id="cb1-54">    density_type<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"simple"</span>,</span>
+<span id="cb1-55">    incl_scatter<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>,</span>
+<span id="cb1-56">    legend<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span>,  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#</span></span>
+<span id="cb1-57">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ax = axes.flatten()[3]</span></span>
+<span id="cb1-58">)<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">;</span></span>
+<span id="cb1-59">plt.show()</span>
+<span id="cb1-60"></span>
+<span id="cb1-61"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
+</details>
+<div id="fig-circ" class="cell quarto-layout-panel" data-execution_count="1">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
+<div id="fig-circ-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
+<figcaption class="figure-caption">(a) Example distribution of the soundscape perception of an urban park</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-circ-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
+<figcaption class="figure-caption">(b) Median perception contour and scatter plot of individual assessments</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-circ-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
+<figcaption class="figure-caption">(c) Comparison of the soundscapes of three urban spaces</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
+<div id="fig-circ-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
+<figcaption class="figure-caption">(d) Soundscape perception as a function of sound level</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: A demonstration of some use cases of representing soundscape perception as probabilistic distributions. Data is drawn from the International Soundscape Database (ISD) and is used for demonstration only. (a) Demonstrates a high level of detail for presenting the bivariate distribution of soundscape perception in a park (Russell Square in London). (b) Simplified view of the distribution using the 50th percentile contour. The assessments impacted by a series of helicopter fly-overs are made obvious in the chaotic quadrant. (c) A comparison of three popular public spaces in London. Their overlapping regions can reveal when and how their soundscapes may be similar. (d) A comparison across the full ISD for soundscape perception at <img src="https://latex.codecogs.com/png.latex?%3C65%20dB%20L_%7BAeq%7D"> and <img src="https://latex.codecogs.com/png.latex?%3E%2065%20dBA">. The introduction of other acoustic, environmental, and contextual data can reveal new and complex relationships with the soundscape perception.</figcaption><p></p>
+</figure>
+</div>
+</div>
+<p>Once these individual responses are plotted, we then overlay a heatmap of the bivariate distribution (with isodensity curves for each decile) and marginal distribution plots<sup>1</sup>. In this way, three primary characteristics of the soundscape perception can be seen:</p>
+<ol type="1">
+<li><p>The distribution across both pleasantness and eventfulness, including the central tendency, the dispersion, and any skewness in the response;</p></li>
+<li><p>The general shape of the soundscape within the space - in this case, Russell Sq is almost entirely in the pleasant half but is split relatively evenly across the eventfulness space, meaning while it is perceived as generally pleasant, it is not strongly calm or vibrant;</p></li>
+<li><p>The degree of agreement about the soundscape perception among the sample - there appears to be a relatively high agreement about the character of Russell Sq, as demonstrated by the compactness of the distribution, but this is not the case for every location.</p></li>
+</ol>
+<p>Figure&nbsp;2 (a) includes several in-depth visualisations of the distribution of soundscape assessments, however the detail included can make further analysis difficult. In particular, a decile heatmap is so visually busy that, in our experience, it is not possible to plot more than one soundscape distribution at a time without the figure becoming overly busy. It also can make it difficult to truly grasp point 2, the general shape of the soundscape. To facilitate this, the soundscape can be represented by its 50th percentile contour, as demonstrated in Figure&nbsp;2 (b) where the shaded portion contains 50% of the responses. This simplified view of the distribution presents several advantages, as is demonstrated in Figure&nbsp;2 (c) and Figure&nbsp;2 (d) and takes inspiration from the recommendation in the ISO standard to use the median as a summary statistic. In our testing, the 50th percentile contour has proved useful, clear, and compact, however this should not be taken as the definitive correct percentile cutoff. Further work will need to be done to validate the precise presentation.</p>
+<p>When visualised this way, it is possible to identify outliers and responses which are the result of anomalous sound events. For instance if during a survey session at a calm park, a fleet of helicopters flies overhead, driving the participants to respond that the soundscape is highly chaotic, we would see a group of scatter points in the chaotic quadrant which appear obviously outside the general pattern of responses. Often, these responses would be entirely discarded as outliers or the surveys and soundwalks would be halted entirely – ignoring what is in fact a significant impact on that location, its soundscape, and how useful it may be for the community. Alternatively, they would be naively included within the statistical analysis, significantly impacting the central tendency and dispersion metrics (i.e.&nbsp;median and range) without consideration for the context. This is the situation shown in Figure&nbsp;2 (b) where it is obvious that there is strong agreement that Regents Park Fields is highly pleasant and calm, however we can see numerous responses which assessed it as highly chaotic. These responses were taken when a series of military helicopter flyovers drastically changed the sound environment of the space for several minutes.</p>
+<p>Figure&nbsp;2 (c) demonstrates how this simplified 50th percentile contour representation makes it possible to compare the soundscape of several locations in a sophisticated way. The soundscape assessments of three urban spaces, Camden Town, Pancras Lock, and Russell Square, are shown overlaid with each other. We can see that Camden Town, a busy and crowded street corner with high levels of traffic noise and amplified music, is generally perceived as chaotic, but the median contour shape which characterises it also crosses over into the vibrant quadrant. We can also see that, for a part of the sample, Russell Square and Pancras Lock are both perceived as similarly pleasant, however some portion of the responses perceived Pancras Lock as being somewhat chaotic and annoying. This kind of visualisation can highlight these similarities between the soundscapes in the locations and identify how they differ. From here, further investigation could lead us to answer what factors led to those people perceiving the location as unpleasant, and what similarities the soundscape of Pancras Lock has with Russell Square that could perhaps be enhanced to increase the proportion of people perceiving it as more pleasant.</p>
+<p>In addition to solely analysing the distributions of the perceptual responses themselves, this method can also be combined with other acoustic, environmental, and contextual data. The final example, in Figure&nbsp;2 (d) demonstrates how this method can better demonstrate the complex relationships between acoustic features of the sound environment and the soundscape perception. The data in the ISD includes ~30-s-long binaural audio recordings taken while each participant was responding to the soundscape survey, providing an indication of the exact sound environment they were exposed to. For Figure&nbsp;2 (d) the entire dataset of 1,338 responses at all 13 locations has been split according to the analysis of these recordings giving a set of less than 65 dB <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D"> and a set of more than 65 dB. The bivariate distributions of these two conditions are then plotted.</p>
+<p>By presenting soundscape perception as a bivariate distributional shape on the circumplex, practitioners are obligated to address two key aspects of perception that are too often ignored: the distribution of potential responses and the eventful dimension. The array of potential responses to an environment is a crucial factor in assessing the successful design of a space and represents the reality of perception. There is no single perceptual outcome of an environment; it will always include some randomness inherent in human perception and this should be reflected in how we present soundscape assessments. Similarly, the eventful dimension is crucial to understanding how an environment is perceived and can have important impacts on the health and well-being of the users. Recent evidence also suggests that there is a more direct relationship between acoustic characteristics and the perception of eventfulness, while pleasantness is more dependent on context <span class="citation" data-cites="Mitchell2021Investigating">(Mitchell, Oberman, Aletta, Kachlicka, et al. 2021)</span>. Studies that explore the correlations between acoustic features and annoyance (or pleasantness) without considering eventfulness are perhaps missing the most direct effect of the acoustic features.</p>
+</section>
+<section id="making-use-of-the-soundscape-circumplex" class="level1">
+<h1>Making Use of the Soundscape Circumplex</h1>
+<p>There are various potential methods for integrating the probabilistic soundscape approach into a design and intervention setting. Representing the soundscape as a shape within the circumplex provides flexibility in setting design goals for a space. Not all spaces can or should have the same soundscape and soundscapes should be treated as dynamic, not static; identifying and creating an appropriate soundscape for the particular use case of a space is crucial to guiding its design. Proper forward-looking design of a soundscape would involve defining the desired shape and distribution of perceptions in the space. This can be achieved by drawing the desired shape in the circumplex and testing interventions which will bring the existing soundscape closer to the desired perception. A soundscape may need to be perceived as vibrant during the day and calm for some portion of the evening, meaning the desired shape should primarily sit within the vibrant quadrant but have some overlap into calm. This also enables designers to recognise the limitations of their environment and acknowledge that it is not always possible to transform a highly chaotic soundscape into a calm one. In these cases, instead the focus should be placed on shifting the distribution to some degree in a positive direction. The most sophisticated method of setting design goals is therefore to identify the desired shape which represents the variety of desired outcomes, and focus on designs and interventions which are most successful in matching the predicted outcome with that goal.</p>
+<p>Although the visualisations shown in Figure&nbsp;2 are a powerful tool for viewing, analysing, and discussing the multi-dimensional aspects of soundscape perception, there are certainly cases where simpler metrics are needed to aid discussion and to set design goals. For this, the underlying process of calculating the ISOPleasant and ISOEventful coordinates for each individual response is still the first step in analysing the quantitative soundscape data. These sets of coordinates can then be analysed and summarised in various ways. One approach which takes inspiration from noise annoyance <span class="citation" data-cites="ISO15666">(ISO/TS 15666:2021 2021)</span>, is to discuss the “percent of people likely to perceive” a soundscape as pleasant, vibrant, etc. when it is necessary to use numerical descriptions. In this way, a numerical design goal could also be set as e.g.&nbsp;‘the soundscape should be likely to be perceived as pleasant by at least 75% of users’ or the result of an intervention presented as e.g.&nbsp;‘the likelihood of the soundscape being perceived as calm increased from 30% to 55%’. These numbers can be drawn from either actual surveys or from the results of predictive models.</p>
+<p>Although acknowledging the distribution of responses is crucial, it is sometimes necessary to summarise locations down to a single point to compare many different locations and to easily investigate how the soundscape assessment has generally changed over time. For this purpose, the mean of the ISOPleasant and ISOEventful values across all respondents is calculated to result in a single coordinate point per location. This clearly mirrors the original intent of the coordinate transformation presented in the ISO, but by applying the transformation first to each individual assessment then calculating the mean value, it maintains a direct link to the distributions shown in Figure&nbsp;2. An example plot using the mean response of each location to compare many locations and to demonstrate change in soundscape perception can be found in Figure 5 of <span class="citation" data-cites="Mitchell2021Investigating">Mitchell, Oberman, Aletta, Kachlicka, et al. (2021)</span>. The key to all of these analysis methods, whether they be the distributional plots shown in Figure&nbsp;2, the numerical summaries, or the use of other standard statistical analyses is treating the soundscape of the space or group as a collective perception as expressed by a vector of individual circumplex coordinates.</p>
+<p>Finally, the primary concern addressed by this method is the analysis of larger soundscape datasets, compared to what is suggested in the standard. This is necessary in order to statistically describe the groups or sub-groups being investigated, and is typically taken to need a minimum of ~30 responses per group (although the full dataset, made up of many groups and locations may have many more responses in total, as in the ISD) <span class="citation" data-cites="Hong2015Influence PuyanaRomero2016Modelling">(e.g. Hong and Jeon 2015; Puyana Romero et al. 2016)</span>. It is unlikely that the bivariate distributions plots shown are appropriate for small datasets. However, the process of calculating the ISO coordinates for each individual response and treating this as a set of continuous values to subject to other statistical analysis holds for all sample sizes. Pleasant-eventful scatterplots are still useful for comparing differences in individual responses and appropriate methods of summarising small sample data should be explored (such as the univariate scatterplots described in <span class="citation" data-cites="Weissgerber2015Bar">Weissgerber et al. (2015)</span>).</p>
+<section id="limitations-of-the-circumplex-and-quantitative-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-the-circumplex-and-quantitative-analysis">Limitations of the circumplex and quantitative analysis</h2>
+<p>The method presented here is a solution for representing the soundscape of a space, which requires considering the perception of many people, but it is important to note that this is only one (very important) goal of the soundscape approach. Psychological and sociological investigations of people’s relationship to their sound environment and the interactions between social contexts and individual perception are a crucial aspect of the field for which this approach would likely not be sufficient <span class="citation" data-cites="Bild2018Public">(Bild et al. 2018)</span>. Open-response questions, structured interviews, and mixed-methods studies can provide additional insight into how people experience their environment and should be considered alongside or preceding this focus on how a space is likely to be perceived on a larger scale.</p>
+<p>These other approaches are not in opposition to the methods proposed here, but instead further expand our view. The circumplex is a limited view of soundscape perception (this is made obvious by the fact that it excludes the third component, <em>familiarity</em>, identified in <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>) but it is an exceptionally rich tool for dealing with the two primary aspects of soundscape perception which can readily expand the much more limited view provided by existing noise and annoyance assessment tools. Aspects of the psychological and sociological emphasis can also be integrated into a circumplex-focused approach, as demonstrated in <span class="citation" data-cites="Erfanian2021Psychological">Erfanian et al. (2021)</span>, where personal factors such as age, gender, and psychological well-being were analysed in terms of how they mediated the ISOPleasant and ISOEventful outcomes.</p>
+<p>There has been some discussion regarding the interdependence of the PAs and the strict validity of the 90and 45 relationships between the attributes <span class="citation" data-cites="Lionello2021Introducing">(Lionello et al. 2021)</span>. Further work has indicated that the scaling between the attributes may vary, but the underlying relationships hold. It is for this reason that we have taken the coordinate projection as the starting point of this critique. It should also be noted that the particular PA descriptors used in ISO 12913 are intended for outdoor environments and should not be directly applied to indoor spaces. However, a proposed set of descriptors for some indoor environments has been derived which further confirms the validity of the circumplex relationships <span class="citation" data-cites="Torresin2020Indoor">(Torresin et al. 2020)</span>. The methods proposed here should be directly applicable to indoor spaces by using the comfort/content descriptors as well as to any other translations of soundscape descriptors into other languages <span class="citation" data-cites="Aletta2020Soundscape">(Aletta et al. 2020)</span> as long as the dimensional relationships of the circumplex are maintained.</p>
+</section>
+</section>
+<section id="conclusions" class="level1">
+<h1>Conclusions</h1>
+<p>Soundscape studies have been steadily growing as a research field over the past three decades. Their relevance for the planning and design of urban spaces is now generally acknowledged by both the academic and practitioners’ communities. Yet, for their contribution in shaping better environments to be meaningful, it is necessary to agree on common methodological approaches and techniques to analyse and present standardised soundscape data. Therefore, the general goal of this work is to consider some of the questions that may still have been left unanswered by the ISO 12913 series when it comes to optimal ways to analyse and represent soundscape data coming from the ISO standardised protocols. As a result, we propose a method for presenting the results of standardised assessments as a distribution of soundscape perception within the circumplex space. This method provides an opportunity to conduct a nuanced discussion of soundscape perception which considers the variety of individual responses. The tools for generating these circumplex visualisations are made openly available as well. This shift is part of a move towards a more holistic approach to urban noise and to integrating the soundscape approach into urban design and regulations.</p>
+</section>
+<section id="data-and-code-availability" class="level1">
+<h1>Data and Code Availability</h1>
+<p>The data used in this study are openly available as v0.2.3 of the International Soundscape Database (ISD) at <a href="https://zenodo.org/record/5578572">https://zenodo.org/record/5578572</a>. A library of python functions for producing the type of plots presented (using the seaborn plotting library <span class="citation" data-cites="Waskom2021">(Waskom 2021)</span>) and an interactive Jupyter notebook which provides a tutorial for using this code, working with the ISD data, and recreating the figures of this paper has been made available as part of the ISD.</p>
+</section>
+<section id="acknowledgements" class="level1">
+<h1>Acknowledgements</h1>
+<p>This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No.&nbsp;740696, project title: Soundscape Indices - SSID). We would like to acknowledge Matteo Lionello for the helpful discussions, and (in alphabetical order) Mercede Erfanian, Magdalena Kachlicka, and Tin Oberman for the helpful discussions and the data collection support.</p>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-aletta2019exploring" class="csl-entry">
+Aletta, Francesco, Claudia Guattari, Luca Evangelisti, Francesco Asdrubali, Tin Oberman, and Jian Kang. 2019. <span>“Exploring the Compatibility of <span>‘Method a’</span> and <span>‘Method b’</span> Data Collection Protocols Reported in the ISO/TS 12913-2: 2018 for Urban Soundscape via a Soundwalk.”</span> <em>Applied Acoustics</em> 155: 190–203.
+</div>
+<div id="ref-Aletta2016Soundscape" class="csl-entry">
+Aletta, Francesco, Jian Kang, and Östen Axelsson. 2016. <span>“<span class="nocase">Soundscape descriptors and a conceptual framework for developing predictive soundscape models</span>.”</span> <em>Landscape and Urban Planning</em> 149 (July): 65–74. <a href="https://doi.org/10.1016/j.landurbplan.2016.02.001">https://doi.org/10.1016/j.landurbplan.2016.02.001</a>.
+</div>
+<div id="ref-Aletta2020Soundscape" class="csl-entry">
+Aletta, Francesco, Tin Oberman, Östen Axelsson, Hui Xie, Yuan Zhang, Siu-Kit Lau, Shiu-Keung Tang, et al. 2020. <span>“Soundscape Assessment: Towards a Validated Translation of Perceptual Attributes in Different Languages.”</span> In <em>INTER-NOISE and NOISE-CON Congress and Conference Proceedings</em>, 261:3137–46. 3. Institute of Noise Control Engineering.
+</div>
+<div id="ref-Axelsson2019editorial" class="csl-entry">
+Axelsson, Östen, Catherine Guastavino, and Sarah R. Payne. 2019. <span>“Editorial: Soundscape Assessment.”</span> <em>Frontiers in Psychology</em> 10: 2514. <a href="https://doi.org/10.3389/fpsyg.2019.02514">https://doi.org/10.3389/fpsyg.2019.02514</a>.
+</div>
+<div id="ref-Axelsson2010Principal" class="csl-entry">
+Axelsson, Östen, Mats E. Nilsson, and Birgitta Berglund. 2010. <span>“<span class="nocase">A principal components model of soundscape perception</span>.”</span> <em>The Journal of the Acoustical Society of America</em> 128 (5): 2836–46. <a href="https://doi.org/10.1121/1.3493436">https://doi.org/10.1121/1.3493436</a>.
+</div>
+<div id="ref-Bild2018Public" class="csl-entry">
+Bild, Edda, Karin Pfeffer, Matt Coler, Ori Rubin, and Luca Bertolini. 2018. <span>“<span class="nocase">Public Space Users’ Soundscape Evaluations in Relation to Their Activities. An Amsterdam-Based Study</span>.”</span> <em>Frontiers in Psychology</em> 9: 1593. <a href="https://doi.org/10.3389/fpsyg.2018.01593">https://doi.org/10.3389/fpsyg.2018.01593</a>.
+</div>
+<div id="ref-Erfanian2021Psychological" class="csl-entry">
+Erfanian, Mercede, Andrew Mitchell, Francesco Aletta, and Jian Kang. 2021. <span>“Psychological Well-Being and Demographic Factors Can Mediate Soundscape Pleasantness and Eventfulness: A Large Sample Study.”</span> <em>Journal of Environmental Psychology</em> 77 (October): 101660. <a href="https://doi.org/10.1016/j.jenvp.2021.101660">https://doi.org/10.1016/j.jenvp.2021.101660</a>.
+</div>
+<div id="ref-Hong2015Influence" class="csl-entry">
+Hong, Joo Young, and Jin Yong Jeon. 2015. <span>“Influence of Urban Contexts on Soundscape Perceptions: A Structural Equation Modeling Approach.”</span> <em>Landscape and Urban Planning</em> 141 (September): 78–87. <a href="https://doi.org/10.1016/j.landurbplan.2015.05.004">https://doi.org/10.1016/j.landurbplan.2015.05.004</a>.
+</div>
+<div id="ref-ISO12913_1" class="csl-entry">
+ISO. 2014. <span>“<span class="nocase">ISO 12913-1:2014 Acoustics - Soundscape - Part 1: Definition and conceptual framework</span>.”</span> Geneva: <span>International Organisation for Standardisation</span>; ISO Geneva.
+</div>
+<div id="ref-ISO12913_2" class="csl-entry">
+———. 2018. <span>“<span class="nocase">ISO/TS 12913-2:2018 Acoustics - Soundscape - Part 2: Data collection and reporting requirements</span>.”</span> Geneva: <span>International Organisation for Standardisation</span>; ISO Geneva.
+</div>
+<div id="ref-ISO12913_3" class="csl-entry">
+———. 2019. <span>“<span class="nocase">ISO/TS 12913-3:2019 Acoustics - Soundscape - Part 3: Data analysis</span>.”</span> <span>International Organisation for Standardisation</span>. <a href="https://bsol.bsigroup.com/Bibliographic/BibliographicInfoData/000000000030386393">https://bsol.bsigroup.com/Bibliographic/BibliographicInfoData/000000000030386393</a>.
+</div>
+<div id="ref-ISO15666" class="csl-entry">
+ISO/TS 15666:2021. 2021. <span>“<span>Acoustics</span> – Assessment of Noise Annoyance by Means of Social and Socio-Acoustic Surveys.”</span>
+</div>
+<div id="ref-Jeon2018cross" class="csl-entry">
+Jeon, Jin Yong, Joo Young Hong, Catherine Lavandier, Jeanne Lafon, Östen Axelsson, and Malin Hurtig. 2018. <span>“<span class="nocase">A cross-national comparison in assessment of urban park soundscapes in France, Korea, and Sweden through laboratory experiments</span>.”</span> <em>Applied Acoustics</em>. <a href="https://doi.org/10.1016/j.apacoust.2017.12.016">https://doi.org/10.1016/j.apacoust.2017.12.016</a>.
+</div>
+<div id="ref-jo2020soundscape" class="csl-entry">
+Jo, Hyun In, Rosa Seo, and Jin Yong Jeon. 2020. <span>“Soundscape Assessment Methods: Compatibility of Questionnaires and Narrative Interview Based on ISO 12913-2.”</span> In <em>INTER-NOISE and NOISE-CON Congress and Conference Proceedings</em>, 261:3509–18. 3. Institute of Noise Control Engineering.
+</div>
+<div id="ref-kang2016ten" class="csl-entry">
+Kang, Jian, Francesco Aletta, Truls T Gjestland, Lex A Brown, Dick Botteldooren, Brigitte Schulte-Fortkamp, Peter Lercher, et al. 2016. <span>“Ten Questions on the Soundscapes of the Built Environment.”</span> <em>Building and Environment</em> 108: 284–94.
+</div>
+<div id="ref-Lionello2021Introducing" class="csl-entry">
+Lionello, Matteo, Francesco Aletta, Andrew Mitchell, and Jian Kang. 2021. <span>“Introducing a Method for Intervals Correction on Multiple Likert Scales: A Case Study on an Urban Soundscape Data Collection Instrument.”</span> <em>Frontiers in Psychology</em> 11: 3943. <a href="https://doi.org/10.3389/fpsyg.2020.602831">https://doi.org/10.3389/fpsyg.2020.602831</a>.
+</div>
+<div id="ref-Midway2020Principles" class="csl-entry">
+Midway, Stephen R. 2020. <span>“Principles of Effective Data Visualization.”</span> <em>Patterns</em> 1 (9): 100141. https://doi.org/<a href="https://doi.org/10.1016/j.patter.2020.100141">https://doi.org/10.1016/j.patter.2020.100141</a>.
+</div>
+<div id="ref-Mitchell2020Protocol" class="csl-entry">
+Mitchell, Andrew, Tin Oberman, Francesco Aletta, Mercede Erfanian, Magdalena Kachlicka, Matteo Lionello, and Jian Kang. 2020. <span>“<span class="nocase">The Soundscape Indices (SSID) Protocol: A Method for Urban Soundscape Surveys—Questionnaires with Acoustical and Contextual Information</span>.”</span> <em>Applied Sciences</em> 10 (7): 2397. <a href="https://doi.org/10.3390/app10072397">https://doi.org/10.3390/app10072397</a>.
+</div>
+<div id="ref-Mitchell2021International" class="csl-entry">
+———. 2021. <span>“<span class="nocase">The International Soundscape Database: An integrated multimedia database of urban soundscape surveys – questionnaires with acoustical and contextual information</span>.”</span> Zenodo. <a href="https://doi.org/10.5281/zenodo.5578572">https://doi.org/10.5281/zenodo.5578572</a>.
+</div>
+<div id="ref-Mitchell2021Investigating" class="csl-entry">
+Mitchell, Andrew, Tin Oberman, Francesco Aletta, Magdalena Kachlicka, Matteo Lionello, Mercede Erfanian, and Jian Kang. 2021. <span>“Investigating Urban Soundscapes of the <span>COVID</span>-19 Lockdown: A Predictive Soundscape Modeling Approach.”</span> <em>The Journal of the Acoustical Society of America</em> 150 (6): 4474–88. <a href="https://doi.org/10.1121/10.0008928">https://doi.org/10.1121/10.0008928</a>.
+</div>
+<div id="ref-PuyanaRomero2016Modelling" class="csl-entry">
+Puyana Romero, Virginia, Luigi Maffei, Giovanni Brambilla, and Giuseppe Ciaburro. 2016. <span>“Modelling the Soundscape Quality of Urban Waterfronts by Artificial Neural Networks.”</span> <em>Applied Acoustics</em> 111 (October): 121–28. <a href="https://doi.org/10.1016/j.apacoust.2016.04.019">https://doi.org/10.1016/j.apacoust.2016.04.019</a>.
+</div>
+<div id="ref-SoundscapeOursonicSchafer" class="csl-entry">
+Schafer, R. Murray. 1977. <em><span class="nocase">The Soundscape: Our sonic environment and the tuning of the world</span></em>.
+</div>
+<div id="ref-silverman2018density" class="csl-entry">
+Silverman, Bernard W. 2018. <em>Density Estimation for Statistics and Data Analysis</em>. Routledge.
+</div>
+<div id="ref-Southworth1969sonic" class="csl-entry">
+Southworth, Michael. 1969. <span>“<span class="nocase">The sonic environment of cities</span>.”</span> <em>Environment and Behavior</em>. <a href="https://doi.org/10.1177/001391656900100104">https://doi.org/10.1177/001391656900100104</a>.
+</div>
+<div id="ref-Torresin2020Indoor" class="csl-entry">
+Torresin, Simone, Rossano Albatici, Francesco Aletta, Francesco Babich, Tin Oberman, Stefano Siboni, and Jian Kang. 2020. <span>“<span class="nocase">Indoor soundscape assessment: A principal components model of acoustic perception in residential buildings</span>.”</span> <em>Building and Environment</em> 182 (September): 107152. <a href="https://doi.org/10.1016/j.buildenv.2020.107152">https://doi.org/10.1016/j.buildenv.2020.107152</a>.
+</div>
+<div id="ref-tufte2001visual" class="csl-entry">
+Tufte, Edward. 2001. <span>“The Visual Display of Quantitative Information.”</span> Cheshire: Graphic Press.–2001.–213 p.
+</div>
+<div id="ref-Waskom2021" class="csl-entry">
+Waskom, Michael L. 2021. <span>“Seaborn: Statistical Data Visualization.”</span> <em>Journal of Open Source Software</em> 6 (60): 3021. <a href="https://doi.org/10.21105/joss.03021">https://doi.org/10.21105/joss.03021</a>.
+</div>
+<div id="ref-Weissgerber2015Bar" class="csl-entry">
+Weissgerber, Tracey L., Natasa M. Milic, Stacey J. Winham, and Vesna D. Garovic. 2015. <span>“Beyond Bar and Line Graphs: Time for a New Data Presentation Paradigm.”</span> <em>PLOS Biology</em> 13 (4): 1–10. <a href="https://doi.org/10.1371/journal.pbio.1002128">https://doi.org/10.1371/journal.pbio.1002128</a>.
+</div>
+<div id="ref-westerkamp2002linking" class="csl-entry">
+Westerkamp, Hildegard. 2002. <span>“Linking Soundscape Composition and Acoustic Ecology.”</span> <em>Organised Sound</em> 7 (1): 51–56.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The specifics of the bivariate kernel density estimation <span class="citation" data-cites="silverman2018density">(Silverman 2018)</span> are beyond the scope of this discussion and the most appropriate hyperparameters (e.g.&nbsp;estimation methods, smoothing factors) for this visualisation may need to be further explored. These parameters will likely depend on the specific dataset used.↩︎</p></li>
+</ol>
+</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{mitchell2022,
+  author = {Mitchell, Andrew and Aletta, Francesco and Kang, Jian},
+  title = {How to Analyse and Represent Quantitative Soundscape Data},
+  journal = {JASA Express Letters},
+  volume = {2},
+  number = {3},
+  pages = {037201},
+  date = {2022-03-16},
+  url = {https://pubs.aip.org/asa/jel/article/2/3/037201/2845750},
+  doi = {10.1121/10.0009794},
+  langid = {en},
+  abstract = {This study first examines the methods presented in ISO
+    12913 for analysing and representing soundscape data by applying
+    them to a large existing database of soundscape assessments. The key
+    issue identified is the inability of the standard methods to
+    summarise the soundscape of locations and groups. The presented
+    solution inherently considers the variety of responses within a
+    group and provides an open-source visualisation tool to facilitate a
+    nuanced approach to soundscape assessment and design. Several
+    demonstrations of the soundscape distribution of urban spaces are
+    presented, along with proposals for how this approach can be used
+    and developed.}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2022" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew, Francesco Aletta, and Jian Kang. 2022. <span>“How to
+Analyse and Represent Quantitative Soundscape Data.”</span> <em>JASA
+Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009794">https://doi.org/10.1121/10.0009794</a>.
+</div></div></section></div> ]]></description>
+  <category>journal-articles</category>
+  <guid>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</guid>
+  <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
+</item>
+</channel>
+</rss>
