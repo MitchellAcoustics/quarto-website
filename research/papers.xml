@@ -6,8 +6,8 @@
       version="2.0">
 <channel>
 <title>Andrew Mitchell</title>
-<link>https://MitchellAcoustics.github.io/quarto-website/research/papers.html</link>
-<atom:link href="https://MitchellAcoustics.github.io/quarto-website/research/papers.xml" rel="self" type="application/rss+xml"/>
+<link>https://drandrewmitchell.com/research/papers.html</link>
+<atom:link href="https://drandrewmitchell.com/research/papers.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.3.450</generator>
 <lastBuildDate>Wed, 16 Mar 2022 00:00:00 GMT</lastBuildDate>
@@ -17,7 +17,7 @@
   <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Francesco Aletta</dc:creator>
   <dc:creator>Jian Kang</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</link>
+  <link>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</link>
   <description><![CDATA[ 
 
 
@@ -44,7 +44,7 @@
 </blockquote>
 <div id="fig-radar" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1: Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.</figcaption>
 </figure>
 </div>
@@ -301,7 +301,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
 <div id="fig-circ-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
+<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
 <figcaption class="figure-caption">(a) Example distribution of the soundscape perception of an urban park</figcaption>
 </figure>
 </div>
@@ -312,7 +312,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-circ-2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
+<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
 <figcaption class="figure-caption">(b) Median perception contour and scatter plot of individual assessments</figcaption>
 </figure>
 </div>
@@ -322,7 +322,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
 <div id="fig-circ-3" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
+<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
 <figcaption class="figure-caption">(c) Comparison of the soundscapes of three urban spaces</figcaption>
 </figure>
 </div>
@@ -333,7 +333,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
 <div id="fig-circ-4" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
+<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
 <figcaption class="figure-caption">(d) Soundscape perception as a function of sound level</figcaption>
 </figure>
 </div>
@@ -507,7 +507,7 @@ Analyse and Represent Quantitative Soundscape Data.”</span> <em>JASA
 Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009794">https://doi.org/10.1121/10.0009794</a>.
 </div></div></section></div> ]]></description>
   <category>journal-articles</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/research/papers/how-to-analyse-jasa/index.html</guid>
+  <guid>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</guid>
   <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 </channel>

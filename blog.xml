@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Andrew Mitchell</title>
-<link>https://MitchellAcoustics.github.io/quarto-website/blog.html</link>
-<atom:link href="https://MitchellAcoustics.github.io/quarto-website/blog.xml" rel="self" type="application/rss+xml"/>
+<link>https://drandrewmitchell.com/blog.html</link>
+<atom:link href="https://drandrewmitchell.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.3.450</generator>
 <lastBuildDate>Fri, 14 Apr 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Appearance on Across Acoustics</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</link>
+  <link>https://drandrewmitchell.com/posts/across-acoustics/index.html</link>
   <description><![CDATA[ 
 
 
@@ -28,14 +28,14 @@
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>podcast</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/across-acoustics/index.html</guid>
   <pubDate>Fri, 14 Apr 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/across-acoustics/across-acoustics-logo.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/across-acoustics/across-acoustics-logo.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Navigating the UK Graduate Visa Process: A PhD Graduate’s Experience</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/visa-process/index.html</link>
+  <link>https://drandrewmitchell.com/posts/visa-process/index.html</link>
   <description><![CDATA[ 
 
 
@@ -115,13 +115,13 @@ Warning
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>website</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/visa-process/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/visa-process/index.html</guid>
   <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Contributing to the Pandemic Sensory Archive</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</link>
+  <link>https://drandrewmitchell.com/posts/pandemic-sensory-archive/index.html</link>
   <description><![CDATA[ 
 
 
@@ -129,7 +129,7 @@ Warning
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="http://www.archiveofintimacy.com/"><img src="https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/sensory-archive.jpg" class="img-fluid figure-img" width="500"></a></p>
+<p><a href="http://www.archiveofintimacy.com/"><img src="https://drandrewmitchell.com/posts/pandemic-sensory-archive/sensory-archive.jpg" class="img-fluid figure-img" width="500"></a></p>
 </figure>
 </div>
 <p>In 2021, I was interviewed by Dr William Tullett of Anglia Ruskin University in Cambridge. Dr Tullett created the <a href="http://www.archiveofintimacy.com/">Pandemic Sensory Archive</a> “to explore bodies and senses through a digital platform, in light of experiences of the COVID-19 pandemic”.</p>
@@ -139,14 +139,14 @@ Warning
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>podcast</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/pandemic-sensory-archive/index.html</guid>
   <pubDate>Wed, 09 Jun 2021 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/pandemic-sensory-archive/sensory-archive.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/pandemic-sensory-archive/sensory-archive.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>First paper published! SSID Protocol</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/index.html</link>
+  <link>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</link>
   <description><![CDATA[ 
 
 
@@ -154,7 +154,7 @@ Warning
 
 <section id="first-paper-published-ssid-protocol" class="level1">
 <h1>First paper published! SSID Protocol</h1>
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/protocol-header.png" class="img-fluid"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/protocol-header.png" class="img-fluid"></p>
 <p>Find the full paper at the MDPI Applied Sciences Page - <a href="https://www.mdpi.com/2076-3417/10/7/2397">DOI: 10.3390/app10072397</a></p>
 <hr>
 <p>For the past year, a huge portion of my PhD work has been focussed on data collection. Our goal in the SSID data collection is to gather a massive database of soundscape questionnaire surveys combined with objective acoustical and environmental data. Given the complexity of all of the different data sources, the protocol for correctly carrying out and organising the surveys is pretty involved.</p>
@@ -163,7 +163,7 @@ Warning
 <p>The whole timeline of this protocol is shown in this figure:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/Survey-Diagram_V2.png" class="img-fluid figure-img"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/Survey-Diagram_V2.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure 1: Timeline of the on site soundscape protocol. RegentsParkJapan (RPJ) is used as an example. Abbreviations as defined in Table 3-QUE: Questionnaires; VID: 360 video; PIC: Site pictures; BIN: Binaural Recording; AMB: Ambisonic recording; SLM: Sound Level Meter (acoustical factors); ENV: Environmental factors</figcaption>
 </figure>
 </div>
@@ -172,14 +172,14 @@ Warning
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</guid>
   <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-19-protocol-paper/protocol-header.png" medium="image" type="image/png" height="54" width="144"/>
+  <media:content url="https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/protocol-header.png" medium="image" type="image/png" height="54" width="144"/>
 </item>
 <item>
   <title>PhD Upgrade done and passed, thankfully!</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</link>
+  <link>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</link>
   <description><![CDATA[ 
 
 
@@ -187,7 +187,7 @@ Warning
 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/image.jpg" class="img-fluid figure-img" style="width:65.0%"></p>
+<p><img src="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" class="img-fluid figure-img" style="width:65.0%"></p>
 </figure>
 </div>
 <p>In the UK, halfway through the PhD we undergo a process known as the ‘upgrade’. The purpose is to take stock of our progress made so far and to determine whether we are likely to make it to the end of the PhD successfully. To do this, we present a seminar and prepare a report of our current progress before having a session with an internal panel where they ask further questions about your work and the existing state of the field. If the panel confirms that we have made adequate progress and have a good plan to finish, we can be upgraded to a PhD candidate. I always find it really helpful to look at previous examples of stuff like this, and wasn’t able to find many examples or much guidance on what it should look like. To help others, I’ve decided to host my report here, feel free to use it as an example, but remember it meets the requirements of my specific department at this time, and yours may differ.</p>
@@ -199,14 +199,14 @@ Warning
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>phd-life</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</guid>
   <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Clustering analysis in R, with factoextra and NbClust</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index.html</link>
+  <link>https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index.html</link>
   <description><![CDATA[ 
 
 
@@ -715,7 +715,7 @@ background-color: null;
 font-style: inherit;">theme_bw</span>())</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
@@ -732,7 +732,7 @@ background-color: null;
 font-style: inherit;">theme_bw</span>())</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-2.png" class="img-fluid" width="672"></p>
 </div>
 <details>
 <summary>Code</summary>
@@ -749,7 +749,7 @@ background-color: null;
 font-style: inherit;">theme_bw</span>())</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-3-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>As we can see, it can be less than obvious how to interpret some of these - where exactly is the ‘elbow’ in the elbow plot? Silhouette pretty clearly says k = 2, but the Gap stat gives k = 1, which isn’t very useful. How do we know which is right?</p>
@@ -831,7 +831,7 @@ font-style: inherit;">"alllong"</span>)</span></code></pre></div>
 <pre><code>Warning in pf(beale, pp, df2): NaNs produced</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>*** : The Hubert index is a graphical method of determining the number of clusters.
@@ -841,7 +841,7 @@ font-style: inherit;">"alllong"</span>)</span></code></pre></div>
  </code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>*** : The D index is a graphical method of determining the number of clusters. 
@@ -1545,7 +1545,7 @@ background-color: null;
 font-style: inherit;">theme_bw</span>())</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -1582,12 +1582,12 @@ background-color: null;
 font-style: inherit;">"var"</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -1604,7 +1604,7 @@ background-color: null;
 font-style: inherit;">k=</span>k)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <div class="cell">
@@ -1655,7 +1655,7 @@ background-color: null;
 font-style: inherit;">0.5</span>)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1676,7 +1676,7 @@ background-color: null;
 font-style: inherit;">theme_bw</span>())</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <section id="fviz_silhouette" class="level3">
@@ -1701,7 +1701,7 @@ font-style: inherit;">fviz_silhouette</span>(h.fit)</span></code></pre></div>
 2       2    8          0.32</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1718,7 +1718,7 @@ font-style: inherit;">fviz_silhouette</span>(h.fit)</span></code></pre></div>
 $plot</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+<p><img src="https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
@@ -1731,23 +1731,23 @@ $plot</code></pre>
   title = {Clustering Analysis in {R,} with `Factoextra` and
     {`NbClust`}},
   date = {2020-06-18},
-  url = {https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r},
+  url = {https://drandrewmitchell.com//posts/2020-06-18_cluster-analysis-in-r},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2020" class="csl-entry quarto-appendix-citeas">
 Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
-`Factoextra` and `NbClust`.”</span> June 18, 2020. <a href="https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r">https://MitchellAcoustics.github.io/quarto-website//posts/2020-06-18_cluster-analysis-in-r</a>.
+`Factoextra` and `NbClust`.”</span> June 18, 2020. <a href="https://drandrewmitchell.com//posts/2020-06-18_cluster-analysis-in-r">https://drandrewmitchell.com//posts/2020-06-18_cluster-analysis-in-r</a>.
 </div></div></section></div> ]]></description>
   <category>soundscape</category>
   <category>PhD</category>
   <category>machine learning</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-06-18_cluster-analysis-in-r/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index.html</guid>
   <pubDate>Thu, 18 Jun 2020 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Book Diary 3 - Foundation</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/index.html</link>
+  <link>https://drandrewmitchell.com/posts/2020-04-09_book-diary-3/index.html</link>
   <description><![CDATA[ 
 
 
@@ -1775,14 +1775,14 @@ Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>book diary</category>
   <category>personal</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/2020-04-09_book-diary-3/index.html</guid>
   <pubDate>Thu, 09 Apr 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2020-04-09_book-diary-3/foundation.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/2020-04-09_book-diary-3/foundation.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Book Diary 2 - Bad Science</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/index.html</link>
+  <link>https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/index.html</link>
   <description><![CDATA[ 
 
 
@@ -1814,14 +1814,14 @@ Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>book diary</category>
   <category>personal</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/index.html</guid>
   <pubDate>Sat, 11 May 2019 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-11_book-diary-2/bad-science.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/bad-science.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Book Diary 1 - The Kingdom</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/index.html</link>
+  <link>https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/index.html</link>
   <description><![CDATA[ 
 
 
@@ -1830,7 +1830,7 @@ Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
 <p>I’ve started writing short ‘reviews’ of all of the books I’m reading in a book diary I bought while in Venice. I decided I might as well sheare them here, so welcome to my book diary, starting with my favourite author, Emmanuel Carrère. These are not full reviews, they won’t give you really any background on the plot or context of the book. These were intended as notes to my future self looking back on the books I’ve read and so they are more personal, and, possibly, more intimate and engaging. I hope someone enjoys, even if it’s just old-man Andrew.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/the-kingdom.jpg" class="img-fluid figure-img"></p>
+<p><img src="https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/the-kingdom.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><em>The Kingdom</em> by Emmanuel Carrère</figcaption>
 </figure>
 </div>
@@ -1853,9 +1853,9 @@ Mitchell, Andrew. 2020. <span>“Clustering Analysis in R, with
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
   <category>book diary</category>
   <category>personal</category>
-  <guid>https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/index.html</guid>
+  <guid>https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/index.html</guid>
   <pubDate>Fri, 10 May 2019 00:00:00 GMT</pubDate>
-  <media:content url="https://MitchellAcoustics.github.io/quarto-website/posts/2019-05-10_book-diary-1/the-kingdom.jpg" medium="image" type="image/jpeg"/>
+  <media:content url="https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/the-kingdom.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>
