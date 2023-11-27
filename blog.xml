@@ -144,33 +144,6 @@ Warning
   <media:content url="https://drandrewmitchell.com/posts/pandemic-sensory-archive/sensory-archive.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
-  <title>PhD Upgrade done and passed, thankfully!</title>
-  <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" class="img-fluid figure-img" style="width:65.0%"></p>
-</figure>
-</div>
-<p>In the UK, halfway through the PhD we undergo a process known as the ‘upgrade’. The purpose is to take stock of our progress made so far and to determine whether we are likely to make it to the end of the PhD successfully. To do this, we present a seminar and prepare a report of our current progress before having a session with an internal panel where they ask further questions about your work and the existing state of the field. If the panel confirms that we have made adequate progress and have a good plan to finish, we can be upgraded to a PhD candidate. I always find it really helpful to look at previous examples of stuff like this, and wasn’t able to find many examples or much guidance on what it should look like. To help others, I’ve decided to host my report here, feel free to use it as an example, but remember it meets the requirements of my specific department at this time, and yours may differ.</p>
-<p>On a side note, because this year is wild, I received the email letting me know I passed my PhD upgrade while kneeling in the Black Lives Matter demonstration in Parliament Square. It can be difficult to process the emotions of outrage and frustration simultaneously with relief and hope. I don’t have anything more profound to say on that, except that shit’s crazy but life trudges on. I’ll be back out at the protests this weekend.</p>
-<p>It also means I had to finally settle on a decent thesis title, I landed on <strong>Machine Learning and Regression Modelling of Dynamic Urban Soundscapes: A multilevel approach</strong>.</p>
-<a class="btn btn-outline-dark btn-sm" ,="" href="../../posts/phd-upgrade-done/AMitchell Upgrade Report_final.pdf">Download Report</a>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
-  <category>phd-life</category>
-  <guid>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</guid>
-  <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
-  <media:content url="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
-</item>
-<item>
   <title>First paper published! SSID Protocol</title>
   <dc:creator>Andrew Mitchell</dc:creator>
   <link>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</link>
@@ -202,6 +175,33 @@ Warning
   <guid>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</guid>
   <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
   <media:content url="https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/protocol-header.png" medium="image" type="image/png" height="54" width="144"/>
+</item>
+<item>
+  <title>PhD Upgrade done and passed, thankfully!</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" class="img-fluid figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+<p>In the UK, halfway through the PhD we undergo a process known as the ‘upgrade’. The purpose is to take stock of our progress made so far and to determine whether we are likely to make it to the end of the PhD successfully. To do this, we present a seminar and prepare a report of our current progress before having a session with an internal panel where they ask further questions about your work and the existing state of the field. If the panel confirms that we have made adequate progress and have a good plan to finish, we can be upgraded to a PhD candidate. I always find it really helpful to look at previous examples of stuff like this, and wasn’t able to find many examples or much guidance on what it should look like. To help others, I’ve decided to host my report here, feel free to use it as an example, but remember it meets the requirements of my specific department at this time, and yours may differ.</p>
+<p>On a side note, because this year is wild, I received the email letting me know I passed my PhD upgrade while kneeling in the Black Lives Matter demonstration in Parliament Square. It can be difficult to process the emotions of outrage and frustration simultaneously with relief and hope. I don’t have anything more profound to say on that, except that shit’s crazy but life trudges on. I’ll be back out at the protests this weekend.</p>
+<p>It also means I had to finally settle on a decent thesis title, I landed on <strong>Machine Learning and Regression Modelling of Dynamic Urban Soundscapes: A multilevel approach</strong>.</p>
+<a class="btn btn-outline-dark btn-sm" ,="" href="../../posts/phd-upgrade-done/AMitchell Upgrade Report_final.pdf">Download Report</a>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section></div> ]]></description>
+  <category>phd-life</category>
+  <guid>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</guid>
+  <pubDate>Fri, 19 Jun 2020 00:00:00 GMT</pubDate>
+  <media:content url="https://drandrewmitchell.com/posts/phd-upgrade-done/image.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
   <title>Clustering analysis in R, with factoextra and NbClust</title>
