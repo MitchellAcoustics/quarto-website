@@ -10,7 +10,145 @@
 <atom:link href="https://drandrewmitchell.com/research/presentations.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Fri, 21 Apr 2023 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sun, 11 May 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>TU Delft Pi-Lab Talk: Soundscape Designs</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</link>
+  <description><![CDATA[ 
+
+
+
+<section id="new-methods-and-proposals-for-evaluating-soundscape-designs-and-interventions" class="level2">
+<h2 class="anchored" data-anchor-id="new-methods-and-proposals-for-evaluating-soundscape-designs-and-interventions">New Methods and Proposals for Evaluating Soundscape Designs and Interventions</h2>
+<p><object data="./2023-11-30_Delft-Overall-Talk.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./2023-11-30_Delft-Overall-Talk.pdf">Download</a> instead.</p></object></p>
+<!-- ## Introduction - what is (a) soundscape?
+
+Soundscape is normatively defined by @ISO12913Part1 as:
+
+**an acoustic environment as perceived or experienced and/or understood by a person or people, in context**
+
+It is important to make sure we are all talking about the same thing when we call something a soundscape
+
+---
+
+## Three key definitions
+
+:::: {.columns}
+::: {.column width="30%" .fragment}
+| **ISO12913-1^[@ISO12913Part1] - Soundscape**
+| The acoustic environment as perceived or experienced, by a person or people, in context.
+:::
+
+::: {.column width="30%" .fragment}
+| **ISO12913-1^[@ISO12913Part1] - Acoustic Environment**
+| Sound at the receiver from all sound sources as modified by the environment^[Note: Acoustic environment can be actual or simulated, outdoor or indoor, as experienced or in memory]
+:::
+
+::: {.column width="40%" .fragment}
+| **Soundscape Ecology^[@Pijanowski2011Soundscape]**
+| All sounds, those of biophony, geophony, and anthrophony, emanating from a landscape to create unique acoustical patterns across a variety of spatial and temporal scales
+:::
+::::
+
+::: {.notes}
+Acoustic Environment - In contrast, the soundscape considers the acoustic environment, but also considers the impact of non-acoustic elements, such as the listener’s context and the visual setting, and how these interact with the acoustic environment to influence the listener’s perception. This approach brought the definition closer to Schafer’s original idea where a soundscape consists of culturally conditioned elements, as perceived by him.
+:::
+
+---
+
+## Distal, Proximal, and Perceptual
+
+:::: {.fragments .r-stack}
+::: {.center .fragment .fade-out fragment-index=1}
+Many of these conceptions of soundscape can actually be organized into different **types of soundscapes:**
+
+**Distal, Proximal and Perceptual Soundscapes** as defined by @Grinfeder2022What
+:::
+
+
+::: {.fragment .fade-left width="110%" fragment-index=1}
+![Soundscape functional block diagram. Reproduced from @Lorenzi2023Human](./soundscape-fbd-lorenzi.png)
+:::
+::::
+
+::: {.notes}
+Distal – Soundscape Ecology/Pijanowski: Encompassing all sources across a variety of spatial and temporal scales in a space. There is only a single distal soundscape, but it only exists as a theoretical construct
+“In the same way that a landscape event cannot be assimilated to a singular signal, the distal soundscape cannot be represented by the acoustic information at any single receiver.” 
+
+Proximal – ISO Acoustic Environment. Whereas the distal soundscape is theoretical, singular for a space, and cannot be measured, proximal soundscapes can be measured and a unique proximal soundscape exists for every potential receiver. 
+
+Perceptual – ISO Soundscape
+“The individual subjective interpretation of a proximal soundscape”
+Just because we can’t measure the perceptual soundscape of animals, doesn’t mean it doesn’t exist. Is that enough of a reason to entirely exclude it (and with it the entire field of soundscape ecology) from the definition of soundscape?
+:::
+
+---
+
+## An overall definition of soundscape:
+
+::: {.center}
+**A soundscape is the acoustic environment of *a place, setting, or community*, whose character is the result of the interaction with non-auditory and/or contextual factors.**
+:::
+
+---
+
+- Soundscape design is a growing field of research
+- Many studies have been conducted to evaluate the effectiveness of soundscape designs and interventions
+- However, there is no consensus on the best methods for evaluating soundscape designs and interventions
+- This presentation will discuss some of the methods that have been used to evaluate soundscape designs and interventions, and propose some new methods for evaluating soundscape designs and interventions
+
+## Defining 'soundscape'
+
+- The term 'soundscape' was coined by R. Murray Schafer in 1977
+
+
+### ISO 12913-1:2014
+
+> acoustic environment as perceived or experienced and/or understood by a person or people, in context
+
+---
+
+### The Grinfeder Soundscape Framework
+
+- Distal, Proximal, and Perceptual Soundscape
+
+---
+
+## References -->
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2025,
+  author = {Mitchell, Andrew},
+  title = {New {Methods} and {Proposals} for {Evaluating} {Soundscape}
+    {Designs} and {Interventions}},
+  date = {2025-05-11},
+  url = {https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture},
+  langid = {en},
+  abstract = {This talk will cover the latest work on soundscape
+    monitoring, assessment, and prediction. this will focus on
+    {[}soundscape circumplex analysis
+    methods{]}(https://pubs.aip.org/asa/jel/article/2/3/037201/2845750),
+    a {[}framework for practical soundscape
+    engineering{]}(https://www.researchgate.net/publication/375516282\_A\_conceptual\_framework\_for\_the\_practical\_use\_of\_predictive\_models\_and\_Soundscape\_Indices\_Goals\_constraints\_and\_applications)
+    and interventions. In the talk, Dr. Mitchell will discuss the
+    application of soundscape principles for the design and monitoring
+    of hospital environments and the creation of open-source software
+    for soundscape analysis
+    ({[}Soundscapy{]}(https://soundscapy.readthedocs.io/en/latest/))}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2025" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew. 2025. <span>“New Methods and Proposals for Evaluating
+Soundscape Designs and Interventions.”</span> Invited Lecture, TU Delft,
+Netherlands, May 11. <a href="https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture">https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture</a>.
+</div></div></section></div> ]]></description>
+  <category>lecture</category>
+  <guid>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</guid>
+  <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+  <media:content url="https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/Delft-header.png" medium="image" type="image/png" height="59" width="144"/>
+</item>
 <item>
   <title>Free and open-source software for soundscape visualization and binaural analysis</title>
   <dc:creator>Andrew Mitchell</dc:creator>

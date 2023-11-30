@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Andrew Mitchell">
+<meta name="author" content="Francesco Aletta">
+<meta name="author" content="Tin Oberman">
+<meta name="author" content="Mercede Erfanian">
+<meta name="author" content="Jian Kang">
+<meta name="dcterms.date" content="2023-08-20">
+<meta name="keywords" content="Soundscape, Predictive Modelling, Auditory Environment, ISO12913">
+<meta name="description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
+
+<title>Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraings, and applications</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../favicon.png" rel="icon" type="image/png">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../styles.css">
+<meta property="og:title" content="Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraings, and applications">
+<meta property="og:description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
+<meta property="og:image" content="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:site-name" content="Andrew Mitchell">
+<meta name="twitter:title" content="Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraings, and applications">
+<meta name="twitter:description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
+<meta name="twitter:image" content="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:creator" content="@acousticsman">
+<meta name="twitter:site" content="@acousticsman">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Andrew Mitchell</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Research</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
+        <li>
+    <a class="dropdown-item" href="../../../research/papers.html" rel="" target="">
+ <span class="dropdown-text">Open Source Papers</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/presentations.html" rel="" target="">
+ <span class="dropdown-text">Talks</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../research/list-of-pubs.html" rel="" target="">
+ <span class="dropdown-text">List of Publications</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../software.html" rel="" target="">
+ <span class="menu-text">Software</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog.html" rel="" target="">
+ <span class="menu-text">Blog</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/MitchellAcoustics/quarto-website">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/MitchellAcoustics/quarto-website/issues">
+            Report a bug
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><p>A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraings, and applications</p></h1>
+                  <div>
+        <div class="description">
+          <p>Presented at Inter-noise 2023, Chiba, Greater Tokyo.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">conference-papers</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Authors</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Andrew Mitchell <a href="https://orcid.org/0000-0003-0978-5046" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              University College London
+            </p>
+        </div>
+        <div class="quarto-title-meta-contents">
+      <p class="author">Francesco Aletta <a href="https://orcid.org/0000-0003-0351-3189" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              University College London
+            </p>
+        </div>
+        <div class="quarto-title-meta-contents">
+      <p class="author">Tin Oberman </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              University College London
+            </p>
+        </div>
+        <div class="quarto-title-meta-contents">
+      <p class="author">Mercede Erfanian </p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              University College London
+            </p>
+        </div>
+        <div class="quarto-title-meta-contents">
+      <p class="author">Jian Kang <a href="https://orcid.org/0000-0001-8995-5636" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    </div>
+      <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              University College London
+            </p>
+        </div>
+      </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 20, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  <div>
+    <div class="abstract">
+      <div class="abstract-title">Abstract</div>
+      <p>With the recent standardization of soundscape, there has been increased interest in bringing the soundscape approach into an engineering context. While traditional assessment methods, such as those given in the ISO 12913 series, provide information on the current status quo of an environment, they offer limited insight into hypothetical environments and are therefore less relevant for design purposes. This conference paper presents a conceptual framework for the practical use of predictive soundscape models and indices. The framework outlines the goals, constraints, and potential applications of these models and highlights the need for further research in this area to better understand the dynamics of soundscape perception and to put predictive models to practical use. Predictive soundscape models can be integrated with soundscape indices - such as those being developed by the Soundscape Indices (SSID) project - for assessment purposes, providing a comprehensive approach to evaluating and designing sound environments. The use of predictive models is necessary to address the challenges faced in practical applications of the soundscape approach and to fill the gap between traditional assessment methods and the design of sound environments.</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#defining-what-a-predictive-soundscape-model-is" id="toc-defining-what-a-predictive-soundscape-model-is" class="nav-link" data-scroll-target="#defining-what-a-predictive-soundscape-model-is"><span class="header-section-number">2</span> Defining what a predictive soundscape model is</a></li>
+  <li><a href="#applications-in-design-and-mapping" id="toc-applications-in-design-and-mapping" class="nav-link" data-scroll-target="#applications-in-design-and-mapping"><span class="header-section-number">3</span> Applications in design and mapping</a></li>
+  <li><a href="#the-predictive-soundscape-model-framework" id="toc-the-predictive-soundscape-model-framework" class="nav-link" data-scroll-target="#the-predictive-soundscape-model-framework"><span class="header-section-number">4</span> The Predictive Soundscape Model Framework</a>
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link" data-scroll-target="#goals"><span class="header-section-number">4.1</span> Goals</a></li>
+  <li><a href="#constraints" id="toc-constraints" class="nav-link" data-scroll-target="#constraints"><span class="header-section-number">4.2</span> Constraints</a></li>
+  </ul></li>
+  <li><a href="#making-use-of-the-predictions-in-design" id="toc-making-use-of-the-predictions-in-design" class="nav-link" data-scroll-target="#making-use-of-the-predictions-in-design"><span class="header-section-number">5</span> Making use of the predictions in design</a></li>
+  <li><a href="#towards-soundscape-indices" id="toc-towards-soundscape-indices" class="nav-link" data-scroll-target="#towards-soundscape-indices"><span class="header-section-number">6</span> Towards Soundscape Indices</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7</span> Conclusion</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="manuscript.pdf"><i class="bi bi-file-pdf"></i>PDF (elsevier)</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>As the future of urban sound research and practice moves toward a more holistic soundscape focus, the ability to affect change at large scales and in a wide range of projects will require that familiar engineering tools and approaches can be applied to soundscape design. When attempting to apply soundscape in practice in the built environment, it becomes apparent that a predictive model of the users’ perceptual response to the acoustic environment is necessary. Whether to determine the impact of a design change, or to integrate a large scale data at neighbourhood and city levels, a mathematical model of the interacting factors will form a vital component of the implementation of the soundscape approach.</p>
+<p>Current methods of assessing soundscapes are generally limited to a post hoc assessment of the existing environment, where users of the space in question are surveyed regarding their experience of the acoustic environment <span class="citation" data-cites="Engel2018Review Zhang2018Effect Ba2019Effect">(<a href="#ref-Engel2018Review" role="doc-biblioref">Engel et al. 2018</a>; <a href="#ref-Zhang2018Effect" role="doc-biblioref">Zhang et al. 2018</a>; <a href="#ref-Ba2019Effect" role="doc-biblioref">Ba and Kang 2019</a>)</span>. While this approach has proved useful in identifying the impacts of an existing environment, designers require the ability to predict how a change or proposed design will impact the soundscape of the space, before its implementation. To this end, a model that is built on measurable or estimate-able quantities of the environment would represent a leap forward in the ability to design soundscapes and to assess their broad impacts on health and wellbeing.</p>
+<p>We will begin by outlining the use cases of predictive soundscape models and how they are necessary for certain applications. From the desired use cases, we will then outline a framework within which practical predictive models can be developed.</p>
+</section>
+<section id="defining-what-a-predictive-soundscape-model-is" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="defining-what-a-predictive-soundscape-model-is"><span class="header-section-number">2</span> Defining what a predictive soundscape model is</h2>
+<p><span class="citation" data-cites="Aletta2016Soundscape">Aletta, Kang, and Axelsson (<a href="#ref-Aletta2016Soundscape" role="doc-biblioref">2016</a>)</span> provide a review of the soundscape descriptors and indicators commonly used in soundscape research and outlines an initial framework for developing predictive soundscape models. In their review, the authors identified eight potential soundscape descriptors, including perceived affective quality <span class="citation" data-cites="Axelsson2010principal">(<a href="#ref-Axelsson2010principal" role="doc-biblioref">Axelsson, Nilsson, and Berglund 2010</a>)</span>, restorativeness <span class="citation" data-cites="Payne2013production">(<a href="#ref-Payne2013production" role="doc-biblioref">Payne 2013</a>)</span>, etc. Similarly, the authors identified a range of potential indicators used to characterise the acoustic environment, including environmental acoustics indicators such as <span class="math inline">L_{Aeq}</span>, <span class="math inline">L_{Ceq} − L_{Aeq}</span> and psychoacoustic indicators such as Loudness (<span class="math inline">N_5</span>) and Sharpness (S).</p>
+<p>However, it is noted that several studies show that no single psychoacoustic indicator alone can explain the variation in soundscape responses (as expressed via the descriptors) (e.g. <span class="citation" data-cites="PerssonWaye2002Psycho">(<a href="#ref-PerssonWaye2002Psycho" role="doc-biblioref">Persson Waye and Öhrström 2002</a>)</span>). The goal of statistical modelling, therefore is to create a more complex and complete representation of the relationship between soundscape indicators and descriptors, beyond what any single indicator could achieve.</p>
+<p><a href="#fig-model">Figure&nbsp;1</a> shows a conceptual view of this relationship. We start with <strong>soundscape indicators</strong>, which characterise the physical and contextual environment to which the listener is exposed. This can be broken down into <strong>sonic features</strong> (e.g.&nbsp;the acoustical features listed above) and <strong>characteristics of the space itself</strong> (e.g.&nbsp;the amount of visible sky, the intended use-case of the space, how crowded the space is, etc.). In order to translate from the physical inputs to an expressed description of the soundscape perception, we introduce the concept of a <strong>perceptual mapping</strong> <span class="citation" data-cites="Lionello2021new">(<a href="#ref-Lionello2021new" role="doc-biblioref">Lionello 2021</a>)</span>. This mapping represents a simplified idea of how each individual’s brain processes the inputs from the soundscape which they experience, forms a perception, and finally expresses that perception through their description of the soundscape. For our purposes, this perceptual mapping is treated as essentially a black box mapping inputs to outputs. It can be conceived of as a network of weights in which certain characteristics of the sound may have different weights and directions depending on the context, through which all of the inputs are processed, resulting in the soundscape rating. Conceptually, this perceptual mapping – the pathways and weightings through which the inputs are processed before being expressed as a perceptual descriptor – is established prior to an individual’s exposure to the soundscape in question.</p>
+<div id="fig-model" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Overall_Model_Concept_Diagram_2022-04-28.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1: The conceptual model of soundscape perception, illustrating the perceptual mapping from physical inputs, through personal experience, to soundscape descriptors. The role of the statistical model is to attempt to approximate or reflect this perceptual mappint. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (<a href="#ref-Mitchell2022Predictive" role="doc-biblioref">2022</a>)</span></figcaption>
+</figure>
+</div>
+<p>It should be made clear that this represents a very simplified view of how a soundscape perception is formed, however it provides a useful conceptual framework for the purposes of understanding and modelling how someone’s perception forms in response to their exposure to a space. One way to consider the function of a statistical model of soundscape perception is as replicating the perceptual mapping between soundscape indicators and descriptors <span class="citation" data-cites="Lionello2021new">(<a href="#ref-Lionello2021new" role="doc-biblioref">Lionello 2021</a>)</span>. As a person experiences an urban space, they are exposed to an array of physical inputs, these are then processed by the listener through their own personal experience and mapped to their perception of that space. This perception is then expressed through their description of this experience of the soundscape. It is this mapping of physical inputs to perceptual description which the statistical model aims to reflect. The most successful model would then accurately replicate the general perceptual mapping across the population.</p>
+</section>
+<section id="applications-in-design-and-mapping" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="applications-in-design-and-mapping"><span class="header-section-number">3</span> Applications in design and mapping</h2>
+<p>The soundscape approach faces several challenges in practical applications which are unaddressed by current assessment methods, but which may be solved through the development of a predictive modelling framework. The first of these challenges is predicting how a change in an existing sound environment will be reflected in the soundscape perception. While it is possible in this scenario to measure the existing soundscape perception via questionnaire surveys, if a change is then introduced to the acoustic environment, it is so far impossible to say what the resulting soundscape change would be. This question relates strongly to the idea of soundscape interventions; where a particular noise pollution challenge is addressed by introducing more pleasant sounds (e.g.&nbsp;a water feature), following the soundscape principle of treating sound as a resource <span class="citation" data-cites="Lavia2016Soundscape Moshona2022What">(<a href="#ref-Lavia2016Soundscape" role="doc-biblioref">Lavia et al. 2016</a>; <a href="#ref-Moshona2022What" role="doc-biblioref">Moshona et al. 2022</a>)</span>. Predicting how much a particular intervention would improve the soundscape (or, indeed whether it would improve at all) is not yet possible with the retrospective methods available.</p>
+<p>Several studies have attempted to address this gap by developing machine learning or statistical models of soundscape perception which are focussed on prediction, rather than inference. An array of modelling techniques are used, with linear regression being the most common <span class="citation" data-cites="Lionello2020systematic">(<a href="#ref-Lionello2020systematic" role="doc-biblioref">Lionello, Aletta, and Kang 2020</a>)</span>, and also including artificial neural networks (ANN) <span class="citation" data-cites="PuyanaRomero2016Modelling Yu2009Modeling">(<a href="#ref-PuyanaRomero2016Modelling" role="doc-biblioref">Puyana Romero et al. 2016</a>; <a href="#ref-Yu2009Modeling" role="doc-biblioref">Yu and Kang 2009</a>)</span> and support vector regression (SVR) <span class="citation" data-cites="Fan2016Automatic Fan2017Emo Giannakopoulos2019Athens">(<a href="#ref-Fan2016Automatic" role="doc-biblioref">Fan, Thorogood, and Pasquier 2016</a>, <a href="#ref-Fan2017Emo" role="doc-biblioref">2017</a>; <a href="#ref-Giannakopoulos2019Athens" role="doc-biblioref">Giannakopoulos, Orfanidi, and Perantonis 2019</a>)</span>. However, these studies have focussed primarily on using these models to investigate the constructs of soundscape perception, with few efforts to put the models themselves to use. <span class="citation" data-cites="Mitchell2021Investigating">Mitchell et al. (<a href="#ref-Mitchell2021Investigating" role="doc-biblioref">2021</a>)</span> attempted to address this by both developing a predictive model and applying it to an applied scenario where traditional assessment methods were impractical. In a unique application, <span class="citation" data-cites="Ooi2022Probably">Ooi et al. (<a href="#ref-Ooi2022Probably" role="doc-biblioref">2022</a>)</span> created a predictive model of soundscape pleasantness which fed an automated and reactive soundscape enhancement system <span class="citation" data-cites="Watcharasupat2022Autonomous">(<a href="#ref-Watcharasupat2022Autonomous" role="doc-biblioref">Watcharasupat et al. 2022</a>)</span>.</p>
+<p>Retrospective methods also struggle to capture the dynamics of the soundscape in a space. Whether through the narrative interview method of ISO/TS 12913-2 <span class="citation" data-cites="ISO12913Part2">(<a href="#ref-ISO12913Part2" role="doc-biblioref">ISO/TS 12913-2:2018 2018</a>)</span>, through soundwalks, or through in situ questionnaires <span class="citation" data-cites="Mitchell2020Soundscape">(<a href="#ref-Mitchell2020Soundscape" role="doc-biblioref">Mitchell et al. 2020</a>)</span>, only the soundscape during the particular period which the researchers are actively investigating is captured. This makes it very difficult to determine diurnal, seasonal, or yearly patterns of the soundscape. These patterns may be driven by corresponding diurnal, seasonal, or yearly patterns in the acoustic or visual environment, or by variations in how people process and respond to the sound at different times of day/season/year. Currently the only way to investigate any of these patterns is through repeated surveys. Predictive modelling, on the other hand, could allow a trained soundscape model to be paired with longterm monitoring methods to track how a soundscape perception may change in response to changes in the acoustic environment.</p>
+<p>Similarly, a move towards modelling methods based on objective and/or measurable factors would facilitate the application of mapping in soundscape. While noise maps have become common in urban noise research and legislation <span class="citation" data-cites="EEA2020Environmental Gasco2020Social">(<a href="#ref-EEA2020Environmental" role="doc-biblioref">EEA 2020</a>; <a href="#ref-Gasco2020Social" role="doc-biblioref">Gasco et al. 2020</a>)</span>, they can be difficult to translate into a soundscape approach. The Environmental Noise Directive (END) <span class="citation" data-cites="EuropeanUnion2002Directive">(<a href="#ref-EuropeanUnion2002Directive" role="doc-biblioref">European Union 2002</a>)</span>, first implemented in 2002, is the main EU instrument to identify noise pollution impacts and track urban noise levels across the EU. Its goals were to determine the population’s exposure to environmental noise, make information on environmental noise available to the public, and prevent and reduce environmental noise and its effects. In general, noise maps are based on modelled traffic flows, from which decibel levels are extrapolated and mapped, although interpolation and mobile measurement methods have also been recently developed <span class="citation" data-cites="Aumond2018Probabilistic">(see <a href="#ref-Aumond2018Probabilistic" role="doc-biblioref">Aumond, Jacquesson, and Can 2018</a>)</span>. Alternatively, they can be produced using longterm SLMs or sensor networks. While these methods have significant utility for tracking increases in urban noise levels and are important for determining the health and societal impacts of noise on a large scale, their restricted focus on noise levels alone limits their scope and reduces the potential for identifying more nuanced health and psychological effects of urban sound.</p>
+<p>Several studies have attempted to bring soundscape to urban noise mapping. The most notable of these attempts <span class="citation" data-cites="Aumond2018Probabilistic Aletta2015Soundscape Hong2017Exploring Kang2018Impact">(<a href="#ref-Aumond2018Probabilistic" role="doc-biblioref">Aumond, Jacquesson, and Can 2018</a>; <a href="#ref-Aletta2015Soundscape" role="doc-biblioref">Aletta and Kang 2015</a>; <a href="#ref-Hong2017Exploring" role="doc-biblioref">Hong and Jeon 2017</a>; <a href="#ref-Kang2018Impact" role="doc-biblioref">Kang and Aletta 2018</a>)</span> bring new, more sophisticated methods for mapping urban sound (not just noise levels). For instance, all four present methods which map the relative level of various sound sources, producing maps of the spatial distribution of bird sounds, human voices, water sounds, etc. In <span class="citation" data-cites="Aletta2015Soundscape">Aletta and Kang (<a href="#ref-Aletta2015Soundscape" role="doc-biblioref">2015</a>)</span> and <span class="citation" data-cites="Hong2017Exploring">Hong and Jeon (<a href="#ref-Hong2017Exploring" role="doc-biblioref">2017</a>)</span> the mapping relied on soundscape surveys conducted in public spaces, then used interpolation methods and basic relationships to the measured noise levels to generate a map of the perceived soundscape over the entire study space. <span class="citation" data-cites="Kang2018model">Kang et al. (<a href="#ref-Kang2018model" role="doc-biblioref">2018</a>)</span>, after starting with survey responses, attempted to create a prediction methods which relied only on the audio recordings made in the space to create visual maps of the predicted soundscape perception (i.e.&nbsp;the perceptual attributes ’pleasant’, ’calm’, ’eventful’, ’annoying’, ’chaotic’, ’monotonous’). According to the authors, the prediction and mapping model would follow three steps: (1) sound sources recognition and profiling, (2) prediction of the soundscape’s perceptual attributes, and (3) implementation of soundscape maps. Unfortunately, from the paper, it appears that the prediction model results were not actually used for the mapping and, again, the survey responses from 21 respondents were interpolated to create the soundscape map. Their results indicated how a predictive model could have been slotted into a mapping use-case, but this was limited by (1) the relatively poor predictive performance for several of the attributes, (2) the inability to automatically recognise sound sources, and (3) a very limited dataset in terms of sample size and variety of locations.</p>
+<p>While the connection is not made to perception, <span class="citation" data-cites="Aumond2018Probabilistic">Aumond, Jacquesson, and Can (<a href="#ref-Aumond2018Probabilistic" role="doc-biblioref">2018</a>)</span> focussed on creating sound maps which can reflect the pattern of sound source emergences over time within a city. By stochastically activating varying sound sources across their map, they could map the percentage of time when a sound source emerges from the overall complex sound environment. If a predictive soundscape model which incorporates sound source information can be developed, then the same procedure which led to their sound source emergence maps could also feed the soundscape model, resulting in a map of predicted perception over time.</p>
+<p>Urban scale noise mapping and its implementation at the international level has been crucial in highlighting the health impacts of urban noise and in providing evidence for the negative cost of excess noise. Traffic flow models of noise, large community noise surveys, and policy requirements to track noise levels have all been necessary to reveal these impacts. By creating predictive soundscape models, combined with new tools and sensing capabilities from smart city efforts, we can bring soundscape into these same realms. Without this, these large-scale impact studies will be limited to valuing the negative cost of urban noise, missing the potential value of positive soundscapes. By bringing perception-based practice to the same scale and type of evidence, we can expand urban sound research to consider a holistic view of urban spaces and their impacts.</p>
+<p>The broader use-case and need for such soundscape models and maps was recently highlighted by <span class="citation" data-cites="Jiang2022Ten">Jiang et al. (<a href="#ref-Jiang2022Ten" role="doc-biblioref">2022</a>)</span>, which opens the discussion for how the value and impact of soundscapes should be measured and what tools are needed to enable the valuation of policy interventions for soundscapes. In response to Question 5, “What soundscape metrics and data will be needed?”, the authors make clear the necessity of predictive soundscape models: “Quantitative soundscape metrics that link subjective perceptions to objective acoustic and contextual factors will be needed, to enable monetisation while at the same time account for the perception-based nature of soundscape.” In addition, the authors make a strong case for the need for soundscape indices: “Despite the varied requirements for soundscape metrics and data between and even within valuation methods, a standardised metric or set of metrics, such as dB in noise valuation [. . . ] will allow comparison and integration of different studies and building compatible evidence bases.”</p>
+</section>
+<section id="the-predictive-soundscape-model-framework" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-predictive-soundscape-model-framework"><span class="header-section-number">4</span> The Predictive Soundscape Model Framework</h2>
+<p>Several forms and iterations of predictive models have been developed <span class="citation" data-cites="Lionello2020systematic">(<a href="#ref-Lionello2020systematic" role="doc-biblioref">Lionello, Aletta, and Kang 2020</a>)</span> and more recently they have been put to use in real-world use cases <span class="citation" data-cites="Mitchell2021Investigating Watcharasupat2022Autonomous">(<a href="#ref-Mitchell2021Investigating" role="doc-biblioref">Mitchell et al. 2021</a>; <a href="#ref-Watcharasupat2022Autonomous" role="doc-biblioref">Watcharasupat et al. 2022</a>)</span>. To improve on these models and make them into a useful engineering tool, we should establish a framework of overarching goals for models to achieve and the resulting development constraints. In general, the goals we define are related to how we might wish for models to be used and deployed, while the constraints are practical limitations which may make the performance of a given model less than ideal, but are necessary to achieve the deployment goals.</p>
+<section id="goals" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">4.1</span> Goals</h3>
+<p>Before defining what form a general practical predictive model should take, we first need to make clear what the goals of such a model are, as derived from the preceding discussion laying out why predictive models are needed in soundscape.</p>
+<p><strong>Accuracy</strong> – First, that it to a reasonable extent is successful in predicting the collective perception <span class="citation" data-cites="Mitchell2022How">(see <a href="#ref-Mitchell2022How" role="doc-biblioref">Mitchell, Aletta, and Kang 2022</a>)</span> of a soundscape. It should succeed at both indicating the central tendency of the soundscape perception, but importantly it should also inform the likely spread of perception among the population. The outcome of the predictive model should not be focussed on predicting an individual assessment; the goal is not the predict the perception of any specific individual, but to reflect the public’s perception of a public space. In other words, ideally the model will result in an accurate distribution of soundscape perceptions for the target population.</p>
+<p><strong>Automation</strong> – Second, that it can be implemented automatically. Once an initial setup is performed, such as identifying what location the measurements are conducted in, the model should be capable of moving from recorded information to predicted soundscape distribution without human intervention. We need soundscape assessments to be able to be performed instrumentally. This enables it to be applied to unmanned uses, such as smart city sensors and soundscape mapping. It is impractical to conduct soundscape surveys or soundwalks in every location we wish to map and certainly not when we wish to see how these locations change over longer periods of time. A predictive model should allow us to survey these soundscapes remotely in order to extend soundscape to city-scale assessments.</p>
+<p><strong>Comparisons</strong> – Third, the model should enable us to test, score, and compare proposed interventions. In a design context, it is crucial that various strategies and interventions can be tested and that the influencing factors can be identified. The model should assist the user in highlighting what factor is limiting the success of a soundscape, spark ideas for how to address it, and allow these ideas to be tested. Several other useful features of predictive soundscape models arise out of these goals and will be discussed later, but these form the core goals of the framework.</p>
+</section>
+<section id="constraints" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="constraints"><span class="header-section-number">4.2</span> Constraints</h3>
+<p>If we accept that predictive models are necessary to advance a more holistic approach to urban sound in smart cities, we must then define the constraints of such a model. The goal here is to define a framework for what is needed from a future model intended to be used in a smart city sensors, soundscape mapping, or urban design context.</p>
+<p><strong>Inputs</strong> – The first constraint is that the model must be based on measurable factors. By this, we mean that the data which eventually feeds into the predictive model should be collected via sensor measurements of one sort or another; this could be acoustic sound level measurements or recordings, environmental measurements, video recordings, or GIS measurements, etc. What it certainly cannot include is perceptual data. This is strictly a practical constraint – for a predictive model designed to be used in practice, there is no justification to include other perceptual factors, such as perceived greenness, derived from surveys but not whichever factor you desire to predict. If the goal is to predict soundscape pleasantness and it is necessary to survey people about the visual pleasantness, why not just also survey them about the soundscape pleasantness directly? Certainly this mix of perceptual data is useful in research and can elucidate the relationship between the sonic and visual environments, but it is not useful in a practical predictive context. Any results which arise from research combining this sort of perceptual information must eventually be translated into a component which can itself be measured or modelled.</p>
+<p><strong>Calculation</strong> – The second constraint is that any analysis of the measured data can be done automatically, without human intervention. If the eventual goal is to deploy the model on continuously-running, unmanned sensor nodes or to enable practical large-scale measurements, the predictive model should be capable of operating with minimal human input. This means, for instance that if the model includes information about the sound source, this identification of the source should be possible to do automatically (i.e.&nbsp;through environmental sound recognition).</p>
+<p>A potential constraint for some applications is related to computation time. Since one proposed application of a predictive soundscape model is to embed the model on a WASN node, the model would then need to be able to run on relatively low-power hardware such as a Raspberry Pi with a reasonable latency. This would especially present an issue for those models which rely on the combination of several psychoacoustic features <span class="citation" data-cites="Mitchell2021Investigating Orga2021Multilevel">(such as <a href="#ref-Mitchell2021Investigating" role="doc-biblioref">Mitchell et al. 2021</a>; <a href="#ref-Orga2021Multilevel" role="doc-biblioref">Orga et al. 2021</a>)</span>, since these features are computationally intensive to calculate and several of them may need to be computed for each time step of the model. Although this is a real practical concern that should be addressed in the future, for the sake of this initial definition of a general predictive model used across many applications, we have not considered this a strict constraint.</p>
+<p><strong>Generalisability</strong> – The third constraint is for the model to be generalisable to new locations. Ideally, it will be generalisable to new and (to it) unfamiliar soundscape types, but the minimum requirement should be that it can be applied to new locations which are otherwise similar to those in the training data. This means that any factors which are used to characterise the context provided by the location should be distinguished from a simple label of the location and should instead be derived from measurements of the location. In practice this could be geographical or architectural characteristics of the space, a proposed use-case of the space, or consistent visual characteristics of the space such as the proportion of pavement to green elements. This is in contrast to the model created in <span class="citation" data-cites="Mitchell2021Investigating">Mitchell et al. (<a href="#ref-Mitchell2021Investigating" role="doc-biblioref">2021</a>)</span> which was constrained to be used only on those locations included in the training data since it made use of a location label.</p>
+<p>For this third point, some aspects of the first and second constraints can be relaxed. Since this would only need to be defined once for a location, definitions such as the use case of the space could be defined by the person using the model. What is necessary is that the model and its component location-context factors can be set up ahead of time by the user, then the recording-level effects are able to be calculated automatically. In a multi-level modelling (MLM) context (such as that used in <span class="citation" data-cites="Mitchell2021Investigating">(<a href="#ref-Mitchell2021Investigating" role="doc-biblioref">Mitchell et al. 2021</a>)</span>, this essentially amounts to choosing the appropriate location-level coefficients ahead of time then automatically calculating the features which are fed into those coefficients (per constraint 1 &amp; 2).</p>
+<p><strong>Robustness</strong> – Finally, the model should be robust to missing components. If the original or full construction of the model depends on demographic information of the population using the space, in cases where this information is not available, it should be possible to omit it and still obtain a reasonable result. Here we may define potential ‘must-have’ and ‘optional’ factors. Given the amount of variance explained by the various factors which have been considered in previous predictive models, in-depth acoustic information is a must-have, while demographic and personal factors are an optional factor where the trade-off of losing 3% of the explained variance in eventfulness <span class="citation" data-cites="Erfanian2021Psychological">(<a href="#ref-Erfanian2021Psychological" role="doc-biblioref">Erfanian et al. 2021</a>)</span> is accepted as reasonable. Based on the results of <span class="citation" data-cites="Mitchell2021Investigating">Mitchell et al. (<a href="#ref-Mitchell2021Investigating" role="doc-biblioref">2021</a>)</span>, it would appear that location-context is crucial for modelling the pleasantness, but not for modelling the eventfulness. In order to determine the must-have factors for characterising the location-context, more work will need to be done to determine the appropriate input factors and their relative importance.</p>
+</section>
+</section>
+<section id="making-use-of-the-predictions-in-design" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="making-use-of-the-predictions-in-design"><span class="header-section-number">5</span> Making use of the predictions in design</h2>
+<p>There are various potential methods for integrating the predictive soundscape approach into a design and intervention setting. Not all spaces can or should have the same soundscape and soundscapes should be treated as dynamic, not static; identifying and creating an appropriate soundscape for the particular use case of a space is crucial to guiding its design. Proper forwardlooking design of a soundscape would involve defining the desired collective perception in the space. In the probabilistic soundscape approach from <span class="citation" data-cites="Mitchell2022How">Mitchell, Aletta, and Kang (<a href="#ref-Mitchell2022How" role="doc-biblioref">2022</a>)</span>, this can be achieved by drawing the desired shape in the circumplex and testing interventions which will bring the existing soundscape closer to the desired perception. A soundscape may need to be perceived as vibrant during the day and calm for some portion of the evening, meaning the desired shape should primarily sit within the vibrant quadrant but have some overlap into calm. This also enables designers to recognise the limitations of their environment and acknowledge that it is not always possible to transform a highly chaotic soundscape into a calm one. In these cases, instead the focus should be placed on shifting the perception to some degree in a positive direction.</p>
+<div id="fig-cain" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="CainCircumplexTarget.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2: Adapted from <span class="citation" data-cites="Cain2013development">Cain, Jennings, and Poxon (<a href="#ref-Cain2013development" role="doc-biblioref">2013</a>)</span>. Using the soundscape circumplex shape for target-setting for soundscape design. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (<a href="#ref-Mitchell2022Predictive" role="doc-biblioref">2022</a>)</span>.</figcaption>
+</figure>
+</div>
+<p>The most sophisticated method of setting design goals is therefore to identify the desired shape which represents the variety of desired outcomes, and focus on designs and interventions which are most successful in matching the predicted outcome with that goal. This strategy of defining the optimal soundscape as an area or a shape within the 2-dimensional circumplex was previously illustrated by <span class="citation" data-cites="Cain2013development">Cain, Jennings, and Poxon (<a href="#ref-Cain2013development" role="doc-biblioref">2013</a>)</span>. In <a href="#fig-cain">Figure&nbsp;2</a>, we have adapted Cain’s Figure 6 to show how the shape of a target soundscape can be set and the shape of the existing soundscape compared to it. The work of a designer is then trialling intervention options which move the design soundscape closer to the target soundscape.</p>
+</section>
+<section id="towards-soundscape-indices" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="towards-soundscape-indices"><span class="header-section-number">6</span> Towards Soundscape Indices</h2>
+<p>Although the types of visualisations developed in <span class="citation" data-cites="Mitchell2022How">(<a href="#ref-Mitchell2022How" role="doc-biblioref">Mitchell, Aletta, and Kang 2022</a>)</span> and <span class="citation" data-cites="Cain2013development">(<a href="#ref-Cain2013development" role="doc-biblioref">Cain, Jennings, and Poxon 2013</a>)</span> are a powerful tool for viewing, analysing, and discussing the multi-dimensional aspects of soundscape perception, there are certainly cases where simpler metrics are needed to aid discussion and to set design goals. Within the practicalities of built environment projects, the consequences and successes of a design often need to be quantifiable within a single index. Whether to demonstrate performance indicators to a client or to set and meet consistent policy requirements, numerical ratings and/or rankings are necessary. This therefore necessitates the creation of consistent and validated indices which indicate the degree to which a proposal achieves a set design goal.</p>
+<p>The challenge for creating a single number index lies in properly combining the two-plus dimensions of soundscape perception with the needs of a specific project into a single index. The obvious option would be to ignore the multi-dimensionality and only score soundscape designs on the basis of their pleasantness score (as done in <span class="citation" data-cites="Ooi2022Probably">(<a href="#ref-Ooi2022Probably" role="doc-biblioref">Ooi et al. 2022</a>)</span>). However, this seems to ignore both the significant importance of the eventfulness dimension in shaping the character of a soundscape and the role of appropriateness in determining the ’optimal soundscape’ for a space. Ideally, a soundscape index (or set of soundscape indices) would succeed at capturing all these aspects into a single scoring metric.</p>
+</section>
+<section id="conclusion" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7</span> Conclusion</h2>
+<p>The existing methods for soundscape assessment and measurement, such as those given in the ISO 12913 series, have been focussed primarily on determining the status quo of an environment. That is, they are able to determine how the space is currently perceived, but offer little insight into hypothetical environments. As such, they are less relevant for design purposes, where a key goal is to determine how a space will be perceived, not just how an existing space is perceived. The methods for assessment outlined in <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (<a href="#ref-ISO12913Part2" role="doc-biblioref">2018</a>)</span> and for analysis given in <span class="citation" data-cites="ISO12913Part3">ISO/TS 12913-3:2019 (<a href="#ref-ISO12913Part3" role="doc-biblioref">2019</a>)</span> are inherently limited to post hoc assessments of an existing space. Since they are focussed on surveying people on their experience of the environment, it stands that the space must already exist for people to be able to experience. Toward this, and following from the combination of perceptual and objective data collection encouraged in <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (<a href="#ref-ISO12913Part2" role="doc-biblioref">2018</a>)</span>, the natural push from the design perspective is towards ’predictive modelling’.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Aletta2015Soundscape" class="csl-entry" role="listitem">
+Aletta, Francesco, and Jian Kang. 2015. <span>“<span class="nocase">Soundscape approach integrating noise mapping techniques: a case study in Brighton, UK</span>.”</span> <em>Noise Mapping</em> 2 (1): 1–12. <a href="https://doi.org/10.1515/noise-2015-0001">https://doi.org/10.1515/noise-2015-0001</a>.
+</div>
+<div id="ref-Aletta2016Soundscape" class="csl-entry" role="listitem">
+Aletta, Francesco, Jian Kang, and Östen Axelsson. 2016. <span>“<span class="nocase">Soundscape descriptors and a conceptual framework for developing predictive soundscape models</span>.”</span> <em>Landscape and Urban Planning</em> 149 (July): 65–74. <a href="https://doi.org/10.1016/j.landurbplan.2016.02.001">https://doi.org/10.1016/j.landurbplan.2016.02.001</a>.
+</div>
+<div id="ref-Aumond2018Probabilistic" class="csl-entry" role="listitem">
+Aumond, Pierre, Léo Jacquesson, and Arnaud Can. 2018. <span>“Probabilistic Modeling Framework for Multisource Sound Mapping.”</span> <em>Applied Acoustics</em> 139 (October): 34–43. <a href="https://doi.org/10.1016/j.apacoust.2018.04.017">https://doi.org/10.1016/j.apacoust.2018.04.017</a>.
+</div>
+<div id="ref-Axelsson2010principal" class="csl-entry" role="listitem">
+Axelsson, Östen, Mats E. Nilsson, and Birgitta Berglund. 2010. <span>“<span class="nocase">A principal components model of soundscape perception</span>.”</span> <em>The Journal of the Acoustical Society of America</em> 128 (5): 2836–46. <a href="https://doi.org/10.1121/1.3493436">https://doi.org/10.1121/1.3493436</a>.
+</div>
+<div id="ref-Ba2019Effect" class="csl-entry" role="listitem">
+Ba, Meihui, and Jian Kang. 2019. <span>“<span class="nocase">Effect of a fragrant tree on the perception of traffic noise</span>.”</span> <em>Building and Environment</em>. <a href="https://doi.org/10.1016/j.buildenv.2019.04.022">https://doi.org/10.1016/j.buildenv.2019.04.022</a>.
+</div>
+<div id="ref-Cain2013development" class="csl-entry" role="listitem">
+Cain, Rebecca, Paul Jennings, and John Poxon. 2013. <span>“The Development and Application of the Emotional Dimensions of a Soundscape.”</span> <em>Applied Acoustics</em> 74 (2): 232–39. <a href="https://doi.org/10.1016/j.apacoust.2011.11.006">https://doi.org/10.1016/j.apacoust.2011.11.006</a>.
+</div>
+<div id="ref-EEA2020Environmental" class="csl-entry" role="listitem">
+EEA. 2020. <span>“<span class="nocase">Environmental noise in <span>Europe</span>, 2020.</span>”</span> Publications Office of the European Union. <a href="https://doi.org/10.2800/686249">https://doi.org/10.2800/686249</a>.
+</div>
+<div id="ref-Engel2018Review" class="csl-entry" role="listitem">
+Engel, Margret Sibylle, André Fiebig, Carmella Pfaffenbach, and Janina Fels. 2018. <span>“<span class="nocase">A <span>Review</span> of <span>Socio</span>-acoustic <span>Surveys</span> for <span>Soundscape</span> <span>Studies</span></span>.”</span> <em>Current Pollution Reports</em> 4 (3): 220–39. <a href="https://doi.org/10.1007/s40726-018-0094-8">https://doi.org/10.1007/s40726-018-0094-8</a>.
+</div>
+<div id="ref-Erfanian2021Psychological" class="csl-entry" role="listitem">
+Erfanian, Mercede, Andrew Mitchell, Francesco Aletta, and Jian Kang. 2021. <span>“Psychological Well-Being and Demographic Factors Can Mediate Soundscape Pleasantness and Eventfulness: A Large Sample Study.”</span> <em>Journal of Environmental Psychology</em> 77 (October): 101660. <a href="https://doi.org/10.1016/j.jenvp.2021.101660">https://doi.org/10.1016/j.jenvp.2021.101660</a>.
+</div>
+<div id="ref-EuropeanUnion2002Directive" class="csl-entry" role="listitem">
+European Union. 2002. <em><span class="nocase">Directive 2002/49/EC of the European Parliament and of the Council of 25 June 2002 relating to the assessment and management of environmental noise</span></em>.
+</div>
+<div id="ref-Fan2016Automatic" class="csl-entry" role="listitem">
+Fan, Jianyu, Miles Thorogood, and Philippe Pasquier. 2016. <span>“<span>Automatic Soundscape Affect Recognition Using A Dimensional Approach</span>.”</span> <em>AES: Journal of the Audio Engineering Society</em> 64 (9): 646–53. <a href="https://doi.org/10.17743/jaes.2016.0044">https://doi.org/10.17743/jaes.2016.0044</a>.
+</div>
+<div id="ref-Fan2017Emo" class="csl-entry" role="listitem">
+———. 2017. <span>“Emo-Soundscapes: A Dataset for Soundscape Emotion Recognition.”</span> In <em>2017 Seventh International Conference on Affective Computing and Intelligent Interaction (ACII)</em>, 196–201. <a href="https://doi.org/10.1109/ACII.2017.8273600">https://doi.org/10.1109/ACII.2017.8273600</a>.
+</div>
+<div id="ref-Gasco2020Social" class="csl-entry" role="listitem">
+Gasco, Luis, Rossano Schifanella, Luca Maria Aiello, Daniele Quercia, Cesar Asensio, and Guillermo de Arcas. 2020. <span>“<span class="nocase">Social Media and Open Data to Quantify the Effects of Noise on Health</span>.”</span> <em>Frontiers in Sustainable Cities</em> 2 (September): 41. <a href="https://doi.org/10.3389/frsc.2020.00041">https://doi.org/10.3389/frsc.2020.00041</a>.
+</div>
+<div id="ref-Giannakopoulos2019Athens" class="csl-entry" role="listitem">
+Giannakopoulos, Theodoros, Margarita Orfanidi, and Stavros Perantonis. 2019. <span>“<span class="nocase">Athens Urban Soundscape (ATHUS): A Dataset for Urban Soundscape Quality Recognition</span>.”</span> In <em>International Conference on Multimedia Modeling</em>, 11295:338–48. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-14442-9">https://doi.org/10.1007/978-3-319-14442-9</a>.
+</div>
+<div id="ref-Hong2017Exploring" class="csl-entry" role="listitem">
+Hong, Joo Young, and Jin Yong Jeon. 2017. <span>“Exploring Spatial Relationships Among Soundscape Variables in Urban Areas: A Spatial Statistical Modelling Approach.”</span> <em>Landscape and Urban Planning</em> 157 (January): 352–64. <a href="https://doi.org/10.1016/j.landurbplan.2016.08.006">https://doi.org/10.1016/j.landurbplan.2016.08.006</a>.
+</div>
+<div id="ref-ISO12913Part2" class="csl-entry" role="listitem">
+ISO/TS 12913-2:2018. 2018. <span>“<span>Acoustics</span> – <span>Soundscape</span> – <span>Part</span> 2: <span>Data</span> Collection and Reporting Requirements.”</span>
+</div>
+<div id="ref-ISO12913Part3" class="csl-entry" role="listitem">
+ISO/TS 12913-3:2019. 2019. <span>“<span>Acoustics</span> – <span>Soundscape</span> – <span>Part</span> 3: <span>Data</span> Analysis.”</span>
+</div>
+<div id="ref-Jiang2022Ten" class="csl-entry" role="listitem">
+Jiang, Like, Aibgail Bristow, Jian Kang, Francesco Aletta, Rhian Thomas, Hilary Notley, Adam Thomas, and John Nellthorp. 2022. <span>“Ten Questions Concerning Soundscape Valuation.”</span> <em>Building and Environments</em>, May, 109231. <a href="https://doi.org/10.1016/j.buildenv.2022.109231">https://doi.org/10.1016/j.buildenv.2022.109231</a>.
+</div>
+<div id="ref-Kang2018Impact" class="csl-entry" role="listitem">
+Kang, Jian, and Francesco Aletta. 2018. <span>“<span class="nocase">The Impact and Outreach of Soundscape Research</span>.”</span> <em>Environments</em> 5 (5): 58. <a href="https://doi.org/10.3390/environments5050058">https://doi.org/10.3390/environments5050058</a>.
+</div>
+<div id="ref-Kang2018model" class="csl-entry" role="listitem">
+Kang, Jian, Francesco Aletta, Efstathios Margaritis, and Ming Yang. 2018. <span>“A Model for Implementing Soundscape Maps in Smart Cities.”</span> <em>Noise Mapping</em> 5 (1): 46–59. <a href="https://doi.org/10.1515/noise-2018-0004">https://doi.org/10.1515/noise-2018-0004</a>.
+</div>
+<div id="ref-Lavia2016Soundscape" class="csl-entry" role="listitem">
+Lavia, Lisa, Max Dixon, Harry J. Witchel, and Mike Goldsmith. 2016. <span>“Soundscape and the <span>B</span>uilt <span>E</span>nvironment.”</span> In, edited by Jian Kang and Brigitte Schulte-Fortkamp, 243–302. Boca Raton, FL: CRC Press.
+</div>
+<div id="ref-Lionello2021new" class="csl-entry" role="listitem">
+Lionello, Matteo. 2021. <span>“A New Methodology for Modelling Urban Soundscapes: <span>A</span> Psychometric Revisitation of the Current Standard and a <span>Bayesian</span> Approach for Individual Response Prediction.”</span> Master’s thesis, Unpublished. <a href="https://doi.org/10.13140/RG.2.2.30107.80160">https://doi.org/10.13140/RG.2.2.30107.80160</a>.
+</div>
+<div id="ref-Lionello2020systematic" class="csl-entry" role="listitem">
+Lionello, Matteo, Francesco Aletta, and Jian Kang. 2020. <span>“<span class="nocase">A systematic review of prediction models for the experience of urban soundscapes</span>.”</span> <em>Applied Acoustics</em> 170 (June). <a href="https://doi.org/10.1016/j.apacoust.2020.107479">https://doi.org/10.1016/j.apacoust.2020.107479</a>.
+</div>
+<div id="ref-Mitchell2022Predictive" class="csl-entry" role="listitem">
+Mitchell, Andrew. 2022. <span>“Predictive <span>M</span>odelling of <span>C</span>omplex <span>U</span>rban <span>S</span>oundscapes: <span>E</span>nabling an Engineering Approach to Soundscape Design.”</span> PhD Thesis, University College London. <a href="https://doi.org/10.13140/RG.2.2.15590.50245">https://doi.org/10.13140/RG.2.2.15590.50245</a>.
+</div>
+<div id="ref-Mitchell2022How" class="csl-entry" role="listitem">
+Mitchell, Andrew, Francesco Aletta, and Jian Kang. 2022. <span>“How to Analyse and Represent Quantitative Soundscape Data.”</span> <em>JASA Express Letters</em> 2 (3): 037201. <a href="https://doi.org/10.1121/10.0009794">https://doi.org/10.1121/10.0009794</a>.
+</div>
+<div id="ref-Mitchell2020Soundscape" class="csl-entry" role="listitem">
+Mitchell, Andrew, Tin Oberman, Francesco Aletta, Mercede Erfanian, Magdalena Kachlicka, Matteo Lionello, and Jian Kang. 2020. <span>“<span class="nocase">The Soundscape Indices (SSID) Protocol: A Method for Urban Soundscape Surveys–Questionnaires with Acoustical and Contextual Information</span>.”</span> <em>Applied Sciences</em> 10 (7): 2397. <a href="https://doi.org/10.3390/app10072397">https://doi.org/10.3390/app10072397</a>.
+</div>
+<div id="ref-Mitchell2021Investigating" class="csl-entry" role="listitem">
+Mitchell, Andrew, Tin Oberman, Francesco Aletta, Magdalena Kachlicka, Matteo Lionello, Mercede Erfanian, and Jian Kang. 2021. <span>“Investigating Urban Soundscapes of the <span>COVID</span>-19 Lockdown: <span>A</span> Predictive Soundscape Modeling Approach.”</span> <em>The Journal of the Acoustical Society of America</em> 150 (6): 4474–88. <a href="https://doi.org/10.1121/10.0008928">https://doi.org/10.1121/10.0008928</a>.
+</div>
+<div id="ref-Moshona2022What" class="csl-entry" role="listitem">
+Moshona, Cleopatra Christina, Francesco Aletta, Helen Henze, Xiaochao Chen, Andrew Mitchell, Tin Oberman, Huan Tong, André Fiebig, Jian Kang, and Brigitte Schulte-Fortkamp. 2022. <span>“What Is a Soundscape Intervention? Exploring Definitions and Identifi-Cation Criteria and a Platform to Gather Real-World Examples.”</span> In <em>51st International Congress and Exposition on Noise Control Engineering (INTER-NOISE 2022)</em>. <a href="https://www.researchgate.net/profile/Francesco-Aletta/publication/362906252_What_is_a_soundscape_intervention_Exploring_definitions_and_identification_criteria_and_a_platform_to_gather_real-world_examples/links/630664e561e4553b95364712/What-is-a-soundscape-intervention-Exploring-definitions-and-identification-criteria-and-a-platform-to-gather-real-world-examples.pdf">https://www.researchgate.net/profile/Francesco-Aletta/publication/362906252_What_is_a_soundscape_intervention_Exploring_definitions_and_identification_criteria_and_a_platform_to_gather_real-world_examples/links/630664e561e4553b95364712/What-is-a-soundscape-intervention-Exploring-definitions-and-identification-criteria-and-a-platform-to-gather-real-world-examples.pdf</a>.
+</div>
+<div id="ref-Ooi2022Probably" class="csl-entry" role="listitem">
+Ooi, Kenneth, Karn N. Watcharasupat, Bhan Lam, Zhen-Ting Ong, and Woon-Seng Gan. 2022. <span>“Probably Pleasant? A Neural-Probabilistic Approach to Automatic Masker Selection for Urban Soundscape Augmentation.”</span> In <em><span>ICASSP</span> 2022 - 2022 <span>IEEE</span> International Conference on Acoustics, Speech and Signal Processing (<span>ICASSP</span>)</em>. <span>IEEE</span>. <a href="https://doi.org/10.1109/icassp43922.2022.9746897">https://doi.org/10.1109/icassp43922.2022.9746897</a>.
+</div>
+<div id="ref-Orga2021Multilevel" class="csl-entry" role="listitem">
+Orga, Ferran, Andrew Mitchell, Marc Freixes, Francesco Aletta, Rosa Ma Alsina-Pagès, and Maria Foraster. 2021. <span>“<span class="nocase">Multilevel Annoyance Modelling of Short Environmental Sound Recordings</span>.”</span> <em>Sustainability</em> 13 (11): 5779. <a href="https://doi.org/10.3390/su13115779">https://doi.org/10.3390/su13115779</a>.
+</div>
+<div id="ref-Payne2013production" class="csl-entry" role="listitem">
+Payne, Sarah R. 2013. <span>“The Production of a <span>P</span>erceived <span>R</span>estorativeness <span>S</span>oundscape <span>S</span>cale.”</span> <em>Applied Acoustics</em> 74 (2): 255–63. <a href="https://doi.org/10.1016/j.apacoust.2011.11.005">https://doi.org/10.1016/j.apacoust.2011.11.005</a>.
+</div>
+<div id="ref-PerssonWaye2002Psycho" class="csl-entry" role="listitem">
+Persson Waye, K., and E. Öhrström. 2002. <span>“<span>P</span>sycho-Acoustic Characters of Relevance for Annoyance of Wind Turbine Noise.”</span> <em>Journal of Sound and Vibration</em> 250 (1): 65–73. <a href="https://doi.org/10.1006/jsvi.2001.3905">https://doi.org/10.1006/jsvi.2001.3905</a>.
+</div>
+<div id="ref-PuyanaRomero2016Modelling" class="csl-entry" role="listitem">
+Puyana Romero, Virginia, Luigi Maffei, Giovanni Brambilla, and Giuseppe Ciaburro. 2016. <span>“Modelling the Soundscape Quality of Urban Waterfronts by Artificial Neural Networks.”</span> <em>Applied Acoustics</em> 111 (October): 121–28. <a href="https://doi.org/10.1016/j.apacoust.2016.04.019">https://doi.org/10.1016/j.apacoust.2016.04.019</a>.
+</div>
+<div id="ref-Watcharasupat2022Autonomous" class="csl-entry" role="listitem">
+Watcharasupat, Karn N., Kenneth Ooi, Bhan Lam, Trevor Wong, Zhen-Ting Ong, and Woon-Seng Gan. 2022. <span>“Autonomous in-Situ Soundscape Augmentation via Joint Selection of Masker and Gain.”</span> <em><span>IEEE</span> Signal Processing Letters</em> 29: 1749–53. <a href="https://doi.org/10.1109/lsp.2022.3194419">https://doi.org/10.1109/lsp.2022.3194419</a>.
+</div>
+<div id="ref-Yu2009Modeling" class="csl-entry" role="listitem">
+Yu, Lei, and Jian Kang. 2009. <span>“Modeling Subjective Evaluation of Soundscape Quality in Urban Open Spaces: An Artificial Neural Network Approach.”</span> <em>The Journal of the Acoustical Society of America</em> 126 (3): 1163–74. <a href="https://doi.org/10.1121/1.3183377">https://doi.org/10.1121/1.3183377</a>.
+</div>
+<div id="ref-Zhang2018Effect" class="csl-entry" role="listitem">
+Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase">Effect of soundscape dimensions on acoustic comfort in urban open public spaces</span>.”</span> <em>Applied Acoustics</em> 133 (April): 73–81. <a href="https://doi.org/10.1016/j.apacoust.2017.11.024">https://doi.org/10.1016/j.apacoust.2017.11.024</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{mitchell2023,
+  author = {Mitchell, Andrew and Aletta, Francesco and Oberman, Tin and
+    Erfanian, Mercede and Kang, Jian},
+  title = {A Conceptual Framework for the Practical Use of Predictive
+    Models and {Soundscape} {Indices:} {Goals,} Constraings, and
+    Applications},
+  booktitle = {INTER-NOISE 2023 Conference},
+  date = {2023-08-20},
+  url = {https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html},
+  langid = {en},
+  abstract = {With the recent standardization of soundscape, there has
+    been increased interest in bringing the soundscape approach into an
+    engineering context. While traditional assessment methods, such as
+    those given in the ISO 12913 series, provide information on the
+    current status quo of an environment, they offer limited insight
+    into hypothetical environments and are therefore less relevant for
+    design purposes. This conference paper presents a conceptual
+    framework for the practical use of predictive soundscape models and
+    indices. The framework outlines the goals, constraints, and
+    potential applications of these models and highlights the need for
+    further research in this area to better understand the dynamics of
+    soundscape perception and to put predictive models to practical use.
+    Predictive soundscape models can be integrated with soundscape
+    indices - such as those being developed by the Soundscape Indices
+    (SSID) project - for assessment purposes, providing a comprehensive
+    approach to evaluating and designing sound environments. The use of
+    predictive models is necessary to address the challenges faced in
+    practical applications of the soundscape approach and to fill the
+    gap between traditional assessment methods and the design of sound
+    environments.}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+Mitchell, Andrew, Francesco Aletta, Tin Oberman, Mercede Erfanian, and
+Jian Kang. 2023. <span>“A Conceptual Framework for the Practical Use of
+Predictive Models and Soundscape Indices: Goals, Constraings, and
+Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html">https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

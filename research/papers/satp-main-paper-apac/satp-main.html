@@ -8,7 +8,7 @@
 
 <meta name="author" content="Francesco Aletta">
 <meta name="author" content="Andrew Mitchell">
-<meta name="dcterms.date" content="2023-11-27">
+<meta name="dcterms.date" content="2023-11-30">
 <meta name="description" content="Analysis of the SATP data using SEM">
 
 <title>Andrew Mitchell - SEM Analysis</title>
@@ -165,11 +165,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
     <a class="dropdown-item" href="../../../research/papers.html" rel="" target="">
- <span class="dropdown-text">Papers with Code</span></a>
+ <span class="dropdown-text">Open Source Papers</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../research/presentations.html" rel="" target="">
- <span class="dropdown-text">Presentations</span></a>
+ <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../../../research/list-of-pubs.html" rel="" target="">
@@ -263,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 27, 2023</p>
+        <p class="date">November 30, 2023</p>
       </div>
     </div>
     
@@ -279,13 +279,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../research/papers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Papers with Code</span></a>
+ <span class="menu-text">Open Source Papers</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../../research/presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Presentations</span></a>
+ <span class="menu-text">Talks</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -300,14 +300,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
     <h2 id="toc-title">Contents</h2>
    
   <ul>
-  <li><a href="#step-one-confirmatory-factor-analysis" id="toc-step-one-confirmatory-factor-analysis" class="nav-link active" data-scroll-target="#step-one-confirmatory-factor-analysis">Step One: Confirmatory Factor Analysis</a>
+  <li><a href="#step-one-confirmatory-factor-analysis" id="toc-step-one-confirmatory-factor-analysis" class="nav-link active" data-scroll-target="#step-one-confirmatory-factor-analysis"><span class="header-section-number">1</span> Step One: Confirmatory Factor Analysis</a>
   <ul>
-  <li><a href="#fit-indices" id="toc-fit-indices" class="nav-link" data-scroll-target="#fit-indices">Fit Indices</a></li>
-  <li><a href="#run-step-one" id="toc-run-step-one" class="nav-link" data-scroll-target="#run-step-one">Run Step one</a></li>
+  <li><a href="#fit-indices" id="toc-fit-indices" class="nav-link" data-scroll-target="#fit-indices"><span class="header-section-number">1.1</span> Fit Indices</a></li>
+  <li><a href="#run-step-one" id="toc-run-step-one" class="nav-link" data-scroll-target="#run-step-one"><span class="header-section-number">1.2</span> Run Step one</a></li>
   </ul></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="manuscript.pdf"><i class="bi bi-file-pdf"></i>PDF (elsevier)</a></li></ul></div></nav>
@@ -403,11 +403,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>satp <span class="ot">&lt;-</span> <span class="fu">left_join</span>(satp, result, <span class="at">by=</span><span class="fu">join_by</span>(Recording <span class="sc">==</span> Recording))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="step-one-confirmatory-factor-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="step-one-confirmatory-factor-analysis">Step One: Confirmatory Factor Analysis</h2>
+<section id="step-one-confirmatory-factor-analysis" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="step-one-confirmatory-factor-analysis"><span class="header-section-number">1</span> Step One: Confirmatory Factor Analysis</h2>
 <p>Run all four models for a language and compile into a single table:</p>
-<section id="fit-indices" class="level3">
-<h3 class="anchored" data-anchor-id="fit-indices">Fit Indices</h3>
+<section id="fit-indices" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="fit-indices"><span class="header-section-number">1.1</span> Fit Indices</h3>
 <table class="table">
 <thead>
 <tr class="header">
@@ -449,8 +449,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Fit indices and thresholds, including the reference from which the threshold is derived. {#tbl-indices}</p>
 <p>Each model is assessed against a suite of SEM fit indices, summarised in <strong>?@tbl-indices</strong>. These indices include the <span class="math inline">\chi^2</span> test, Comparative Fit Index (CFI), Goodness of Fit Index (GFI), Standardized Root Mean Square Residual (SRMR), and Root Mean Squared Error of Approximation (RMSEA). Two additional indices are calculated which are not considered ‘typical’ fit indices for SEMs, but which have proved to be crucial for the analysis of the circumplex. The first is the Minimum Common Score Correlations (MCSC). The second is the Gap Difference test (GDIFF), which cont. The thresholds for each index are derived from the literature, and are summarised in <strong>?@tbl-indices</strong>.</p>
 </section>
-<section id="run-step-one" class="level3">
-<h3 class="anchored" data-anchor-id="run-step-one">Run Step one</h3>
+<section id="run-step-one" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="run-step-one"><span class="header-section-number">1.2</span> Run Step one</h3>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -488,13 +488,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mitchell2023,
   author = {Mitchell, Andrew and Aletta, Francesco and Mitchell, Andrew},
   title = {SEM {Analysis}},
-  date = {2023-11-27},
+  date = {2023-11-30},
   url = {https://drandrewmitchell.com//research/papers/satp-main-paper-apac/satp-main.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas" role="listitem">
 Mitchell, Andrew, Francesco Aletta, and Andrew Mitchell. 2023.
-<span>“SEM Analysis.”</span> November 27, 2023. <a href="https://drandrewmitchell.com//research/papers/satp-main-paper-apac/satp-main.html">https://drandrewmitchell.com//research/papers/satp-main-paper-apac/satp-main.html</a>.
+<span>“SEM Analysis.”</span> November 30, 2023. <a href="https://drandrewmitchell.com//research/papers/satp-main-paper-apac/satp-main.html">https://drandrewmitchell.com//research/papers/satp-main-paper-apac/satp-main.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
