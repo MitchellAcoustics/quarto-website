@@ -35,7 +35,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
@@ -80,7 +79,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -156,47 +155,37 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
-<main class="content page-columns page-full column-page-left" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+
+
+<div class="quarto-about-jolla">
+  <img src="/social-card.jpg" class="about-image
+  round " style="height: 15em; width: 15em;">
+ <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Andrew Mitchell</h1>
 </div>
-
 <div>
   <div class="description">
     Urban Soundscape Engineering and Analysis
   </div>
 </div>
-
-
 <div class="quarto-title-meta">
-
-    
-  
-    
   </div>
-  
-
-</header>
-
-<div class="column-page-inset page-columns page-full">
-<div class="column-page-inset-left">
+</header><div id="hero-heading" class="text-center">
 <p>I am currently a Senior Research Fellow in urban soundscape modelling at University College London (UCL). My research interests include soundscape analysis and visualisation, machine learning, and human perception of complex sounds.</p>
+</div>  
+</div>
+
+<hr>
 <p>I was awarded two PhD- and one Post-doctoral Enrichment Awards from The Alan Turing Institute and spent a month in early 2022 as a visiting research fellow at Stockholm University. My ongoing projects include the Soundscape Indices (SSID) Horizon 2020 project, Soundscapy, Deep Learning Techniques for noise Annoyance detection (DeLTA), the Catalogue of Soundscape Interventions (CSI), and the Soundscape Attributes Translation Project (SATP).</p>
 <p>I am also the host of The Rest is Just Noise, a monthly podcast exploring the relationship between sound and our cities. Each episode, along with my co-hosts and colleagues Dr Francesco Aletta and Dr Tin Oberman, I speak with researchers and experts from a wide range of backgrounds about their work in urban sounds and sound perception.</p>
-</div>
-<div class="column-margin column-container">
-<p><img src="headshot.jpg" class="rounded img-fluid"></p>
-</div>
-</div>
 <div id="buzzsprout-large-player">
 
 </div>
@@ -227,6 +216,7 @@ ul.task-list li input[type="checkbox"] {
     <i class="ai bi-envelope" role="img" aria-label="email"></i>
 </a>
 </div>
+
 
 
 
@@ -366,13 +356,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
