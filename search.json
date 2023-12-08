@@ -53,7 +53,28 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "I am currently a Senior Research Fellow at the Institute for Environmental Design & Engineering at University College London.\n\nResearch Interests\n\nSoundscape Engineering\nMachine Learning\nData Science\nEnvironmental Acoustics\nPsychoacoustics\n\n\n\nEducation\n\n\nUniversity College London\nPhD in Environmental Acoustics and Machine Learning\nSupervisor: Prof Jian Kang\nCo-Superverisor: Dr. Phil Symonds\n\n\nLondon, UK\nGranted September 2022\n\n\n\nDissertation: Predictive Modelling of Complex Urban Soundscapes: Enabling an Engineering Approach to Soundscape Design\n\n\n\nCardiff University\nBSc. (Hons) in Physics & Music\n\n\nCardiff, Wales, UK\nGranted August 2015\n\n\n\nDissertation: The Physics of the Trombone Mouthpiece\n\n\n\nExperience\n\n\nUniversity College London\n\n\nOctober 2023 - present\n\n\nSenior Research Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nUniversity College London, Institute for Environmental Design & Engineering\n\n\nJune 2022 - Oct 2023\n\n\nResearch Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nHoare Lea, LLC, London, UK\n\n\nJune 2019 - March 2021\n\n\nAcoustics Engineer / Soundscape Consultant\n\nAcademic/industry collaboration to design an IoT-based soundscape assessment tool\n\n\n\nNewson Brown Acoustics, Santa Monica, CA\n\n\nJune 2016 - September 2018\n\n\nAcoustical Consultant\n\nArchitectural acoustics, room acoustics modelling, & noise control\n\n\n\nHayes McKenzie Partnership, Machynlleth, Wales\n\n\nJuly 2015 - April 2016\n\n\nJunior Acoustics Consultant\n\n\nBusch Gardens Williamsburg, Williamsburg, VA\n\n\nSummer 2012\n\n\nBass Trombonist"
+    "text": "I am currently a Senior Research Fellow at the Institute for Environmental Design & Engineering at University College London."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "Education",
+    "text": "Education\n\n\nUniversity College London\nPhD in Environmental Acoustics and Machine Learning\nSupervisor: Prof Jian Kang\nCo-Superverisor: Dr. Phil Symonds\n\n\nLondon, UK\nGranted September 2022\n\n\n\nThesis: Predictive Modelling of Complex Urban Soundscapes: Enabling an Engineering Approach to Soundscape Design\n\n\n\nCardiff University\nBSc. (Hons) in Physics & Music\n\n\nCardiff, Wales, UK\nGranted August 2015\n\n\n\nDissertation: The Physics of the Trombone Mouthpiece"
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About",
+    "section": "Experience",
+    "text": "Experience\n\n\nUniversity College London\n\n\nOctober 2023 - present\n\n\nSenior Research Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nUniversity College London, Institute for Environmental Design & Engineering\n\n\nJune 2022 - Oct 2023\n\n\nResearch Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nThe Alan Turing Institute, British Library, London, UK\n\n\nMay 2022 - March 2023\n\n\nAcademic PI and Challenge Owner\nFunded by a UCL Health of the Public small grant, the DeLTA project aims to develop deep learning methods (specifically, a Temporal Convolutional Neural Network) for predicting annoyance perception of various urban sounds. The Turing Data Study Group is an extension to this project carried out in partnership with the Alan Turing Institute.\n\nCoordinating a 5-day intensive collaborative hackathon hosted by the Turing Institute\nPrepare two large-scale datasets and define an open-ended challenge for the AI and data science experts recruited to participate in the DSG\nLead the DSG and supervise the preparation of an openly-published report and prototype model for real-world application\n\n\n\nHoare Lea, LLC, London, UK\n\n\nJune 2019 - March 2021\n\n\nAcoustics Engineer / Soundscape Consultant\n\nAcademic/industry collaboration to design an IoT-based soundscape assessment tool\n\n\n\nNewson Brown Acoustics, Santa Monica, CA\n\n\nJune 2016 - September 2018\n\n\nAcoustical Consultant\n\nArchitectural acoustics, room acoustics modelling, & noise control\n\n\n\nHayes McKenzie Partnership, Machynlleth, Wales\n\n\nJuly 2015 - April 2016\n\n\nJunior Acoustics Consultant\n\n\nBusch Gardens Williamsburg, Williamsburg, VA\n\n\nSummer 2012\n\n\nBass Trombonist"
+  },
+  {
+    "objectID": "about.html#associations",
+    "href": "about.html#associations",
+    "title": "About",
+    "section": "Associations",
+    "text": "Associations\n\n\nMember, Acoustical Society of America\n\n\n2023 - Present\n\n\n\n\nAssociate Member, Acoustical Society of America\n\n\n2016 - 2023\n\n\n\n\nStudent Member, Institute of Acoustics\n\n\n2015 - Present\n\n\n\n\nResearcher & Advisory Board Member, International Misophonia Research Network (IMRN)\n\n\n2018 - 2022"
   },
   {
     "objectID": "index.html",
@@ -355,6 +376,27 @@
     "title": "Curriculum Vitae",
     "section": "",
     "text": "I am currently a Senior Research Fellow at the Institute for Environmental Design & Engineering at University College London."
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Curriculum Vitae",
+    "section": "Education",
+    "text": "Education\n\n\nUniversity College London\nPhD in Environmental Acoustics and Machine Learning\nSupervisor: Prof Jian Kang\nCo-Superverisor: Dr. Phil Symonds\n\n\nLondon, UK\nGranted September 2022\n\n\n\nThesis: Predictive Modelling of Complex Urban Soundscapes: Enabling an Engineering Approach to Soundscape Design\n\n\n\nCardiff University\nBSc. (Hons) in Physics & Music\n\n\nCardiff, Wales, UK\nGranted August 2015\n\n\n\nDissertation: The Physics of the Trombone Mouthpiece"
+  },
+  {
+    "objectID": "cv.html#experience",
+    "href": "cv.html#experience",
+    "title": "Curriculum Vitae",
+    "section": "Experience",
+    "text": "Experience\n\n\nUniversity College London\n\n\nOctober 2023 - present\n\n\nSenior Research Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nUniversity College London, Institute for Environmental Design & Engineering\n\n\nJune 2022 - Oct 2023\n\n\nResearch Fellow in Soundscape Modelling\n\nSupervisor: Prof Jian Kang\n\n\n\nThe Alan Turing Institute, British Library, London, UK\n\n\nMay 2022 - March 2023\n\n\nAcademic PI and Challenge Owner\nFunded by a UCL Health of the Public small grant, the DeLTA project aims to develop deep learning methods (specifically, a Temporal Convolutional Neural Network) for predicting annoyance perception of various urban sounds. The Turing Data Study Group is an extension to this project carried out in partnership with the Alan Turing Institute.\n\nCoordinating a 5-day intensive collaborative hackathon hosted by the Turing Institute\nPrepare two large-scale datasets and define an open-ended challenge for the AI and data science experts recruited to participate in the DSG\nLead the DSG and supervise the preparation of an openly-published report and prototype model for real-world application\n\n\n\nHoare Lea, LLC, London, UK\n\n\nJune 2019 - March 2021\n\n\nAcoustics Engineer / Soundscape Consultant\n\nAcademic/industry collaboration to design an IoT-based soundscape assessment tool\n\n\n\nNewson Brown Acoustics, Santa Monica, CA\n\n\nJune 2016 - September 2018\n\n\nAcoustical Consultant\n\nArchitectural acoustics, room acoustics modelling, & noise control\n\n\n\nHayes McKenzie Partnership, Machynlleth, Wales\n\n\nJuly 2015 - April 2016\n\n\nJunior Acoustics Consultant\n\n\nBusch Gardens Williamsburg, Williamsburg, VA\n\n\nSummer 2012\n\n\nBass Trombonist"
+  },
+  {
+    "objectID": "cv.html#associations",
+    "href": "cv.html#associations",
+    "title": "Curriculum Vitae",
+    "section": "Associations",
+    "text": "Associations\n\n\nMember, Acoustical Society of America\n\n\n2023 - Present\n\n\n\n\nAssociate Member, Acoustical Society of America\n\n\n2016 - 2023\n\n\n\n\nStudent Member, Institute of Acoustics\n\n\n2015 - Present\n\n\n\n\nResearcher & Advisory Board Member, International Misophonia Research Network (IMRN)\n\n\n2018 - 2022"
   },
   {
     "objectID": "cv.html#journal-papers",
