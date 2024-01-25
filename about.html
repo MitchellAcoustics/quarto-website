@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,6 +63,7 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -68,10 +75,10 @@ ul.task-list li input[type="checkbox"] {
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Andrew Mitchell - About">
-<meta property="og:description" content="">
-<meta property="og:site-name" content="Andrew Mitchell">
+<meta property="og:description" content="Personal website of Andrew Mitchell">
+<meta property="og:site_name" content="Andrew Mitchell">
 <meta name="twitter:title" content="Andrew Mitchell - About">
-<meta name="twitter:description" content="">
+<meta name="twitter:description" content="Personal website of Andrew Mitchell">
 <meta name="twitter:creator" content="@acousticsman">
 <meta name="twitter:site" content="@acousticsman">
 <meta name="twitter:card" content="summary_large_image">
@@ -81,9 +88,9 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">Andrew Mitchell</span>
     </a>
@@ -95,52 +102,53 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
- <span class="menu-text">About</span></a>
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="./research/papers.html" rel="" target="">
+    <a class="dropdown-item" href="./research/papers.html">
  <span class="dropdown-text">Open Source Papers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./research/presentations.html" rel="" target="">
+    <a class="dropdown-item" href="./research/presentations.html">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./research/list-of-pubs.html" rel="" target="">
+    <a class="dropdown-item" href="./research/list-of-pubs.html">
  <span class="dropdown-text">List of Publications</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./software.html" rel="" target="">
- <span class="menu-text">Software</span></a>
+    <a class="nav-link" href="./software.html"> 
+<span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html" rel="" target="">
- <span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./blog.html"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
-            <div class="quarto-navbar-tools ms-auto">
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/MitchellAcoustics/quarto-website">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website">
             Source Code
             </a>
           </li>
           <li>
-            <a class="dropdown-item quarto-navbar-tools ms-auto-item" href="https://github.com/MitchellAcoustics/quarto-website/issues">
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website/issues">
             Report a bug
             </a>
           </li>
@@ -148,7 +156,6 @@ ul.task-list li input[type="checkbox"] {
     </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -162,9 +169,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#research-interests" id="toc-research-interests" class="nav-link active" data-scroll-target="#research-interests">Research Interests</a></li>
-  <li><a href="#education" id="toc-education" class="nav-link" data-scroll-target="#education">Education</a></li>
-  <li><a href="#experience" id="toc-experience" class="nav-link" data-scroll-target="#experience">Experience</a></li>
-  <li><a href="#associations" id="toc-associations" class="nav-link" data-scroll-target="#associations">Associations</a></li>
+  <li><a href="#cv" id="toc-cv" class="nav-link" data-scroll-target="#cv">CV</a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +191,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <p>I am currently a Senior Research Fellow at the Institute for Environmental Design &amp; Engineering at University College London.</p>
 <section id="research-interests" class="level3">
@@ -199,155 +206,161 @@ ul.task-list li input[type="checkbox"] {
 <li>Psychoacoustics</li>
 </ul>
 </section>
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>University College London</strong><br>
-PhD in Environmental Acoustics and Machine Learning<br>
-Supervisor: Prof Jian Kang<br>
-Co-Superverisor: Dr.&nbsp;Phil Symonds</p>
-</div>
-<div class="text-end">
-<p>London, UK<br>
-Granted September 2022</p>
-</div>
-</div>
-<ul>
-<li>Thesis: <em>Predictive Modelling of Complex Urban Soundscapes: Enabling an Engineering Approach to Soundscape Design</em></li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>Cardiff University</strong><br>
-BSc. (Hons) in Physics &amp; Music</p>
-</div>
-<div class="text-end">
-<p>Cardiff, Wales, UK<br>
-Granted August 2015</p>
-</div>
-</div>
-<ul>
-<li>Dissertation: <em>The Physics of the Trombone Mouthpiece</em></li>
-</ul>
-</section>
-<section id="experience" class="level2">
-<h2 class="anchored" data-anchor-id="experience">Experience</h2>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>University College London</strong></p>
-</div>
-<div class="text-end">
-<p>October 2023 - present</p>
-</div>
-</div>
-<p><em>Senior Research Fellow in Soundscape Modelling</em></p>
-<ul>
-<li>Supervisor: Prof Jian Kang</li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>University College London</strong>, Institute for Environmental Design &amp; Engineering</p>
-</div>
-<div class="text-end">
-<p>June 2022 - Oct 2023</p>
-</div>
-</div>
-<p><em>Research Fellow in Soundscape Modelling</em></p>
-<ul>
-<li>Supervisor: Prof Jian Kang</li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>The Alan Turing Institute</strong>, British Library, London, UK</p>
-</div>
-<div class="text-end">
-<p>May 2022 - March 2023</p>
-</div>
-</div>
-<p><em>Academic PI and Challenge Owner</em></p>
-<p>Funded by a UCL Health of the Public small grant, the DeLTA project aims to develop deep learning methods (specifically, a Temporal Convolutional Neural Network) for predicting annoyance perception of various urban sounds. The Turing Data Study Group is an extension to this project carried out in partnership with the Alan Turing Institute.</p>
-<ul>
-<li>Coordinating a 5-day intensive collaborative hackathon hosted by the Turing Institute</li>
-<li>Prepare two large-scale datasets and define an open-ended challenge for the AI and data science experts recruited to participate in the DSG</li>
-<li>Lead the DSG and supervise the preparation of an openly-published report and prototype model for real-world application</li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>Hoare Lea, LLC</strong>, London, UK</p>
-</div>
-<div class="text-end">
-<p>June 2019 - March 2021</p>
-</div>
-</div>
-<p><em>Acoustics Engineer / Soundscape Consultant</em></p>
-<ul>
-<li>Academic/industry collaboration to design an IoT-based soundscape assessment tool</li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>Newson Brown Acoustics</strong>, Santa Monica, CA</p>
-</div>
-<div class="text-end">
-<p>June 2016 - September 2018</p>
-</div>
-</div>
-<p><em>Acoustical Consultant</em></p>
-<ul>
-<li>Architectural acoustics, room acoustics modelling, &amp; noise control</li>
-</ul>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>Hayes McKenzie Partnership</strong>, Machynlleth, Wales</p>
-</div>
-<div class="text-end">
-<p>July 2015 - April 2016</p>
-</div>
-</div>
-<p><em>Junior Acoustics Consultant</em></p>
-<div class="d-flex justify-content-between">
-<div>
-<p><strong>Busch Gardens Williamsburg</strong>, Williamsburg, VA</p>
-</div>
-<div class="text-end">
-<p>Summer 2012</p>
-</div>
-</div>
-<p><em>Bass Trombonist</em></p>
-</section>
-<section id="associations" class="level2">
-<h2 class="anchored" data-anchor-id="associations">Associations</h2>
-<div class="d-flex justify-content-between">
-<div>
-<p>Member, <strong>Acoustical Society of America</strong></p>
-</div>
-<div class="text-end">
-<p>2023 - Present</p>
-</div>
-</div>
-<div class="d-flex justify-content-between">
-<div>
-<p>Associate Member, <strong>Acoustical Society of America</strong></p>
-</div>
-<div class="text-end">
-<p>2016 - 2023</p>
-</div>
-</div>
-<div class="d-flex justify-content-between">
-<div>
-<p>Student Member, <strong>Institute of Acoustics</strong></p>
-</div>
-<div class="text-end">
-<p>2015 - Present</p>
-</div>
-</div>
-<div class="d-flex justify-content-between">
-<div>
-<p>Researcher &amp; Advisory Board Member, <strong>International Misophonia Research Network (IMRN)</strong></p>
-</div>
-<div class="text-end">
-<p>2018 - 2022</p>
-</div>
-</div>
+<section id="cv" class="level2">
+<h2 class="anchored" data-anchor-id="cv">CV</h2>
+<p><object data="./2024-01-21_Mitchell_Academic_CV_v2.pdf" type="application/pdf" width="100%" height="900"><p>Unable to display PDF file. <a href="./2024-01-21_Mitchell_Academic_CV_v2.pdf">Download</a> instead.</p></object></p>
+<!-- ## Education
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University College London**   
+PhD in Environmental Acoustics and Machine Learning     
+Supervisor: Prof Jian Kang      
+Co-Superverisor: Dr. Phil Symonds   
+:::
+::: {.text-end}
+London, UK  
+Granted September 2022  
+:::
+:::
+- Thesis: *Predictive Modelling of Complex Urban Soundscapes: Enabling an Engineering Approach to Soundscape Design*
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Cardiff University**  
+BSc. (Hons) in Physics & Music  
+:::
+::: {.text-end}
+Cardiff, Wales, UK      
+Granted August 2015
+:::
+:::
+- Dissertation: *The Physics of the Trombone Mouthpiece*
+
+## Experience
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University College London**
+:::
+::: {.text-end}
+October 2023 - present
+:::
+:::
+*Senior Research Fellow in Soundscape Modelling*
+
+- Supervisor: Prof Jian Kang
+
+::: {.d-flex .justify-content-between}
+::: {}
+**University College London**, Institute for Environmental Design & Engineering
+:::
+::: {.text-end}
+June 2022 - Oct 2023
+:::
+:::
+*Research Fellow in Soundscape Modelling*
+
+- Supervisor: Prof Jian Kang
+
+::: {.d-flex .justify-content-between}
+::: {}
+**The Alan Turing Institute**, British Library, London, UK
+:::
+::: {.text-end}
+May 2022 - March 2023
+:::
+:::
+*Academic PI and Challenge Owner*
+
+Funded by a UCL Health of the Public small grant, the DeLTA project aims to develop deep learning methods (specifically, a Temporal Convolutional Neural Network) for predicting annoyance
+perception of various urban sounds. The Turing Data Study Group is an extension to this project carried out in partnership with the Alan Turing Institute.
+
+- Coordinating a 5-day intensive collaborative hackathon hosted by the Turing Institute
+- Prepare two large-scale datasets and define an open-ended challenge for the AI and data science experts recruited to participate in the DSG
+- Lead the DSG and supervise the preparation of an openly-published report and prototype model for real-world application
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Hoare Lea, LLC**, London, UK
+:::
+::: {.text-end}
+June 2019 - March 2021
+:::
+:::
+*Acoustics Engineer / Soundscape Consultant*
+
+- Academic/industry collaboration to design an IoT-based soundscape assessment tool
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Newson Brown Acoustics**, Santa Monica, CA  
+:::
+::: {.text-end}
+June 2016 - September 2018
+:::
+:::
+*Acoustical Consultant*
+
+- Architectural acoustics, room acoustics modelling, & noise control
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Hayes McKenzie Partnership**, Machynlleth, Wales
+:::
+::: {.text-end}
+July 2015 - April 2016
+:::
+:::
+*Junior Acoustics Consultant*
+
+::: {.d-flex .justify-content-between}
+::: {}
+**Busch Gardens Williamsburg**, Williamsburg, VA
+:::
+::: {.text-end}
+Summer 2012
+:::
+:::
+*Bass Trombonist*
+
+## Associations
+
+::: {.d-flex .justify-content-between}
+::: {}
+Member, **Acoustical Society of America**
+:::
+::: {.text-end}
+2023 - Present
+:::
+:::
+
+::: {.d-flex .justify-content-between}
+::: {}
+Associate Member, **Acoustical Society of America**
+:::
+::: {.text-end}
+2016 - 2023
+:::
+:::
+
+::: {.d-flex .justify-content-between}
+::: {}
+Student Member, **Institute of Acoustics**
+:::
+::: {.text-end}
+2015 - Present
+:::
+:::
+
+::: {.d-flex .justify-content-between}
+::: {}
+Researcher & Advisory Board Member, **International Misophonia Research Network (IMRN)**
+:::
+::: {.text-end}
+2018 - 2022
+:::
+::: -->
 <!-- ### Teaching
 
 #### Facebook
@@ -464,6 +477,33 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
   }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
   const toggleColorMode = (alternate) => {
     // Switch the stylesheets
     const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
@@ -530,13 +570,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
     let toAlternate = !hasAlternateSentinel();
     toggleColorMode(toAlternate);
     setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
   };
   // Ensure there is a toggle, if there isn't float one in the top right
   if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -615,10 +657,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -628,8 +669,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -642,6 +692,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -685,6 +854,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -710,6 +880,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -770,6 +966,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

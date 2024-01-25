@@ -9,7 +9,7 @@
 <link>https://drandrewmitchell.com/research/papers.html</link>
 <atom:link href="https://drandrewmitchell.com/research/papers.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.4.549</generator>
 <lastBuildDate>Sun, 20 Aug 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications</title>
@@ -25,6 +25,7 @@
 
 
 
+
 <section id="introduction" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>As the future of urban sound research and practice moves toward a more holistic soundscape focus, the ability to affect change at large scales and in a wide range of projects will require that familiar engineering tools and approaches can be applied to soundscape design. When attempting to apply soundscape in practice in the built environment, it becomes apparent that a predictive model of the users’ perceptual response to the acoustic environment is necessary. Whether to determine the impact of a design change, or to integrate a large scale data at neighbourhood and city levels, a mathematical model of the interacting factors will form a vital component of the implementation of the soundscape approach.</p>
@@ -36,10 +37,14 @@
 <p><span class="citation" data-cites="Aletta2016Soundscape">Aletta, Kang, and Axelsson (2016)</span> provide a review of the soundscape descriptors and indicators commonly used in soundscape research and outlines an initial framework for developing predictive soundscape models. In their review, the authors identified eight potential soundscape descriptors, including perceived affective quality <span class="citation" data-cites="Axelsson2010principal">(Axelsson, Nilsson, and Berglund 2010)</span>, restorativeness <span class="citation" data-cites="Payne2013production">(Payne 2013)</span>, etc. Similarly, the authors identified a range of potential indicators used to characterise the acoustic environment, including environmental acoustics indicators such as <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D%20%E2%88%92%20L_%7BAeq%7D"> and psychoacoustic indicators such as Loudness (<img src="https://latex.codecogs.com/png.latex?N_5">) and Sharpness (S).</p>
 <p>However, it is noted that several studies show that no single psychoacoustic indicator alone can explain the variation in soundscape responses (as expressed via the descriptors) (e.g. <span class="citation" data-cites="PerssonWaye2002Psycho">(Persson Waye and Öhrström 2002)</span>). The goal of statistical modelling, therefore is to create a more complex and complete representation of the relationship between soundscape indicators and descriptors, beyond what any single indicator could achieve.</p>
 <p>Figure&nbsp;1 shows a conceptual view of this relationship. We start with <strong>soundscape indicators</strong>, which characterise the physical and contextual environment to which the listener is exposed. This can be broken down into <strong>sonic features</strong> (e.g.&nbsp;the acoustical features listed above) and <strong>characteristics of the space itself</strong> (e.g.&nbsp;the amount of visible sky, the intended use-case of the space, how crowded the space is, etc.). In order to translate from the physical inputs to an expressed description of the soundscape perception, we introduce the concept of a <strong>perceptual mapping</strong> <span class="citation" data-cites="Lionello2021new">(Lionello 2021)</span>. This mapping represents a simplified idea of how each individual’s brain processes the inputs from the soundscape which they experience, forms a perception, and finally expresses that perception through their description of the soundscape. For our purposes, this perceptual mapping is treated as essentially a black box mapping inputs to outputs. It can be conceived of as a network of weights in which certain characteristics of the sound may have different weights and directions depending on the context, through which all of the inputs are processed, resulting in the soundscape rating. Conceptually, this perceptual mapping – the pathways and weightings through which the inputs are processed before being expressed as a perceptual descriptor – is established prior to an individual’s exposure to the soundscape in question.</p>
-<div id="fig-model" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/Overall_Model_Concept_Diagram_2022-04-28.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: The conceptual model of soundscape perception, illustrating the perceptual mapping from physical inputs, through personal experience, to soundscape descriptors. The role of the statistical model is to attempt to approximate or reflect this perceptual mappint. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (2022)</span></figcaption>
+<div id="fig-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/Overall_Model_Concept_Diagram_2022-04-28.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The conceptual model of soundscape perception, illustrating the perceptual mapping from physical inputs, through personal experience, to soundscape descriptors. The role of the statistical model is to attempt to approximate or reflect this perceptual mappint. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (2022)</span>
+</figcaption>
 </figure>
 </div>
 <p>It should be made clear that this represents a very simplified view of how a soundscape perception is formed, however it provides a useful conceptual framework for the purposes of understanding and modelling how someone’s perception forms in response to their exposure to a space. One way to consider the function of a statistical model of soundscape perception is as replicating the perceptual mapping between soundscape indicators and descriptors <span class="citation" data-cites="Lionello2021new">(Lionello 2021)</span>. As a person experiences an urban space, they are exposed to an array of physical inputs, these are then processed by the listener through their own personal experience and mapped to their perception of that space. This perception is then expressed through their description of this experience of the soundscape. It is this mapping of physical inputs to perceptual description which the statistical model aims to reflect. The most successful model would then accurately replicate the general perceptual mapping across the population.</p>
@@ -79,10 +84,14 @@
 <section id="making-use-of-the-predictions-in-design" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="making-use-of-the-predictions-in-design"><span class="header-section-number">5</span> Making use of the predictions in design</h2>
 <p>There are various potential methods for integrating the predictive soundscape approach into a design and intervention setting. Not all spaces can or should have the same soundscape and soundscapes should be treated as dynamic, not static; identifying and creating an appropriate soundscape for the particular use case of a space is crucial to guiding its design. Proper forwardlooking design of a soundscape would involve defining the desired collective perception in the space. In the probabilistic soundscape approach from <span class="citation" data-cites="Mitchell2022How">Mitchell, Aletta, and Kang (2022)</span>, this can be achieved by drawing the desired shape in the circumplex and testing interventions which will bring the existing soundscape closer to the desired perception. A soundscape may need to be perceived as vibrant during the day and calm for some portion of the evening, meaning the desired shape should primarily sit within the vibrant quadrant but have some overlap into calm. This also enables designers to recognise the limitations of their environment and acknowledge that it is not always possible to transform a highly chaotic soundscape into a calm one. In these cases, instead the focus should be placed on shifting the perception to some degree in a positive direction.</p>
-<div id="fig-cain" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/CainCircumplexTarget.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: Adapted from <span class="citation" data-cites="Cain2013development">Cain, Jennings, and Poxon (2013)</span>. Using the soundscape circumplex shape for target-setting for soundscape design. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (2022)</span>.</figcaption>
+<div id="fig-cain" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/CainCircumplexTarget.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Adapted from <span class="citation" data-cites="Cain2013development">Cain, Jennings, and Poxon (2013)</span>. Using the soundscape circumplex shape for target-setting for soundscape design. Reproduced with permission from <span class="citation" data-cites="Mitchell2022Predictive">Mitchell (2022)</span>.
+</figcaption>
 </figure>
 </div>
 <p>The most sophisticated method of setting design goals is therefore to identify the desired shape which represents the variety of desired outcomes, and focus on designs and interventions which are most successful in matching the predicted outcome with that goal. This strategy of defining the optimal soundscape as an area or a shape within the 2-dimensional circumplex was previously illustrated by <span class="citation" data-cites="Cain2013development">Cain, Jennings, and Poxon (2013)</span>. In Figure&nbsp;2, we have adapted Cain’s Figure 6 to show how the shape of a target soundscape can be set and the shape of the existing soundscape compared to it. The work of a designer is then trialling intervention options which move the design soundscape closer to the target soundscape.</p>
@@ -103,7 +112,7 @@
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-Aletta2015Soundscape" class="csl-entry">
 Aletta, Francesco, and Jian Kang. 2015. <span>“<span class="nocase">Soundscape approach integrating noise mapping techniques: a case study in Brighton, UK</span>.”</span> <em>Noise Mapping</em> 2 (1): 1–12. <a href="https://doi.org/10.1515/noise-2015-0001">https://doi.org/10.1515/noise-2015-0001</a>.
 </div>
@@ -212,7 +221,7 @@ Yu, Lei, and Jian Kang. 2009. <span>“Modeling Subjective Evaluation of Soundsc
 <div id="ref-Zhang2018Effect" class="csl-entry">
 Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase">Effect of soundscape dimensions on acoustic comfort in urban open public spaces</span>.”</span> <em>Applied Acoustics</em> 133 (April): 73–81. <a href="https://doi.org/10.1016/j.apacoust.2017.11.024">https://doi.org/10.1016/j.apacoust.2017.11.024</a>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{mitchell2023,
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{mitchell2023,
   author = {Mitchell, Andrew and Aletta, Francesco and Oberman, Tin and
     Erfanian, Mercede and Kang, Jian},
   title = {A Conceptual Framework for the Practical Use of Predictive
@@ -259,8 +268,9 @@ Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https
   <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Francesco Aletta</dc:creator>
   <dc:creator>Jian Kang</dc:creator>
-  <link>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</link>
+  <link>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/</link>
   <description><![CDATA[ 
+
 
 
 
@@ -284,10 +294,14 @@ Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https
 <blockquote class="blockquote">
 <p>According to the two-dimensional model, vibrant soundscapes are both pleasant and eventful, chaotic soundscapes are both eventful and unpleasant, monotonous soundscapes are both unpleasant and uneventful, and finally calm soundscapes are both uneventful and pleasant.</p>
 </blockquote>
-<div id="fig-radar" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.</figcaption>
+<div id="fig-radar" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-radar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Example of representations of two soundscape assessments. Left: Radar plot of two example perceptual attribute (PA) ratings on the Likert scales (1 to 5). Right: Scatter plot of the same assessments on the soundscape circumplex, transformed according to ISO 12913 Part 3.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -312,8 +326,8 @@ Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https
 <h1 data-number="3"><span class="header-section-number">3</span> The Way Forward: Pleasant-Eventful Coordinates and Probabilistic Soundscape Representation</h1>
 <p>Given the identified issues with the recommended methods for statistical analysis and their shortcomings in representing the variation in perception of the soundscape in a space, how then should we discuss or present the results of these soundscape assessments? Ideally, the method will: 1) take advantage of the circumplex coordinates and their ability to be displayed on a scatter plot and treated as continuous variables, 2) scale from a dataset of twenty responses to thousands of responses, 3) facilitate the comparison of the soundscapes of different locations, conditions, and groups, and 4) encapsulate the nuances and diversity of soundscape perception by representing the distribution of responses.</p>
 <p>We therefore present a visualisation in Figure&nbsp;2 of the soundscape assessments of several urban spaces included in the ISD <span class="citation" data-cites="Mitchell2021International">(Mitchell, Oberman, Aletta, Erfanian, et al. 2021)</span> which reflects these goals. The specific locations selected from the ISD are chosen for demonstration only and these methods can be applied to any location. Rather than attempting to represent a single individual’s soundscape or of describing a location’s soundscape as a single average assessment (as in <span class="citation" data-cites="Mitchell2021Investigating">Mitchell, Oberman, Aletta, Kachlicka, et al. (2021)</span>), this representation shows the whole range of perception of the users of the space. First, rather than calculating the median response to each PA in the location, then calculating the circumplex coordinates, the coordinates for each individual response are calculated. This results in a vector of ISOPleasant, ISOEventful values which are continuous variables from -1 to +1 and can be analysed statistically by calculating summary statistics (mean, standard deviation, quantiles, etc.) and through the use of regression modelling, which can often be simpler and more familiar than the recommended methods of analysing ordinal data. This also enables each individual’s response to be placed within the pleasant-eventful space. All of the responses for a location can then be plotted, giving an overall scatter plot for a location, as demonstrated in Figure&nbsp;2 (a).</p>
-<div>
-<details>
+<div class="cell" data-layout="[[47,-3,50],[50,-3,47]]" data-execution_count="1">
+<details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="im" style="color: #00769E;
 background-color: null;
@@ -537,51 +551,71 @@ font-style: inherit;">;</span></span>
 background-color: null;
 font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 </details>
-<div id="fig-circ" class="cell quarto-layout-panel" data-execution_count="1">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
-<div id="fig-circ-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
-<figcaption class="figure-caption">(a) Example distribution of the soundscape perception of an urban park</figcaption>
+<div id="fig-circ" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-circ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 47.0%;justify-content: flex-start;">
+<div id="fig-circ-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-circ-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" data-ref-parent="fig-circ" width="604" height="605" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-circ-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Example distribution of the soundscape perception of an urban park
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-circ-2" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
-<figcaption class="figure-caption">(b) Median perception contour and scatter plot of individual assessments</figcaption>
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-circ-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-circ-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" data-ref-parent="fig-circ" width="470" height="445" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-circ-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Median perception contour and scatter plot of individual assessments
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-circ-3" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="470"></p>
-<figcaption class="figure-caption">(c) Comparison of the soundscapes of three urban spaces</figcaption>
+<div class="quarto-layout-row">
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-circ-3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-circ-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" data-ref-parent="fig-circ" width="470" height="445" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-circ-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Comparison of the soundscapes of three urban spaces
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 3.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
-<div class="cell-output cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 47.0%;justify-content: center;">
-<div id="fig-circ-4" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" class="img-fluid figure-img" data-ref-parent="fig-circ" width="604"></p>
-<figcaption class="figure-caption">(d) Soundscape perception as a function of sound level</figcaption>
+<div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 47.0%;justify-content: flex-start;">
+<div id="fig-circ-4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-circ-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" data-ref-parent="fig-circ" width="604" height="605" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-circ-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Soundscape perception as a function of sound level
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2: A demonstration of some use cases of representing soundscape perception as probabilistic distributions. Data is drawn from the International Soundscape Database (ISD) and is used for demonstration only. (a) Demonstrates a high level of detail for presenting the bivariate distribution of soundscape perception in a park (Russell Square in London). (b) Simplified view of the distribution using the 50th percentile contour. The assessments impacted by a series of helicopter fly-overs are made obvious in the chaotic quadrant. (c) A comparison of three popular public spaces in London. Their overlapping regions can reveal when and how their soundscapes may be similar. (d) A comparison across the full ISD for soundscape perception at <img src="https://latex.codecogs.com/png.latex?%3C65%20dB%20L_%7BAeq%7D"> and <img src="https://latex.codecogs.com/png.latex?%3E%2065%20dBA">. The introduction of other acoustic, environmental, and contextual data can reveal new and complex relationships with the soundscape perception.</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-circ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: A demonstration of some use cases of representing soundscape perception as probabilistic distributions. Data is drawn from the International Soundscape Database (ISD) and is used for demonstration only. (a) Demonstrates a high level of detail for presenting the bivariate distribution of soundscape perception in a park (Russell Square in London). (b) Simplified view of the distribution using the 50th percentile contour. The assessments impacted by a series of helicopter fly-overs are made obvious in the chaotic quadrant. (c) A comparison of three popular public spaces in London. Their overlapping regions can reveal when and how their soundscapes may be similar. (d) A comparison across the full ISD for soundscape perception at <img src="https://latex.codecogs.com/png.latex?%3C65%20dB%20L_%7BAeq%7D"> and <img src="https://latex.codecogs.com/png.latex?%3E%2065%20dBA">. The introduction of other acoustic, environmental, and contextual data can reveal new and complex relationships with the soundscape perception.
+</figcaption>
 </figure>
 </div>
 </div>
@@ -630,7 +664,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 </div></section><section id="acknowledgements" class="level1 unnumbered appendix"><h2 class="anchored quarto-appendix-heading">Acknowledgements</h2><div class="quarto-appendix-contents">
 
 <p>This project has received funding from the European Research Council (ERC) under the European Union’s Horizon 2020 research and innovation program (grant agreement No.&nbsp;740696, project title: Soundscape Indices - SSID). We would like to acknowledge Matteo Lionello for the helpful discussions, and (in alphabetical order) Mercede Erfanian, Magdalena Kachlicka, and Tin Oberman for the helpful discussions and the data collection support.</p>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-aletta2019exploring" class="csl-entry">
 Aletta, Francesco, Claudia Guattari, Luca Evangelisti, Francesco Asdrubali, Tin Oberman, and Jian Kang. 2019. <span>“Exploring the Compatibility of <span>‘Method a’</span> and <span>‘Method b’</span> Data Collection Protocols Reported in the ISO/TS 12913-2: 2018 for Urban Soundscape via a Soundwalk.”</span> <em>Applied Acoustics</em> 155: 190–203.
 </div>
@@ -723,7 +757,7 @@ Westerkamp, Hildegard. 2002. <span>“Linking Soundscape Composition and Acousti
 <ol>
 <li id="fn1"><p>The specifics of the bivariate kernel density estimation <span class="citation" data-cites="silverman2018density">(Silverman 2018)</span> are beyond the scope of this discussion and the most appropriate hyperparameters (e.g.&nbsp;estimation methods, smoothing factors) for this visualisation may need to be further explored. These parameters will likely depend on the specific dataset used.↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{mitchell2022,
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{mitchell2022,
   author = {Mitchell, Andrew and Aletta, Francesco and Kang, Jian},
   title = {How to Analyse and Represent Quantitative Soundscape Data},
   journal = {JASA Express Letters},
@@ -752,7 +786,7 @@ Analyse and Represent Quantitative Soundscape Data.”</span> <em>JASA
 Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009794">https://doi.org/10.1121/10.0009794</a>.
 </div></div></section></div> ]]></description>
   <category>journal-articles</category>
-  <guid>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</guid>
+  <guid>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/</guid>
   <pubDate>Wed, 16 Mar 2022 00:00:00 GMT</pubDate>
 </item>
 <item>
@@ -767,6 +801,7 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
   <dc:creator>Jian Kang</dc:creator>
   <link>https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -807,9 +842,13 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <section id="sec-psychoacousticAnalysis" class="level4" data-number="2.1.3">
 <h4 data-number="2.1.3" class="anchored" data-anchor-id="sec-psychoacousticAnalysis"><span class="header-section-number">2.1.3</span> Psychoacoustic analyses</h4>
 <p>The binaural recordings were analyzed in ArtemiS SUITE 11 to calculate the suite of 11 acoustic and psychoacoustic features given in Table&nbsp;1 to be used as initial predictors. The (psycho)acoustic predictors investigated were selected in order to describe many aspects of the recorded sound – in particular, the goal was to move beyond a focus on sound level, which currently dominates the existing literature on the acoustic effects of lockdowns noted in Section&nbsp;1. In all, they are expected to reflect the sound level (<img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">), perceived sound level (Loudness), spectral content (Sharpness, <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, Tonality), temporal character or predictability (Impulsiveness, Fluctuation Strength, Relative Approach), and overall annoyance (Psychoacoustic Annoyance). These metrics have been proposed as indicators to predict perceptual constructs of the soundscape <span class="citation" data-cites="Aletta2016Soundscape Aletta2017Dimensions">(Aletta, Kang, and Axelsson 2016; Aletta, Axelsson, and Kang 2017)</span> and have shown promise when combined together to form a more comprehensive model applied to real-world sounds <span class="citation" data-cites="Orga2021Multilevel">(Orga et al. 2021)</span>. The maximum value from the left and right channels of the binaural recording are used, as suggested in <span class="citation" data-cites="ISO12913Part3">ISO/TS 12913-3:2019 (2019)</span>.</p>
-<div id="tbl-psychoacoustics" class="anchored">
+<div id="tbl-psychoacoustics" class="striped hover quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-psychoacoustics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive models. All metrics are calculated for the full length of the recording (<img src="https://latex.codecogs.com/png.latex?%5Csim30s">). As recommended by <span class="citation" data-cites="ISO2017Acoustics">ISO 532-1:2017 (2017)</span> and <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span>, the 5th percentile of Loudness is used rather than the average.
+</figcaption>
+<div aria-describedby="tbl-psychoacoustics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive models. All metrics are calculated for the full length of the recording (<img src="https://latex.codecogs.com/png.latex?%5Csim30s">). As recommended by <span class="citation" data-cites="ISO2017Acoustics">ISO 532-1:2017 (2017)</span> and <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span>, the 5th percentile of Loudness is used rather than the average.</caption>
 <colgroup>
 <col style="width: 31%">
 <col style="width: 22%">
@@ -894,10 +933,16 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>Table&nbsp;2 shows the Pearson correlation coefficient between each of the candidate acoustic features and the outcome pleasantness and eventfulness. As all variables considered are continuous, and the eventual model is linear, the Pearson coefficient is chosen as a measure of the strength of the linear relationship between two continuous variables. For ISOPleasant (<em>ISOPl</em>), we can perhaps see three tiers of correlations: the more highly correlated tier <img src="https://latex.codecogs.com/png.latex?(%7Cr%7C%20%3E%200.28)"> consists of Relative Approach (<img src="https://latex.codecogs.com/png.latex?RA">), <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, Roughness (<img src="https://latex.codecogs.com/png.latex?R">), Loudness (<img src="https://latex.codecogs.com/png.latex?N_5">), and Psychoacoustic Annoyance (<img src="https://latex.codecogs.com/png.latex?PA">); the low correlation tier consists of <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, Tonality (<img src="https://latex.codecogs.com/png.latex?T">), and Fluctuation Strength (<img src="https://latex.codecogs.com/png.latex?FS">); while <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, Impulsiveness (<img src="https://latex.codecogs.com/png.latex?I">), and Sharpness (<img src="https://latex.codecogs.com/png.latex?S">) show no correlation. For ISOEventful (<em>ISOEv</em>), these tiers are: <img src="https://latex.codecogs.com/png.latex?RA">, <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?T">, <img src="https://latex.codecogs.com/png.latex?R">, and <img src="https://latex.codecogs.com/png.latex?N_5"> comprise the most correlated tier <img src="https://latex.codecogs.com/png.latex?(%7Cr%7C%20%3E%200.30)">; <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, <img src="https://latex.codecogs.com/png.latex?FS">, and <img src="https://latex.codecogs.com/png.latex?PA"> show low correlations; <img src="https://latex.codecogs.com/png.latex?I"> and <img src="https://latex.codecogs.com/png.latex?S"> show no correlation.</p>
-<div id="tbl-corr" class="anchored">
+<div id="tbl-corr" class="striped hover quarto-float anchored" data-fontsize="10pt">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Pearson correlation coefficients between candidate acoustic features and ISOPleasant and ISOEventful across all 13 locations. Only statistically significant (<img src="https://latex.codecogs.com/png.latex?p%20%3C%200.01">) coefficients are shown.
+</figcaption>
+<div aria-describedby="tbl-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;2: Pearson correlation coefficients between candidate acoustic features and ISOPleasant and ISOEventful across all 13 locations. Only statistically significant (<img src="https://latex.codecogs.com/png.latex?p%20%3C%200.01">) coefficients are shown. {fontsize='10pt'}</caption>
 <colgroup>
 <col style="width: 11%">
 <col style="width: 6%">
@@ -1129,6 +1174,8 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <p>Among the inter-correlations for the psychoacoustic metrics considered for inclusion as input features, we can see several very highly correlated features (i.e.&nbsp;<img src="https://latex.codecogs.com/png.latex?%3E0.9">). As expected, <img src="https://latex.codecogs.com/png.latex?PA">, <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, and <img src="https://latex.codecogs.com/png.latex?N_5"> are highly correlated, meaning that careful consideration is paid to these features to ensure they do not contribute to multicollinearity in the final model.</p>
 </section>
 </section>
@@ -1147,10 +1194,14 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <p>However, after the initial data collection, questions were raised as to how the playback loudness impacts ecological validity as it relates to the perceived affective quality of the soundscape. Given this concern, the PAQ responses from the online surveys were not included in further data analysis. Sound source identification is not considered to suffer the same validity concerns as this is not directly dependent on absolute playback level and requires only that the participant can clearly hear what is present. The purpose of the calibration procedure described above was to ensure the participant could clearly hear the softest samples used.</p>
 <p>Online questionnaire data was collected between the 9th of June and the 9th of August 2020. Within the Gorilla Experiment Builder, a total of 250 attempts to complete the experiment were recorded, where 165 participants were excluded either on the basis of not passing the headphones screening (<img src="https://latex.codecogs.com/png.latex?N=79">) or for not completing the experiment, usually before engaging into the screening (<img src="https://latex.codecogs.com/png.latex?N=83">). Out of a total of 88 participants who completed the test, 2 participants were excluded as outliers as they provided uniform answers across all the questions and commented on not being able to properly hear the stimuli, despite their successful completion of the training tests. The participants of the online experiment were of mean age 32.42, 45.1% male, 54.9% female.</p>
 <p>Figure&nbsp;1 illustrates and summarizes the framework and sections described above.</p>
-<div id="fig-framework" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: The study flowchart indicating the data collection, analysis, modeling, and discussion throughout the study. The subsections in the text to which each box refers are indicated in italics.</figcaption>
+<div id="fig-framework" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure1.png" class="img-fluid figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The study flowchart indicating the data collection, analysis, modeling, and discussion throughout the study. The subsections in the text to which each box refers are indicated in italics.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -1164,10 +1215,14 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <h4 data-number="3.1.1" class="anchored" data-anchor-id="sound-source-composition-per-location"><span class="header-section-number">3.1.1</span> 2019 sound source composition per location</h4>
 <p>Questionnaire data was collected in English, Italian, and Spanish in both cities. The respective questionnaires can be found in the supplementary files and <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (2020)</span>. Data presented here was aggregated per LocationID.</p>
 <p>According to the highest scored mean value of the dominant sound source type, as shown in Figure&nbsp;2, the locations can be grouped into: natural sounds dominated (RegentsParkJapan, RegentsParkFields, RussellSq), human sounds dominated (SanMarco, TateModern, StPaulsRow, StPaulsCross, MonumentoGaribaldi), noise (traffic and other noise) sounds dominated (CamdenTown, EustonTap, TorringtonSq, PancrasLock). Traffic noise and Other noise have been combined here, and for the rest of the discussion, as these responses are highly correlated within this dataset and it is not helpful to consider them separately for this analysis. This follows the alternative sound source labels given in Figure C.3 of <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span> which combines Traffic and Other Noise. Finally, MarchmontGarden is unique in that all sound source types are assessed as being nearly equally present, with only 0.2 separating the least present (Other noise, 2.5) and the most present (Traffic noise, 2.7).</p>
-<div id="fig-barchart" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure2.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;2: (Color online) Mean response per Location ID for the perceived dominance of the sound source types, for the 2019 on-site campaign. The values represent the mean response of all participants in each location to the question “To what extent do you presently hear the following four types of sounds?”. Response values range from [1] Not at all to [5] Dominates completely.</figcaption>
+<div id="fig-barchart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure2.jpg" class="img-fluid figure-img" style="width:60.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: (Color online) Mean response per Location ID for the perceived dominance of the sound source types, for the 2019 on-site campaign. The values represent the mean response of all participants in each location to the question “To what extent do you presently hear the following four types of sounds?”. Response values range from [1] Not at all to [5] Dominates completely.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -1175,36 +1230,44 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <h4 data-number="3.1.2" class="anchored" data-anchor-id="overall-change-in-the-perceived-sound-source-dominance-during-lockdown"><span class="header-section-number">3.1.2</span> Overall change in the perceived sound source dominance during lockdown</h4>
 <p>1803 words describing the sound sources present in the 2019 recordings and 1395 words related to the 2020 recordings were input by participants in response to the open-ended question Q1 (see Appendix A). The frequency of occurrence, generated using the WordClouds web app, is shown in the Figure&nbsp;3, for the 2019 and the 2020 sets respectively. The most frequent words from both 2019 and 2020 groups are: noise, car/traffic, bird/birds, talk/voice and (foot)steps.</p>
 <div id="fig-wordclo" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-wordclo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure3a.jpg" class="img-fluid figure-img"></p>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 </div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<div class="quarto-layout-row">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure3b.jpg" class="img-fluid figure-img"></p>
 </div>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: center;">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3: A graphic illustrating the frequency of occurrence of the sound sources reported by the participants of the online study across all locations, shown for recordings from the 2019 (above) and 2020 (below).</figcaption><p></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-wordclo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: A graphic illustrating the frequency of occurrence of the sound sources reported by the participants of the online study across all locations, shown for recordings from the 2019 (above) and 2020 (below).
+</figcaption>
 </figure>
 </div>
 <p>The results from the listening tests deployed online were analyzed using the SPSS Statistics v. 25. Levene’s test for equality of variances resulted in highly statistically significant values for all 4 sound sources investigated (less than 0.001). Therefore, a Mann-Whitney U-test test was used as a non-parametric equivalent to the T-test to investigate the change in the perceived dominance of the four sound source types <span class="citation" data-cites="McKnight2010Mann">(McKnight and Najab 2010)</span>. The results for human sounds indicated that the perceived dominance was greater for the 2019 sample (M=3.82), than for the 2020 sample (M=2.62), U=41,656, p &lt; 0.001. The results for natural sounds indicated the perceived dominance increased from 2019 (M=2.00) to 2020 (M=2.54), U=63,797, p &lt; 0.001. However, the differences for the noise sources (traffic and other) were not statistically significant. The result of these changes is that while Human sounds were the clearly dominant source across the whole dataset in 2019, in 2020 the sound sources are, on average, much more evenly balanced. No single sound source category was identified as frequent across the 2020 dataset.</p>
-<div id="tbl-source" class="anchored">
+<div id="tbl-source" class="striped hover quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Mean values and standard deviation for the perceived dominance of sound sources (rated from 1 - 5), assessed via an online survey.
+</figcaption>
+<div aria-describedby="tbl-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;3: Mean values and standard deviation for the perceived dominance of sound sources (rated from 1 - 5), assessed via an online survey.</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 12%">
@@ -1291,13 +1354,19 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </section>
 </section>
 <section id="model-selection-performance-and-application" class="level3 page-columns page-full" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="model-selection-performance-and-application"><span class="header-section-number">3.2</span> Model selection, performance, and application</h3>
-<div id="tbl-model" class="anchored page-columns page-full">
-<table class="table-striped table-hover column-page smaller table">
-<caption>Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. ISOPleasant model structure: Random slope, random intercept multi-level model. ISOEventful model structure: Multi-variate linear regression.</caption>
+<div id="tbl-model" class="striped hover column-page smaller quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. ISOPleasant model structure: Random slope, random intercept multi-level model. ISOEventful model structure: Multi-variate linear regression.
+</figcaption>
+<div aria-describedby="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover smaller table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 28%">
@@ -1484,14 +1553,20 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 <section id="isopleasant-model-selected" class="level4" data-number="3.2.1">
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="isopleasant-model-selected"><span class="header-section-number">3.2.1</span> ISOPleasant model selected</h4>
 <p>Following the feature selection, the ISOPleasant model (given in Table&nbsp;4) has <img src="https://latex.codecogs.com/png.latex?N_5"> as the fixed effect with a scaled coefficient of -0.06, and <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, and <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D"> as coefficients which vary depending on the LocationID. The training and testing MAE are very similar, indicating that the model is neither over- nor under-fitting to the training data (<img src="https://latex.codecogs.com/png.latex?MAE_%7Btrain%7D%20=%200.258">; <img src="https://latex.codecogs.com/png.latex?MAE_%7Btest%7D%20=%200.259">). The model performs very well at predicting the average soundscape assessment of the locations (<img src="https://latex.codecogs.com/png.latex?R%5E2_%7Btrain%7D%20=%200.998">; <img src="https://latex.codecogs.com/png.latex?R%5E2_%7Btest%7D%20=%200.85">).</p>
 <p>The high intraclass correlation (<img src="https://latex.codecogs.com/png.latex?ICC%20=%200.90">) demonstrates that the location-level effects are highly important in predicting the pleasantness dimension. Within this random-intercept random-slope model structure, these effects include both the specific context of the location (i.e.&nbsp;the LocationID factor), but also the <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, and <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D"> features whose effects vary across locations. These slopes are given in Figure&nbsp;4. This point highlights the need to consider how the context of a location will influence the relationship between the acoustic features and the perceived pleasantness.</p>
-<div id="fig-random" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure4.jpg" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;4: (Color online) Location-level scaled coefficients for the ISOPleasant model.</figcaption>
+<div id="fig-random" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure4.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: (Color online) Location-level scaled coefficients for the ISOPleasant model.
+</figcaption>
 </figure>
 </div>
 </section>
@@ -1501,10 +1576,14 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </section>
 <section id="sec-application" class="level4" data-number="3.2.3">
 <h4 data-number="3.2.3" class="anchored" data-anchor-id="sec-application"><span class="header-section-number">3.2.3</span> Application to lockdown data</h4>
-<div id="fig-locations" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure5.jpg" class="img-fluid figure-img" style="width:75.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;5: (Color online) Soundscape circumplex coordinates for (a) the mean ISOPleasant and ISOEventful responses for each location; and (b) the mean predicted responses based on recordings made during the lockdown and the change in the location’s placement in the circumplex. In (b) the marker outline is shown for the 2019 location, red arrows indicate the change in the location’s coordinates.</figcaption>
+<div id="fig-locations" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure5.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: (Color online) Soundscape circumplex coordinates for (a) the mean ISOPleasant and ISOEventful responses for each location; and (b) the mean predicted responses based on recordings made during the lockdown and the change in the location’s placement in the circumplex. In (b) the marker outline is shown for the 2019 location, red arrows indicate the change in the location’s coordinates.
+</figcaption>
 </figure>
 </div>
 <p>Once the two models were built and assessed, they were then applied to the lockdown recording data in order to predict the new soundscape ISO coordinates. Figure&nbsp;5 (a) shows the pre-lockdown ISO coordinates for each location and Figure&nbsp;5 (b) shows how the soundscapes are predicted to have been assessed during the lockdown period. As in the model assessment process, the predicted responses are calculated for each recording individually, then the mean for each location is calculated and plotted on the circumplex.</p>
@@ -1525,10 +1604,14 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </section>
 <section id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions"><span class="header-section-number">4.1.2</span> Predicted relative changes in soundscapes due to COVID-19 restrictions</h4>
-<div id="fig-vectors" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure6.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;6: (Color online) The relative change in soundscape perception in the circumplex due to the COVID-19 lockdowns as predicted by the models, represented as vectors centered on the origin. <em>The lawn-works dominated session is shown separately as MonumentoGaribaldi</em> with a gray arrow to indicate that this is distinct from the effects of the lockdown changes.</figcaption>
+<div id="fig-vectors" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure6.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;6: (Color online) The relative change in soundscape perception in the circumplex due to the COVID-19 lockdowns as predicted by the models, represented as vectors centered on the origin. <em>The lawn-works dominated session is shown separately as MonumentoGaribaldi</em> with a gray arrow to indicate that this is distinct from the effects of the lockdown changes.
+</figcaption>
 </figure>
 </div>
 <p>In order to interpret how the change of the acoustic environment at the locations examined would have been perceived, and to answer RQ2, relative change vectors within the circumplex space are shown in Figure . This clearly shows a few different patterns of soundscape change due to the effects of the 2020 lockdown. These can be further looked into depending on the magnitude and direction of change, shifts between quadrants shown in Figure&nbsp;5, and the sound source composition. The discussion below is organized according to groups of locations which show similar behaviors in the predicted magnitude and direction of change, or discusses a single location which is particularly notable.</p>
@@ -1596,9 +1679,13 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <p>On-site study data were collected and managed using REDCap electronic data capture tools hosted at University College London (UCL).</p>
 </div></section><section id="appendix-a-online-survey-questionnaire" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix A: Online survey questionnaire</h2><div class="quarto-appendix-contents">
 
-<div id="tbl-gorilla" class="anchored">
+<div id="tbl-gorilla" class="striped hover quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gorilla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
+</figcaption>
+<div aria-describedby="tbl-gorilla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder</caption>
 <colgroup>
 <col style="width: 7%">
 <col style="width: 92%">
@@ -1647,12 +1734,18 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
+</figure>
+</div>
 </div></section><section id="sec-appmod" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix B: Model Results</h2><div class="quarto-appendix-contents">
 
 <p>Table&nbsp;6 presents the unscaled coefficients for the ISOPleasant and ISOEventful predictive models. The scaled coefficients are presented in the body of the text to facilitate comparisons between the various factors. However, we feel it is important to present unscaled coefficients such that these models could be implemented and compared for future work.</p>
-<div id="tbl-unscl" class="anchored">
+<div id="tbl-unscl" class="striped hover quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-unscl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. Statistically significant p-values are highlighted in bold.
+</figcaption>
+<div aria-describedby="tbl-unscl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="table-striped table-hover table">
-<caption>Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. Statistically significant p-values are highlighted in bold.</caption>
 <colgroup>
 <col style="width: 15%">
 <col style="width: 28%">
@@ -1830,13 +1923,19 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 </tbody>
 </table>
 </div>
-<div id="fig-unsclRandom" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure7.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Figure&nbsp;7: (Color online) The unscaled location-level coefficients for the ISOPleasant model.</figcaption>
 </figure>
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="fig-unsclRandom" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-unsclRandom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure7.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-unsclRandom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7: (Color online) The unscaled location-level coefficients for the ISOPleasant model.
+</figcaption>
+</figure>
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 <div id="ref-Aiello2016Chatty" class="csl-entry">
 Aiello, Luca Maria, Rossano Schifanella, Daniele Quercia, and Francesco Aletta. 2016. <span>“Chatty Maps: Constructing Sound Maps of Urban Areas from Social Media Data.”</span> <em>Royal Society Open Science</em> 3 (3): 150690. <a href="https://doi.org/10.1098/rsos.150690">https://doi.org/10.1098/rsos.150690</a>.
 </div>
@@ -2007,7 +2106,7 @@ Zwicker, Eberhard, and Hugo Fastl. 2007. <em><span class="nocase">Psychoacoustic
 <li id="fn6"><p>See (&lt;www.gorilla.sc&gt;) (Last viewed 11/29/21)↩︎</p></li>
 <li id="fn7"><p>See <a href="https://cordis.europa.eu/project/rcn/211802/factsheet/en" class="uri">https://cordis.europa.eu/project/rcn/211802/factsheet/en</a> (Last viewed 12/7/21)↩︎</p></li>
 </ol>
-</section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{mitchell2021,
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@article{mitchell2021,
   author = {Mitchell, Andrew and Oberman, Tin and Aletta, Francesco and
     Kachlicka, Magdalena and Lionello, Matteo and Erfanian, Mercede and
     Kang, Jian},
