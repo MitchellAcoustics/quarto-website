@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -213,7 +213,7 @@ window.Quarto = {
           <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website">
             Source Code
@@ -301,7 +301,7 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="lecture" data-listing-date-sort="1746921600000" data-listing-file-modified-sort="1706194405236" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528">
+<div class="quarto-post image-right" data-index="0" data-categories="lecture" data-listing-date-sort="1746921600000" data-listing-file-modified-sort="1710519776669" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="528">
 <div class="thumbnail">
 <p><a href="../research/presentations/2023-11-28_delft-lecture/index.html" class="no-external"></a></p><a href="../research/presentations/2023-11-28_delft-lecture/index.html" class="no-external">
 <p><img src="../research/presentations/2023-11-28_delft-lecture/Delft-header.png" class="thumbnail-image"></p>
@@ -334,7 +334,7 @@ Andrew Mitchell
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="lecture" data-listing-date-sort="1730592000000" data-listing-file-modified-sort="1706194405252" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
+<div class="quarto-post image-right" data-index="1" data-categories="lecture" data-listing-date-sort="1730592000000" data-listing-file-modified-sort="1710519776681" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="6">
 <div class="thumbnail">
 <p><a href="../research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html" class="no-external"></a></p><a href="../research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html" class="no-external">
 <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
@@ -367,7 +367,7 @@ Andrew Mitchell
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="conference" data-listing-date-sort="1682035200000" data-listing-file-modified-sort="1706194405140" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
+<div class="quarto-post image-right" data-index="2" data-categories="conference" data-listing-date-sort="1682035200000" data-listing-file-modified-sort="1710519776573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
 <div class="thumbnail">
 <p><a href="../research/presentations/2023-08-09_Soundscapy-poster/index.html" class="no-external"></a></p><a href="../research/presentations/2023-08-09_Soundscapy-poster/index.html" class="no-external">
 <p><img src="../research/presentations/2023-08-09_Soundscapy-poster/2023_USS_Soundscapy-poster.png" class="thumbnail-image"></p>
@@ -628,6 +628,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/drandrewmitchell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -662,7 +680,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

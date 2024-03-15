@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Andrew Mitchell">
+<meta name="dcterms.date" content="2024-03-15">
+<meta name="description" content="In this episode of the ‘Mission: Responsible’ podcast, I explore the fascinating world of soundscape engineering, sharing insights from my visit to the cutting-edge Soundscape Lab at University College London (UCL) and discussing how responsible engineering can combat noise pollution">
 
-<title>Andrew Mitchell - Open Source Papers (with code)</title>
+<title>Andrew Mitchell - Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,27 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../favicon.png" rel="icon" type="image/png">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,99 +72,31 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
-  <script>document.addEventListener("DOMContentLoaded", function () {
- var mathElements = document.getElementsByClassName("math");
- var macros = [];
- for (var i = 0; i < mathElements.length; i++) {
-  var texText = mathElements[i].firstChild;
-  if (mathElements[i].tagName == "SPAN") {
-   katex.render(texText.data, mathElements[i], {
-    displayMode: mathElements[i].classList.contains('display'),
-    throwOnError: false,
-    macros: macros,
-    fleqn: false
-   });
-}}});
-  </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Andrew Mitchell" href="papers.xml" data-external="1"><meta property="og:title" content="Andrew Mitchell - Open Source Papers (with code)">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Andrew Mitchell - Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution">
+<meta property="og:description" content="In this episode of the ‘Mission: Responsible’ podcast, I explore the fascinating world of soundscape engineering, sharing insights from my visit to the cutting-edge Soundscape Lab at University College London (UCL) and discussing how responsible engineering can combat noise pollution">
+<meta property="og:image" content="https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog17880821/Ep2_5ddkiu.jpg">
 <meta property="og:site_name" content="Andrew Mitchell">
-<meta name="twitter:title" content="Andrew Mitchell - Open Source Papers (with code)">
+<meta name="twitter:title" content="Andrew Mitchell - Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution">
+<meta name="twitter:description" content="In this episode of the ‘Mission: Responsible’ podcast, I explore the fascinating world of soundscape engineering, sharing insights from my visit to the cutting-edge Soundscape Lab at University College London (UCL) and discussing how responsible engineering can combat noise pollution">
+<meta name="twitter:image" content="https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog17880821/Ep2_5ddkiu.jpg">
 <meta name="twitter:creator" content="@acousticsman">
 <meta name="twitter:site" content="@acousticsman">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Andrew Mitchell</span>
     </a>
   </div>
@@ -174,11 +107,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -187,25 +120,25 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
         <li>
-    <a class="dropdown-item" href="../research/papers.html">
+    <a class="dropdown-item" href="../../research/papers.html">
  <span class="dropdown-text">Open Source Papers</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/presentations.html">
+    <a class="dropdown-item" href="../../research/presentations.html">
  <span class="dropdown-text">Talks</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../research/list-of-pubs.html">
+    <a class="dropdown-item" href="../../research/list-of-pubs.html">
  <span class="dropdown-text">List of Publications</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../software.html"> 
+    <a class="nav-link" href="../../software.html"> 
 <span class="menu-text">Software</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -230,185 +163,79 @@ window.Quarto = {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../research/papers.html">Open Source Papers</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
-    </div>
-  </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
-<!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="sidebar-menu-container"> 
-    <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../research/papers.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Open Source Papers</span></a>
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><p>Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</p></h1>
+                  <div>
+        <div class="description">
+          <p>In this episode of the ‘Mission: Responsible’ podcast, I explore the fascinating world of soundscape engineering, sharing insights from my visit to the cutting-edge Soundscape Lab at University College London (UCL) and discussing how responsible engineering can combat noise pollution</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">podcast</div>
+              </div>
+                  </div>
   </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../research/presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Talks</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../research/list-of-pubs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">List of Publications</span></a>
-  </div>
-</li>
-    </ul>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author"><a href="https://drandrewmitchell.com/">Andrew Mitchell</a> <a href="https://orcid.org/0000-0003-0978-5046" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              <a href="https://www.ucl.ac.uk/bartlett/environmental-design/">
+              IEDE @ University College London
+              </a>
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 15, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="conference-papers">conference-papers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="journal-articles">journal-articles <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Open Source Papers (with code)</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>I’m thrilled to share that I recently had the honor of being a guest on the “Mission: Responsible” podcast with Drs Shini Somara and Simon Clarke! In this episode, we delve into the critical issue of noise pollution and explore how soundscape engineering can be a powerful tool in mitigating its impact on our health and environment.</p>
+<p>Here’s a sneak peek into my contribution:</p>
+<ul>
+<li><p>Soundscape Engineering: As an advocate for sustainable solutions, I discussed the fascinating field of soundscape engineering. This innovative discipline focuses on taking a holistic approach to shaping the acoustic environment to enhance well-being, reduce noise-related stress, and create harmonious spaces. From urban planning to architectural design, soundscape engineering will play a pivotal role in creating healthier cities in the future.</p></li>
+<li><p>UCL Soundscape Lab: During the podcast, I shared insights from my visit to the Soundscape Lab at University College London (UCL). This cutting-edge research facility is at the forefront of unraveling the complexities of soundscapes. We explored how advanced modeling techniques help us understand noise patterns, identify sources, and design interventions that promote tranquility.</p></li>
+</ul>
+<p>I invite you to listen to the full episode on the “Mission: Responsible” podcast, where we dive deep into the intersection of technology, responsibility, and environmental well-being. Listen here!</p>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3XoMoQgOcm7yYbIHdnHnKl?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+</iframe>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="conference-papers" data-listing-date-sort="1692489600000" data-listing-file-modified-sort="1710519776549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4154">
-<div class="thumbnail">
-<p><a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external"></a></p><a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external">
-<p class="card-img-top"><img src="papers/2023-08-20_Internoise-framework/Overall_Model_Concept_Diagram_2022-04-28.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external">A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('conference-papers'); return false;">
-conference-papers
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external">Presented at Inter-noise 2023, Chiba, Greater Tokyo. </a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external">
-<div class="listing-date">
-Aug 20, 2023
-</div>
-<div class="listing-author">
-Andrew Mitchell, Andrew Mitchell, Francesco Aletta, Tin Oberman, Mercede Erfanian, Jian Kang
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="journal-articles" data-listing-date-sort="1647388800000" data-listing-file-modified-sort="1710519776561" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="28" data-listing-word-count-sort="5420">
-<div class="thumbnail">
-<p><a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external"></a></p><a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external">
-<p class="card-img-top"><img src="papers/how-to-analyse-jasa/figures/Figure1.jpg"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external">How to analyse and represent quantitative soundscape data</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('journal-articles'); return false;">
-journal-articles
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external">Published in JASA Express Letters in March, 2022. <span class="__dimensions_badge_embed__" data-doi="10.1121/10.0009794" data-hide-zero-citations="true" data-style="small_rectangle"></span>
-<script async="" src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/papers/how-to-analyse-jasa/index.html" class="no-external">
-<div class="listing-date">
-Mar 16, 2022
-</div>
-<div class="listing-author">
-Andrew Mitchell, Andrew Mitchell, Francesco Aletta, Jian Kang
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="journal-articles" data-listing-date-sort="1640649600000" data-listing-file-modified-sort="1710519776549" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="79" data-listing-word-count-sort="15623">
-<div class="thumbnail">
-<p><a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external"></a></p><a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external">
-<p class="card-img-top"><img src="papers/2021-12-28_JASA-Lockdown/Figure1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external">Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('journal-articles'); return false;">
-journal-articles
-</div>
-</div>
-<div class="listing-description">
-<a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external">Published in the Journal of the Acoustical Society of America in December, 2021. Part of a special issue on COVID-19 Pandemic Effects. <span class="__dimensions_badge_embed__" data-doi="10.1121/10.0009794" data-hide-zero-citations="true" data-style="small_rectangle"></span>
-<script async="" src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
-</a>
-</div>
-</div>
-<div class="metadata">
-<a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external">
-<div class="listing-date">
-Dec 28, 2021
-</div>
-<div class="listing-author">
-Andrew Mitchell, Andrew Mitchell, Tin Oberman, Francesco Aletta, Magdalena Kachlicka, Matteo Lionello, Mercede Erfanian, Jian Kang
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -967,5 +794,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

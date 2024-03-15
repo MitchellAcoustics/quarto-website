@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,6 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,24 +71,94 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest-posts .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest-posts'] = new List('listing-latest-posts', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Andrew Mitchell">
 <meta property="og:description" content="Urban Soundscape Engineering and Analysis">
-<meta property="og:image" content="https://drandrewmitchell.com//social-card.jpg">
 <meta property="og:site_name" content="Andrew Mitchell">
 <meta name="twitter:title" content="Andrew Mitchell">
 <meta name="twitter:description" content="Urban Soundscape Engineering and Analysis">
-<meta name="twitter:image" content="https://drandrewmitchell.com//social-card.jpg">
 <meta name="twitter:creator" content="@acousticsman">
 <meta name="twitter:site" content="@acousticsman">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -143,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="quarto-navbar-tools">
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="quarto-navigation-tool-dropdown-0">
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website">
             Source Code
@@ -162,20 +234,29 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#latest-posts" id="toc-latest-posts" class="nav-link active" data-scroll-target="#latest-posts">Latest Posts</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
 
-<div class="quarto-about-jolla content">
-  <img src="/social-card.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-about-trestles content column-page-left">
+  <div class="about-entity">
+    <img src="/social-card.jpg" class="about-image
+  round " style="height: 20em; width: 20em;">
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Andrew Mitchell</h1>
 </div>
@@ -184,49 +265,110 @@ ul.task-list li input[type="checkbox"] {
     Urban Soundscape Engineering and Analysis
   </div>
 </div>
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
   </div>
-</header><div id="hero-heading" class="text-center">
+</header>
+    <div class="about-links">
+  <a href="https://twitter.com/AcousticsMan" class="about-link" rel="" target="">
+    <i class="bi bi-twitter"></i>
+     <span class="about-link-text">Twitter</span>
+  </a>
+  <a href="https://github.com/MitchellAcoustics" class="about-link" rel="" target="">
+    <i class="bi bi-github"></i>
+     <span class="about-link-text">Github</span>
+  </a>
+  <a href="https://scholar.google.com/citations?user=xydj7cEAAAAJ&amp;hl=en" class="about-link" rel="" target="">
+    <i class="bi bi-google"></i>
+     <span class="about-link-text">Scholar</span>
+  </a>
+  <a href="mailto:andrew.mitchell.18@ucl.ac.uk" class="about-link" rel="" target="">
+    <i class="bi bi-envelope"></i>
+     <span class="about-link-text">Email</span>
+  </a>
+</div>
+  </div>
+  <div class="about-contents"><div id="hero-heading">
 <p>I am currently a Senior Research Fellow in urban soundscape modelling at University College London (UCL). My research interests include soundscape analysis and visualisation, machine learning, and human perception of sounds.</p>
-</div>  
+<p>I was awarded two PhD- and one Post-doctoral Enrichment Awards from The Alan Turing Institute and spent a month in early 2022 as a visiting research fellow at Stockholm University. My ongoing projects include the Soundscape Indices (SSID) Horizon 2020 project, Soundscapy, Deep Learning Techniques for noise Annoyance detection (DeLTA), the Catalogue of Soundscape Interventions (CSI), and the Soundscape Attributes Translation Project (SATP).</p>
+</div></div>
 </div>
 
-<hr>
-<p>I was awarded two PhD- and one Post-doctoral Enrichment Awards from The Alan Turing Institute and spent a month in early 2022 as a visiting research fellow at Stockholm University. My ongoing projects include the Soundscape Indices (SSID) Horizon 2020 project, Soundscapy, Deep Learning Techniques for noise Annoyance detection (DeLTA), the Catalogue of Soundscape Interventions (CSI), and the Soundscape Attributes Translation Project (SATP).</p>
-<p>I am also the host of The Rest is Just Noise, a monthly podcast exploring the relationship between sound and our cities. Each episode, along with my co-hosts and colleagues Dr Francesco Aletta and Dr Tin Oberman, I speak with researchers and experts from a wide range of backgrounds about their work in urban sounds and sound perception.</p>
+<div style="page-break-after: always;"></div>
+<p>I am also the host of <strong>The Rest is Just Noise</strong>, a monthly podcast exploring the relationship between sound and our cities. Each episode, along with my co-hosts and colleagues Dr Francesco Aletta and Dr Tin Oberman, I speak with researchers and experts from a wide range of backgrounds about their work in urban sounds and sound perception.</p>
 <div id="buzzsprout-large-player">
 
 </div>
 <script type="text/javascript" charset="utf-8" src="https://www.buzzsprout.com/1438372.js?container_id=buzzsprout-large-player&amp;player=large"></script>
-<div style="page-break-after: always;"></div>
-<div class="column-page-inset text-center">
-<a class="btn btn-outline-dark" ,="" href="https://twitter.com/AcousticsMan" target="_blank" rel="noopener noreferrer">
-    <i class="bi bi-twitter" role="img" aria-label="Twitter"></i>
+<section id="latest-posts" class="level2">
+<h2 data-anchor-id="latest-posts">Latest Posts</h2>
+<div id="listing-latest-posts" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="podcast" data-listing-date-sort="1710460800000" data-listing-file-modified-sort="1710519776449" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="221">
+<div class="thumbnail">
+<p><a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external"></a></p><a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external">
+<p><img src="https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog17880821/Ep2_5ddkiu.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external">Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external">In this episode of the ‘Mission: Responsible’ podcast, I explore the fascinating world of soundscape engineering, sharing insights from my visit to the cutting-edge Soundscape Lab at University College London (UCL) and discussing how responsible engineering can combat noise pollution </a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/2024-03-15_mission-responsible/index.html" class="no-external">
+<div class="listing-date">
+Mar 15, 2024
+</div>
+<div class="listing-author">
+Andrew Mitchell
+</div>
 </a>
-
-<a class="btn btn-outline-dark" ,="" href="https://github.com/MitchellAcoustics" target="_blank" rel="noopener noreferrer">
-    <i class="bi bi-github" role="img" aria-label="Github"></i>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="podcast" data-listing-date-sort="1681430400000" data-listing-file-modified-sort="1710519776449" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="39">
+<div class="thumbnail">
+<p><a href="./posts/across-acoustics/index.html" class="no-external"></a></p><a href="./posts/across-acoustics/index.html" class="no-external">
+<p><img src="./posts/across-acoustics/across-acoustics-logo.jpg" class="thumbnail-image"></p>
+</a><p><a href="./posts/across-acoustics/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/across-acoustics/index.html" class="no-external">Appearance on Across Acoustics</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/across-acoustics/index.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="./posts/across-acoustics/index.html" class="no-external">I recently appeared on the official podcast of the Acoustical Society of America to talk about <span>my paper</span> which was published in JASA Express Letters last year.</a>
+</div>
+</div>
+<div class="metadata">
+<a href="./posts/across-acoustics/index.html" class="no-external">
+<div class="listing-date">
+Apr 14, 2023
+</div>
+<div class="listing-author">
+Andrew Mitchell
+</div>
 </a>
-
-<a class="btn btn-outline-dark" ,="" href="https://www.linkedin.com/in/andrew-mitchell-acoustics/" target="_blank" rel="noopener noreferrer">
-    <i class="bi bi-linkedin" role="img" aria-label="LinkedIn"></i>
-</a>
-
-<a class="btn btn-outline-dark" ,="" href="https://scholar.google.com/citations?user=xydj7cEAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">
-    <i class="ai ai-google-scholar" role="img" aria-label="Google Scholar"></i>
-</a>
-
-<!-- <a class="btn btn-outline-dark", href="https://arxiv.org/a/dimmery_d_1.html" target="_blank" rel="noopener noreferrer">
-    <i class="ai ai-arxiv" role='img' aria-label='arXiv'></i>
-</a> -->
-
-<a class="btn btn-outline-dark" ,="" href="mailto:andrew.mitchell.18@ucl.ac.uk" target="_blank" rel="noopener noreferrer">
-    <i class="ai bi-envelope" role="img" aria-label="email"></i>
-</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
 </div>
 
 
 
+
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -445,6 +587,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/drandrewmitchell\.com\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -479,7 +639,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

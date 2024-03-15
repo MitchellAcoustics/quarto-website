@@ -9,8 +9,36 @@
 <link>https://drandrewmitchell.com/blog.html</link>
 <atom:link href="https://drandrewmitchell.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.549</generator>
-<lastBuildDate>Fri, 14 Apr 2023 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.4.551</generator>
+<lastBuildDate>Fri, 15 Mar 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/posts/2024-03-15_mission-responsible/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>I’m thrilled to share that I recently had the honor of being a guest on the “Mission: Responsible” podcast with Drs Shini Somara and Simon Clarke! In this episode, we delve into the critical issue of noise pollution and explore how soundscape engineering can be a powerful tool in mitigating its impact on our health and environment.</p>
+<p>Here’s a sneak peek into my contribution:</p>
+<ul>
+<li><p>Soundscape Engineering: As an advocate for sustainable solutions, I discussed the fascinating field of soundscape engineering. This innovative discipline focuses on taking a holistic approach to shaping the acoustic environment to enhance well-being, reduce noise-related stress, and create harmonious spaces. From urban planning to architectural design, soundscape engineering will play a pivotal role in creating healthier cities in the future.</p></li>
+<li><p>UCL Soundscape Lab: During the podcast, I shared insights from my visit to the Soundscape Lab at University College London (UCL). This cutting-edge research facility is at the forefront of unraveling the complexities of soundscapes. We explored how advanced modeling techniques help us understand noise patterns, identify sources, and design interventions that promote tranquility.</p></li>
+</ul>
+<p>I invite you to listen to the full episode on the “Mission: Responsible” podcast, where we dive deep into the intersection of technology, responsibility, and environmental well-being. Listen here!</p>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/3XoMoQgOcm7yYbIHdnHnKl?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+</iframe>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>podcast</category>
+  <guid>https://drandrewmitchell.com/posts/2024-03-15_mission-responsible/</guid>
+  <pubDate>Fri, 15 Mar 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://deow9bq0xqvbj.cloudfront.net/ep-logo/pbblog17880821/Ep2_5ddkiu.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Appearance on Across Acoustics</title>
   <dc:creator>Andrew Mitchell</dc:creator>
