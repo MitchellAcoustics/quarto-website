@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Mitchell">
-<meta name="dcterms.date" content="2024-04-08">
+<meta name="dcterms.date" content="2022-04-25">
+<meta name="description" content="A few months ago, I gave a talk on using regression models to predict soundscape perceptions (see the video here). A fellow researcher was kind enough to reach out with a few very good questions about our work, which I answered in near-excessive detail. I thought it might be useful to share their questions and my answers with everyone! I hope you enjoy this look at the future of soundscape design.">
 
-<title>Andrew Mitchell - Which is louder - a wind turbine or your refrigerator?</title>
+<title>Andrew Mitchell - Questions on predictive soundscape modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -110,13 +77,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Andrew Mitchell - Which is louder - a wind turbine or your refrigerator?">
-<meta property="og:description" content="Personal website of Andrew Mitchell">
-<meta property="og:image" content="https://drandrewmitchell.com/posts/2024-01-03_turbine-noise/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta property="og:title" content="Andrew Mitchell - Questions on predictive soundscape modelling">
+<meta property="og:description" content="A few months ago, I gave a talk on using regression models to predict soundscape perceptions (see the video here). A fellow researcher was kind enough to reach out with a few very good questions about our work, which I answered in near-excessive detail. I thought it might be useful to share their questions and my answers with everyone! I hope you enjoy this look at the future of soundscape design.">
+<meta property="og:image" content="https://drandrewmitchell.com/posts/2022-04-25_q-on-ss-modelling/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Andrew Mitchell">
-<meta name="twitter:title" content="Andrew Mitchell - Which is louder - a wind turbine or your refrigerator?">
-<meta name="twitter:description" content="Personal website of Andrew Mitchell">
-<meta name="twitter:image" content="https://drandrewmitchell.com/posts/2024-01-03_turbine-noise/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
+<meta name="twitter:title" content="Andrew Mitchell - Questions on predictive soundscape modelling">
+<meta name="twitter:description" content="A few months ago, I gave a talk on using regression models to predict soundscape perceptions (see the video here). A fellow researcher was kind enough to reach out with a few very good questions about our work, which I answered in near-excessive detail. I thought it might be useful to share their questions and my answers with everyone! I hope you enjoy this look at the future of soundscape design.">
+<meta name="twitter:image" content="https://drandrewmitchell.com/posts/2022-04-25_q-on-ss-modelling/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@acousticsman">
 <meta name="twitter:site" content="@acousticsman">
 <meta name="twitter:card" content="summary_large_image">
@@ -201,8 +168,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Which is louder - a wind turbine or your refrigerator?</h1>
-                      </div>
+      <h1 class="title">Questions on predictive soundscape modelling</h1>
+                  <div>
+        <div class="description">
+          <p>A few months ago, I gave a talk on using regression models to predict soundscape perceptions (see <a href="https://www.youtube.com/watch?v=bUN9NWhpFow">the video here</a>). A fellow researcher was kind enough to reach out with a few very good questions about our work, which I answered in near-excessive detail. I thought it might be useful to share their questions and my answers with everyone! I hope you enjoy this look at the future of soundscape design.</p>
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">soundscape</div>
+                <div class="quarto-category">machinelearning</div>
+                <div class="quarto-category">ssid</div>
+              </div>
+                  </div>
   </div>
     
   <div class="quarto-title-meta-author">
@@ -227,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 8, 2024</p>
+        <p class="date">April 25, 2022</p>
       </div>
     </div>
     
@@ -239,13 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Contents</h2>
-   
-  <ul>
-  <li><a href="#which-is-louder---a-wind-turbine-or-your-refrigerator" id="toc-which-is-louder---a-wind-turbine-or-your-refrigerator" class="nav-link active" data-scroll-target="#which-is-louder---a-wind-turbine-or-your-refrigerator">Which is louder - a wind turbine or your refrigerator?</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -254,76 +225,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="which-is-louder---a-wind-turbine-or-your-refrigerator" class="level1">
-<h1>Which is louder - a wind turbine or your refrigerator?</h1>
-<p>Starting source for calculation: https://myworkspace.dnv.com/download/public/renewables/windfarmer/manuals/latest/CalcRef/Noise/noise.html</p>
-<div id="f83a994b" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> swl_turbine_i(l_w, d_c, a_tot):</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the sound power level of a wind turbine</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">    :param l_w: sound power level of the wind turbine</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">    :param d_c: directivity correction in decibels</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a: attenuation total</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    :return: sound pressure level of the wind turbine at distance d</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> l_w <span class="op">+</span> d_c <span class="op">-</span> a</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_tot(a_div, a_atm, a_gr, a_bar, a_misc, a_met):</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Calculate the total attenuation</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_div: divergence attenuation</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_atm: atmospheric attenuation</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_gr: ground attenuation</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_bar: barrier attenuation</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_misc: miscellaneous attenuation</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a_met: meteorological attenuation</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">    :return: total attenuation</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a_div <span class="op">+</span> a_atm <span class="op">+</span> a_gr <span class="op">+</span> a_bar <span class="op">+</span> a_misc <span class="op">+</span> a_met</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_div(d, d_0 <span class="op">=</span> <span class="fl">1.0</span>, temp<span class="op">=</span><span class="dv">20</span>, hum<span class="op">=</span><span class="dv">70</span>):</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co">    Accounts for spherical spreading in the free field from a point sound source over hard ground.</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co">    :param d: distance from the source</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">    :return: divergence attenuation</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">20</span> <span class="op">*</span> np.log10(d<span class="op">/</span>d_0) <span class="op">+</span> <span class="dv">11</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>    <span class="dv">10</span>: {</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        <span class="dv">70</span>: (<span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">1.0</span>, <span class="fl">1.9</span>, <span class="fl">3.7</span>, <span class="fl">9.7</span>, <span class="fl">32.8</span>, <span class="fl">117.0</span>),</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    <span class="dv">20</span>: {</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>        <span class="dv">70</span>: (<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">1.1</span>, <span class="fl">2.8</span>, <span class="fl">5.0</span>, <span class="fl">9.0</span>, <span class="fl">22.9</span>, <span class="fl">76.6</span>),</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="dv">30</span>: {</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        <span class="dv">70</span>: (<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">1.0</span>, <span class="fl">3.1</span>, <span class="fl">7.4</span>, <span class="fl">12.7</span>, <span class="fl">23.1</span>, <span class="fl">59.3</span>),</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>    <span class="dv">15</span>: {</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>        <span class="dv">20</span>: (<span class="fl">0.3</span>, <span class="fl">0.6</span>, <span class="fl">1.2</span>, <span class="fl">2.7</span>, <span class="fl">8.2</span>, <span class="fl">28.2</span>, <span class="fl">88.8</span>, <span class="fl">202.0</span>),</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>        <span class="dv">50</span>: (<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">1.2</span>, <span class="fl">2.2</span>, <span class="fl">4.2</span>, <span class="fl">10.8</span>, <span class="fl">36.2</span>, <span class="fl">129.0</span>),</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>        <span class="dv">70</span>: (<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">1.1</span>, <span class="fl">2.4</span>, <span class="fl">4.1</span>, <span class="fl">8.3</span>, <span class="fl">23.7</span>, <span class="fl">82.8</span>),</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>    },</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_atm(a, d):</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="co">    Accounts for atmospheric absorption</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="co">    :param a: atmospheric absorption coefficient</span></span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co">    :param d: distance from the source</span></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="co">    :return: atmospheric attenuation</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (a <span class="op">*</span> d) <span class="op">/</span> <span class="dv">1000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
+<p><em>Do you think there is reasonable validity in lab-based soundscape evaluation?</em></p>
+<p>Depending on the quality of the lab presentation, yes. Virtual Reality systems, either with ambisonic playback or with head-tracked binaural, along with a head mounted display appear to achieve at least acceptable levels of ecological validity (<a href="https://www.mdpi.com/2624-599X/3/1/3/htm" title="https://www.mdpi.com/2624-599X/3/1/3/htm">see work from my colleague Chunyang Xu</a>). This should also be considered with how useful lab-based evaluation can be for research. There’s so much we can do experimentally in a lab that is impossible in situ. This includes physiological/neurological measurements, testing the addition of new sounds in a complex scene, investigating the influence of the direction a sound comes from, and mixing and matching visual and auditory stimuli (what happens when the sound scene so clearly doesn’t match the visual environment?). But of course, this is balanced by things which are only possible in situ and not in a lab – sampling the population which actually uses a space, incorporating the participants’ purpose for being there and their relationship to the space, etc. So it depends a lot on what your research question is – for true ecological validity, for engagement with the space, for monumental and historical spaces, in situ is probably still best. For things which can’t be done in situ or a to have more controlled experimental setup – in the lab.</p>
+<p>What I think is clear (to me at least) is that over-the-internet evaluations are almost certainly not valid for perceptual assessments. It’s very difficult to know exactly what the respondent was exposed to. The lack of control in playback loudness and quality, the static audio rather than headtracked, and usually the lack of a head mounted display all limit what we can do with it. We’ve had some success using online surveys for sound source identification, but we actually ended up throwing out a whole load of perceptual attribute data we collected this way during COVID because we felt it wasn’t valid.</p>
+<p><em>Your example of retirees having different attitudes to the rest of the population is a good example.</em></p>
+<p>Interestingly, multi-level modelling was <a href="https://www.sciencedirect.com/science/article/pii/S0272494421001134" title="https://www.sciencedirect.com/science/article/pii/S0272494421001134">the analysis we used to find that particular result</a>!</p>
+<p><em>This brings into question the truth of the quality of a soundscape given these differing attitudes and opinions; if you are engineering a soundscape for quality, how do you maximise soundscape quality given this difference? How representative is the survey population per group (retirees/students/workers etc), and does this influence the generalisability of your model?</em></p>
+<p>While there are significant effects of these sorts of demographic questions, like that of retirees, they are still relatively small, accounting for about 1.4% of the variance for Pleasantness ratings and 3.9% for Eventfulness ratings. That shouldn’t be ignored, but the sort of predictive modelling we’re talking about isn’t yet at the point where we can approach that level of accuracy. I suspect that the inherent randomness and degree of variance for any individual’s response is such that we may never get there, for these sorts of models. Particularly for in situ surveys, we’re dealing with quite noisy data where the noise is inherent due to every individual’s randomness in their response.</p>
+<p>But this gets to my next point, which hopefully I’ll be publishing on soon – we need to think of soundscape assessments in statistical and probabilistic terms. For real-world assessments, I don’t think it’s at all useful and is in fact probably irresponsible, to talk about predicting the response of any individual, or a single predicted response to a single input. Our modelling should ideally incorporate the inherent randomness of people’s responses, such that any single input (i.e.&nbsp;a recording or sound sample) gives a range of predicted responses, since that is how it works in reality. Even with perfect information – i.e.&nbsp;we know exactly the sound you’re exposed to and your noise sensitivity and we know your demographic information and what you had for breakfast this morning – there would still be some random range of responses you could give. This range would likely have a normal shape and have tendencies and we could predict how that distribution would move, but it’s pointless to try to say there is some ground truth of what you will perceive for a given input – human perception is a chaotic system. When we scale this up to locations and populations of people, we should be saying things like “70% of people would likely find this space vibrant”.</p>
+<p>Now, how we maximise soundscape quality is a different question to predicting assessments. To me, this is a designer’s task in a lot of cases. Which is the ideal soundscape, a vibrant one, or a calm one? It depends on the context, and there’s no single number or descriptor that says ‘this is the best soundscape’. The designers (including acoustic and soundscape experts) need to decide on their desired type of soundscape, in consultation with the users and other stakeholders. Then we can help predict what changes will lead to this desired soundscape outcome.</p>
+<p><em>I wanted to ask how deep you went into your nonlinear modelling strategies, and did they highlight anything that is not represented by your multilevel linear model?</em></p>
+<p>The non-linear work was done by a Masters student I supervised and was mostly exploratory. We tried several non-linear methods and saw some differences among them, but none of them achieved the performance of the MLM I presented. At the moment I’m not completely sure why this is, but I suspect it’s down to the care that was put into the structure of the MLM. It’s the culmination of three years of PhD work, compared to less than a year afforded to the Masters work. The nonlinear work was meant as a sanity check to make sure there wasn’t some obvious advantage to non-linear models that would blow the linear one out of the water. There are some other reasons behind this approach, but mostly I came into the work from an engineering consulting perspective and one of the requirements I placed on my model was to be transparent and interpretable so that engineers could dig through it and understand what was causing e.g.&nbsp;a soundscape to be chaotic. This immediately excluded things like neural networks and to some extent SVMs and random forests from my personal research. The hope was for some other researchers to explore a non-linear approach (specifically neural networks) from the start but unfortunately this fell through.</p>
+<p>I’m hoping to 1. Incorporate nonlinear transformations of input features into future linear models, and 2. Further investigate non-linear models.</p>
+<p><em>However, I wonder if they mask the insufficiency of linear regressions in modelling piecewise and nonlinear features that appear in soundscape evaluation.</em></p>
+<p>I’m not convinced this is insurmountable in a linear regression. For me the next step to identifying this is to look at the wide array of features we could include and calculated non-linear correlations (personally, I’m looking at mutual information and conditional mutual information). This can help us identify whether there is any relationship, linear, piecewise, or otherwise, between the input feature and the output evaluation. Once that has been narrowed down and identified, we can do a non linear transformation before feeding into the linear model or just define separate regimes for the linear model (e.g.&nbsp;one set of coefficients for below 65 dBA, and one set for above). I think this is very likely, since several pieces of research have seemed to identify some threshold (somewhere around 65-70 dBA) above which the sound level is in fact dominant in a classical environmental acoustics/annoyance manner. I think we’ll need to define different approaches for the different regimes.</p>
+<p><em>Did you have to perform any further preprocessing of your data before feeding your nonlinear models?</em></p>
+<p>For this specific work, I’d say no. We have a data cleaning process, all features are standardized before feature selection, and we used either a train/test split or cross validation for feature selection and model building, but not any true pre-processing. As above, this will probably change as we try to make sure we haven’t missed any nonlinearities.</p>
+<p><em>Have you explored methods for feature generation that are not manually engineered i.e.&nbsp;not traditional psychoacoustic indices?</em></p>
+<p>Yes and no. For yes, I’ve been exploring a new metric for characterising temporal behaviour (based on the <a href="https://asa.scitation.org/doi/full/10.1121/1.4927033?casa_token=160IcPBZfF8AAAAA%3A3ChYe_kJm6PAMsSxHbzj4S6RtHua6emRAVyAkGXdiwB1pUyg5gI4Lhux9XxbiCNwpSukGkupwmrF" title="https://asa.scitation.org/doi/full/10.1121/1.4927033?casa_token=160IcPBZfF8AAAAA%3A3ChYe_kJm6PAMsSxHbzj4S6RtHua6emRAVyAkGXdiwB1pUyg5gI4Lhux9XxbiCNwpSukGkupwmrF">1/f behaviour explored here</a>), but it is derived from the time series of the psychoacoustic indices themselves. For no, again, this was a limitation I imposed from the start to my particular work. I wanted to make use of the vast psychoacoustic research which has not made its way into environmental acoustics before, and I wanted to make sure the metrics used were understandable by the engineers who would likely use the models. If we instead used for example MFCCs, it’s very difficult to interpret what is actually influencing the outcome of the model. Great, you have a super accurate ANN based on MFCCs, now what? How do you identify what is causing the problem in your soundscape? How do you design a mitigation strategy if you can’t even identify what the problem is? How do you identify what is working well to enhance or apply elsewhere if you’re working with a black box?</p>
+<p>That’s a bit facetious, but I do think there is serious value in a transparent and interpretable model with understandable inputs. That said, I’m not entirely opposed to techniques like that and am using them for some other work on sound source recognition.</p>
+<p><em>Do you plan to test the generalisability of your model to soundscapes not in your dataset?</em></p>
+<p>The specific model I presented, no. It is not generalisable to other locations due to the way the MLM was set up. The next step is to replace that categorical variable which identifies the locationID with some combination of characteristics which <em>describe</em> the location – architectural typology, visual openness, greenness, etc. With this, it could then be applied to other locations. So <em>a model</em> trained on this dataset will eventually be generalisable and will be tested on other locations, just not the one we currently have.</p>
+<p><em>I wanted to ask if you had an intuition for the validity of the different psychoacoustic metrics that you ended up with in your model for eventfulness?</em></p>
+<p>It’s like you’ve read my mind! Here’s a section I wrote a few months ago on the use of psychoacoustic metrics in soundscape for my thesis:</p>
+<p>“From the experience of the previous studies which are highly focussed on the existing environmental acoustic and psychoacoustic metrics, one (of many) potential limitations has been revealed. For the most part, these metrics were designed to characterise various negative qualities of the sound. Certainly, they therefore have a valid negative correlation with positive assessments of the sound, but the simple fact is that they were conceived of and implemented in an attempt to quantify some sonic characteristic that was assumed by the researchers to contribute to a negative perception. Hence why in Zwicker’s empirical formula for Psychoacoustic Annoyance, all of the constituent parts have positive coefficients.</p>
+<p>While this would not theoretically hinder a formula for describing positive aspects of the sound, it creates a sort of conceptual barrier. If all of these metrics are designed to capture negative aspects of the sound, then it is insufficient to use them to create a formula to describe a positive sound, since that formula would only represent the ‘absence of negativity’, not necessarily positivity.”</p>
+<p><em>I understand that eventfulness might be an attribute that is very local to the specific soundscape experience being surveyed at the time; if this is the case, what is the intuition for fluctuation strength being a factor in eventfulness?</em></p>
+<p>On the contrary, the feature reduction of our model showed that the context (at least due to the location) is not important for Eventfulness, while it is highly important for Pleasantness. Therefore eventfulness is less local to the specific soundscape experience and is much more dependent on the acoustic features, regardless of the rest of the context.</p>
+<p><em>I see LAeq is still the strongest influence in your model of eventfulness, given this, I am interested to know why loudness isn’t in this list of predictors.</em></p>
+<p>This is primarily down to the feature selection process we used, which prioritised model performance. Given the slate of other features which were initially considered, it’s conceivable that LAeq was providing information which Loudness didn’t, when taken in context with the other psychoacoustical metrics and therefore Loudness was removed. We wouldn’t expect both features to be included in the final model anyway and, in fact, we would have manually removed one if necessary to prevent collinearity. Since LAeq and Loudness encode similar (but not identical) information, they are highly correlated but will behave somewhat differently within the model and the feature selection. That said, this process is somewhat brittle, meaning with a slightly different sample, Loudness may have won out in place of LAeq. The overall structure and behaviour of the model is robust, but given two highly correlated metrics, it’s a bit of a toss up which one was ultimately selected. I would discourage anyone from making declarative statements like ‘LAeq is the important one, ditch Loudness’ on the basis of this model.</p>
+<p><em>On the same note, do you think annotations of the number of discrete acoustic events that occured during a recording might be an effective indicator of eventfulness (assuming you could compute the number of discrete events, either computationally or manually); I guess I am asking if you think eventfulness is purely based on the number of events that occured or if eventfulness is motivated by many other factors.</em></p>
+<p>I absolutely think that’s a great point. Something like the number of LAmax events above a certain value (which I think is used in sleep disturbance?) would probably be a good candidate metric to include. I’ll put it on the list! Alternatively, if a system for counting the discrete sound events could be made, maybe using environmental sound recognition, that would also be great.</p>
+<p>That said, I think it would again be one of many features in the final model. I don’t think there’s any single metric which can describe the complex perceptual attributes we’re aiming for. Again, I’ll just quote a section I wrote a bit ago:</p>
+<p>“Contrary to the hopes expressed by Aletta et al.&nbsp;(2014), that”ideally there should be one acous- tic indicator per dimension”, the evidence from subsequent investigations and modelling at- tempts (Lionello et al., 2020) indicates this to be unlikely. There appears to be no reason we should think the perceptual dimensions should be reduced to a single acoustic indicator. The dimensions of soundscape represent complex perceptual concepts which we should expect to be composed of a multi-factor interaction between the input features. This necessary complexity highlights the need for a more sophisticated machine learning approach in order to handle and interpret the interactions between the many input features which contribute to the formation of a soundscape perception. (Aletta et al., 2016)”</p>
+<p>Personally, I think the next big step will be to integrate a sound source recognition model along into a psychoacoustic and contextual model of soundscape to really tease out how the perceptual response is dependent on the acoustic characteristics, combined with the meaning assigned to the sound source, and mediated by the context and personal factors.</p>
+<p><em>How co-compatible do you think pleasantness and vibrancy are with valence and arousal?</em></p>
+<p>For my purposes, pleasantness and <em>eventfulness</em> are just the specific labels for the concept of soundscape valence and arousal, which is how Axelsson presented it originally. So technically they are exactly compatible, since pleasantness is just soundscape valence and eventfulness is just soundscape arousal. I think Axelsson’s work, Simone Torresin’s work on the indoor soundscape circumplex, and our own upcoming work on translating the perceptual attributes, all agree enough to demonstrate that the framework of the soundscape circumplex is solid enough to build on, although there are still some particularities to work out, particularly with the precise labels used for the various attributes.</p>
+<p><em>Have you performed any dimensionality reduction in the process of evaluating the data, to see which dimensions in the data are co-linear and orthogonal?</em></p>
+<p>Not formally yet (at least not beyond some simple exploratory correlation analyses), but that’ll be coming…</p>
+<p><em>Do you plan to have participants evaluate your lockdown recordings in-the-lab, to get an idea of the validity of either your model or how participants might rate your soundscapes in a lab setting?</em></p>
+<p>I probably won’t end up doing that work, but yeah I think someone from our lab is planning on it. We were definitely planning on doing a round of validation work comparing in situ vs lab responses with our recordings, it’s just a matter of lab time, workload, and competing with other good ideas.</p>
+<p><em>Finally, I wanted to ask if you were planning to publish any of the audio and higher resolution 360 still images from your database?</em></p>
+<p><em>I am interested in using the recordings in my own research (with the necessary citations, correspondence and invitation to collaborate of course).</em></p>
+<p>Great to hear! Yes, we are working on this! We released the data used for the lockdown modelling study for open access on <a href="https://zenodo.org/record/5654747" title="https://zenodo.org/record/5654747">Zenodo as the ‘International Soundscape Database’</a>. But this just includes the survey results and the output of the psychoacoustic analysis at this early stage. I’m now working on organising the binaural recordings to make them openly available as part of a future version of the database.</p>
 
 
-</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

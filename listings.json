@@ -1,20 +1,5 @@
 [
   {
-    "listing": "/blog.html",
-    "items": [
-      "/posts/2024-03-15_mission-responsible/index.html",
-      "/posts/across-acoustics/index.html",
-      "/posts/visa-process/index.html",
-      "/posts/pandemic-sensory-archive/index.html",
-      "/posts/2020-06-19-protocol-paper/index.html",
-      "/posts/phd-upgrade-done/index.html",
-      "/posts/2020-06-18_cluster-analysis-in-r/index.html",
-      "/posts/2020-04-09_book-diary-3/index.html",
-      "/posts/2019-05-11_book-diary-2/index.html",
-      "/posts/2019-05-10_book-diary-1/index.html"
-    ]
-  },
-  {
     "listing": "/research/presentations.html",
     "items": [
       "/research/presentations/2023-11-28_delft-lecture/index.html",
@@ -23,19 +8,12 @@
     ]
   },
   {
-    "listing": "/research/papers.html",
-    "items": [
-      "/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html",
-      "/research/papers/how-to-analyse-jasa/index.html",
-      "/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/posts/2024-03-15_mission-responsible/index.html",
       "/posts/across-acoustics/index.html",
       "/posts/visa-process/index.html",
+      "/posts/2022-04-25_q-on-ss-modelling/index.html",
       "/posts/pandemic-sensory-archive/index.html",
       "/posts/2020-06-19-protocol-paper/index.html",
       "/posts/phd-upgrade-done/index.html",
@@ -43,6 +21,30 @@
       "/posts/2020-04-09_book-diary-3/index.html",
       "/posts/2019-05-11_book-diary-2/index.html",
       "/posts/2019-05-10_book-diary-1/index.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/posts/2024-03-15_mission-responsible/index.html",
+      "/posts/across-acoustics/index.html",
+      "/posts/visa-process/index.html",
+      "/posts/2022-04-25_q-on-ss-modelling/index.html",
+      "/posts/pandemic-sensory-archive/index.html",
+      "/posts/2020-06-19-protocol-paper/index.html",
+      "/posts/phd-upgrade-done/index.html",
+      "/posts/2020-06-18_cluster-analysis-in-r/index.html",
+      "/posts/2020-04-09_book-diary-3/index.html",
+      "/posts/2019-05-11_book-diary-2/index.html",
+      "/posts/2019-05-10_book-diary-1/index.html"
+    ]
+  },
+  {
+    "listing": "/research/papers.html",
+    "items": [
+      "/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html",
+      "/research/papers/how-to-analyse-jasa/index.html",
+      "/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html"
     ]
   }
 ]
