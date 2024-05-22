@@ -9,7 +9,7 @@
 <link>https://drandrewmitchell.com/research/presentations.html</link>
 <atom:link href="https://drandrewmitchell.com/research/presentations.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.553</generator>
+<generator>quarto-1.4.554</generator>
 <lastBuildDate>Sun, 11 May 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>TU Delft Pi-Lab Talk: Soundscape Designs</title>
@@ -196,6 +196,37 @@ Science.”</span> UCL, London, UK, November 3. <a href="https://drandrewmitchel
   <guid>https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/</guid>
   <pubDate>Fri, 21 Apr 2023 00:00:00 GMT</pubDate>
   <media:content url="https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/2023_USS_Soundscapy-poster.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>Crash course in Soundscape Research from Dr Aletta</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="soundscape-research-in-less-than-8-minutes-by-dr-francesco-aletta" class="level2">
+<h2 class="anchored" data-anchor-id="soundscape-research-in-less-than-8-minutes-by-dr-francesco-aletta">Soundscape Research (in less than 8 minutes) by Dr Francesco Aletta</h2>
+<p><object data="./Soundscape_IOA_march2024.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./Soundscape_IOA_march2024.pdf">Download</a> instead.</p></object></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2023,
+  author = {Mitchell, Andrew},
+  title = {Soundscape {Research} (in 8 Minutes)},
+  date = {2023-03-11},
+  url = {https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew. 2023. <span>“Soundscape Research (in 8
+Minutes).”</span> Invited Lecture, March 11. <a href="https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk">https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk</a>.
+</div></div></section></div> ]]></description>
+  <category>lecture</category>
+  <guid>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/</guid>
+  <pubDate>Sat, 11 Mar 2023 00:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -1,99 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://drandrewmitchell.com/about.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html</loc>
-    <lastmod>2024-04-08T17:05:44.473Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations.html</loc>
-    <lastmod>2024-04-08T17:05:44.493Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/list-of-pubs.html</loc>
-    <lastmod>2024-04-08T17:05:44.453Z</lastmod>
+    <loc>https://drandrewmitchell.com/software.html</loc>
+    <lastmod>2024-05-22T17:26:09.373Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/posts/across-acoustics/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.377Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/posts/visa-process/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.389Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/posts/pandemic-sensory-archive/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.377Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/software.html</loc>
-    <lastmod>2024-04-08T17:05:44.613Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2020-04-09_book-diary-3/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
   <url>
-    <loc>https://drandrewmitchell.com/posts/2022-04-25_q-on-ss-modelling/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
+    <loc>https://drandrewmitchell.com/posts/pandemic-sensory-archive/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
   <url>
-    <loc>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.389Z</lastmod>
+    <loc>https://drandrewmitchell.com/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
   <url>
-    <loc>https://drandrewmitchell.com/posts/2024-03-15_mission-responsible/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/blog.html</loc>
-    <lastmod>2024-04-08T17:05:44.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers.html</loc>
-    <lastmod>2024-04-08T17:05:44.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.485Z</lastmod>
+    <loc>https://drandrewmitchell.com/research/list-of-pubs.html</loc>
+    <lastmod>2024-05-22T17:26:09.209Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</loc>
-    <lastmod>2024-04-08T17:05:44.477Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.241Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations.html</loc>
+    <lastmod>2024-05-22T17:26:09.249Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/index.html</loc>
-    <lastmod>2024-04-08T17:05:44.501Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.253Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.373Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/about.html</loc>
+    <lastmod>2024-05-22T17:26:09.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.349Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</loc>
-    <lastmod>2024-04-08T17:05:44.609Z</lastmod>
+    <lastmod>2024-05-22T17:26:09.365Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers.html</loc>
+    <lastmod>2024-05-22T17:26:09.209Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html</loc>
+    <lastmod>2024-05-22T17:26:09.229Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/blog.html</loc>
+    <lastmod>2024-05-22T17:26:09.125Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/across-acoustics/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.145Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/visa-process/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.145Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/2022-04-25_q-on-ss-modelling/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/posts/2024-03-15_mission-responsible/index.html</loc>
+    <lastmod>2024-05-22T17:26:09.129Z</lastmod>
   </url>
 </urlset>
