@@ -9,7 +9,7 @@
 <link>https://drandrewmitchell.com/research/papers.html</link>
 <atom:link href="https://drandrewmitchell.com/research/papers.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.554</generator>
+<generator>quarto-1.4.555</generator>
 <lastBuildDate>Sun, 20 Aug 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications</title>
@@ -848,7 +848,7 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive models. All metrics are calculated for the full length of the recording (<img src="https://latex.codecogs.com/png.latex?%5Csim30s">). As recommended by <span class="citation" data-cites="ISO2017Acoustics">ISO 532-1:2017 (2017)</span> and <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span>, the 5th percentile of Loudness is used rather than the average.
 </figcaption>
 <div aria-describedby="tbl-psychoacoustics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 31%">
 <col style="width: 22%">
@@ -942,7 +942,7 @@ Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive
 Table&nbsp;2: Pearson correlation coefficients between candidate acoustic features and ISOPleasant and ISOEventful across all 13 locations. Only statistically significant (<img src="https://latex.codecogs.com/png.latex?p%20%3C%200.01">) coefficients are shown.
 </figcaption>
 <div aria-describedby="tbl-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 6%">
@@ -1267,7 +1267,7 @@ Figure&nbsp;3: A graphic illustrating the frequency of occurrence of the sound s
 Table&nbsp;3: Mean values and standard deviation for the perceived dominance of sound sources (rated from 1 - 5), assessed via an online survey.
 </figcaption>
 <div aria-describedby="tbl-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 23%">
 <col style="width: 12%">
@@ -1366,7 +1366,7 @@ Table&nbsp;3: Mean values and standard deviation for the perceived dominance of 
 Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. ISOPleasant model structure: Random slope, random intercept multi-level model. ISOEventful model structure: Multi-variate linear regression.
 </figcaption>
 <div aria-describedby="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover smaller table">
+<table class="table-striped table-hover smaller caption-top table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 28%">
@@ -1685,7 +1685,7 @@ Figure&nbsp;6: (Color online) The relative change in soundscape perception in th
 Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
 </figcaption>
 <div aria-describedby="tbl-gorilla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 7%">
 <col style="width: 92%">
@@ -1745,7 +1745,7 @@ Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
 Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. Statistically significant p-values are highlighted in bold.
 </figcaption>
 <div aria-describedby="tbl-unscl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
+<table class="table-striped table-hover caption-top table">
 <colgroup>
 <col style="width: 15%">
 <col style="width: 28%">

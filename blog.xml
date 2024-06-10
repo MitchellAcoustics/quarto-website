@@ -9,7 +9,7 @@
 <link>https://drandrewmitchell.com/blog.html</link>
 <atom:link href="https://drandrewmitchell.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.554</generator>
+<generator>quarto-1.4.555</generator>
 <lastBuildDate>Fri, 15 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</title>
@@ -548,7 +548,7 @@ background-color: null;
 font-style: inherit;">head</span>(ssid.data))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;">GroupID</th>
@@ -679,7 +679,7 @@ background-color: null;
 font-style: inherit;">kable</span>(means)</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -997,7 +997,7 @@ font-style: inherit;">kable</span>(res)</span></code></pre></div>
 <tbody>
 <tr>
 <td>
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 1%">
 <col style="width: 2%">
@@ -1335,7 +1335,7 @@ font-style: inherit;">kable</span>(res)</span></code></pre></div>
 </table>
 </td>
 <td>
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
@@ -1406,7 +1406,7 @@ font-style: inherit;">kable</span>(res)</span></code></pre></div>
 </table>
 </td>
 <td>
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 6%">
 <col style="width: 2%">
@@ -1546,7 +1546,7 @@ font-style: inherit;">kable</span>(res)</span></code></pre></div>
 </table>
 </td>
 <td>
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;"></th>
