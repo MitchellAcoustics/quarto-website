@@ -2,102 +2,106 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://drandrewmitchell.com/software.html</loc>
-    <lastmod>2024-06-10T14:53:50.373Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.863Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2019-05-10_book-diary-1/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2020-06-19-protocol-paper/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2020-04-09_book-diary-3/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/pandemic-sensory-archive/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.623Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
-    <loc>https://drandrewmitchell.com/research/list-of-pubs.html</loc>
-    <lastmod>2024-06-10T14:53:50.201Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</loc>
-    <lastmod>2024-06-10T14:53:50.229Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.237Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations.html</loc>
-    <lastmod>2024-06-10T14:53:50.245Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.249Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.369Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/about.html</loc>
-    <lastmod>2024-06-10T14:53:50.121Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.345Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</loc>
-    <lastmod>2024-06-10T14:53:50.361Z</lastmod>
-  </url>
-  <url>
-    <loc>https://drandrewmitchell.com/research/papers.html</loc>
-    <lastmod>2024-06-10T14:53:50.201Z</lastmod>
+    <loc>https://drandrewmitchell.com/resources.html</loc>
+    <lastmod>2024-06-18T22:14:39.863Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html</loc>
-    <lastmod>2024-06-10T14:53:50.225Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.719Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers.html</loc>
+    <lastmod>2024-06-18T22:14:39.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</loc>
+    <lastmod>2024-06-18T22:14:39.855Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/index.html</loc>
+    <lastmod>2024-06-18T22:14:39.839Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/about.html</loc>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/index.html</loc>
+    <lastmod>2024-06-18T22:14:39.859Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/index.html</loc>
+    <lastmod>2024-06-18T22:14:39.743Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/presentations.html</loc>
+    <lastmod>2024-06-18T22:14:39.739Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index.html</loc>
+    <lastmod>2024-06-18T22:14:39.731Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</loc>
+    <lastmod>2024-06-18T22:14:39.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://drandrewmitchell.com/research/list-of-pubs.html</loc>
+    <lastmod>2024-06-18T22:14:39.699Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/blog.html</loc>
-    <lastmod>2024-06-10T14:53:50.121Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/across-acoustics/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.623Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/phd-upgrade-done/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.137Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.635Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2019-05-11_book-diary-2/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2020-06-18_cluster-analysis-in-r/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/visa-process/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.141Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.635Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2022-04-25_q-on-ss-modelling/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
   <url>
     <loc>https://drandrewmitchell.com/posts/2024-03-15_mission-responsible/index.html</loc>
-    <lastmod>2024-06-10T14:53:50.125Z</lastmod>
+    <lastmod>2024-06-18T22:14:39.619Z</lastmod>
   </url>
 </urlset>
