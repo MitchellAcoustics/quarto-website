@@ -34,7 +34,6 @@
   {
     "listing": "/research/papers.html",
     "items": [
-      "/research/papers/satp-main-paper-apac/satp-main.html",
       "/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html",
       "/research/papers/how-to-analyse-jasa/index.html",
       "/research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html"
@@ -45,6 +44,7 @@
     "items": [
       "/research/presentations/2023-11-28_delft-lecture/index.html",
       "/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html",
+      "/research/presentations/2024-05-15_ASAOttawa-SingleIndex/index.html",
       "/research/presentations/2023-08-09_Soundscapy-poster/index.html",
       "/research/presentations/2024-03-11_Aletta-Flash-talk/index.html"
     ]
