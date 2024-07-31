@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -15,7 +15,7 @@
 <meta name="keywords" content="Soundscape, Predictive Modelling, Auditory Environment, ISO12913">
 <meta name="description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
 
-<title>Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications</title>
+<title>A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications – Andrew Mitchell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -100,7 +100,7 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -115,7 +115,7 @@ div.csl-indent {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -145,11 +145,11 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications">
+<meta property="og:title" content="A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications – Andrew Mitchell">
 <meta property="og:description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
 <meta property="og:image" content="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Andrew Mitchell">
-<meta name="twitter:title" content="Andrew Mitchell - A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications">
+<meta name="twitter:title" content="A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications – Andrew Mitchell">
 <meta name="twitter:description" content="Presented at Inter-noise 2023, Chiba, Greater Tokyo.">
 <meta name="twitter:image" content="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@acousticsman">
@@ -169,7 +169,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -183,7 +183,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
@@ -215,9 +215,9 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website">
@@ -366,7 +366,7 @@ window.Quarto = {
 <p><span class="citation" data-cites="Aletta2016Soundscape">Aletta, Kang, and Axelsson (<a href="#ref-Aletta2016Soundscape" role="doc-biblioref">2016</a>)</span> provide a review of the soundscape descriptors and indicators commonly used in soundscape research and outlines an initial framework for developing predictive soundscape models. In their review, the authors identified eight potential soundscape descriptors, including perceived affective quality <span class="citation" data-cites="Axelsson2010principal">(<a href="#ref-Axelsson2010principal" role="doc-biblioref">Axelsson, Nilsson, and Berglund 2010</a>)</span>, restorativeness <span class="citation" data-cites="Payne2013production">(<a href="#ref-Payne2013production" role="doc-biblioref">Payne 2013</a>)</span>, etc. Similarly, the authors identified a range of potential indicators used to characterise the acoustic environment, including environmental acoustics indicators such as <span class="math inline">L_{Aeq}</span>, <span class="math inline">L_{Ceq} − L_{Aeq}</span> and psychoacoustic indicators such as Loudness (<span class="math inline">N_5</span>) and Sharpness (S).</p>
 <p>However, it is noted that several studies show that no single psychoacoustic indicator alone can explain the variation in soundscape responses (as expressed via the descriptors) (e.g. <span class="citation" data-cites="PerssonWaye2002Psycho">(<a href="#ref-PerssonWaye2002Psycho" role="doc-biblioref">Persson Waye and Öhrström 2002</a>)</span>). The goal of statistical modelling, therefore is to create a more complex and complete representation of the relationship between soundscape indicators and descriptors, beyond what any single indicator could achieve.</p>
 <p><a href="#fig-model" class="quarto-xref">Figure&nbsp;1</a> shows a conceptual view of this relationship. We start with <strong>soundscape indicators</strong>, which characterise the physical and contextual environment to which the listener is exposed. This can be broken down into <strong>sonic features</strong> (e.g.&nbsp;the acoustical features listed above) and <strong>characteristics of the space itself</strong> (e.g.&nbsp;the amount of visible sky, the intended use-case of the space, how crowded the space is, etc.). In order to translate from the physical inputs to an expressed description of the soundscape perception, we introduce the concept of a <strong>perceptual mapping</strong> <span class="citation" data-cites="Lionello2021new">(<a href="#ref-Lionello2021new" role="doc-biblioref">Lionello 2021</a>)</span>. This mapping represents a simplified idea of how each individual’s brain processes the inputs from the soundscape which they experience, forms a perception, and finally expresses that perception through their description of the soundscape. For our purposes, this perceptual mapping is treated as essentially a black box mapping inputs to outputs. It can be conceived of as a network of weights in which certain characteristics of the sound may have different weights and directions depending on the context, through which all of the inputs are processed, resulting in the soundscape rating. Conceptually, this perceptual mapping – the pathways and weightings through which the inputs are processed before being expressed as a perceptual descriptor – is established prior to an individual’s exposure to the soundscape in question.</p>
-<div id="fig-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-model" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Overall_Model_Concept_Diagram_2022-04-28.png" class="img-fluid figure-img">
@@ -413,7 +413,7 @@ Figure&nbsp;1: The conceptual model of soundscape perception, illustrating the p
 <section id="making-use-of-the-predictions-in-design" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="making-use-of-the-predictions-in-design"><span class="header-section-number">5</span> Making use of the predictions in design</h2>
 <p>There are various potential methods for integrating the predictive soundscape approach into a design and intervention setting. Not all spaces can or should have the same soundscape and soundscapes should be treated as dynamic, not static; identifying and creating an appropriate soundscape for the particular use case of a space is crucial to guiding its design. Proper forwardlooking design of a soundscape would involve defining the desired collective perception in the space. In the probabilistic soundscape approach from <span class="citation" data-cites="Mitchell2022How">Mitchell, Aletta, and Kang (<a href="#ref-Mitchell2022How" role="doc-biblioref">2022</a>)</span>, this can be achieved by drawing the desired shape in the circumplex and testing interventions which will bring the existing soundscape closer to the desired perception. A soundscape may need to be perceived as vibrant during the day and calm for some portion of the evening, meaning the desired shape should primarily sit within the vibrant quadrant but have some overlap into calm. This also enables designers to recognise the limitations of their environment and acknowledge that it is not always possible to transform a highly chaotic soundscape into a calm one. In these cases, instead the focus should be placed on shifting the perception to some degree in a positive direction.</p>
-<div id="fig-cain" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="CainCircumplexTarget.png" class="img-fluid figure-img">
@@ -558,7 +558,7 @@ Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase
     Applications},
   booktitle = {INTER-NOISE 2023 Conference},
   date = {2023-08-20},
-  url = {https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html},
+  url = {https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html},
   langid = {en},
   abstract = {With the recent standardization of soundscape, there has
     been increased interest in bringing the soundscape approach into an
@@ -585,7 +585,7 @@ Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase
 Mitchell, Andrew, Francesco Aletta, Tin Oberman, Mercede Erfanian, and
 Jian Kang. 2023. <span>“A Conceptual Framework for the Practical Use of
 Predictive Models and Soundscape Indices: Goals, Constraints, and
-Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html">https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</a>.
+Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html">https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -766,18 +766,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -809,7 +798,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/drandrewmitchell\.com\/");
@@ -817,7 +828,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

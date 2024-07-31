@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@
 <meta name="keywords" content="Soundscape, Psychological acoustics, Acoustic modeling, Acoustic noise, Acoustic ecology, Signal processing, Urban development, Regression analysis">
 <meta name="description" content="Published in the Journal of the Acoustical Society of America in December, 2021. Part of a special issue on COVID-19 Pandemic Effects. ">
 
-<title>Andrew Mitchell - Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach</title>
+<title>Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach – Andrew Mitchell</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -102,7 +102,7 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
   <script>document.addEventListener("DOMContentLoaded", function () {
  var mathElements = document.getElementsByClassName("math");
  var macros = [];
@@ -117,7 +117,7 @@ div.csl-indent {
    });
 }}});
   </script>
-  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -147,11 +147,11 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="Andrew Mitchell - Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach">
+<meta property="og:title" content="Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach – Andrew Mitchell">
 <meta property="og:description" content="Published in the Journal of the Acoustical Society of America in December, 2021. Part of a special issue on COVID-19 Pandemic Effects. ">
 <meta property="og:image" content="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Andrew Mitchell">
-<meta name="twitter:title" content="Andrew Mitchell - Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach">
+<meta name="twitter:title" content="Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach – Andrew Mitchell">
 <meta name="twitter:description" content="Published in the Journal of the Acoustical Society of America in December, 2021. Part of a special issue on COVID-19 Pandemic Effects. ">
 <meta name="twitter:image" content="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@acousticsman">
@@ -171,7 +171,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -185,7 +185,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-research" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Research</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-research">    
@@ -217,9 +217,9 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
     <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label=""><i class="bi bi-github"></i></a>
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/MitchellAcoustics/quarto-website">
@@ -404,7 +404,7 @@ window.Quarto = {
 <h3 data-number="2.1" class="anchored" data-anchor-id="onsite-data-questionnaires-binaural-measurements-and-recordings"><span class="header-section-number">2.1</span> Onsite data: Questionnaires, binaural measurements, and recordings</h3>
 <p>The initial onsite data collection featured both questionnaire data collected from the general public and acoustic measurements, conducted across thirteen urban locations (in London <span class="math inline">N=11</span>, in Venice <span class="math inline">N=2</span>) between the 28th of February and the 21st of June 2019, with additional sessions in July and October 2019. Although the total survey period in 2019 extended over several seasons, the surveys at any individual location did not extend over seasons with different occupancy patterns. A total of 1,318 questionnaire responses were collected from the general population across the measurement points during 1 – 3 hour-long campaigns in both cities in 2019, accompanied by 693 approximately 30-second long 24-bit 44.1 kHz binaural recordings. After data cleaning, each of the 13 locations was characterized by between 14 to 80 recordings and between 24 to 147 questionnaire responses. Mean age of the participants was 33.8, with a standard deviation of 14.57 (45% male, 53.8% female, 0.4% non-conforming, 0.9% prefer-not-to-say).</p>
 <p>Although recent results from both <span class="citation" data-cites="Tarlao2020Investigating">Tarlao, Steffens, and Guastavino (<a href="#ref-Tarlao2020Investigating" role="doc-biblioref">2020</a>)</span> and <span class="citation" data-cites="Erfanian2021Psychological">Erfanian et al. (<a href="#ref-Erfanian2021Psychological" role="doc-biblioref">2021</a>)</span> indicate the important influence of personal and demographic factors – in particular age and gender – on soundscape perception, these factors were not included as potential features in the modeling process. Given the nature of this study as addressing a scenario when people could not be surveyed, no additional demographic information is available in the lockdown case to be fed into the model and is therefore not useful to include for the development and application of this specific predictive model. This information is reported throughout the study simply to provide further context to the data collection.</p>
-<p>The subsequent measurement campaign in 2020 mimicked the binaural recording strategy applied in the initial campaign and was performed between the and the 25th of April 2020 in both cities, this time excluding the questionnaire. An additional 571 binaural recordings were collected on-site in 2020.</p>
+<p>The subsequent measurement campaign in 2020 mimicked the binaural recording strategy applied in the initial campaign and was performed between the 6th and the 25th of April 2020 in both cities, this time excluding the questionnaire. An additional 571 binaural recordings were collected on-site in 2020.</p>
 <section id="data-collection" class="level4" data-number="2.1.1">
 <h4 data-number="2.1.1" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">2.1.1</span> Data collection</h4>
 <p>The 2019 data collection was performed across all the locations using the protocol based on the Method A of the <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (<a href="#ref-ISO12913Part2" role="doc-biblioref">2018</a>)</span>, as described in <span class="citation" data-cites="Aletta2020Assessing">Aletta et al. (<a href="#ref-Aletta2020Assessing" role="doc-biblioref">2020</a>)</span> and <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (<a href="#ref-Mitchell2020Soundscape" role="doc-biblioref">2020</a>)</span>, collected either via handheld tablets or paper copies of the questionnaire. The full questionnaire and data collection procedure are given in <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (<a href="#ref-Mitchell2020Soundscape" role="doc-biblioref">2020</a>)</span>, however the key parts used for this study are those addressing sound source dominance and perceived affective quality (PAQ).</p>
@@ -420,7 +420,7 @@ window.Quarto = {
 <section id="sec-psychoacousticAnalysis" class="level4" data-number="2.1.3">
 <h4 data-number="2.1.3" class="anchored" data-anchor-id="sec-psychoacousticAnalysis"><span class="header-section-number">2.1.3</span> Psychoacoustic analyses</h4>
 <p>The binaural recordings were analyzed in ArtemiS SUITE 11 to calculate the suite of 11 acoustic and psychoacoustic features given in <a href="#tbl-psychoacoustics" class="quarto-xref">Table&nbsp;1</a> to be used as initial predictors. The (psycho)acoustic predictors investigated were selected in order to describe many aspects of the recorded sound – in particular, the goal was to move beyond a focus on sound level, which currently dominates the existing literature on the acoustic effects of lockdowns noted in <a href="#sec-intro" class="quarto-xref">Section&nbsp;1</a>. In all, they are expected to reflect the sound level (<span class="math inline">L_{Aeq}</span>), perceived sound level (Loudness), spectral content (Sharpness, <span class="math inline">L_{Ceq}-L_{Aeq}</span>, Tonality), temporal character or predictability (Impulsiveness, Fluctuation Strength, Relative Approach), and overall annoyance (Psychoacoustic Annoyance). These metrics have been proposed as indicators to predict perceptual constructs of the soundscape <span class="citation" data-cites="Aletta2016Soundscape Aletta2017Dimensions">(<a href="#ref-Aletta2016Soundscape" role="doc-biblioref">Aletta, Kang, and Axelsson 2016</a>; <a href="#ref-Aletta2017Dimensions" role="doc-biblioref">Aletta, Axelsson, and Kang 2017</a>)</span> and have shown promise when combined together to form a more comprehensive model applied to real-world sounds <span class="citation" data-cites="Orga2021Multilevel">(<a href="#ref-Orga2021Multilevel" role="doc-biblioref">Orga et al. 2021</a>)</span>. The maximum value from the left and right channels of the binaural recording are used, as suggested in <span class="citation" data-cites="ISO12913Part3">ISO/TS 12913-3:2019 (<a href="#ref-ISO12913Part3" role="doc-biblioref">2019</a>)</span>.</p>
-<div id="tbl-psychoacoustics" class="striped hover quarto-float anchored">
+<div id="tbl-psychoacoustics" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-psychoacoustics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive models. All metrics are calculated for the full length of the recording (<span class="math inline">\sim30s</span>). As recommended by <span class="citation" data-cites="ISO2017Acoustics">ISO 532-1:2017 (<a href="#ref-ISO2017Acoustics" role="doc-biblioref">2017</a>)</span> and <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (<a href="#ref-ISO12913Part2" role="doc-biblioref">2018</a>)</span>, the 5th percentile of Loudness is used rather than the average.
@@ -514,7 +514,7 @@ Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive
 </figure>
 </div>
 <p><a href="#tbl-corr" class="quarto-xref">Table&nbsp;2</a> shows the Pearson correlation coefficient between each of the candidate acoustic features and the outcome pleasantness and eventfulness. As all variables considered are continuous, and the eventual model is linear, the Pearson coefficient is chosen as a measure of the strength of the linear relationship between two continuous variables. For ISOPleasant (<em>ISOPl</em>), we can perhaps see three tiers of correlations: the more highly correlated tier <span class="math inline">(|r| &gt; 0.28)</span> consists of Relative Approach (<span class="math inline">RA</span>), <span class="math inline">L_{Aeq}</span>, Roughness (<span class="math inline">R</span>), Loudness (<span class="math inline">N_5</span>), and Psychoacoustic Annoyance (<span class="math inline">PA</span>); the low correlation tier consists of <span class="math inline">L_{A10}-L_{A90}</span>, Tonality (<span class="math inline">T</span>), and Fluctuation Strength (<span class="math inline">FS</span>); while <span class="math inline">L_{Ceq}-L_{Aeq}</span>, Impulsiveness (<span class="math inline">I</span>), and Sharpness (<span class="math inline">S</span>) show no correlation. For ISOEventful (<em>ISOEv</em>), these tiers are: <span class="math inline">RA</span>, <span class="math inline">L_{Aeq}</span>, <span class="math inline">T</span>, <span class="math inline">R</span>, and <span class="math inline">N_5</span> comprise the most correlated tier <span class="math inline">(|r| &gt; 0.30)</span>; <span class="math inline">L_{Ceq}-L_{Aeq}</span>, <span class="math inline">L_{A10}-L_{A90}</span>, <span class="math inline">FS</span>, and <span class="math inline">PA</span> show low correlations; <span class="math inline">I</span> and <span class="math inline">S</span> show no correlation.</p>
-<div id="tbl-corr" class="striped hover quarto-float anchored" data-fontsize="10pt">
+<div id="tbl-corr" class="striped hover quarto-float quarto-figure quarto-figure-center anchored" data-fontsize="10pt">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Pearson correlation coefficients between candidate acoustic features and ISOPleasant and ISOEventful across all 13 locations. Only statistically significant (<span class="math inline">p &lt; 0.01</span>) coefficients are shown.
@@ -772,7 +772,7 @@ Table&nbsp;2: Pearson correlation coefficients between candidate acoustic featur
 <p>However, after the initial data collection, questions were raised as to how the playback loudness impacts ecological validity as it relates to the perceived affective quality of the soundscape. Given this concern, the PAQ responses from the online surveys were not included in further data analysis. Sound source identification is not considered to suffer the same validity concerns as this is not directly dependent on absolute playback level and requires only that the participant can clearly hear what is present. The purpose of the calibration procedure described above was to ensure the participant could clearly hear the softest samples used.</p>
 <p>Online questionnaire data was collected between the 9th of June and the 9th of August 2020. Within the Gorilla Experiment Builder, a total of 250 attempts to complete the experiment were recorded, where 165 participants were excluded either on the basis of not passing the headphones screening (<span class="math inline">N=79</span>) or for not completing the experiment, usually before engaging into the screening (<span class="math inline">N=83</span>). Out of a total of 88 participants who completed the test, 2 participants were excluded as outliers as they provided uniform answers across all the questions and commented on not being able to properly hear the stimuli, despite their successful completion of the training tests. The participants of the online experiment were of mean age 32.42, 45.1% male, 54.9% female.</p>
 <p><a href="#fig-framework" class="quarto-xref">Figure&nbsp;1</a> illustrates and summarizes the framework and sections described above.</p>
-<div id="fig-framework" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-framework" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure1.png" class="img-fluid figure-img" style="width:100.0%">
@@ -793,7 +793,7 @@ Figure&nbsp;1: The study flowchart indicating the data collection, analysis, mod
 <h4 data-number="3.1.1" class="anchored" data-anchor-id="sound-source-composition-per-location"><span class="header-section-number">3.1.1</span> 2019 sound source composition per location</h4>
 <p>Questionnaire data was collected in English, Italian, and Spanish in both cities. The respective questionnaires can be found in the supplementary files and <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (<a href="#ref-Mitchell2020Soundscape" role="doc-biblioref">2020</a>)</span>. Data presented here was aggregated per LocationID.</p>
 <p>According to the highest scored mean value of the dominant sound source type, as shown in <a href="#fig-barchart" class="quarto-xref">Figure&nbsp;2</a>, the locations can be grouped into: natural sounds dominated (RegentsParkJapan, RegentsParkFields, RussellSq), human sounds dominated (SanMarco, TateModern, StPaulsRow, StPaulsCross, MonumentoGaribaldi), noise (traffic and other noise) sounds dominated (CamdenTown, EustonTap, TorringtonSq, PancrasLock). Traffic noise and Other noise have been combined here, and for the rest of the discussion, as these responses are highly correlated within this dataset and it is not helpful to consider them separately for this analysis. This follows the alternative sound source labels given in Figure C.3 of <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (<a href="#ref-ISO12913Part2" role="doc-biblioref">2018</a>)</span> which combines Traffic and Other Noise. Finally, MarchmontGarden is unique in that all sound source types are assessed as being nearly equally present, with only 0.2 separating the least present (Other noise, 2.5) and the most present (Traffic noise, 2.7).</p>
-<div id="fig-barchart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure2.jpg" class="img-fluid figure-img" style="width:60.0%">
@@ -839,7 +839,7 @@ Figure&nbsp;3: A graphic illustrating the frequency of occurrence of the sound s
 </figure>
 </div>
 <p>The results from the listening tests deployed online were analyzed using the SPSS Statistics v. 25. Levene’s test for equality of variances resulted in highly statistically significant values for all 4 sound sources investigated (less than 0.001). Therefore, a Mann-Whitney U-test test was used as a non-parametric equivalent to the T-test to investigate the change in the perceived dominance of the four sound source types <span class="citation" data-cites="McKnight2010Mann">(<a href="#ref-McKnight2010Mann" role="doc-biblioref">McKnight and Najab 2010</a>)</span>. The results for human sounds indicated that the perceived dominance was greater for the 2019 sample (M=3.82), than for the 2020 sample (M=2.62), U=41,656, p &lt; 0.001. The results for natural sounds indicated the perceived dominance increased from 2019 (M=2.00) to 2020 (M=2.54), U=63,797, p &lt; 0.001. However, the differences for the noise sources (traffic and other) were not statistically significant. The result of these changes is that while Human sounds were the clearly dominant source across the whole dataset in 2019, in 2020 the sound sources are, on average, much more evenly balanced. No single sound source category was identified as frequent across the 2020 dataset.</p>
-<div id="tbl-source" class="striped hover quarto-float anchored">
+<div id="tbl-source" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Mean values and standard deviation for the perceived dominance of sound sources (rated from 1 - 5), assessed via an online survey.
@@ -938,7 +938,7 @@ Table&nbsp;3: Mean values and standard deviation for the perceived dominance of 
 </section>
 <section id="model-selection-performance-and-application" class="level3 page-columns page-full" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="model-selection-performance-and-application"><span class="header-section-number">3.2</span> Model selection, performance, and application</h3>
-<div id="tbl-model" class="striped hover column-page smaller quarto-float anchored">
+<div id="tbl-model" class="striped hover column-page smaller quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. ISOPleasant model structure: Random slope, random intercept multi-level model. ISOEventful model structure: Multi-variate linear regression.
@@ -1137,7 +1137,7 @@ Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="isopleasant-model-selected"><span class="header-section-number">3.2.1</span> ISOPleasant model selected</h4>
 <p>Following the feature selection, the ISOPleasant model (given in <a href="#tbl-model" class="quarto-xref">Table&nbsp;4</a>) has <span class="math inline">N_5</span> as the fixed effect with a scaled coefficient of -0.06, and <span class="math inline">L_{Aeq}</span>, <span class="math inline">L_{A10}-L_{A90}</span>, and <span class="math inline">L_{Ceq}-L_{Aeq}</span> as coefficients which vary depending on the LocationID. The training and testing MAE are very similar, indicating that the model is neither over- nor under-fitting to the training data (<span class="math inline">MAE_{train} = 0.258</span>; <span class="math inline">MAE_{test} = 0.259</span>). The model performs very well at predicting the average soundscape assessment of the locations (<span class="math inline">R^2_{train} = 0.998</span>; <span class="math inline">R^2_{test} = 0.85</span>).</p>
 <p>The high intraclass correlation (<span class="math inline">ICC = 0.90</span>) demonstrates that the location-level effects are highly important in predicting the pleasantness dimension. Within this random-intercept random-slope model structure, these effects include both the specific context of the location (i.e.&nbsp;the LocationID factor), but also the <span class="math inline">L_{Aeq}</span>, <span class="math inline">L_{A10}-L_{A90}</span>, and <span class="math inline">L_{Ceq}-L_{Aeq}</span> features whose effects vary across locations. These slopes are given in <a href="#fig-random" class="quarto-xref">Figure&nbsp;4</a>. This point highlights the need to consider how the context of a location will influence the relationship between the acoustic features and the perceived pleasantness.</p>
-<div id="fig-random" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-random" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure4.jpg" class="img-fluid figure-img" style="width:75.0%">
@@ -1154,7 +1154,7 @@ Figure&nbsp;4: (Color online) Location-level scaled coefficients for the ISOPlea
 </section>
 <section id="sec-application" class="level4" data-number="3.2.3">
 <h4 data-number="3.2.3" class="anchored" data-anchor-id="sec-application"><span class="header-section-number">3.2.3</span> Application to lockdown data</h4>
-<div id="fig-locations" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-locations" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure5.jpg" class="img-fluid figure-img" style="width:75.0%">
@@ -1182,7 +1182,7 @@ Figure&nbsp;5: (Color online) Soundscape circumplex coordinates for (a) the mean
 </section>
 <section id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions"><span class="header-section-number">4.1.2</span> Predicted relative changes in soundscapes due to COVID-19 restrictions</h4>
-<div id="fig-vectors" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-vectors" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure6.jpg" class="img-fluid figure-img">
@@ -1257,7 +1257,7 @@ Figure&nbsp;6: (Color online) The relative change in soundscape perception in th
 <p>On-site study data were collected and managed using REDCap electronic data capture tools hosted at University College London (UCL).</p>
 </div></section><section id="appendix-a-online-survey-questionnaire" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix A: Online survey questionnaire</h2><div class="quarto-appendix-contents">
 
-<div id="tbl-gorilla" class="striped hover quarto-float anchored">
+<div id="tbl-gorilla" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gorilla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
@@ -1317,7 +1317,7 @@ Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
 </div></section><section id="sec-appmod" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix B: Model Results</h2><div class="quarto-appendix-contents">
 
 <p><a href="#tbl-unscl" class="quarto-xref">Table&nbsp;6</a> presents the unscaled coefficients for the ISOPleasant and ISOEventful predictive models. The scaled coefficients are presented in the body of the text to facilitate comparisons between the various factors. However, we feel it is important to present unscaled coefficients such that these models could be implemented and compared for future work.</p>
-<div id="tbl-unscl" class="striped hover quarto-float anchored">
+<div id="tbl-unscl" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-unscl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. Statistically significant p-values are highlighted in bold.
@@ -1503,7 +1503,7 @@ Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventf
 </div>
 </figure>
 </div>
-<div id="fig-unsclRandom" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-unsclRandom" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-unsclRandom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="Figure7.jpg" class="img-fluid figure-img">
@@ -1908,18 +1908,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1951,7 +1940,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/drandrewmitchell\.com\/");
@@ -1959,7 +1970,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

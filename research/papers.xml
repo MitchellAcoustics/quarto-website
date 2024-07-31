@@ -9,11 +9,568 @@
 <link>https://drandrewmitchell.com/research/papers.html</link>
 <atom:link href="https://drandrewmitchell.com/research/papers.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.555</generator>
-<lastBuildDate>Sun, 20 Aug 2023 00:00:00 GMT</lastBuildDate>
+<generator>quarto-1.5.55</generator>
+<lastBuildDate>Wed, 31 Jul 2024 14:58:08 GMT</lastBuildDate>
+<item>
+  <title>SEM Analysis</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <dc:creator>Francesco Aletta</dc:creator>
+  <link>https://drandrewmitchell.com/research/papers/satp-main-paper-apac/satp-main.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(tidyverse)  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For data manipulation</span></span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr )     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For data manipulation</span></span>
+<span id="cb1-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For data visualization</span></span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(CircE)      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For circumplex SEM statistics</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(here)       <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For file paths</span></span>
+<span id="cb1-6"></span>
+<span id="cb1-7"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">source</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(project_dir, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"sem_funcs.R"</span>))</span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(RCurl)      <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For downloading data from Zenodo</span></span>
+<span id="cb2-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(readxl)     <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For reading Excel files</span></span>
+<span id="cb2-3"></span>
+<span id="cb2-4">temp.file <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">paste0</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tempfile</span>(), <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">".xlsx"</span>)</span>
+<span id="cb2-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">download.file</span>(</span>
+<span id="cb2-6">    <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://zenodo.org/records/10159673/files/SATP%20Dataset%20v1.4.xlsx"</span>,</span>
+<span id="cb2-7">    temp.file,</span>
+<span id="cb2-8">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mode=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"wb"</span>)</span>
+<span id="cb2-9">satp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_excel</span>(temp.file,</span>
+<span id="cb2-10">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N/A"</span>),</span>
+<span id="cb2-11">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col_types =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(</span>
+<span id="cb2-12">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Lan, Rec, Part</span></span>
+<span id="cb2-13">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Age</span></span>
+<span id="cb2-14">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Gender</span></span>
+<span id="cb2-15">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, </span>
+<span id="cb2-16">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># PAQs</span></span>
+<span id="cb2-17">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># loud</span></span>
+<span id="cb2-18">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Inst</span></span>
+<span id="cb2-19">        <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span> <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># sequence</span></span>
+<span id="cb2-20">    )</span>
+<span id="cb2-21">    )</span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Prep variables for the circumplex analysis</span></span>
+<span id="cb3-2">scales <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ4"</span>,</span>
+<span id="cb3-3">            <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ5"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ6"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ7"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"PAQ8"</span></span>
+<span id="cb3-4">            ) <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Names of the scales for circumplex analysis</span></span>
+<span id="cb3-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ideal angles for circumplex analysis</span></span>
+<span id="cb3-6">eq.angles <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">45</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">135</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">180</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">225</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">270</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">315</span>) </span>
+<span id="cb3-7"></span>
+<span id="cb3-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Ipsatize the data</span></span>
+<span id="cb3-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># For each participant, we subtract the mean of their response to all scales</span></span>
+<span id="cb3-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># across all recordings from their response to each scale for each recording</span></span>
+<span id="cb3-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># This is done at the suggestion of JM Girard/R Circumplex</span></span>
+<span id="cb3-12"></span>
+<span id="cb3-13">satp <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span> </span>
+<span id="cb3-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Participant) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb3-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">Mean =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c_across</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_of</span>(scales)), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>)) <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-&gt;</span> parts_means</span>
+<span id="cb3-16"></span>
+<span id="cb3-17">satp[scales] <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> satp <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb3-18">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_of</span>(scales)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb3-19">                    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">across</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">all_of</span>(scales), <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> .x <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> parts_means<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Mean))</span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Load the acoustic analysis data</span></span>
+<span id="cb4-2">lvls <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">read_excel</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">here</span>(project_dir, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LLAN.xlsx"</span>),</span>
+<span id="cb4-3">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">skip =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,</span>
+<span id="cb4-4">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N/A"</span>),</span>
+<span id="cb4-5">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col_types =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"text"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"numeric"</span>),</span>
+<span id="cb4-6">                    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">col_names =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Recording"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Channel"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Leq"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LAeq"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"LA90"</span>)</span>
+<span id="cb4-7">              )</span>
+<span id="cb4-8"></span>
+<span id="cb4-9"></span>
+<span id="cb4-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Extract the max for each recording to reduce from two channels to one</span></span>
+<span id="cb4-11">result <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> lvls <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">group_by</span>(Recording) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">max_N =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_number</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">max</span>(N), <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">NA_integer_</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">select</span>(Recording, max_N) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|&gt;</span></span>
+<span id="cb4-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">na.omit</span>()</span>
+<span id="cb4-16"></span>
+<span id="cb4-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Join to SATP dataset</span></span>
+<span id="cb4-18">satp <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">left_join</span>(satp, result, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">by=</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">join_by</span>(Recording <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> Recording))</span></code></pre></div>
+</details>
+</div>
+<section id="step-one-confirmatory-factor-analysis" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="step-one-confirmatory-factor-analysis"><span class="header-section-number">1</span> Step One: Confirmatory Factor Analysis</h2>
+<p>Run all four models for a language and compile into a single table:</p>
+<section id="fit-indices" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="fit-indices"><span class="header-section-number">1.1</span> Fit Indices</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><strong>Fit Index</strong></th>
+<th style="text-align: center;"><strong>Threshold</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Chi-squared (<img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2">)</td>
+<td style="text-align: center;"><em>p &lt; 0.05</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Comparative Fit Index (CFI)</td>
+<td style="text-align: center;"><em>0.90</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Goodness of Fit Index (GFI)</td>
+<td style="text-align: center;"><em>0.90</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Standardized Root Mean Square Residual (SRMR)</td>
+<td style="text-align: center;"><em>0.08</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Root Mean Squared Error of Approximation (RMSEA)</td>
+<td style="text-align: center;"><em>0.13</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Minimum Common Score Correlations (MCSC)</td>
+<td style="text-align: center;"><em>-0.8</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gap difference test (GDIFF)</td>
+<td style="text-align: center;"><em>20</em></td>
+</tr>
+</tbody>
+</table>
+<p>Fit indices and thresholds, including the reference from which the threshold is derived. {#tbl-indices}</p>
+<p>Each model is assessed against a suite of SEM fit indices, summarised in <strong>?@tbl-indices</strong>. These indices include the <img src="https://latex.codecogs.com/png.latex?%5Cchi%5E2"> test, Comparative Fit Index (CFI), Goodness of Fit Index (GFI), Standardized Root Mean Square Residual (SRMR), and Root Mean Squared Error of Approximation (RMSEA). Two additional indices are calculated which are not considered ‘typical’ fit indices for SEMs, but which have proved to be crucial for the analysis of the circumplex. The first is the Minimum Common Score Correlations (MCSC). The second is the Gap Difference test (GDIFF), which cont. The thresholds for each index are derived from the literature, and are summarised in <strong>?@tbl-indices</strong>.</p>
+</section>
+<section id="run-step-one" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="run-step-one"><span class="header-section-number">1.2</span> Run Step one</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Run the models for English</span></span>
+<span id="cb5-2">satp_eng <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> satp[satp<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>Language <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eng"</span>, ]</span>
+<span id="cb5-3">circe_satp_eng <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">run_all_models</span>(satp_eng, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SATP"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eng"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">m=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>)</span>
+<span id="cb5-4"></span>
+<span id="cb5-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># languages &lt;- unique(satp$Language) # Get a list of all the languages</span></span>
+<span id="cb5-6"></span>
+<span id="cb5-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># full_table &lt;- circe_satp_eng$res_table # Start with the English results</span></span>
+<span id="cb5-8"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># for (lang in languages) {</span></span>
+<span id="cb5-9"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     if (lang == "eng" | lang == "zsm") { # </span><span class="al" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">TODO</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">: add try catch block</span></span>
+<span id="cb5-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#         next # Skip English, we've already done it</span></span>
+<span id="cb5-11"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     }</span></span>
+<span id="cb5-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     print("=====================================")</span></span>
+<span id="cb5-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     print(lang)</span></span>
+<span id="cb5-14"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     print("=====================================")</span></span>
+<span id="cb5-15"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     lang_data &lt;- satp[satp$Language == lang, ] # Filter to just the language we want</span></span>
+<span id="cb5-16"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     lang_res &lt;- run_all_models(lang_data, "SATP", lang, m=3) # Run the models</span></span>
+<span id="cb5-17"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#     full_table &lt;- rbind(full_table, lang_res$res_table) # Add the results to the table</span></span>
+<span id="cb5-18"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># }</span></span></code></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># knitr::kable(full_table)</span></span></code></pre></div>
+</details>
+</div>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mitchell2024,
+  author = {Mitchell, Andrew and Aletta, Francesco and Mitchell, Andrew},
+  title = {SEM {Analysis}},
+  date = {2024-07-31},
+  url = {https://drandrewmitchell.com/research/papers/satp-main-paper-apac/satp-main.html},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew, Francesco Aletta, and Andrew Mitchell. 2024.
+<span>“SEM Analysis.”</span> July 31, 2024. <a href="https://drandrewmitchell.com/research/papers/satp-main-paper-apac/satp-main.html">https://drandrewmitchell.com/research/papers/satp-main-paper-apac/satp-main.html</a>.
+</div></div></section></div> ]]></description>
+  <category>preprint</category>
+  <category>analysis</category>
+  <guid>https://drandrewmitchell.com/research/papers/satp-main-paper-apac/satp-main.html</guid>
+  <pubDate>Wed, 31 Jul 2024 14:58:08 GMT</pubDate>
+</item>
 <item>
   <title>A conceptual framework for the practical use of predictive models and Soundscape Indices: Goals, constraints, and applications</title>
-  <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Francesco Aletta</dc:creator>
   <dc:creator>Tin Oberman</dc:creator>
@@ -37,7 +594,7 @@
 <p><span class="citation" data-cites="Aletta2016Soundscape">Aletta, Kang, and Axelsson (2016)</span> provide a review of the soundscape descriptors and indicators commonly used in soundscape research and outlines an initial framework for developing predictive soundscape models. In their review, the authors identified eight potential soundscape descriptors, including perceived affective quality <span class="citation" data-cites="Axelsson2010principal">(Axelsson, Nilsson, and Berglund 2010)</span>, restorativeness <span class="citation" data-cites="Payne2013production">(Payne 2013)</span>, etc. Similarly, the authors identified a range of potential indicators used to characterise the acoustic environment, including environmental acoustics indicators such as <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D%20%E2%88%92%20L_%7BAeq%7D"> and psychoacoustic indicators such as Loudness (<img src="https://latex.codecogs.com/png.latex?N_5">) and Sharpness (S).</p>
 <p>However, it is noted that several studies show that no single psychoacoustic indicator alone can explain the variation in soundscape responses (as expressed via the descriptors) (e.g. <span class="citation" data-cites="PerssonWaye2002Psycho">(Persson Waye and Öhrström 2002)</span>). The goal of statistical modelling, therefore is to create a more complex and complete representation of the relationship between soundscape indicators and descriptors, beyond what any single indicator could achieve.</p>
 <p>Figure&nbsp;1 shows a conceptual view of this relationship. We start with <strong>soundscape indicators</strong>, which characterise the physical and contextual environment to which the listener is exposed. This can be broken down into <strong>sonic features</strong> (e.g.&nbsp;the acoustical features listed above) and <strong>characteristics of the space itself</strong> (e.g.&nbsp;the amount of visible sky, the intended use-case of the space, how crowded the space is, etc.). In order to translate from the physical inputs to an expressed description of the soundscape perception, we introduce the concept of a <strong>perceptual mapping</strong> <span class="citation" data-cites="Lionello2021new">(Lionello 2021)</span>. This mapping represents a simplified idea of how each individual’s brain processes the inputs from the soundscape which they experience, forms a perception, and finally expresses that perception through their description of the soundscape. For our purposes, this perceptual mapping is treated as essentially a black box mapping inputs to outputs. It can be conceived of as a network of weights in which certain characteristics of the sound may have different weights and directions depending on the context, through which all of the inputs are processed, resulting in the soundscape rating. Conceptually, this perceptual mapping – the pathways and weightings through which the inputs are processed before being expressed as a perceptual descriptor – is established prior to an individual’s exposure to the soundscape in question.</p>
-<div id="fig-model" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-model" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/Overall_Model_Concept_Diagram_2022-04-28.png" class="img-fluid figure-img">
@@ -84,7 +641,7 @@ Figure&nbsp;1: The conceptual model of soundscape perception, illustrating the p
 <section id="making-use-of-the-predictions-in-design" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="making-use-of-the-predictions-in-design"><span class="header-section-number">5</span> Making use of the predictions in design</h2>
 <p>There are various potential methods for integrating the predictive soundscape approach into a design and intervention setting. Not all spaces can or should have the same soundscape and soundscapes should be treated as dynamic, not static; identifying and creating an appropriate soundscape for the particular use case of a space is crucial to guiding its design. Proper forwardlooking design of a soundscape would involve defining the desired collective perception in the space. In the probabilistic soundscape approach from <span class="citation" data-cites="Mitchell2022How">Mitchell, Aletta, and Kang (2022)</span>, this can be achieved by drawing the desired shape in the circumplex and testing interventions which will bring the existing soundscape closer to the desired perception. A soundscape may need to be perceived as vibrant during the day and calm for some portion of the evening, meaning the desired shape should primarily sit within the vibrant quadrant but have some overlap into calm. This also enables designers to recognise the limitations of their environment and acknowledge that it is not always possible to transform a highly chaotic soundscape into a calm one. In these cases, instead the focus should be placed on shifting the perception to some degree in a positive direction.</p>
-<div id="fig-cain" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-cain" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-cain-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/CainCircumplexTarget.png" class="img-fluid figure-img">
@@ -229,7 +786,7 @@ Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase
     Applications},
   booktitle = {INTER-NOISE 2023 Conference},
   date = {2023-08-20},
-  url = {https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html},
+  url = {https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html},
   langid = {en},
   abstract = {With the recent standardization of soundscape, there has
     been increased interest in bringing the soundscape approach into an
@@ -256,7 +813,7 @@ Zhang, Xu, Meihui Ba, Jian Kang, and Qi Meng. 2018. <span>“<span class="nocase
 Mitchell, Andrew, Francesco Aletta, Tin Oberman, Mercede Erfanian, and
 Jian Kang. 2023. <span>“A Conceptual Framework for the Practical Use of
 Predictive Models and Soundscape Indices: Goals, Constraints, and
-Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html">https://drandrewmitchell.com//research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</a>.
+Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html">https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</a>.
 </div></div></section></div> ]]></description>
   <category>conference-papers</category>
   <guid>https://drandrewmitchell.com/research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html</guid>
@@ -264,7 +821,6 @@ Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https
 </item>
 <item>
   <title>How to analyse and represent quantitative soundscape data</title>
-  <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Francesco Aletta</dc:creator>
   <dc:creator>Jian Kang</dc:creator>
@@ -287,14 +843,14 @@ Applications .”</span> In <em>INTER-NOISE 2023 Conference</em>. <a href="https
 <p>Although different methods are proposed for data collection in ISO12913 Part 2 <span class="citation" data-cites="ISO12913_2">(ISO 2018)</span>, in the context of this study we focus on the questionnaire-based soundscape assessment (Method A), because it is underpinned by a theoretical relationship among the items of the questionnaire that compose it. The core of this questionnaire is the 8 perceptual attributes (PA) originally derived in <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>: pleasant, vibrant (or exciting), eventful, chaotic, annoying, monotonous, uneventful, and calm. In the questionnaire procedure, these PAs are assessed independently of each other, however they are conceptually considered to form a two-dimensional circumplex with <em>{Pleasantness} and </em>Eventfulness* on the x- and y-axis, respectively, where all regions of the space are equally likely to accommodate a given soundscape assessment <span class="citation" data-cites="Aletta2016Soundscape">(Aletta, Kang, and Axelsson 2016)</span>. In <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>, a third primary dimension, <em>Familiarity</em> was also found, however this only accounted for 8% of the variance and is typically disregarded as part of the standard circumplex. As will be made clear throughout, the circumplex model has several aspects which make it useful for representing the soundscape perception of a space as a whole.</p>
 <section id="coordinate-transformation-into-the-two-primary-dimensions" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="coordinate-transformation-into-the-two-primary-dimensions"><span class="header-section-number">2.1</span> Coordinate transformation into the two primary dimensions</h2>
-<p>To facilitate the analysis of the PA responses, the Likert scale responses are coded from 1 (Strongly disagree) to 5 (Strongly agree) as ordinal variables. In order to reduce the 8 PA values into a pair of coordinates which can be plotted on the Pleasant-Eventful axes, Part 3 of ISO 12913 <span class="citation" data-cites="ISO12913_3">(ISO 2019)</span> provides a trigonometric transformation, based on the <img src="https://latex.codecogs.com/png.latex?45%5Cdegree">-relationship between the diagonal axes and the pleasant and eventful axes. This transformation projects the coded values from the individual PAs down onto the primary Pleasantness and Eventfulness dimensions then adds them together to form a single coordinate pair. In theory, this coordinate pair then encapsulates information from all 8 PA dimensions onto a more easily understandable and analysable two dimensions. The ISO coordinates are thus calculated by:</p>
-<p><span id="eq-pleasant"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Pleasant%20=%20%5B(pleasant%20-%20annoying)%20+%20%5Ccos%2045%5Cdegree%20*%20(calm%20-%20chaotic)%20%5C%5C%20+%20%5Ccos%2045%5Cdegree%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B1%7D"></span></p>
-<p><span id="eq-eventful"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Eventful%20=%20%5B(eventful%20-%20uneventful)%20+%20%5Ccos%2045%5Cdegree%20*%20(chaotic%20-%20calm)%20%5C%5C%20+%20%5Ccos%2045%5Cdegree%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
-<p>where the PAs are arranged around the circumplex as shown in Figure&nbsp;1. The <img src="https://latex.codecogs.com/png.latex?%5Ccos%2045%5Cdegree"> term operates to project the diagonal terms down onto the x and y axes, and the <img src="https://latex.codecogs.com/png.latex?1%20/%20(4%20+%20%5Csqrt%7B32%7D)"> scales the resulting coordinates to the range (-1, 1). The result of this transformation is demonstrated in Figure&nbsp;1. This treatment of the 8 PAs makes several assumptions and inferences about the relationships between the dimensions. As stated in the standard <span class="citation" data-cites="ISO12913_3">(ISO 2019, 5)</span>:</p>
+<p>To facilitate the analysis of the PA responses, the Likert scale responses are coded from 1 (Strongly disagree) to 5 (Strongly agree) as ordinal variables. In order to reduce the 8 PA values into a pair of coordinates which can be plotted on the Pleasant-Eventful axes, Part 3 of ISO 12913 <span class="citation" data-cites="ISO12913_3">(ISO 2019)</span> provides a trigonometric transformation, based on the <img src="https://latex.codecogs.com/png.latex?45%5Ccirc">-relationship between the diagonal axes and the pleasant and eventful axes. This transformation projects the coded values from the individual PAs down onto the primary Pleasantness and Eventfulness dimensions then adds them together to form a single coordinate pair. In theory, this coordinate pair then encapsulates information from all 8 PA dimensions onto a more easily understandable and analysable two dimensions. The ISO coordinates are thus calculated by:</p>
+<p><span id="eq-pleasant"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Pleasant%20=%20%5B(pleasant%20-%20annoying)%20+%20%5Ccos%2045%5Ccirc%20*%20(calm%20-%20chaotic)%20%5C%5C%20+%20%5Ccos%2045%5Ccirc%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B1%7D"></span></p>
+<p><span id="eq-eventful"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Bsplit%7D%0A%20%20%20%20ISO%20Eventful%20=%20%5B(eventful%20-%20uneventful)%20+%20%5Ccos%2045%5Ccirc%20*%20(chaotic%20-%20calm)%20%5C%5C%20+%20%5Ccos%2045%5Ccirc%20*%20(vibrant%20-%20monotonous)%5D%20*%201/(4+%5Csqrt%7B32)%7D%0A%5Cend%7Bsplit%7D%0A%5Ctag%7B2%7D"></span></p>
+<p>where the PAs are arranged around the circumplex as shown in Figure&nbsp;1. The <img src="https://latex.codecogs.com/png.latex?%5Ccos%2045%5Ccirc"> term operates to project the diagonal terms down onto the x and y axes, and the <img src="https://latex.codecogs.com/png.latex?1%20/%20(4%20+%20%5Csqrt%7B32%7D)"> scales the resulting coordinates to the range (-1, 1). The result of this transformation is demonstrated in Figure&nbsp;1. This treatment of the 8 PAs makes several assumptions and inferences about the relationships between the dimensions. As stated in the standard <span class="citation" data-cites="ISO12913_3">(ISO 2019, 5)</span>:</p>
 <blockquote class="blockquote">
 <p>According to the two-dimensional model, vibrant soundscapes are both pleasant and eventful, chaotic soundscapes are both eventful and unpleasant, monotonous soundscapes are both unpleasant and uneventful, and finally calm soundscapes are both uneventful and pleasant.</p>
 </blockquote>
-<div id="fig-radar" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-radar" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-radar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/figures/Figure1.jpg" class="img-fluid figure-img">
@@ -556,7 +1112,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <div aria-describedby="fig-circ-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 47.0%;justify-content: flex-start;">
-<div id="fig-circ-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-circ-1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-circ-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-1.png" data-ref-parent="fig-circ" width="604" height="605" class="figure-img">
@@ -571,7 +1127,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <p>&nbsp;</p>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-circ-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-circ-2" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-circ-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-2.png" data-ref-parent="fig-circ" width="470" height="445" class="figure-img">
@@ -585,7 +1141,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 </div>
 <div class="quarto-layout-row">
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-circ-3" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-circ-3" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-circ-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-3.png" data-ref-parent="fig-circ" width="470" height="445" class="figure-img">
@@ -600,7 +1156,7 @@ font-style: inherit;"># plt.tight_layout()</span></span></code></pre></div>
 <p>&nbsp;</p>
 </div>
 <div class="cell-output cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-circ" style="flex-basis: 47.0%;justify-content: flex-start;">
-<div id="fig-circ-4" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-circ-4" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-subfloat-fig figure">
 <div aria-describedby="fig-circ-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/how-to-analyse-jasa/index_files/figure-html/fig-circ-output-4.png" data-ref-parent="fig-circ" width="604" height="605" class="figure-img">
@@ -641,7 +1197,7 @@ Figure&nbsp;2: A demonstration of some use cases of representing soundscape perc
 <h2 data-number="4.1" class="anchored" data-anchor-id="limitations-of-the-circumplex-and-quantitative-analysis"><span class="header-section-number">4.1</span> Limitations of the circumplex and quantitative analysis</h2>
 <p>The method presented here is a solution for representing the soundscape of a space, which requires considering the perception of many people, but it is important to note that this is only one (very important) goal of the soundscape approach. Psychological and sociological investigations of people’s relationship to their sound environment and the interactions between social contexts and individual perception are a crucial aspect of the field for which this approach would likely not be sufficient <span class="citation" data-cites="Bild2018Public">(Bild et al. 2018)</span>. Open-response questions, structured interviews, and mixed-methods studies can provide additional insight into how people experience their environment and should be considered alongside or preceding this focus on how a space is likely to be perceived on a larger scale.</p>
 <p>These other approaches are not in opposition to the methods proposed here, but instead further expand our view. The circumplex is a limited view of soundscape perception (this is made obvious by the fact that it excludes the third component, <em>familiarity</em>, identified in <span class="citation" data-cites="Axelsson2010Principal">Axelsson, Nilsson, and Berglund (2010)</span>) but it is an exceptionally rich tool for dealing with the two primary aspects of soundscape perception which can readily expand the much more limited view provided by existing noise and annoyance assessment tools. Aspects of the psychological and sociological emphasis can also be integrated into a circumplex-focused approach, as demonstrated in <span class="citation" data-cites="Erfanian2021Psychological">Erfanian et al. (2021)</span>, where personal factors such as age, gender, and psychological well-being were analysed in terms of how they mediated the ISOPleasant and ISOEventful outcomes.</p>
-<p>There has been some discussion regarding the interdependence of the PAs and the strict validity of the 90and 45 relationships between the attributes <span class="citation" data-cites="Lionello2021Introducing">(Lionello et al. 2021)</span>. Further work has indicated that the scaling between the attributes may vary, but the underlying relationships hold. It is for this reason that we have taken the coordinate projection as the starting point of this critique. It should also be noted that the particular PA descriptors used in ISO 12913 are intended for outdoor environments and should not be directly applied to indoor spaces. However, a proposed set of descriptors for some indoor environments has been derived which further confirms the validity of the circumplex relationships <span class="citation" data-cites="Torresin2020Indoor">(Torresin et al. 2020)</span>. The methods proposed here should be directly applicable to indoor spaces by using the comfort/content descriptors as well as to any other translations of soundscape descriptors into other languages <span class="citation" data-cites="Aletta2020Soundscape">(Aletta et al. 2020)</span> as long as the dimensional relationships of the circumplex are maintained.</p>
+<p>There has been some discussion regarding the interdependence of the PAs and the strict validity of the 90<img src="https://latex.codecogs.com/png.latex?%5Ccirc"> and 45<img src="https://latex.codecogs.com/png.latex?%5Ccirc"> relationships between the attributes <span class="citation" data-cites="Lionello2021Introducing">(Lionello et al. 2021)</span>. Further work has indicated that the scaling between the attributes may vary, but the underlying relationships hold. It is for this reason that we have taken the coordinate projection as the starting point of this critique. It should also be noted that the particular PA descriptors used in ISO 12913 are intended for outdoor environments and should not be directly applied to indoor spaces. However, a proposed set of descriptors for some indoor environments has been derived which further confirms the validity of the circumplex relationships <span class="citation" data-cites="Torresin2020Indoor">(Torresin et al. 2020)</span>. The methods proposed here should be directly applicable to indoor spaces by using the comfort/content descriptors as well as to any other translations of soundscape descriptors into other languages <span class="citation" data-cites="Aletta2020Soundscape">(Aletta et al. 2020)</span> as long as the dimensional relationships of the circumplex are maintained.</p>
 </section>
 </section>
 <section id="conclusions" class="level1" data-number="5">
@@ -792,7 +1348,6 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <item>
   <title>Investigating urban soundscapes of the COVID-19 lockdown: A predictive soundscape modeling approach</title>
   <dc:creator>Andrew Mitchell</dc:creator>
-  <dc:creator>Andrew Mitchell</dc:creator>
   <dc:creator>Tin Oberman</dc:creator>
   <dc:creator>Francesco Aletta</dc:creator>
   <dc:creator>Magdalena Kachlicka</dc:creator>
@@ -826,7 +1381,7 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <h3 data-number="2.1" class="anchored" data-anchor-id="onsite-data-questionnaires-binaural-measurements-and-recordings"><span class="header-section-number">2.1</span> Onsite data: Questionnaires, binaural measurements, and recordings</h3>
 <p>The initial onsite data collection featured both questionnaire data collected from the general public and acoustic measurements, conducted across thirteen urban locations (in London <img src="https://latex.codecogs.com/png.latex?N=11">, in Venice <img src="https://latex.codecogs.com/png.latex?N=2">) between the 28th of February and the 21st of June 2019, with additional sessions in July and October 2019. Although the total survey period in 2019 extended over several seasons, the surveys at any individual location did not extend over seasons with different occupancy patterns. A total of 1,318 questionnaire responses were collected from the general population across the measurement points during 1 – 3 hour-long campaigns in both cities in 2019, accompanied by 693 approximately 30-second long 24-bit 44.1 kHz binaural recordings. After data cleaning, each of the 13 locations was characterized by between 14 to 80 recordings and between 24 to 147 questionnaire responses. Mean age of the participants was 33.8, with a standard deviation of 14.57 (45% male, 53.8% female, 0.4% non-conforming, 0.9% prefer-not-to-say).</p>
 <p>Although recent results from both <span class="citation" data-cites="Tarlao2020Investigating">Tarlao, Steffens, and Guastavino (2020)</span> and <span class="citation" data-cites="Erfanian2021Psychological">Erfanian et al. (2021)</span> indicate the important influence of personal and demographic factors – in particular age and gender – on soundscape perception, these factors were not included as potential features in the modeling process. Given the nature of this study as addressing a scenario when people could not be surveyed, no additional demographic information is available in the lockdown case to be fed into the model and is therefore not useful to include for the development and application of this specific predictive model. This information is reported throughout the study simply to provide further context to the data collection.</p>
-<p>The subsequent measurement campaign in 2020 mimicked the binaural recording strategy applied in the initial campaign and was performed between the and the 25th of April 2020 in both cities, this time excluding the questionnaire. An additional 571 binaural recordings were collected on-site in 2020.</p>
+<p>The subsequent measurement campaign in 2020 mimicked the binaural recording strategy applied in the initial campaign and was performed between the 6th and the 25th of April 2020 in both cities, this time excluding the questionnaire. An additional 571 binaural recordings were collected on-site in 2020.</p>
 <section id="data-collection" class="level4" data-number="2.1.1">
 <h4 data-number="2.1.1" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">2.1.1</span> Data collection</h4>
 <p>The 2019 data collection was performed across all the locations using the protocol based on the Method A of the <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span>, as described in <span class="citation" data-cites="Aletta2020Assessing">Aletta et al. (2020)</span> and <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (2020)</span>, collected either via handheld tablets or paper copies of the questionnaire. The full questionnaire and data collection procedure are given in <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (2020)</span>, however the key parts used for this study are those addressing sound source dominance and perceived affective quality (PAQ).</p>
@@ -842,7 +1397,7 @@ Express Letters</em> 2 (March): 037201. <a href="https://doi.org/10.1121/10.0009
 <section id="sec-psychoacousticAnalysis" class="level4" data-number="2.1.3">
 <h4 data-number="2.1.3" class="anchored" data-anchor-id="sec-psychoacousticAnalysis"><span class="header-section-number">2.1.3</span> Psychoacoustic analyses</h4>
 <p>The binaural recordings were analyzed in ArtemiS SUITE 11 to calculate the suite of 11 acoustic and psychoacoustic features given in Table&nbsp;1 to be used as initial predictors. The (psycho)acoustic predictors investigated were selected in order to describe many aspects of the recorded sound – in particular, the goal was to move beyond a focus on sound level, which currently dominates the existing literature on the acoustic effects of lockdowns noted in Section&nbsp;1. In all, they are expected to reflect the sound level (<img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">), perceived sound level (Loudness), spectral content (Sharpness, <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, Tonality), temporal character or predictability (Impulsiveness, Fluctuation Strength, Relative Approach), and overall annoyance (Psychoacoustic Annoyance). These metrics have been proposed as indicators to predict perceptual constructs of the soundscape <span class="citation" data-cites="Aletta2016Soundscape Aletta2017Dimensions">(Aletta, Kang, and Axelsson 2016; Aletta, Axelsson, and Kang 2017)</span> and have shown promise when combined together to form a more comprehensive model applied to real-world sounds <span class="citation" data-cites="Orga2021Multilevel">(Orga et al. 2021)</span>. The maximum value from the left and right channels of the binaural recording are used, as suggested in <span class="citation" data-cites="ISO12913Part3">ISO/TS 12913-3:2019 (2019)</span>.</p>
-<div id="tbl-psychoacoustics" class="striped hover quarto-float anchored">
+<div id="tbl-psychoacoustics" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-psychoacoustics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive models. All metrics are calculated for the full length of the recording (<img src="https://latex.codecogs.com/png.latex?%5Csim30s">). As recommended by <span class="citation" data-cites="ISO2017Acoustics">ISO 532-1:2017 (2017)</span> and <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span>, the 5th percentile of Loudness is used rather than the average.
@@ -936,7 +1491,7 @@ Table&nbsp;1: Psychoacoustic features considered for inclusion in the predictive
 </figure>
 </div>
 <p>Table&nbsp;2 shows the Pearson correlation coefficient between each of the candidate acoustic features and the outcome pleasantness and eventfulness. As all variables considered are continuous, and the eventual model is linear, the Pearson coefficient is chosen as a measure of the strength of the linear relationship between two continuous variables. For ISOPleasant (<em>ISOPl</em>), we can perhaps see three tiers of correlations: the more highly correlated tier <img src="https://latex.codecogs.com/png.latex?(%7Cr%7C%20%3E%200.28)"> consists of Relative Approach (<img src="https://latex.codecogs.com/png.latex?RA">), <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, Roughness (<img src="https://latex.codecogs.com/png.latex?R">), Loudness (<img src="https://latex.codecogs.com/png.latex?N_5">), and Psychoacoustic Annoyance (<img src="https://latex.codecogs.com/png.latex?PA">); the low correlation tier consists of <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, Tonality (<img src="https://latex.codecogs.com/png.latex?T">), and Fluctuation Strength (<img src="https://latex.codecogs.com/png.latex?FS">); while <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, Impulsiveness (<img src="https://latex.codecogs.com/png.latex?I">), and Sharpness (<img src="https://latex.codecogs.com/png.latex?S">) show no correlation. For ISOEventful (<em>ISOEv</em>), these tiers are: <img src="https://latex.codecogs.com/png.latex?RA">, <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?T">, <img src="https://latex.codecogs.com/png.latex?R">, and <img src="https://latex.codecogs.com/png.latex?N_5"> comprise the most correlated tier <img src="https://latex.codecogs.com/png.latex?(%7Cr%7C%20%3E%200.30)">; <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, <img src="https://latex.codecogs.com/png.latex?FS">, and <img src="https://latex.codecogs.com/png.latex?PA"> show low correlations; <img src="https://latex.codecogs.com/png.latex?I"> and <img src="https://latex.codecogs.com/png.latex?S"> show no correlation.</p>
-<div id="tbl-corr" class="striped hover quarto-float anchored" data-fontsize="10pt">
+<div id="tbl-corr" class="striped hover quarto-float quarto-figure quarto-figure-center anchored" data-fontsize="10pt">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-corr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Pearson correlation coefficients between candidate acoustic features and ISOPleasant and ISOEventful across all 13 locations. Only statistically significant (<img src="https://latex.codecogs.com/png.latex?p%20%3C%200.01">) coefficients are shown.
@@ -1194,7 +1749,7 @@ Table&nbsp;2: Pearson correlation coefficients between candidate acoustic featur
 <p>However, after the initial data collection, questions were raised as to how the playback loudness impacts ecological validity as it relates to the perceived affective quality of the soundscape. Given this concern, the PAQ responses from the online surveys were not included in further data analysis. Sound source identification is not considered to suffer the same validity concerns as this is not directly dependent on absolute playback level and requires only that the participant can clearly hear what is present. The purpose of the calibration procedure described above was to ensure the participant could clearly hear the softest samples used.</p>
 <p>Online questionnaire data was collected between the 9th of June and the 9th of August 2020. Within the Gorilla Experiment Builder, a total of 250 attempts to complete the experiment were recorded, where 165 participants were excluded either on the basis of not passing the headphones screening (<img src="https://latex.codecogs.com/png.latex?N=79">) or for not completing the experiment, usually before engaging into the screening (<img src="https://latex.codecogs.com/png.latex?N=83">). Out of a total of 88 participants who completed the test, 2 participants were excluded as outliers as they provided uniform answers across all the questions and commented on not being able to properly hear the stimuli, despite their successful completion of the training tests. The participants of the online experiment were of mean age 32.42, 45.1% male, 54.9% female.</p>
 <p>Figure&nbsp;1 illustrates and summarizes the framework and sections described above.</p>
-<div id="fig-framework" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-framework" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-framework-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure1.png" class="img-fluid figure-img" style="width:100.0%">
@@ -1215,7 +1770,7 @@ Figure&nbsp;1: The study flowchart indicating the data collection, analysis, mod
 <h4 data-number="3.1.1" class="anchored" data-anchor-id="sound-source-composition-per-location"><span class="header-section-number">3.1.1</span> 2019 sound source composition per location</h4>
 <p>Questionnaire data was collected in English, Italian, and Spanish in both cities. The respective questionnaires can be found in the supplementary files and <span class="citation" data-cites="Mitchell2020Soundscape">Mitchell et al. (2020)</span>. Data presented here was aggregated per LocationID.</p>
 <p>According to the highest scored mean value of the dominant sound source type, as shown in Figure&nbsp;2, the locations can be grouped into: natural sounds dominated (RegentsParkJapan, RegentsParkFields, RussellSq), human sounds dominated (SanMarco, TateModern, StPaulsRow, StPaulsCross, MonumentoGaribaldi), noise (traffic and other noise) sounds dominated (CamdenTown, EustonTap, TorringtonSq, PancrasLock). Traffic noise and Other noise have been combined here, and for the rest of the discussion, as these responses are highly correlated within this dataset and it is not helpful to consider them separately for this analysis. This follows the alternative sound source labels given in Figure C.3 of <span class="citation" data-cites="ISO12913Part2">ISO/TS 12913-2:2018 (2018)</span> which combines Traffic and Other Noise. Finally, MarchmontGarden is unique in that all sound source types are assessed as being nearly equally present, with only 0.2 separating the least present (Other noise, 2.5) and the most present (Traffic noise, 2.7).</p>
-<div id="fig-barchart" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-barchart" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-barchart-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure2.jpg" class="img-fluid figure-img" style="width:60.0%">
@@ -1261,7 +1816,7 @@ Figure&nbsp;3: A graphic illustrating the frequency of occurrence of the sound s
 </figure>
 </div>
 <p>The results from the listening tests deployed online were analyzed using the SPSS Statistics v. 25. Levene’s test for equality of variances resulted in highly statistically significant values for all 4 sound sources investigated (less than 0.001). Therefore, a Mann-Whitney U-test test was used as a non-parametric equivalent to the T-test to investigate the change in the perceived dominance of the four sound source types <span class="citation" data-cites="McKnight2010Mann">(McKnight and Najab 2010)</span>. The results for human sounds indicated that the perceived dominance was greater for the 2019 sample (M=3.82), than for the 2020 sample (M=2.62), U=41,656, p &lt; 0.001. The results for natural sounds indicated the perceived dominance increased from 2019 (M=2.00) to 2020 (M=2.54), U=63,797, p &lt; 0.001. However, the differences for the noise sources (traffic and other) were not statistically significant. The result of these changes is that while Human sounds were the clearly dominant source across the whole dataset in 2019, in 2020 the sound sources are, on average, much more evenly balanced. No single sound source category was identified as frequent across the 2020 dataset.</p>
-<div id="tbl-source" class="striped hover quarto-float anchored">
+<div id="tbl-source" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-source-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Mean values and standard deviation for the perceived dominance of sound sources (rated from 1 - 5), assessed via an online survey.
@@ -1360,7 +1915,7 @@ Table&nbsp;3: Mean values and standard deviation for the perceived dominance of 
 </section>
 <section id="model-selection-performance-and-application" class="level3 page-columns page-full" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="model-selection-performance-and-application"><span class="header-section-number">3.2</span> Model selection, performance, and application</h3>
-<div id="tbl-model" class="striped hover column-page smaller quarto-float anchored">
+<div id="tbl-model" class="striped hover column-page smaller quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-model-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. ISOPleasant model structure: Random slope, random intercept multi-level model. ISOEventful model structure: Multi-variate linear regression.
@@ -1559,7 +2114,7 @@ Table&nbsp;4: Scaled linear regression models of ISOPleasant and ISOEventful for
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="isopleasant-model-selected"><span class="header-section-number">3.2.1</span> ISOPleasant model selected</h4>
 <p>Following the feature selection, the ISOPleasant model (given in Table&nbsp;4) has <img src="https://latex.codecogs.com/png.latex?N_5"> as the fixed effect with a scaled coefficient of -0.06, and <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, and <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D"> as coefficients which vary depending on the LocationID. The training and testing MAE are very similar, indicating that the model is neither over- nor under-fitting to the training data (<img src="https://latex.codecogs.com/png.latex?MAE_%7Btrain%7D%20=%200.258">; <img src="https://latex.codecogs.com/png.latex?MAE_%7Btest%7D%20=%200.259">). The model performs very well at predicting the average soundscape assessment of the locations (<img src="https://latex.codecogs.com/png.latex?R%5E2_%7Btrain%7D%20=%200.998">; <img src="https://latex.codecogs.com/png.latex?R%5E2_%7Btest%7D%20=%200.85">).</p>
 <p>The high intraclass correlation (<img src="https://latex.codecogs.com/png.latex?ICC%20=%200.90">) demonstrates that the location-level effects are highly important in predicting the pleasantness dimension. Within this random-intercept random-slope model structure, these effects include both the specific context of the location (i.e.&nbsp;the LocationID factor), but also the <img src="https://latex.codecogs.com/png.latex?L_%7BAeq%7D">, <img src="https://latex.codecogs.com/png.latex?L_%7BA10%7D-L_%7BA90%7D">, and <img src="https://latex.codecogs.com/png.latex?L_%7BCeq%7D-L_%7BAeq%7D"> features whose effects vary across locations. These slopes are given in Figure&nbsp;4. This point highlights the need to consider how the context of a location will influence the relationship between the acoustic features and the perceived pleasantness.</p>
-<div id="fig-random" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-random" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure4.jpg" class="img-fluid figure-img" style="width:75.0%">
@@ -1576,7 +2131,7 @@ Figure&nbsp;4: (Color online) Location-level scaled coefficients for the ISOPlea
 </section>
 <section id="sec-application" class="level4" data-number="3.2.3">
 <h4 data-number="3.2.3" class="anchored" data-anchor-id="sec-application"><span class="header-section-number">3.2.3</span> Application to lockdown data</h4>
-<div id="fig-locations" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-locations" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-locations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure5.jpg" class="img-fluid figure-img" style="width:75.0%">
@@ -1604,7 +2159,7 @@ Figure&nbsp;5: (Color online) Soundscape circumplex coordinates for (a) the mean
 </section>
 <section id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions" class="level4" data-number="4.1.2">
 <h4 data-number="4.1.2" class="anchored" data-anchor-id="predicted-relative-changes-in-soundscapes-due-to-covid-19-restrictions"><span class="header-section-number">4.1.2</span> Predicted relative changes in soundscapes due to COVID-19 restrictions</h4>
-<div id="fig-vectors" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-vectors" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vectors-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure6.jpg" class="img-fluid figure-img">
@@ -1679,7 +2234,7 @@ Figure&nbsp;6: (Color online) The relative change in soundscape perception in th
 <p>On-site study data were collected and managed using REDCap electronic data capture tools hosted at University College London (UCL).</p>
 </div></section><section id="appendix-a-online-survey-questionnaire" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix A: Online survey questionnaire</h2><div class="quarto-appendix-contents">
 
-<div id="tbl-gorilla" class="striped hover quarto-float anchored">
+<div id="tbl-gorilla" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-gorilla-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
@@ -1739,7 +2294,7 @@ Table&nbsp;5: Questionnaire deployed via the Gorilla Experiment Builder
 </div></section><section id="sec-appmod" class="level2 appendix unnumbered"><h2 class="anchored quarto-appendix-heading">Appendix B: Model Results</h2><div class="quarto-appendix-contents">
 
 <p>Table&nbsp;6 presents the unscaled coefficients for the ISOPleasant and ISOEventful predictive models. The scaled coefficients are presented in the body of the text to facilitate comparisons between the various factors. However, we feel it is important to present unscaled coefficients such that these models could be implemented and compared for future work.</p>
-<div id="tbl-unscl" class="striped hover quarto-float anchored">
+<div id="tbl-unscl" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-unscl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventful for 13 locations in London and Venice. Statistically significant p-values are highlighted in bold.
@@ -1925,7 +2480,7 @@ Table&nbsp;6: The unscaled linear regression models of ISOPleasant and ISOEventf
 </div>
 </figure>
 </div>
-<div id="fig-unsclRandom" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-unsclRandom" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-unsclRandom-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="https://drandrewmitchell.com/research/papers/2021-12-28_JASA-Lockdown/Figure7.jpg" class="img-fluid figure-img">

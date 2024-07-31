@@ -9,7 +9,7 @@
 <link>https://drandrewmitchell.com/research/presentations.html</link>
 <atom:link href="https://drandrewmitchell.com/research/presentations.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
-<generator>quarto-1.4.555</generator>
+<generator>quarto-1.5.55</generator>
 <lastBuildDate>Sun, 11 May 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>TU Delft Pi-Lab Talk: Soundscape Designs</title>
@@ -126,7 +126,7 @@ Just because we can’t measure the perceptual soundscape of animals, doesn’t 
   title = {New {Methods} and {Proposals} for {Evaluating} {Soundscape}
     {Designs} and {Interventions}},
   date = {2025-05-11},
-  url = {https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture},
+  url = {https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/},
   langid = {en},
   abstract = {This talk will cover the latest work on soundscape
     monitoring, assessment, and prediction. this will focus on
@@ -143,7 +143,7 @@ Just because we can’t measure the perceptual soundscape of animals, doesn’t 
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2025" class="csl-entry quarto-appendix-citeas">
 Mitchell, Andrew. 2025. <span>“New Methods and Proposals for Evaluating
 Soundscape Designs and Interventions.”</span> Invited Lecture, TU Delft,
-Netherlands, May 11. <a href="https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture">https://drandrewmitchell.com//research/presentations/2023-11-28_delft-lecture</a>.
+Netherlands, May 11. <a href="https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/">https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/</a>.
 </div></div></section></div> ]]></description>
   <category>lecture</category>
   <guid>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/</guid>
@@ -167,12 +167,12 @@ Netherlands, May 11. <a href="https://drandrewmitchell.com//research/presentatio
   author = {Mitchell, Andrew},
   title = {R (or {Python)} for {Open} and {Reproducible} {Science}},
   date = {2024-11-03},
-  url = {https://drandrewmitchell.com//research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html},
+  url = {https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas">
 Mitchell, Andrew. 2024. <span>“R (or Python) for Open and Reproducible
-Science.”</span> UCL, London, UK, November 3. <a href="https://drandrewmitchell.com//research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html">https://drandrewmitchell.com//research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</a>.
+Science.”</span> UCL, London, UK, November 3. <a href="https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html">https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</a>.
 </div></div></section></div> ]]></description>
   <category>lecture</category>
   <guid>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</guid>
@@ -218,12 +218,12 @@ Science.”</span> UCL, London, UK, November 3. <a href="https://drandrewmitchel
   author = {Mitchell, Andrew and Aletta, Francesco},
   title = {Soundscape {Research} (in 8 Minutes)},
   date = {2023-03-11},
-  url = {https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk},
+  url = {https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/},
   langid = {en}
 }
 </code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas">
 Mitchell, Andrew, and Francesco Aletta. 2023. <span>“Soundscape Research
-(in 8 Minutes).”</span> Invited Lecture, March 11. <a href="https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk">https://drandrewmitchell.com//research/presentations/2024-03-11_Aletta-Flash-talk</a>.
+(in 8 Minutes).”</span> Invited Lecture, March 11. <a href="https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/">https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/</a>.
 </div></div></section></div> ]]></description>
   <category>lecture</category>
   <guid>https://drandrewmitchell.com/research/presentations/2024-03-11_Aletta-Flash-talk/</guid>
