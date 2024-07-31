@@ -10,7 +10,67 @@
 <atom:link href="https://drandrewmitchell.com/research/presentations.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.5.55</generator>
-<lastBuildDate>Sun, 11 May 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Wed, 15 May 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>ASA 2024 Ottawa: Soundscape Perception Indices (SPI)</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="soundscape-perception-indices-spi---a-unified-framework-for-defining-context-dependent-single-value-indices" class="level2">
+<h2 class="anchored" data-anchor-id="soundscape-perception-indices-spi---a-unified-framework-for-defining-context-dependent-single-value-indices">Soundscape Perception Indices (SPI) - A unified framework for defining context-dependent single value indices</h2>
+<p><object data="./2025-05-15_ASAOttawa-SingleIndex.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./2025-05-15_ASAOttawa-SingleIndex.pdf">Download</a> instead.</p></object></p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{mitchell2024,
+  author = {Mitchell, Andrew and Aletta, Francesco and Oberman, Tin and
+    Kang, Jian},
+  title = {Soundscape {Perception} {Indices} {(SPI)} - {A} Unified
+    Framework for Defining Context-Dependent Single Value Indices},
+  booktitle = {186th Meeting of the Acoustical Society of America},
+  date = {2024-05-15},
+  url = {https://pubs.aip.org/asa/jasa/article/155/3_Supplement/A301/3301593/A-unified-framework-for-creating-soundscape},
+  doi = {10.1121/10.0027579},
+  langid = {en},
+  abstract = {The soundscape approach provides a basis for considering
+    the holistic perception of sound environments, in context. While
+    steady advancements have been made in methods for assessment and
+    analysis, a gap exists for comparing soundscapes and quantifying
+    improvements in the multi-dimensional perception of a soundscape. To
+    this end, there is a need for the creation of single value indices
+    to compare soundscape quality which incorporate context, aural
+    diversity, and specific design goals. Just as a variety of
+    decibel-based indices have been developed for various purposes
+    (e.g., LAeq, LCeq, L90, Lden, etc.), the soundscape approach
+    requires the ability to create novel indices for different uses, but
+    which share a common language and understanding. We therefore
+    propose a unified framework for creating both bespoke and archetypal
+    single index measures of soundscape perception based on the
+    soundscape circumplex model, allowing for new indices to be defined
+    in the future. The implementation of this framework is demonstrated
+    through the creation of a public space typology-based index using
+    survey data collected under the SSID Protocol. Indices developed
+    under this framework can enable a broader and more efficient
+    application of the soundscape approach in design, planning, and
+    regulation.}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew, Francesco Aletta, Tin Oberman, and Jian Kang. 2024.
+<span>“Soundscape Perception Indices (SPI) - A Unified Framework for
+Defining Context-Dependent Single Value Indices.”</span> Invited
+Lecture. In <em>186th Meeting of the Acoustical Society of America</em>.
+<a href="https://doi.org/10.1121/10.0027579">https://doi.org/10.1121/10.0027579</a>.
+</div></div></section></div> ]]></description>
+  <category>lecture</category>
+  <guid>https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/</guid>
+  <pubDate>Wed, 15 May 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/ASA_Master_Brand_Initials_color.png" medium="image" type="image/png" height="79" width="144"/>
+</item>
 <item>
   <title>TU Delft Pi-Lab Talk: Soundscape Designs</title>
   <dc:creator>Andrew Mitchell</dc:creator>
@@ -121,11 +181,11 @@ Just because we can’t measure the perceptual soundscape of animals, doesn’t 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2025,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2023,
   author = {Mitchell, Andrew},
   title = {New {Methods} and {Proposals} for {Evaluating} {Soundscape}
     {Designs} and {Interventions}},
-  date = {2025-05-11},
+  date = {2023-11-29},
   url = {https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/},
   langid = {en},
   abstract = {This talk will cover the latest work on soundscape
@@ -140,103 +200,15 @@ Just because we can’t measure the perceptual soundscape of animals, doesn’t 
     for soundscape analysis
     ({[}Soundscapy{]}(https://soundscapy.readthedocs.io/en/latest/))}
 }
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2025" class="csl-entry quarto-appendix-citeas">
-Mitchell, Andrew. 2025. <span>“New Methods and Proposals for Evaluating
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew. 2023. <span>“New Methods and Proposals for Evaluating
 Soundscape Designs and Interventions.”</span> Invited Lecture, TU Delft,
-Netherlands, May 11. <a href="https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/">https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/</a>.
+Netherlands, November 29. <a href="https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/">https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/</a>.
 </div></div></section></div> ]]></description>
   <category>lecture</category>
   <guid>https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/</guid>
-  <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+  <pubDate>Wed, 29 Nov 2023 00:00:00 GMT</pubDate>
   <media:content url="https://drandrewmitchell.com/research/presentations/2023-11-28_delft-lecture/Delft-header.png" medium="image" type="image/png" height="59" width="144"/>
-</item>
-<item>
-  <title>BSEER R User Group talk: R (or Python) for Open and Reproducible Science</title>
-  <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</link>
-  <description><![CDATA[ 
-
-
-
-
-<p><object data="./2023_RUser-Group-Open-Science.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./2023_RUser-Group-Open-Science.pdf">Download</a> instead.</p></object></p>
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2024,
-  author = {Mitchell, Andrew},
-  title = {R (or {Python)} for {Open} and {Reproducible} {Science}},
-  date = {2024-11-03},
-  url = {https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html},
-  langid = {en}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas">
-Mitchell, Andrew. 2024. <span>“R (or Python) for Open and Reproducible
-Science.”</span> UCL, London, UK, November 3. <a href="https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html">https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</a>.
-</div></div></section></div> ]]></description>
-  <category>lecture</category>
-  <guid>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</guid>
-  <pubDate>Sun, 03 Nov 2024 00:00:00 GMT</pubDate>
-</item>
-<item>
-  <title>ASA 2024 Ottawa: Soundscape Perception Indices (SPI)</title>
-  <dc:creator>Andrew Mitchell</dc:creator>
-  <link>https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/</link>
-  <description><![CDATA[ 
-
-
-
-
-<section id="soundscape-perception-indices-spi---a-unified-framework-for-defining-context-dependent-single-value-indices" class="level2">
-<h2 class="anchored" data-anchor-id="soundscape-perception-indices-spi---a-unified-framework-for-defining-context-dependent-single-value-indices">Soundscape Perception Indices (SPI) - A unified framework for defining context-dependent single value indices</h2>
-<p><object data="./2025-05-15_ASAOttawa-SingleIndex.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./2025-05-15_ASAOttawa-SingleIndex.pdf">Download</a> instead.</p></object></p>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@inproceedings{mitchell2024,
-  author = {Mitchell, Andrew and Aletta, Francesco and Oberman, Tin and
-    Kang, Jian},
-  title = {Soundscape {Perception} {Indices} {(SPI)} - {A} Unified
-    Framework for Defining Context-Dependent Single Value Indices},
-  booktitle = {186th Meeting of the Acoustical Society of America},
-  date = {2024-05-15},
-  url = {https://pubs.aip.org/asa/jasa/article/155/3_Supplement/A301/3301593/A-unified-framework-for-creating-soundscape},
-  doi = {10.1121/10.0027579},
-  langid = {en},
-  abstract = {The soundscape approach provides a basis for considering
-    the holistic perception of sound environments, in context. While
-    steady advancements have been made in methods for assessment and
-    analysis, a gap exists for comparing soundscapes and quantifying
-    improvements in the multi-dimensional perception of a soundscape. To
-    this end, there is a need for the creation of single value indices
-    to compare soundscape quality which incorporate context, aural
-    diversity, and specific design goals. Just as a variety of
-    decibel-based indices have been developed for various purposes
-    (e.g., LAeq, LCeq, L90, Lden, etc.), the soundscape approach
-    requires the ability to create novel indices for different uses, but
-    which share a common language and understanding. We therefore
-    propose a unified framework for creating both bespoke and archetypal
-    single index measures of soundscape perception based on the
-    soundscape circumplex model, allowing for new indices to be defined
-    in the future. The implementation of this framework is demonstrated
-    through the creation of a public space typology-based index using
-    survey data collected under the SSID Protocol. Indices developed
-    under this framework can enable a broader and more efficient
-    application of the soundscape approach in design, planning, and
-    regulation.}
-}
-</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas">
-Mitchell, Andrew, Francesco Aletta, Tin Oberman, and Jian Kang. 2024.
-<span>“Soundscape Perception Indices (SPI) - A Unified Framework for
-Defining Context-Dependent Single Value Indices.”</span> Invited
-Lecture. In <em>186th Meeting of the Acoustical Society of America</em>.
-<a href="https://doi.org/10.1121/10.0027579">https://doi.org/10.1121/10.0027579</a>.
-</div></div></section></div> ]]></description>
-  <category>lecture</category>
-  <guid>https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/</guid>
-  <pubDate>Wed, 15 May 2024 00:00:00 GMT</pubDate>
-  <media:content url="https://drandrewmitchell.com/research/presentations/2024-05-15_ASAOttawa-SingleIndex/ASA_Master_Brand_Initials_color.png" medium="image" type="image/png" height="79" width="144"/>
 </item>
 <item>
   <title>Free and open-source software for soundscape visualization and binaural analysis</title>
@@ -256,6 +228,34 @@ Lecture. In <em>186th Meeting of the Acoustical Society of America</em>.
   <guid>https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/</guid>
   <pubDate>Fri, 21 Apr 2023 00:00:00 GMT</pubDate>
   <media:content url="https://drandrewmitchell.com/research/presentations/2023-08-09_Soundscapy-poster/2023_USS_Soundscapy-poster.png" medium="image" type="image/png" height="204" width="144"/>
+</item>
+<item>
+  <title>BSEER R User Group talk: R (or Python) for Open and Reproducible Science</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p><object data="./2023_RUser-Group-Open-Science.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="./2023_RUser-Group-Open-Science.pdf">Download</a> instead.</p></object></p>
+
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@unpublished{mitchell2023,
+  author = {Mitchell, Andrew},
+  title = {R (or {Python)} for {Open} and {Reproducible} {Science}},
+  date = {2023-03-23},
+  url = {https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html},
+  langid = {en}
+}
+</code></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2023" class="csl-entry quarto-appendix-citeas">
+Mitchell, Andrew. 2023. <span>“R (or Python) for Open and Reproducible
+Science.”</span> UCL, London, UK, March 23. <a href="https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html">https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</a>.
+</div></div></section></div> ]]></description>
+  <category>lecture</category>
+  <guid>https://drandrewmitchell.com/research/presentations/2023_RUser-Group-Open_Science/2023_RUser-Group.html</guid>
+  <pubDate>Thu, 23 Mar 2023 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>Crash course in Soundscape Research from Dr Aletta</title>
