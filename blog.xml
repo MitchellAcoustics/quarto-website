@@ -10,7 +10,844 @@
 <atom:link href="https://drandrewmitchell.com/blog.xml" rel="self" type="application/rss+xml"/>
 <description>Personal website of Andrew Mitchell</description>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Fri, 15 Mar 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Mon, 28 Oct 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>Managing Independent Quarto Papers in an Academic Website</title>
+  <dc:creator>Andrew Mitchell</dc:creator>
+  <link>https://drandrewmitchell.com/posts/2024-10-28_quarto-paper-fetch/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<section id="managing-independent-quarto-papers-in-an-academic-website" class="level1">
+<h1>Managing Independent Quarto Papers in an Academic Website</h1>
+<section id="the-problem-managing-complex-dependencies-in-academic-publishing" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-managing-complex-dependencies-in-academic-publishing">The Problem: Managing Complex Dependencies in Academic Publishing</h2>
+<p>When publishing academic papers as Quarto documents, each paper often requires its own specific set of packages and dependencies. This becomes particularly challenging when hosting multiple papers on a single Quarto website. Consider a computational acoustics paper from 2022 using <code>librosa 0.8</code> alongside a 2024 paper requiring <code>librosa 0.10</code> - both needing different dependency chains and Python versions.</p>
+<p>A typical academic website structure might look like:</p>
+<pre><code>my-academic-website/
+├── research/
+│   ├── paper1/  # Uses numpy 1.20, pandas 1.3, librosa 0.8
+│   ├── paper2/  # Requires numpy 1.24, pandas 2.0
+│   └── paper3/  # Needs latest versions of everything
+├── _quarto.yml
+└── environment.yml</code></pre>
+<p>Since Quarto renders all content using the same virtual environment, we face several challenges:</p>
+<ul>
+<li>Version conflicts between papers</li>
+<li>Dependency resolution becoming increasingly complex</li>
+<li>Difficulty in reproducing old papers</li>
+<li>Maintenance burden growing with each new paper</li>
+</ul>
+</section>
+<section id="a-solution-pre-rendered-paper-integration" class="level2">
+<h2 class="anchored" data-anchor-id="a-solution-pre-rendered-paper-integration">A Solution: Pre-rendered Paper Integration</h2>
+<p>Instead of wrestling with dependency management in a single environment, we can treat each paper as an independent project that gets integrated into the main website post-rendering. This approach has several key components:</p>
+<ol type="1">
+<li>Independent paper repositories with:
+<ul>
+<li>Self-contained environments</li>
+<li>Complete reproducibility setup</li>
+<li>Pre-rendered content</li>
+<li>All supporting materials</li>
+</ul></li>
+<li>Main website that:
+<ul>
+<li>Pulls in pre-rendered content</li>
+<li>Maintains consistent structure</li>
+<li>Integrates papers seamlessly</li>
+<li>Handles updates efficiently</li>
+</ul></li>
+</ol>
+</section>
+<section id="implementation-details" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-details">Implementation Details</h2>
+<section id="paper-repository-structure" class="level3">
+<h3 class="anchored" data-anchor-id="paper-repository-structure">Paper Repository Structure</h3>
+<p>Each paper repository follows a standard Quarto structure:</p>
+<pre><code>paper-repo/
+├── paper.qmd
+├── figures/
+├── _freeze/
+│   └── paper/
+│       ├── execute-results/
+│       └── figures/
+├── references.bib
+├── pyproject.toml
+└── _quarto.yml</code></pre>
+<p>The crucial elements here are: - Pre-rendered content in <code>_freeze/</code> - All dependencies specified in <code>pyproject.toml</code> or <code>requirements.txt</code> - Supporting files organized consistently</p>
+<p>The solution consists of three main components:</p>
+</section>
+<section id="configuration-file-_paper_sources.yml" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-file-_paper_sources.yml">1. Configuration File (<code>_paper_sources.yml</code>)</h3>
+<p>Define which papers to include and where they should go:</p>
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">papers</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb3-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">repo_url</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/username/paper1.git"</span></span>
+<span id="cb3-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target_folder</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"paper1"</span></span>
+<span id="cb3-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">repo_url</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/username/paper2.git"</span></span>
+<span id="cb3-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target_folder</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"paper2"</span></span></code></pre></div>
+</section>
+<section id="paper-fetcher-script" class="level3">
+<h3 class="anchored" data-anchor-id="paper-fetcher-script">2. Paper Fetcher Script</h3>
+<p>The fetcher script runs as a pre-render step in your Quarto website build process. Add to <code>_quarto.yml</code>:</p>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb4-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pre-render</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"python fetch_papers.py"</span></span></code></pre></div>
+<p>The script:</p>
+<ul>
+<li>Reads the paper configuration</li>
+<li>Clones each paper repository</li>
+<li>Copies pre-rendered content to the appropriate website location</li>
+<li>Maintains Quarto’s freeze directory structure</li>
+</ul>
+</section>
+<section id="individual-paper-repositories" class="level3">
+<h3 class="anchored" data-anchor-id="individual-paper-repositories">3. Individual Paper Repositories</h3>
+<p>Each paper repository contains:</p>
+<ul>
+<li>Quarto source files (.qmd or .ipynb)</li>
+<li>Paper-specific dependencies</li>
+<li>Pre-rendered content</li>
+<li>Supporting files (figures, references, etc.)</li>
+</ul>
+<p>Importantly, the papers need to be rendered with freeze enabled, keeping the <code>ipynb</code>, and the html render cannot use <code>embed_resources</code>.</p>
+</section>
+</section>
+<section id="the-code" class="level2">
+<h2 class="anchored" data-anchor-id="the-code">The Code</h2>
+<p>You can find the scripts for this process within the repo for my own personal website: <a href="https://github.com/MitchellAcoustics/quarto-website">https://github.com/MitchellAcoustics/quarto-website</a>.</p>
+<p>To start, I’ve used it to integrate my paper on analysing soundscape data which has its own repo here: <a href="https://github.com/MitchellAcoustics/JASAEL-HowToAnalyseQuantiativeSoundscapeData">https://github.com/MitchellAcoustics/JASAEL-HowToAnalyseQuantiativeSoundscapeData</a></p>
+<section id="integration-process" class="level3">
+<h3 class="anchored" data-anchor-id="integration-process">Integration Process</h3>
+<p>The integration process involves several careful considerations:</p>
+<ol type="1">
+<li><p><strong>File Management</strong>: We need to:</p>
+<ul>
+<li>Copy only necessary files</li>
+<li>Maintain Quarto’s directory structure</li>
+<li>Handle different paper formats (.qmd, .ipynb)</li>
+<li>Preserve supporting materials</li>
+</ul></li>
+<li><p><strong>Version Control</strong>: Track which version of each paper is integrated:</p></li>
+</ol>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> get_repo_info(repo_url: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>, branch: Optional[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>], commit: Optional[<span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>]) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>:</span>
+<span id="cb5-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Get the latest commit hash for version tracking."""</span></span>
+<span id="cb5-3">    ref <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> commit <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">or</span> branch <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">or</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HEAD"</span></span>
+<span id="cb5-4">    commit_hash <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> subprocess.check_output(</span>
+<span id="cb5-5">        [<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"git"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"ls-remote"</span>, repo_url, ref]</span>
+<span id="cb5-6">    ).decode().split()[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>]</span>
+<span id="cb5-7">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> commit_hash</span></code></pre></div>
+<ol start="3" type="1">
+<li><strong>Update Management</strong>: Only update papers when needed:</li>
+</ol>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> check_update_needed(paper_dir: Path, current_hash: <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">str</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb6-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Check if paper needs updating based on commit hash."""</span></span>
+<span id="cb6-3">    hash_file <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> paper_dir <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"last_commit.txt"</span></span>
+<span id="cb6-4">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> hash_file.exists():</span>
+<span id="cb6-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb6-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> hash_file.read_text().strip() <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> current_hash</span></code></pre></div>
+<ol start="4" type="1">
+<li><strong>Error Handling</strong>: Robust error handling for various failure modes:</li>
+</ol>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">def</span> process_paper(<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>, paper: PaperSource) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-&gt;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">bool</span>:</span>
+<span id="cb7-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">"""Process a single paper with comprehensive error handling."""</span></span>
+<span id="cb7-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">try</span>:</span>
+<span id="cb7-4">        result <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.run_fetch_script(paper)</span>
+<span id="cb7-5">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">not</span> result.success:</span>
+<span id="cb7-6">            <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.cleanup_paper_directory(paper)</span>
+<span id="cb7-7">            <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span>
+<span id="cb7-8">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">True</span></span>
+<span id="cb7-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">except</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">Exception</span> <span class="im" style="color: #00769E;
+background-color: null;
+font-style: inherit;">as</span> e:</span>
+<span id="cb7-10">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.logger.error(<span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">f"Unexpected error: </span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">{</span>e<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">}</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>)</span>
+<span id="cb7-11">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">self</span>.cleanup_paper_directory(paper)</span>
+<span id="cb7-12">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span></span></code></pre></div>
+</section>
+<section id="configuration-management" class="level3">
+<h3 class="anchored" data-anchor-id="configuration-management">Configuration Management</h3>
+<p>Papers are configured through a YAML file:</p>
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">papers</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb8-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">repo_url</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/username/paper1.git"</span></span>
+<span id="cb8-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target_folder</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"acoustics_2022"</span></span>
+<span id="cb8-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">branch</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"main"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  # optional</span></span>
+<span id="cb8-5"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">commit</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"abc123"</span><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">  # optional: pin to specific version</span></span>
+<span id="cb8-6"></span>
+<span id="cb8-7"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">repo_url</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"https://github.com/username/paper2.git"</span></span>
+<span id="cb8-8"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">target_folder</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"soundscapes_2024"</span></span></code></pre></div>
+<p>This provides:</p>
+<ul>
+<li>Clear paper management</li>
+<li>Version control options</li>
+<li>Flexible organization</li>
+<li>Easy addition/removal of papers</li>
+</ul>
+</section>
+<section id="directory-structure-management" class="level3">
+<h3 class="anchored" data-anchor-id="directory-structure-management">Directory Structure Management</h3>
+<p>The fetcher maintains a specific directory structure in the main website:</p>
+<pre><code>website/
+├── research/papers/
+│   └── {PAPER_TARGET_FOLDER}/
+│       ├── paper.qmd
+│       ├── figures/
+│       └── references.bib
+└── _freeze/research/papers/
+    └── {PAPER_TARGET_FOLDER}/
+        └── {BASE_NAME}/
+            ├── execute-results/
+            └── figures/</code></pre>
+<p>This structure is crucial for:</p>
+<ul>
+<li>Quarto’s rendering process</li>
+<li>Website organization</li>
+<li>Paper independence</li>
+<li>Resource management</li>
+</ul>
+</section>
+</section>
+<section id="implementation-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-considerations">Implementation Considerations</h2>
+<p>Several key factors influenced the implementation:</p>
+<ol type="1">
+<li><p><strong>Bash vs.&nbsp;Python Split</strong></p>
+<ul>
+<li>Python handles orchestration and paper management</li>
+<li>Bash handles file operations and Git interactions</li>
+<li>This split provides flexibility and maintainability</li>
+</ul></li>
+<li><p><strong>Error Handling Strategy</strong></p>
+<ul>
+<li>Each paper processes independently</li>
+<li>Failures don’t affect other papers</li>
+<li>Clean up on failure</li>
+<li>Detailed logging for troubleshooting</li>
+</ul></li>
+<li><p><strong>Update Efficiency</strong></p>
+<ul>
+<li>Track paper versions via Git commits</li>
+<li>Only update changed papers</li>
+<li>Force update option available</li>
+<li>Preserve local modifications</li>
+</ul></li>
+<li><p><strong>File Copying Logic</strong></p></li>
+</ol>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">copy_files()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb10-2">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Copy main paper files</span></span>
+<span id="cb10-3">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> ext <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${PAPER_EXTENSIONS</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[@]</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb10-4">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$source_dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${base_name}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${ext}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb10-5">            <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$source_dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${base_name}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${ext}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PAPER_DIR</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/"</span></span>
+<span id="cb10-6">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span></span>
+<span id="cb10-7"></span>
+<span id="cb10-8">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Copy support files and directories</span></span>
+<span id="cb10-9">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> dir <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${SUPPORT_DIRS</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">[@]</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb10-10">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-d</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$source_dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$source_dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$dir</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PAPER_DIR</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/"</span></span>
+<span id="cb10-11">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span></span>
+<span id="cb10-12">    </span>
+<span id="cb10-13">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Handle freeze directory specially</span></span>
+<span id="cb10-14">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-d</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$freeze_source</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">]</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb10-15">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mkdir</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$freeze_target</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb10-16">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">cp</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$freeze_source</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span>/<span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$freeze_target</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">/"</span></span>
+<span id="cb10-17">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb10-18"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div>
+</section>
+<section id="usage-and-integration" class="level2">
+<h2 class="anchored" data-anchor-id="usage-and-integration">Usage and Integration</h2>
+<p>The system integrates with Quarto’s build process:</p>
+<ol type="1">
+<li><strong>Configuration in <code>_quarto.yml</code></strong>:</li>
+</ol>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">project</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb11-2"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">pre-render</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"python fetch_papers.py"</span></span>
+<span id="cb11-3"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">  </span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">render</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">:</span></span>
+<span id="cb11-4"><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">    </span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">-</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;"> </span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"research/papers/**/*.qmd"</span></span></code></pre></div>
+<ol start="2" type="1">
+<li><strong>Manual Usage</strong>:</li>
+</ol>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Normal update</span></span>
+<span id="cb12-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">python</span> fetch_papers.py</span>
+<span id="cb12-3"></span>
+<span id="cb12-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Force update all papers</span></span>
+<span id="cb12-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">python</span> fetch_papers.py <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--force</span></span>
+<span id="cb12-6"></span>
+<span id="cb12-7"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Debug mode for troubleshooting</span></span>
+<span id="cb12-8"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">python</span> fetch_papers.py <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--debug</span></span></code></pre></div>
+</section>
+<section id="the-result" class="level2">
+<h2 class="anchored" data-anchor-id="the-result">The Result</h2>
+<p>After running the fetch process, papers are integrated into the website with this structure:</p>
+<pre><code>website/
+├── research/papers/
+│   ├── paper1/
+│   │   ├── paper.qmd
+│   │   ├── figures/
+│   │   └── references.bib
+│   └── paper2/
+└── _freeze/research/papers/
+    ├── paper1/
+    └── paper2/</code></pre>
+<p>Each paper maintains its own integrity while being seamlessly integrated into the main website. Papers can be developed independently with their own dependencies, yet still appear as a cohesive part of your academic website.</p>
+<p>This solution, while specific to my needs, demonstrates how to manage complex document dependencies in Quarto projects. The key is leveraging Quarto’s pre-render hooks and freeze directory structure to integrate pre-rendered content while maintaining independent development environments for each paper.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This solution, while specific to my needs, demonstrates an approach to managing complex document dependencies in Quarto projects. The key insights are:</p>
+<ol type="1">
+<li>Leverage Quarto’s pre-render hooks</li>
+<li>Use Git for version control and updates</li>
+<li>Maintain clean separation of concerns</li>
+<li>Provide robust error handling</li>
+<li>Keep paper environments independent</li>
+</ol>
+<p>The result is a maintainable system that allows each paper to exist independently while still being part of a cohesive website.</p>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section></div> ]]></description>
+  <category>code</category>
+  <guid>https://drandrewmitchell.com/posts/2024-10-28_quarto-paper-fetch/</guid>
+  <pubDate>Mon, 28 Oct 2024 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>Exploring Soundscape Engineering at UCL: A Mission to Combat Noise Pollution</title>
   <dc:creator>Andrew Mitchell</dc:creator>
@@ -49,7 +886,7 @@
 
 
 
-<p>I recently appeared on the official podcast of the Acoustical Society of America to talk about <a href="../../research/papers/how-to-analyse-jasa/index.html">my paper</a> which was published in JASA Express Letters last year.</p>
+<p>I recently appeared on the official podcast of the Acoustical Society of America to talk about <a href="../../research/papers/2022-03-16_JASAEL-HowToAnalyseQuantitativeSoundscapeData/paper.html">my paper</a> which was published in JASA Express Letters last year.</p>
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/episode/36J5RFBkugv5T8XmCtGD3i?utm_source=generator" width="100%" height="352" frameborder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
 </iframe>
 
