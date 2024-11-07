@@ -7,6 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Mitchell">
+<meta name="dcterms.date" content="2024-11-07">
+<meta name="description" content="Code accompanying the paper: “Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality”">
 
 <title>Exploring defining single value indices - SPI – Andrew Mitchell</title>
 <style>
@@ -55,7 +57,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -156,11 +178,11 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../../../../styles.css">
 <meta property="og:title" content="Exploring defining single value indices - SPI – Andrew Mitchell">
-<meta property="og:description" content="Personal website of Andrew Mitchell">
+<meta property="og:description" content="Code accompanying the paper: “Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality”">
 <meta property="og:image" content="https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Andrew Mitchell">
 <meta name="twitter:title" content="Exploring defining single value indices - SPI – Andrew Mitchell">
-<meta name="twitter:description" content="Personal website of Andrew Mitchell">
+<meta name="twitter:description" content="Code accompanying the paper: “Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality”">
 <meta name="twitter:image" content="https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@acousticsman">
 <meta name="twitter:site" content="@acousticsman">
@@ -250,8 +272,13 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Exploring defining single value indices - SPI</h1>
-                      </div>
+      <h1 class="title"><p>Exploring defining single value indices - SPI</p></h1>
+                  <div>
+        <div class="description">
+          <p>Code accompanying the paper: “Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality”</p>
+        </div>
+      </div>
+                </div>
   </div>
     
   <div class="quarto-title-meta-author">
@@ -259,13 +286,11 @@ window.Quarto = {
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://drandrewmitchell.com/">Andrew Mitchell</a> <a href="https://orcid.org/0000-0003-0978-5046" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+      <p class="author">Andrew Mitchell <a href="mailto:a.j.mitchell@ucl.ac.uk" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0000-0003-0978-5046" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
     </div>
     <div class="quarto-title-meta-contents">
           <p class="affiliation">
-              <a href="https://www.ucl.ac.uk/bartlett/environmental-design/">
-              IEDE @ University College London
-              </a>
+              University College London
             </p>
         </div>
     </div>
@@ -273,10 +298,22 @@ window.Quarto = {
   <div class="quarto-title-meta">
 
         
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 7, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
+  <div>
+    <div class="abstract">
+      <div class="block-title">Abstract</div>
+      <p>This notebook contains several explorations and developments leading to the SPI framework.</p>
+    </div>
+  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
@@ -302,7 +339,7 @@ window.Quarto = {
   </ul></li>
   </ul></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="SingleIndex-Code.pdf"><i class="bi bi-file-pdf"></i>PDF (elsevier)</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -311,12 +348,11 @@ window.Quarto = {
 
 
 
-<p>This notebook contains several explorations and developments leading to the SPI framework.</p>
 <section id="setup" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Setup</h1>
 <section id="import-libraries" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="import-libraries"><span class="header-section-number">1.1</span> Import Libraries</h2>
-<div id="cell-3" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:07.299759Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:05.487098Z&quot;}" data-execution_count="38">
+<div id="cell-2" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:07.299759Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:05.487098Z&quot;}" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> soundscapy <span class="im">as</span> sspy</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -335,7 +371,7 @@ window.Quarto = {
 <section id="load-data" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="load-data"><span class="header-section-number">1.2</span> Load Data</h2>
 <p>In addition to loading the latest version of the ISD, we also exclude a few samples that were identified as survey outliers. Most notably, this includes the samples at RegentsParkFields which were impacted by helicopter flyovers.</p>
-<div id="cell-5" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:21.651402Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:07.300648Z&quot;}" data-execution_count="39">
+<div id="cell-4" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:21.651402Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:07.300648Z&quot;}" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load latest ISD dataset</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> sspy.isd.load()</span>
@@ -654,7 +690,7 @@ window.Quarto = {
 </div>
 <section id="isocoordinate-calculation-according-to-aletta-et.-al.-2024" class="level3" data-number="1.2.1">
 <h3 data-number="1.2.1" class="anchored" data-anchor-id="isocoordinate-calculation-according-to-aletta-et.-al.-2024"><span class="header-section-number">1.2.1</span> ISOCoordinate calculation according to Aletta et. al.&nbsp;(2024)</h3>
-<p>To move the 8-item PAQ responses into the 2-dimensional circumplex space, we use the projection method first presented in ISO 12913-3:2018. This projection method and its associated formulae were recently updated further in <span class="citation" data-cites="Aletta2024">(<a href="#ref-Aletta2024" role="doc-biblioref"><strong>Aletta2024?</strong></a>)</span> to include a correction for the language in which the survey was conducted. The formulae are as follows:</p>
+<p>To move the 8-item PAQ responses into the 2-dimensional circumplex space, we use the projection method first presented in ISO 12913-3:2018. This projection method and its associated formulae were recently updated further in <span class="citation" data-cites="Aletta2024Soundscape">Aletta et al. (<a href="#ref-Aletta2024Soundscape" role="doc-biblioref">2024</a>)</span> to include a correction for the language in which the survey was conducted. The formulae are as follows:</p>
 <p><span class="math display">
 % \begin{align*}
 P_{ISO} = \frac{1}{\lambda_{pl}} \sum_{i=1}^{8} \cos \theta_i \cdot \sigma_i \\
@@ -662,7 +698,7 @@ E_{ISO} = \frac{1}{\lambda_{pl}} \sum_{i=1}^{8} \sin \theta_i \cdot \sigma_i
 % \end{align*}
 </span></p>
 <p>where $_i$ is the response to the (i)th item of the PAQ. The resulting (x) and (y) values are then used to calculate the polar angle () and the radial distance (r) as follows:</p>
-<div id="cell-8" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:21.661999Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:21.653412Z&quot;}" data-execution_count="40">
+<div id="cell-7" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:21.661999Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:21.653412Z&quot;}" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> soundscapy.surveys.survey_utils <span class="im">import</span> LANGUAGE_ANGLES, PAQ_IDS</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>LANGUAGE_ANGLES</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -681,10 +717,10 @@ E_{ISO} = \frac{1}{\lambda_{pl}} \sum_{i=1}^{8} \sin \theta_i \cdot \sigma_i
  'tur': (0, 55, 97, 106, 157, 254, 289, 313)}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tab <span class="op">=</span> pd.DataFrame.from_dict(LANGUAGE_ANGLES, orient<span class="op">=</span><span class="st">'index'</span>, columns<span class="op">=</span>PAQ_IDS)</span>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>tab <span class="op">=</span> pd.DataFrame.from_dict(LANGUAGE_ANGLES, orient<span class="op">=</span><span class="st">"index"</span>, columns<span class="op">=</span>PAQ_IDS)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-lang-angles" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="41">
+<div id="tbl-lang-angles" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lang-angles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Language-specific angles for projection into the ISO 12913-3:2018 circumplex space.
@@ -850,7 +886,7 @@ Table&nbsp;1: Language-specific angles for projection into the ISO 12913-3:2018 
 </figure>
 </div>
 </div>
-<div id="cell-10" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:22.886321Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:21.659548Z&quot;}" data-execution_count="42">
+<div id="cell-9" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:22.886321Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:21.659548Z&quot;}">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> soundscapy.surveys.survey_utils <span class="im">import</span> PAQ_IDS</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, row <span class="kw">in</span> data.iterrows():</span>
@@ -863,20 +899,22 @@ Table&nbsp;1: Language-specific angles for projection into the ISO 12913-3:2018 
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    data.loc[i, <span class="st">"ISOPleasant"</span>] <span class="op">=</span> iso_pl</span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    data.loc[i, <span class="st">"ISOEventful"</span>] <span class="op">=</span> iso_ev</span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>data_list <span class="op">=</span> [sspy.isd.select_location_ids(data, loc) <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()]</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> sspy.plotting.create_circumplex_subplots(</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    data_list,</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    plot_type<span class="op">=</span><span class="st">"density"</span>,</span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">6</span>,</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">18</span>),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    subtitles<span class="op">=</span>[loc <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()],</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">""</span>,</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>data_list <span class="op">=</span> [</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    sspy.isd.select_location_ids(data, loc) <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> sspy.plotting.create_circumplex_subplots(</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    data_list,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    plot_type<span class="op">=</span><span class="st">"density"</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">6</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">18</span>),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    subtitles<span class="op">=</span>[loc <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()],</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">""</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -885,7 +923,7 @@ Table&nbsp;1: Language-specific angles for projection into the ISO 12913-3:2018 
 </div>
 </div>
 </div>
-<div id="cell-11" class="cell" data-execution_count="43">
+<div id="cell-10" class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting distribution density with empirical scatter</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> empirical_msn_scatter(data, loc):</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    loc_msn <span class="op">=</span> MultiSkewNorm()</span>
@@ -896,21 +934,22 @@ Table&nbsp;1: Language-specific angles for projection into the ISO 12913-3:2018 
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    loc_Y <span class="op">=</span> pd.DataFrame(loc_msn.sample_data, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> loc_Y</span>
 <span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>data_list <span class="op">=</span> [empirical_msn_scatter(data, loc) <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()]</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> sspy.plotting.create_circumplex_subplots(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    data_list,</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    plot_type<span class="op">=</span><span class="st">"density"</span>,</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">6</span>,</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">18</span>),</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    subtitles<span class="op">=</span>[loc <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()],</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">""</span>,</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>data_list <span class="op">=</span> [empirical_msn_scatter(data, loc) <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()]</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> sspy.plotting.create_circumplex_subplots(</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    data_list,</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    plot_type<span class="op">=</span><span class="st">"density"</span>,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    nrows<span class="op">=</span><span class="dv">6</span>,</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    ncols<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    figsize<span class="op">=</span>(<span class="dv">9</span>, <span class="dv">18</span>),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    subtitles<span class="op">=</span>[loc <span class="cf">for</span> loc <span class="kw">in</span> data[<span class="st">"LocationID"</span>].unique()],</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">""</span>,</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -936,7 +975,7 @@ f(x; a, \omega, \alpha) = \frac{2}{\omega} \phi \left( \frac{x-a}{\omega} \right
 <p>To generate the truncated skew-normal distribution, we use rejection sampling. This is a method of generating a distribution by sampling from a simpler distribution and rejecting samples that do not fit the target distribution. In this case, we sample from a skew-normal distribution (<code>scipy.stats.skewnorm</code>) and reject samples that are outside of the range <span class="math inline">[-1,1]</span>.</p>
 <section id="example---calculating-the-moments-of-locations-distribution-and-generating-the-equivalent-distribution-using-rejection-sampling" class="level4" data-number="1.3.1.1">
 <h4 data-number="1.3.1.1" class="anchored" data-anchor-id="example---calculating-the-moments-of-locations-distribution-and-generating-the-equivalent-distribution-using-rejection-sampling"><span class="header-section-number">1.3.1.1</span> Example - Calculating the moments of location’s distribution and generating the equivalent distribution using rejection sampling</h4>
-<div id="cell-13" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:23.057441Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:22.892591Z&quot;}" data-execution_count="44">
+<div id="cell-12" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:23.057441Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:22.892591Z&quot;}" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test_loc <span class="op">=</span> <span class="st">"SanMarco"</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>test_data <span class="op">=</span> sspy.isd.select_location_ids(data, test_loc)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -960,7 +999,7 @@ sigma: [[ 0.101 -0.025]
 skew:  [ 0.145 -0.078]</code></pre>
 </div>
 </div>
-<div id="cell-fig-dist-example" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:24.997380Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:22.947404Z&quot;}" data-execution_count="45">
+<div id="cell-fig-dist-example" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:36:24.997380Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:36:22.947404Z&quot;}">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> msn.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> pd.DataFrame(Y, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>D, p <span class="op">=</span> msn.ks2ds(test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]])</span>
@@ -976,9 +1015,13 @@ skew:  [ 0.145 -0.078]</code></pre>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>color,</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    Y, ax<span class="op">=</span>axes[<span class="dv">1</span>], density_type<span class="op">=</span><span class="st">"full"</span>, title<span class="op">=</span><span class="st">"b) MSN sampled distribution</span><span class="ch">\n</span><span class="st"> n sample = 1000"</span>, color<span class="op">=</span>color</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    Y,</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    density_type<span class="op">=</span><span class="st">"full"</span>,</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"b) MSN sampled distribution</span><span class="ch">\n</span><span class="st"> n sample = 1000"</span>,</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>color,</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-dist-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -992,26 +1035,26 @@ Figure&nbsp;1: Example of fitting and sampling from a multivariate skew-normal d
 </div>
 </div>
 </div>
-<div id="cell-15" class="cell" data-execution_count="46">
+<div id="cell-14" class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Hack using alpha dev version of soundscapy</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> soundscapy.plotting.circumplex_plot <span class="im">import</span> CircumplexPlot, Backend, CircumplexPlotParams</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> msn.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> pd.DataFrame(Y, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>D, p <span class="op">=</span> msn.ks2ds(test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]])</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> soundscapy.plotting.circumplex_plot <span class="im">import</span> (</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    CircumplexPlot,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    Backend,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    CircumplexPlotParams,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> CircumplexPlotParams(title<span class="op">=</span><span class="st">"a) Sample data for Piazza San Marco"</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    test_data, params, backend<span class="op">=</span>Backend.SEABORN</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> plot.jointplot()</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>g.get_figure()[<span class="dv">0</span>].suptitle(<span class="st">"a) Sample data for Piazza San Marco"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>g.show()</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> CircumplexPlotParams(title<span class="op">=</span><span class="st">"b) MSN sampled distribution</span><span class="ch">\n</span><span class="st"> n sample = 1000"</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    Y, params, backend<span class="op">=</span>Backend.SEABORN</span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> msn.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> pd.DataFrame(Y, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>D, p <span class="op">=</span> msn.ks2ds(test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]])</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> CircumplexPlotParams(title<span class="op">=</span><span class="st">"a) Sample data for Piazza San Marco"</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(test_data, params, backend<span class="op">=</span>Backend.SEABORN)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> plot.jointplot()</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>g.get_figure()[<span class="dv">0</span>].suptitle(<span class="st">"a) Sample data for Piazza San Marco"</span>, y<span class="op">=</span><span class="fl">1.02</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>g.show()</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> CircumplexPlotParams(title<span class="op">=</span><span class="st">"b) MSN sampled distribution</span><span class="ch">\n</span><span class="st"> n sample = 1000"</span>)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(Y, params, backend<span class="op">=</span>Backend.SEABORN)</span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> plot.jointplot()</span>
 <span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>g.get_figure()[<span class="dv">0</span>].suptitle(<span class="st">"b) MSN sampled distribution</span><span class="ch">\n</span><span class="st"> n sample = 1000"</span>, y<span class="op">=</span><span class="fl">1.05</span>)</span>
 <span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>g.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1030,95 +1073,82 @@ Figure&nbsp;1: Example of fitting and sampling from a multivariate skew-normal d
 </div>
 </div>
 </div>
-<div id="cell-16" class="cell" data-execution_count="47">
+<div id="cell-15" class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Universal pleasant target</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>target_1 <span class="op">=</span> MultiSkewNorm()</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>target_1.define_dp(</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    xi <span class="op">=</span> np.array([<span class="fl">0.5</span>, <span class="fl">0.0</span>]),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    omega <span class="op">=</span> np.array(</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        [[<span class="fl">0.2</span>, <span class="dv">0</span>],</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>         [<span class="dv">0</span>, <span class="fl">0.2</span>]]),</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>])</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>target_2 <span class="op">=</span> MultiSkewNorm()</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>target_2.define_dp(</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    xi <span class="op">=</span> np.array([[<span class="fl">1.0</span>, <span class="op">-</span><span class="fl">0.4</span>]]),</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    omega <span class="op">=</span> np.array([[ <span class="fl">0.17</span>, <span class="op">-</span><span class="fl">0.04</span>],</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>              [<span class="op">-</span><span class="fl">0.04</span>,  <span class="fl">0.09</span>]]),</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    alpha <span class="op">=</span> np.array([<span class="op">-</span><span class="dv">8</span>,  <span class="dv">1</span>])</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>target_3 <span class="op">=</span> MultiSkewNorm()</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>target_3.define_dp(</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    xi<span class="op">=</span>np.array([<span class="fl">0.5</span>, <span class="fl">0.7</span>]),</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    omega<span class="op">=</span>np.array([[<span class="fl">0.1</span>, <span class="fl">0.05</span>], [<span class="fl">0.05</span>, <span class="fl">0.1</span>]]),</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="op">-</span><span class="dv">5</span>]),</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>Y_1 <span class="op">=</span> target_1.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>Y_1 <span class="op">=</span> pd.DataFrame(Y_1, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>Y_2 <span class="op">=</span> target_2.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>Y_2 <span class="op">=</span> pd.DataFrame(Y_2, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>Y_3 <span class="op">=</span> target_3.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>Y_3 <span class="op">=</span> pd.DataFrame(Y_3, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    xi<span class="op">=</span>np.array([<span class="fl">0.5</span>, <span class="fl">0.0</span>]),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    omega<span class="op">=</span>np.array([[<span class="fl">0.2</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="fl">0.2</span>]]),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span>np.array([<span class="dv">1</span>, <span class="dv">0</span>]),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>target_2 <span class="op">=</span> MultiSkewNorm()</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>target_2.define_dp(</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    xi<span class="op">=</span>np.array([[<span class="fl">1.0</span>, <span class="op">-</span><span class="fl">0.4</span>]]),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    omega<span class="op">=</span>np.array([[<span class="fl">0.17</span>, <span class="op">-</span><span class="fl">0.04</span>], [<span class="op">-</span><span class="fl">0.04</span>, <span class="fl">0.09</span>]]),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span>np.array([<span class="op">-</span><span class="dv">8</span>, <span class="dv">1</span>]),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>target_3 <span class="op">=</span> MultiSkewNorm()</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>target_3.define_dp(</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    xi<span class="op">=</span>np.array([<span class="fl">0.5</span>, <span class="fl">0.7</span>]),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>    omega<span class="op">=</span>np.array([[<span class="fl">0.1</span>, <span class="fl">0.05</span>], [<span class="fl">0.05</span>, <span class="fl">0.1</span>]]),</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span>np.array([<span class="dv">0</span>, <span class="op">-</span><span class="dv">5</span>]),</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>Y_1 <span class="op">=</span> target_1.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>Y_1 <span class="op">=</span> pd.DataFrame(Y_1, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>Y_2 <span class="op">=</span> target_2.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>Y_2 <span class="op">=</span> pd.DataFrame(Y_2, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>Y_3 <span class="op">=</span> target_3.sample(<span class="dv">1000</span>, return_sample<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>Y_3 <span class="op">=</span> pd.DataFrame(Y_3, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-fig-targets" class="cell" data-execution_count="48">
+<div id="cell-fig-tgts" class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">6</span>))</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    Y_1,</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"a) Target 1"</span>,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    Y_2, ax<span class="op">=</span>axes[<span class="dv">1</span>], title<span class="op">=</span><span class="st">"b) Target 2"</span>, color<span class="op">=</span><span class="st">'red'</span></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    Y_3, ax<span class="op">=</span>axes[<span class="dv">2</span>], title<span class="op">=</span><span class="st">"c) Target 3"</span>, color<span class="op">=</span><span class="st">'red'</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(Y_2, ax<span class="op">=</span>axes[<span class="dv">1</span>], title<span class="op">=</span><span class="st">"b) Target 2"</span>, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(Y_3, ax<span class="op">=</span>axes[<span class="dv">2</span>], title<span class="op">=</span><span class="st">"c) Target 3"</span>, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<div id="fig-targets" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-tgts" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-targets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="SingleIndex-Code_files/figure-html/fig-targets-output-1.png" class="img-fluid figure-img">
+<div aria-describedby="fig-tgts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="SingleIndex-Code_files/figure-html/fig-tgts-output-1.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-targets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-tgts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: Example of defining and sampling from three arbitrary bespoke targets.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-18" class="cell" data-execution_count="49">
+<div id="cell-17" class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>D_1 <span class="op">=</span> msn_utils.ks2d2s(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    test_data <span class="op">=</span> test_data[[<span class="st">'ISOPleasant'</span>, <span class="st">'ISOEventful'</span>]],</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    target_data <span class="op">=</span> Y_1,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    extra<span class="op">=</span><span class="va">True</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>D_2 <span class="op">=</span> msn_utils.ks2d2s(</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    test_data <span class="op">=</span> test_data[[<span class="st">'ISOPleasant'</span>, <span class="st">'ISOEventful'</span>]],</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    target_data <span class="op">=</span> Y_2,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    extra<span class="op">=</span><span class="va">True</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>D_3 <span class="op">=</span> msn_utils.ks2d2s(</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    test_data <span class="op">=</span> test_data[[<span class="st">'ISOPleasant'</span>, <span class="st">'ISOEventful'</span>]],</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    target_data <span class="op">=</span> Y_3,</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    extra<span class="op">=</span><span class="va">True</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    test_data<span class="op">=</span>test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]], target_data<span class="op">=</span>Y_1, extra<span class="op">=</span><span class="va">True</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>D_2 <span class="op">=</span> msn_utils.ks2d2s(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    test_data<span class="op">=</span>test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]], target_data<span class="op">=</span>Y_2, extra<span class="op">=</span><span class="va">True</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>D_3 <span class="op">=</span> msn_utils.ks2d2s(</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    test_data<span class="op">=</span>test_data[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]], target_data<span class="op">=</span>Y_3, extra<span class="op">=</span><span class="va">True</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="50">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> Markdown</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tabulate <span class="im">import</span> tabulate</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>D_tbl <span class="op">=</span> [[<span class="st">'tgt_1'</span>, D_1[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_1[<span class="dv">0</span>]],</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>         [<span class="st">'tgt_2'</span>, D_2[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_2[<span class="dv">0</span>]],</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>         [<span class="st">'tgt_3'</span>, D_3[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_2[<span class="dv">0</span>]]]</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    D_tbl,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> [<span class="st">"Target"</span>, <span class="st">"D"</span>, <span class="st">"p"</span>],</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    tablefmt<span class="op">=</span><span class="st">'grid'</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-ks-test" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="50">
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>D_tbl <span class="op">=</span> [</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"tgt_1"</span>, D_1[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_1[<span class="dv">0</span>]],</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"tgt_2"</span>, D_2[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_2[<span class="dv">0</span>]],</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    [<span class="st">"tgt_3"</span>, D_3[<span class="dv">1</span>].<span class="bu">round</span>(<span class="dv">2</span>), D_2[<span class="dv">0</span>]],</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(D_tbl, headers<span class="op">=</span>[<span class="st">"Target"</span>, <span class="st">"D"</span>, <span class="st">"p"</span>], tablefmt<span class="op">=</span><span class="st">"grid"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-ks-test" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ks-test-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Kolmogorov-Smirnov test comparing the empirical test distribution (Piazza San Marco) against three soundscape target distributions.
@@ -1161,32 +1191,34 @@ Table&nbsp;2: Kolmogorov-Smirnov test comparing the empirical test distribution 
 </figure>
 </div>
 </div>
-<div id="cell-20" class="cell" data-execution_count="51">
+<div id="cell-19" class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    sspy.isd.select_location_ids(data, <span class="st">"SanMarco"</span>),</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">'test'</span>,</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"test"</span>,</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    incl_outline<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    color <span class="op">=</span> sns.palettes.color_palette(<span class="st">"colorblind"</span>, <span class="dv">1</span>)[<span class="dv">0</span>]</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span>sns.palettes.color_palette(<span class="st">"colorblind"</span>, <span class="dv">1</span>)[<span class="dv">0</span>],</span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame({</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ISOPleasant"</span>: target_3.sample_data[:, <span class="dv">0</span>],</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">"ISOEventful"</span>: target_3.sample_data[:, <span class="dv">1</span>],</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    }),</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    incl_outline<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">'target'</span>,</span>
-<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"San Marco compared against target</span><span class="ch">\n</span><span class="ss">D=</span><span class="sc">{</span>D_3[<span class="dv">1</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss">, p=</span><span class="sc">{</span>D_3[<span class="dv">0</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span></span>
-<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"ISOPleasant"</span>: target_3.sample_data[:, <span class="dv">0</span>],</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"ISOEventful"</span>: target_3.sample_data[:, <span class="dv">1</span>],</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    incl_outline<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    label<span class="op">=</span><span class="st">"target"</span>,</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"San Marco compared against target</span><span class="ch">\n</span><span class="ss">D=</span><span class="sc">{</span>D_3[<span class="dv">1</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">2</span>)<span class="sc">}</span><span class="ss">, p=</span><span class="sc">{</span>D_3[<span class="dv">0</span>]<span class="sc">.</span><span class="bu">round</span>(<span class="dv">4</span>)<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1195,36 +1227,50 @@ Table&nbsp;2: Kolmogorov-Smirnov test comparing the empirical test distribution 
 </div>
 </div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="52">
+<div id="cell-20" class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>spis <span class="op">=</span> {}</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> location <span class="kw">in</span> data.LocationID.unique():</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    loc_data <span class="op">=</span> sspy.isd.select_location_ids(data, location)[[<span class="st">'ISOPleasant'</span>, <span class="st">'ISOEventful'</span>]]</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    spi_res <span class="op">=</span> [msn_utils.spi(loc_data, target_data) <span class="cf">for</span> target_data <span class="kw">in</span> [Y_1, Y_2, Y_3]]</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    spis[location] <span class="op">=</span> spi_res</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>spis_df <span class="op">=</span> pd.DataFrame(spis).T</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>spis_df.columns <span class="op">=</span> [<span class="st">'tgt_1'</span>, <span class="st">'tgt_2'</span>, <span class="st">'tgt_3'</span>]</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># spis_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    loc_data <span class="op">=</span> sspy.isd.select_location_ids(data, location)[</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        [<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    spi_res <span class="op">=</span> [msn_utils.spi(loc_data, target_data) <span class="cf">for</span> target_data <span class="kw">in</span> [Y_1, Y_2, Y_3]]</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    spis[location] <span class="op">=</span> spi_res</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>spis_df <span class="op">=</span> pd.DataFrame(spis).T</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>spis_df.columns <span class="op">=</span> [<span class="st">"tgt_1"</span>, <span class="st">"tgt_2"</span>, <span class="st">"tgt_3"</span>]</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># spis_df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-22" class="cell" data-execution_count="53">
+<div id="cell-21" class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> table_fill(spis_df, idx):</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    tgt_1_order <span class="op">=</span> spis_df[<span class="st">'tgt_1'</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    tgt_2_order <span class="op">=</span> spis_df[<span class="st">'tgt_2'</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    tgt_3_order <span class="op">=</span> spis_df[<span class="st">'tgt_3'</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    tgt_1_order <span class="op">=</span> spis_df[<span class="st">"tgt_1"</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    tgt_2_order <span class="op">=</span> spis_df[<span class="st">"tgt_2"</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    tgt_3_order <span class="op">=</span> spis_df[<span class="st">"tgt_3"</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> tgt_str(tgt_order, idx):</span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>tgt_order<span class="sc">.</span>values[idx]<span class="sc">}</span><span class="ss">   </span><span class="sc">{</span>tgt_order<span class="sc">.</span>index[idx]<span class="sc">}</span><span class="ss">"</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [<span class="ss">f"</span><span class="sc">{</span>idx<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>, tgt_str(tgt_1_order, idx), tgt_str(tgt_2_order, idx), tgt_str(tgt_3_order, idx)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="ss">f"</span><span class="sc">{</span>idx<span class="op">+</span><span class="dv">1</span><span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>        tgt_str(tgt_1_order, idx),</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        tgt_str(tgt_2_order, idx),</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        tgt_str(tgt_3_order, idx),</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="54">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>spis_tbl <span class="op">=</span> [table_fill(spis_df, idx) <span class="cf">for</span> idx <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(spis_df))]</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>tabulate.PRESERVE_WHITESPACE <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Markdown(tabulate(</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    spis_tbl,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    headers <span class="op">=</span> [<span class="st">"Ranking"</span>, <span class="st">"$SPI_1$ (pleasant)"</span>, <span class="st">"$SPI_2$ (calm)"</span>, <span class="st">"$SPI_3$ (vibrant)"</span>],</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    tablefmt<span class="op">=</span><span class="st">'pipe'</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="tbl-ex-spis" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="54">
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Markdown(</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    tabulate(</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        spis_tbl,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>        headers<span class="op">=</span>[</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Ranking"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"$SPI_1$ (pleasant)"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"$SPI_2$ (calm)"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"$SPI_3$ (vibrant)"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>        ],</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>        tablefmt<span class="op">=</span><span class="st">"pipe"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-ex-spis" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-ex-spis-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: SPI scores and rankings for the soundscapes of locations included in the International Soundscape Database (ISD).
@@ -1362,8 +1408,8 @@ Table&nbsp;3: SPI scores and rankings for the soundscapes of locations included 
 </figure>
 </div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="55">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>spis_df[<span class="st">'tgt_1'</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-23" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>spis_df[<span class="st">"tgt_1"</span>].sort_values(ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="55">
 <pre><code>RegentsParkFields     70
 CarloV                69
@@ -1386,7 +1432,7 @@ EustonTap             15
 Name: tgt_1, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cell-25" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:15.403051Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:14.093650Z&quot;}" data-execution_count="56">
+<div id="cell-24" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:15.403051Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:14.093650Z&quot;}" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> MultiSkewNorm()</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>target.define_dp(</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    xi<span class="op">=</span>np.array([<span class="fl">0.5</span>, <span class="fl">0.7</span>]),</span>
@@ -1403,19 +1449,23 @@ Name: tgt_1, dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-26" class="cell" data-execution_count="57">
+<div id="cell-25" class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    test_data, incl_scatter<span class="op">=</span><span class="va">True</span>, title<span class="op">=</span><span class="st">"San Marco</span><span class="ch">\n</span><span class="st">Empirical Density"</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>], color<span class="op">=</span><span class="st">'blue'</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(target.sample_data, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]),</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Target Density"</span>,</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    test_data,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"San Marco</span><span class="ch">\n</span><span class="st">Empirical Density"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">0</span>],</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"blue"</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(target.sample_data, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]),</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">"Target Density"</span>,</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>axes[<span class="dv">1</span>],</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1426,14 +1476,16 @@ Name: tgt_1, dtype: int64</code></pre>
 </div>
 <p>Once the target is defined, we will generate a set of points that represent the target distribution.</p>
 <p>Now that our target has been defined, we can calculate the SPI for a given set of responses. We will use the responses from Piazza San Marco in Venice, Italy, as an example.</p>
-<div id="cell-29" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:19.320850Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:19.295186Z&quot;}" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test_spi <span class="op">=</span> target.spi(data.query(<span class="st">"LocationID == 'SanMarco'"</span>)[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]])</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"San Marco SPI = </span><span class="sc">{</span>test_spi<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-28" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:19.320850Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:19.295186Z&quot;}">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>test_spi <span class="op">=</span> target.spi(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    data.query(<span class="st">"LocationID == 'SanMarco'"</span>)[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]]</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"San Marco SPI = </span><span class="sc">{</span>test_spi<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>San Marco SPI = 71</code></pre>
 </div>
 </div>
-<div id="cell-30" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:21.367966Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:20.381396Z&quot;}" data-execution_count="59">
+<div id="cell-29" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:21.367966Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:20.381396Z&quot;}">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
@@ -1441,7 +1493,7 @@ Name: tgt_1, dtype: int64</code></pre>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f""</span>,</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"blue"</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"blue"</span>,</span>
 <span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
 <span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(target.sample_data, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]),</span>
@@ -1449,7 +1501,7 @@ Name: tgt_1, dtype: int64</code></pre>
 <span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">False</span>,</span>
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Piazza San Marco</span><span class="ch">\n</span><span class="ss">SPI = </span><span class="sc">{</span>test_spi<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
 <span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1460,7 +1512,7 @@ Name: tgt_1, dtype: int64</code></pre>
 </div>
 </div>
 <p>We can compare this against another location, such as St Pancras Lock.</p>
-<div id="cell-32" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:24.015026Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:22.957015Z&quot;}" data-execution_count="60">
+<div id="cell-31" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:24.015026Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:22.957015Z&quot;}">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>test_spi <span class="op">=</span> target.spi(</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    sspy.isd.select_location_ids(data, <span class="st">"PancrasLock"</span>)[[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]]</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>)</span>
@@ -1471,7 +1523,7 @@ Name: tgt_1, dtype: int64</code></pre>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax,</span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f""</span>,</span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"blue"</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"blue"</span>,</span>
 <span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>sspy.density_plot(</span>
 <span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    pd.DataFrame(target.sample_data, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>]),</span>
@@ -1479,7 +1531,7 @@ Name: tgt_1, dtype: int64</code></pre>
 <span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    incl_scatter<span class="op">=</span><span class="va">False</span>,</span>
 <span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    simple_density<span class="op">=</span><span class="va">True</span>,</span>
 <span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="ss">f"Pancras Lock</span><span class="ch">\n</span><span class="ss">SPI = </span><span class="sc">{</span>test_spi<span class="sc">}</span><span class="ss">"</span>,</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'red'</span></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">"red"</span>,</span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -1491,7 +1543,7 @@ Name: tgt_1, dtype: int64</code></pre>
 </div>
 <p>SPI scores assessed against a target should not inherently be considered a measure of the quality of the soundscape - instead it reflects the degree to which the soundscape matches the target. A high SPI score does not necessarily mean that the soundscape is of high quality, but rather that the soundscape is of high quality <em>according to the target</em>.</p>
 <p>The <span class="math inline">SPI_{bespoke}</span> thus provides a method for scoring and ranking the success of a soundscape design against the designer’s goals. Sticking with our defined target, we can assess all of the locations in the ISD and see which locations best match our target.</p>
-<div id="cell-34" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:26.767584Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:26.096777Z&quot;}" data-execution_count="61">
+<div id="cell-33" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:54:26.767584Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:54:26.096777Z&quot;}" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>loc_bespoke <span class="op">=</span> {}</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> location <span class="kw">in</span> data.LocationID.unique():</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    loc_bespoke[location] <span class="op">=</span> target.spi(</span>
@@ -1592,7 +1644,7 @@ Name: tgt_1, dtype: int64</code></pre>
 </div>
 </div>
 <p>Assessed against a different target would result in a different ranking:</p>
-<div id="cell-36" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:37:50.073520Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:37:48.801134Z&quot;}" data-execution_count="62">
+<div id="cell-35" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:37:50.073520Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:37:48.801134Z&quot;}" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>target <span class="op">=</span> MultiSkewNorm()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>target.define_dp(</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    np.array([<span class="op">-</span><span class="fl">0.5</span>, <span class="op">-</span><span class="fl">0.5</span>]),</span>
@@ -1622,7 +1674,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-37" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:37:53.923450Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:37:53.178742Z&quot;}" data-execution_count="63">
+<div id="cell-36" class="cell" data-executetime="{&quot;end_time&quot;:&quot;2024-02-02T22:37:53.923450Z&quot;,&quot;start_time&quot;:&quot;2024-02-02T22:37:53.178742Z&quot;}" data-execution_count="63">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>loc_bespoke_2 <span class="op">=</span> {}</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> location <span class="kw">in</span> data.LocationID.unique():</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    loc_bespoke_2[location] <span class="op">=</span> target.spi(</span>
@@ -1722,7 +1774,7 @@ None</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-38" class="cell" data-execution_count="64">
+<div id="cell-37" class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>target1 <span class="op">=</span> MultiSkewNorm()</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>target1.define_dp(</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    np.array([<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>]), np.array([[<span class="fl">0.1</span>, <span class="dv">0</span>], [<span class="dv">0</span>, <span class="fl">0.1</span>]]), np.array([<span class="dv">0</span>, <span class="dv">0</span>])</span>
@@ -1737,11 +1789,9 @@ None</code></pre>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>target_mix_y <span class="op">=</span> pd.DataFrame(target_mix_y, columns<span class="op">=</span>[<span class="st">"ISOPleasant"</span>, <span class="st">"ISOEventful"</span>])</span>
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    target_mix_y, backend<span class="op">=</span>Backend.SEABORN</span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> plot.jointplot()</span>
-<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>g.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>plot <span class="op">=</span> CircumplexPlot(target_mix_y, backend<span class="op">=</span>Backend.SEABORN)</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> plot.jointplot()</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>g.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -1752,20 +1802,28 @@ None</code></pre>
 </div>
 
 
+
 </section>
 </section>
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mitchell,
-  author = {Mitchell, Andrew},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Aletta2024Soundscape" class="csl-entry" role="listitem">
+Aletta, Francesco, Andrew Mitchell, Tin Oberman, Jian Kang, Sara Khelil, Tallal Abdel Karim Bouzir, Djihed Berkouk, et al. 2024. <span>“Soundscape Descriptors in Eighteen Languages: Translation and Validation Through Listening Experiments.”</span> <em>Applied Acoustics</em> 224 (September): 110109. <a href="https://doi.org/10.1016/j.apacoust.2024.110109">https://doi.org/10.1016/j.apacoust.2024.110109</a>.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{mitchell2024,
+  author = {Mitchell, Andrew and Mitchell, Andrew},
   title = {Exploring Defining Single Value Indices - {SPI}},
+  date = {2024-11-07},
   url = {https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html},
-  langid = {en}
+  langid = {en},
+  abstract = {This notebook contains several explorations and
+    developments leading to the SPI framework.}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell" class="csl-entry quarto-appendix-citeas" role="listitem">
-Mitchell, Andrew. n.d. <span>“Exploring Defining Single Value Indices -
-SPI.”</span> <a href="https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html">https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-mitchell2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Mitchell, Andrew, and Andrew Mitchell. 2024. <span>“Exploring Defining
+Single Value Indices - SPI .”</span> November 7, 2024. <a href="https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html">https://drandrewmitchell.com/research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
