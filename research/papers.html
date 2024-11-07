@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-papers .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -87,7 +87,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-papers'] = new List('listing-papers', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-notebooks .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-notebooks'] = new List('listing-notebooks', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -275,8 +303,14 @@ window.Quarto = {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="conference-papers">conference-papers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="journal-articles">journal-articles <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#notebooks" id="toc-notebooks" class="nav-link active" data-scroll-target="#notebooks">Notebooks</a></li>
+  </ul>
+</nav>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="conference-papers">conference-papers <span class="quarto-category-count">(1)</span></div><div class="category" data-category="journal-articles">journal-articles <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -299,13 +333,44 @@ window.Quarto = {
 </header>
 
 
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div id="listing-papers" class="quarto-listing quarto-listing-container-default">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="conference-papers" data-listing-date-sort="1692489600000" data-listing-file-modified-sort="1730150937687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4154">
+<div class="quarto-post image-right" data-index="0" data-categories="journal-articles" data-listing-date-sort="1730073600000" data-listing-file-modified-sort="1730984368683" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8550">
+<div class="thumbnail">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external">
+<p class="card-img-top"><img src="papers/2024-10-30_JASA1112_SPI/figures/SPI-framework.drawio.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external">Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external"></a>
+</div>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('journal-articles'); return false;">
+journal-articles
+</div>
+</div>
+<div class="listing-description">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external">Published in JASA in November, 2024. <span class="__dimensions_badge_embed__" data-doi="10.1121/10.0009794" data-hide-zero-citations="true" data-style="small_rectangle"></span>
+<script async="" src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+</a>
+</div>
+</div>
+<div class="metadata">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/index.html" class="no-external">
+<div class="listing-date">
+Oct 28, 2024
+</div>
+<div class="listing-author">
+Andrew Mitchell, Francesco Aletta, Tin Oberman, Jian Kang
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="conference-papers" data-listing-date-sort="1692489600000" data-listing-file-modified-sort="1730984368675" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="21" data-listing-word-count-sort="4154">
 <div class="thumbnail">
 <p><a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external"></a></p><a href="../research/papers/2023-08-20_Internoise-framework/InterNoise2023_Mitchell_Predictive_Model_Framework.html" class="no-external">
 <p class="card-img-top"><img src="papers/2023-08-20_Internoise-framework/Overall_Model_Concept_Diagram_2022-04-28.png"  class="thumbnail-image card-img"/></p>
@@ -338,7 +403,7 @@ Andrew Mitchell, Francesco Aletta, Tin Oberman, Mercede Erfanian, Jian Kang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="journal-articles" data-listing-date-sort="1647388800000" data-listing-file-modified-sort="1730150937683" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="28" data-listing-word-count-sort="5445">
+<div class="quarto-post image-right" data-index="2" data-categories="journal-articles" data-listing-date-sort="1647388800000" data-listing-file-modified-sort="1730984368671" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="28" data-listing-word-count-sort="5445">
 <div class="thumbnail">
 <p><a href="../research/papers/2022-03-16_JASAEL-HowToAnalyseQuantitativeSoundscapeData/paper.html" class="no-external"></a></p><a href="../research/papers/2022-03-16_JASAEL-HowToAnalyseQuantitativeSoundscapeData/paper.html" class="no-external">
 <p class="card-img-top"><img src="papers/2022-03-16_JASAEL-HowToAnalyseQuantitativeSoundscapeData/figures/Figure1.jpg"  class="thumbnail-image card-img"/></p>
@@ -373,7 +438,7 @@ Andrew Mitchell, Francesco Aletta, Jian Kang
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="journal-articles" data-listing-date-sort="1640649600000" data-listing-file-modified-sort="1730150937675" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="79" data-listing-word-count-sort="15623">
+<div class="quarto-post image-right" data-index="3" data-categories="journal-articles" data-listing-date-sort="1640649600000" data-listing-file-modified-sort="1730984368663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="79" data-listing-word-count-sort="15623">
 <div class="thumbnail">
 <p><a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external"></a></p><a href="../research/papers/2021-12-28_JASA-Lockdown/JASA-Lockdown.html" class="no-external">
 <p class="card-img-top"><img src="papers/2021-12-28_JASA-Lockdown/Figure1.png"  class="thumbnail-image card-img"/></p>
@@ -412,7 +477,123 @@ Andrew Mitchell, Tin Oberman, Francesco Aletta, Magdalena Kachlicka, Matteo Lion
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+<section id="notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="notebooks">Notebooks</h2>
+<div id="listing-notebooks" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1730984368695" data-listing-reading-time-sort="4" data-listing-word-count-sort="638">
+<div class="thumbnail">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external">
+<p class="card-img-top"><img src="papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code_files/figure-html/cell-6-output-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external">Exploring defining single value indices - SPI</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external">This notebook contains several explorations and developments leading to the SPI framework.</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.html" class="no-external">
+<div class="listing-author">
+Andrew Mitchell
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1730984431471">
+<div class="thumbnail">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external">
+</a><p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/SingleIndex-Code.out.ipynb" class="no-external">
+<div class="listing-author">
+Andrew Mitchell
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1730984433719">
+<div class="thumbnail">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external">
+</a><p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.out.ipynb" class="no-external">
+<div class="listing-author">
+Andrew Mitchell
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1730984368000" data-listing-file-modified-sort="1730984368699" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2090">
+<div class="thumbnail">
+<p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external"></a></p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external">
+<p class="card-img-top"><img src="papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization_files/figure-html/fig-pymoo-parks-output-1.png"  class="thumbnail-image card-img"/></p>
+</a><p><a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external">Supplementary Material for: Soundscape Perception Indices (SPI)</a>
+</h3>
+<div class="listing-subtitle">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external"></a>
+</div>
+<div class="listing-description">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external">Code accompanying the paper: “Soundscape Perception Indices (SPI): Developing context-dependent single value scores of multidimensional soundscape perceptual quality” </a>
+</div>
+</div>
+<div class="metadata">
+<a href="../research/papers/2024-10-30_JASA1112_SPI/notebooks/TargetOptimization.html" class="no-external">
+<div class="listing-date">
+Nov 7, 2024
+</div>
+<div class="listing-author">
+Andrew Mitchell, Francesco Aletta
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
